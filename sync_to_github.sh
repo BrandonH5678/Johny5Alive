@@ -135,6 +135,31 @@ sync_system() {
 
     cd "$system_path"
 
+    # Check directory size and warn if large
+    local dir_size=$(du -sm . 2>/dev/null | cut -f1)
+    if [ "$dir_size" -gt 100 ]; then
+        log_warning "Directory size is ${dir_size}MB - checking for large files..."
+
+        # Count files that should be ignored
+        local large_audio=$(find . -type f \( -name "*.aaxc" -o -name "*.aax" -o -name "*.m4a" -o -name "*.mp3" -o -name "*.wav" \) 2>/dev/null | wc -l)
+        if [ "$large_audio" -gt 0 ]; then
+            log_warning "Found ${large_audio} audio files - these will be excluded by .gitignore"
+        fi
+
+        # Check for files not in .gitignore that are large
+        local unignored_large=$(git ls-files --others --exclude-standard 2>/dev/null | while read file; do
+            if [ -f "$file" ] && [ $(stat -c%s "$file" 2>/dev/null || echo 0) -gt 10485760 ]; then
+                echo "$file"
+            fi
+        done | wc -l)
+
+        if [ "$unignored_large" -gt 0 ]; then
+            log_error "Found ${unignored_large} large files (>10MB) not in .gitignore!"
+            log_error "Add these to .gitignore or use Git LFS before syncing"
+            return 1
+        fi
+    fi
+
     # Initialize git if needed
     if [ ! -d ".git" ]; then
         log_info "Initializing git repository..."
