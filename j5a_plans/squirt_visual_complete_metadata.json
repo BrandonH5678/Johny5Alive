@@ -1,0 +1,396 @@
+{
+  "plan_name": "Squirt Visual Design Extension",
+  "plan_version": "1.0",
+  "created": "2024-09-30",
+  "project": "squirt",
+  "description": "Add visual design capabilities to Squirt: concept renders, CAD/STL generation, AR mockups",
+
+  "hardware_requirements": {
+    "min_ram_gb": 3.7,
+    "recommended_ram_gb": 16.0,
+    "ram_upgrade_required_for": ["phase_3"],
+    "thermal_monitoring_required": true
+  },
+
+  "blocking_conditions": [],
+
+  "phases": [
+    {
+      "phase_id": "phase_1",
+      "phase_name": "Foundation & Data Models",
+      "status": "ready",
+      "risk_level": "low",
+      "dependencies": [],
+      "blocking_conditions": [],
+      "estimated_tokens": 33000,
+      "estimated_duration_hours": 0.5,
+      "python_module": "squirt_visual_phase1_tasks.py",
+      "tasks": [
+        {
+          "task_id": "squirt_visual_1_1",
+          "task_name": "Create visual/ and memory/ folder structure",
+          "priority": "normal",
+          "estimated_tokens": 3000,
+          "estimated_ram_gb": 0.2,
+          "estimated_duration_minutes": 5,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/__init__.py",
+            "/home/johnny5/Squirt/visual/prompts/.gitkeep",
+            "/home/johnny5/Squirt/memory/__init__.py",
+            "/home/johnny5/Squirt/memory/design_registry.jsonl"
+          ],
+          "rollback": "rm -rf /home/johnny5/Squirt/visual /home/johnny5/Squirt/memory"
+        },
+        {
+          "task_id": "squirt_visual_1_2",
+          "task_name": "Define Pydantic data schemas for visual tasks",
+          "priority": "normal",
+          "estimated_tokens": 5000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 10,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_1"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/schemas/__init__.py",
+            "/home/johnny5/Squirt/visual/schemas/tasks.py"
+          ],
+          "rollback": "rm -rf /home/johnny5/Squirt/visual/schemas"
+        },
+        {
+          "task_id": "squirt_visual_1_3",
+          "task_name": "Set up ChromaDB vector store for design memory",
+          "priority": "normal",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.5,
+          "estimated_duration_minutes": 10,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_1"],
+          "outputs": [
+            "/home/johnny5/Squirt/memory/vector_store.py",
+            "/home/johnny5/Squirt/memory/index/.gitkeep"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/memory/vector_store.py && rm -rf /home/johnny5/Squirt/memory/index"
+        },
+        {
+          "task_id": "squirt_visual_1_4",
+          "task_name": "Implement visual output validators",
+          "priority": "normal",
+          "estimated_tokens": 7000,
+          "estimated_ram_gb": 0.4,
+          "estimated_duration_minutes": 15,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_1"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/validators.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/validators.py"
+        },
+        {
+          "task_id": "squirt_visual_1_5",
+          "task_name": "Install Phase 1 dependencies",
+          "priority": "normal",
+          "estimated_tokens": 4000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 10,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Squirt/requirements_visual_phase1.txt"
+          ],
+          "rollback": "pip uninstall -y pydantic chromadb pillow trimesh"
+        },
+        {
+          "task_id": "squirt_visual_1_6",
+          "task_name": "Create Phase 1 test suite",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.5,
+          "estimated_duration_minutes": 15,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_2", "squirt_visual_1_3", "squirt_visual_1_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/tests/test_visual_foundation.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/tests/test_visual_foundation.py"
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_2",
+      "phase_name": "Integration & Coordination",
+      "status": "waiting",
+      "risk_level": "medium",
+      "dependencies": ["phase_1"],
+      "blocking_conditions": [],
+      "estimated_tokens": 40000,
+      "estimated_duration_hours": 1.0,
+      "python_module": "squirt_visual_phase2_tasks.py",
+      "tasks": [
+        {
+          "task_id": "squirt_visual_2_1",
+          "task_name": "Integrate visual processing with thermal safety",
+          "priority": "high",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.4,
+          "estimated_duration_minutes": 15,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_1"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/thermal_coordinator.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/thermal_coordinator.py"
+        },
+        {
+          "task_id": "squirt_visual_2_2",
+          "task_name": "Coordinate visual tasks with business hours",
+          "priority": "normal",
+          "estimated_tokens": 5000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 10,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_1"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/business_coordinator.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/business_coordinator.py"
+        },
+        {
+          "task_id": "squirt_visual_2_3",
+          "task_name": "Implement visual task queue manager",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.5,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_2_1", "squirt_visual_2_2"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/visual_queue_manager.py",
+            "/home/johnny5/Squirt/visual_queue.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/visual_queue_manager.py /home/johnny5/Squirt/visual_queue.json"
+        },
+        {
+          "task_id": "squirt_visual_2_4",
+          "task_name": "Integrate visual commands with voice processing",
+          "priority": "normal",
+          "estimated_tokens": 7000,
+          "estimated_ram_gb": 0.4,
+          "estimated_duration_minutes": 15,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_2", "squirt_visual_2_3"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/voice_visual_commands.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/voice_visual_commands.py"
+        },
+        {
+          "task_id": "squirt_visual_2_5",
+          "task_name": "Create Phase 2 integration test suite",
+          "priority": "normal",
+          "estimated_tokens": 14000,
+          "estimated_ram_gb": 0.6,
+          "estimated_duration_minutes": 25,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_2_1", "squirt_visual_2_2", "squirt_visual_2_3", "squirt_visual_2_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/tests/test_visual_integration.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/tests/test_visual_integration.py"
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_3",
+      "phase_name": "Processing Engines",
+      "status": "blocked",
+      "risk_level": "high",
+      "dependencies": ["phase_2"],
+      "blocking_conditions": [
+        "RAM upgrade to 16GB required",
+        "Local Stable Diffusion requires 4-7GB RAM",
+        "Current system has 3.7GB total RAM"
+      ],
+      "estimated_tokens": 50000,
+      "estimated_duration_hours": 2.0,
+      "python_module": "squirt_visual_phase3_tasks.py",
+      "tasks": [
+        {
+          "task_id": "squirt_visual_3_1",
+          "task_name": "Implement OpenSCAD CAD generation engine",
+          "priority": "normal",
+          "estimated_tokens": 10000,
+          "estimated_ram_gb": 0.6,
+          "estimated_duration_minutes": 25,
+          "thermal_risk": "medium",
+          "dependencies": ["squirt_visual_1_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/cad/__init__.py",
+            "/home/johnny5/Squirt/visual/cad/openscad_engine.py",
+            "/home/johnny5/Squirt/visual/cad/pipe_templates.scad"
+          ],
+          "rollback": "rm -rf /home/johnny5/Squirt/visual/cad"
+        },
+        {
+          "task_id": "squirt_visual_3_2",
+          "task_name": "Implement cloud-based image generation via Stability API",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.5,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/sd/__init__.py",
+            "/home/johnny5/Squirt/visual/sd/cloud_engine.py",
+            "/home/johnny5/Squirt/.env.visual"
+          ],
+          "rollback": "rm -rf /home/johnny5/Squirt/visual/sd/cloud_engine.py /home/johnny5/Squirt/.env.visual"
+        },
+        {
+          "task_id": "squirt_visual_3_3",
+          "task_name": "Implement local Stable Diffusion engine (RAM upgrade required)",
+          "priority": "low",
+          "estimated_tokens": 12000,
+          "estimated_ram_gb": 6.0,
+          "estimated_duration_minutes": 40,
+          "thermal_risk": "high",
+          "dependencies": ["squirt_visual_3_2"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/sd/local_engine.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/sd/local_engine.py",
+          "notes": "DEFERRED until 16GB RAM upgrade - requires 4-7GB model memory"
+        },
+        {
+          "task_id": "squirt_visual_3_4",
+          "task_name": "Implement AR mockup compositing engine",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.6,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "medium",
+          "dependencies": ["squirt_visual_1_4", "squirt_visual_3_2"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/ar/__init__.py",
+            "/home/johnny5/Squirt/visual/ar/compositor.py"
+          ],
+          "rollback": "rm -rf /home/johnny5/Squirt/visual/ar"
+        },
+        {
+          "task_id": "squirt_visual_3_5",
+          "task_name": "Create Phase 3 processing engine test suite",
+          "priority": "normal",
+          "estimated_tokens": 12000,
+          "estimated_ram_gb": 0.7,
+          "estimated_duration_minutes": 30,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_3_1", "squirt_visual_3_2", "squirt_visual_3_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/tests/test_visual_engines.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/tests/test_visual_engines.py"
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_4",
+      "phase_name": "Advanced Features",
+      "status": "waiting",
+      "risk_level": "low",
+      "dependencies": ["phase_3"],
+      "blocking_conditions": [],
+      "estimated_tokens": 30000,
+      "estimated_duration_hours": 1.0,
+      "python_module": "squirt_visual_phase4_tasks.py",
+      "tasks": [
+        {
+          "task_id": "squirt_visual_4_1",
+          "task_name": "Implement YAML-based prompt template system",
+          "priority": "low",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 15,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_3_2"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/prompts/template_engine.py",
+            "/home/johnny5/Squirt/visual/prompts/templates.yaml"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/prompts/template_engine.py /home/johnny5/Squirt/visual/prompts/templates.yaml"
+        },
+        {
+          "task_id": "squirt_visual_4_2",
+          "task_name": "Implement comprehensive metadata tracking",
+          "priority": "low",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.4,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_1_3"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/metadata.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/metadata.py"
+        },
+        {
+          "task_id": "squirt_visual_4_3",
+          "task_name": "Implement ControlNet for guided generation",
+          "priority": "low",
+          "estimated_tokens": 10000,
+          "estimated_ram_gb": 0.8,
+          "estimated_duration_minutes": 25,
+          "thermal_risk": "medium",
+          "dependencies": ["squirt_visual_3_3"],
+          "outputs": [
+            "/home/johnny5/Squirt/visual/sd/controlnet_engine.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/visual/sd/controlnet_engine.py"
+        },
+        {
+          "task_id": "squirt_visual_4_4",
+          "task_name": "Create Visual Workflows Operator Manual",
+          "priority": "low",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.2,
+          "estimated_duration_minutes": 30,
+          "thermal_risk": "low",
+          "dependencies": ["squirt_visual_3_1", "squirt_visual_3_2", "squirt_visual_3_4"],
+          "outputs": [
+            "/home/johnny5/Squirt/VISUAL_WORKFLOWS_OPERATOR_MANUAL.md"
+          ],
+          "rollback": "rm -f /home/johnny5/Squirt/VISUAL_WORKFLOWS_OPERATOR_MANUAL.md"
+        }
+      ]
+    }
+  ],
+
+  "execution_history": [],
+
+  "current_status": {
+    "phase_1": "ready",
+    "phase_2": "waiting",
+    "phase_3": "blocked",
+    "phase_4": "waiting",
+    "overall_progress": "0%",
+    "tasks_completed": [],
+    "tasks_failed": [],
+    "last_execution": null
+  },
+
+  "resource_constraints": {
+    "total_tokens_estimated": 153000,
+    "sessions_required": 1,
+    "ram_sufficient_until": "phase_3",
+    "thermal_monitoring": true
+  },
+
+  "task_counts": {
+    "phase_1": 6,
+    "phase_2": 5,
+    "phase_3": 5,
+    "phase_4": 4,
+    "total": 20
+  }
+}

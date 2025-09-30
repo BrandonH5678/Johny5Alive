@@ -1,0 +1,2109 @@
+{
+  "generated_at": "2025-09-27T17:18:21.617568",
+  "integration_status": {
+    "loaded_modules": 1,
+    "available_systems": [
+      "squirt"
+    ],
+    "total_tools_discovered": 62,
+    "recent_actions": [
+      {
+        "timestamp": "2025-09-27T17:18:21.506852",
+        "action": "discovery",
+        "description": "Discovered 62 tools in squirt"
+      },
+      {
+        "timestamp": "2025-09-27T17:18:21.616751",
+        "action": "module_load",
+        "description": "Loaded vision_validator from squirt"
+      },
+      {
+        "timestamp": "2025-09-27T17:18:21.616822",
+        "action": "class_access",
+        "description": "Accessed VisionValidator from squirt.vision_validator"
+      }
+    ],
+    "module_cache": [
+      "squirt.vision_validator"
+    ]
+  },
+  "available_tools": {
+    "squirt": {
+      "fully_automated_screenshot": {
+        "file_path": "/home/johnny5/Squirt/src/fully_automated_screenshot.py",
+        "system": "squirt",
+        "module_name": "fully_automated_screenshot",
+        "docstring": "Fully Automated Screenshot System for Squirt Visual Validation Complete automation with dialog handling and file management",
+        "classes": [
+          {
+            "name": "FullyAutomatedScreenshot",
+            "line": 13,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "handle_dialogs",
+            "line": 18,
+            "type": "function"
+          },
+          {
+            "name": "take_automated_screenshot",
+            "line": 45,
+            "type": "function"
+          },
+          {
+            "name": "wait_for_libreoffice_and_screenshot",
+            "line": 81,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 111,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "validator": {
+        "file_path": "/home/johnny5/Squirt/src/validator.py",
+        "system": "squirt",
+        "module_name": "validator",
+        "docstring": "WaterWizard Document Validator Comprehensive validation system for document quality, accuracy, and completeness",
+        "classes": [
+          {
+            "name": "DocumentValidator",
+            "line": 12,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "validate_document_structure",
+            "line": 33,
+            "type": "function"
+          },
+          {
+            "name": "validate_mathematical_accuracy",
+            "line": 62,
+            "type": "function"
+          },
+          {
+            "name": "validate_price_reasonableness",
+            "line": 124,
+            "type": "function"
+          },
+          {
+            "name": "validate_format_consistency",
+            "line": 164,
+            "type": "function"
+          },
+          {
+            "name": "validate_tax_rate",
+            "line": 195,
+            "type": "function"
+          },
+          {
+            "name": "comprehensive_validation",
+            "line": 216,
+            "type": "function"
+          },
+          {
+            "name": "generate_validation_report",
+            "line": 272,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 334,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "robust_validator": {
+        "file_path": "/home/johnny5/Squirt/src/robust_validator.py",
+        "system": "squirt",
+        "module_name": "robust_validator",
+        "docstring": "Robust validation system that doesn't fail when LibreOffice has JavaLDX warnings. Implements fallback validation approaches when GUI launching has timeouts.",
+        "classes": [
+          {
+            "name": "RobustValidator",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "validate_document_completely",
+            "line": 24,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "tax_rules": {
+        "file_path": "/home/johnny5/Squirt/src/tax_rules.py",
+        "system": "squirt",
+        "module_name": "tax_rules",
+        "docstring": "WaterWizard Tax Rules Engine State-specific tax handling for accurate invoicing and contracts",
+        "classes": [
+          {
+            "name": "TaxRulesEngine",
+            "line": 10,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "get_tax_rate",
+            "line": 48,
+            "type": "function"
+          },
+          {
+            "name": "calculate_tax",
+            "line": 74,
+            "type": "function"
+          },
+          {
+            "name": "is_tax_exempt_state",
+            "line": 86,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 92,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "format_converter": {
+        "file_path": "/home/johnny5/Squirt/src/format_converter.py",
+        "system": "squirt",
+        "module_name": "format_converter",
+        "docstring": "Squirt Format Converter Handles conversion between various document formats with formatting preservation Optimized for client-common formats: PDF, DOC/DOCX, XLS/XLSX, CSV",
+        "classes": [
+          {
+            "name": "DocumentType",
+            "line": 15,
+            "type": "class"
+          },
+          {
+            "name": "OutputFormat",
+            "line": 22,
+            "type": "class"
+          },
+          {
+            "name": "SquirtFormatConverter",
+            "line": 32,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "convert_document",
+            "line": 104,
+            "type": "function"
+          },
+          {
+            "name": "get_recommended_formats",
+            "line": 265,
+            "type": "function"
+          },
+          {
+            "name": "batch_convert_client_package",
+            "line": 274,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 309,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "uno_invoice_generator": {
+        "file_path": "/home/johnny5/Squirt/src/uno_invoice_generator.py",
+        "system": "squirt",
+        "module_name": "uno_invoice_generator",
+        "docstring": "WaterWizard UNO Invoice Generator LibreOffice UNO-based invoice generation for Squirt 1.2 Modern professional formatting with reliable ODT output",
+        "classes": [
+          {
+            "name": "UnoInvoiceGenerator",
+            "line": 21,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "create_new_document",
+            "line": 81,
+            "type": "function"
+          },
+          {
+            "name": "generate_invoice",
+            "line": 93,
+            "type": "function"
+          },
+          {
+            "name": "close_connection",
+            "line": 510,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 527,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "protocol_manager": {
+        "file_path": "/home/johnny5/Squirt/src/protocol_manager.py",
+        "system": "squirt",
+        "module_name": "protocol_manager",
+        "docstring": "Protocol Manager for Squirt AI Operations Enforces operational protocols and provides real-time guidance to AI operators.",
+        "classes": [
+          {
+            "name": "ProtocolManager",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "inject_session_context",
+            "line": 24,
+            "type": "function"
+          },
+          {
+            "name": "before_document_generation",
+            "line": 166,
+            "type": "function"
+          },
+          {
+            "name": "after_document_generation",
+            "line": 211,
+            "type": "function"
+          },
+          {
+            "name": "validate_operation_compliance",
+            "line": 260,
+            "type": "function"
+          },
+          {
+            "name": "get_protocol_reminder",
+            "line": 296,
+            "type": "function"
+          },
+          {
+            "name": "get_session_summary",
+            "line": 328,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 339,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "accounting_rules": {
+        "file_path": "/home/johnny5/Squirt/src/accounting_rules.py",
+        "system": "squirt",
+        "module_name": "accounting_rules",
+        "docstring": "Squirt Accounting Rules Engine Defines when and how to generate CSV accounting files for QuickBooks integration",
+        "classes": [
+          {
+            "name": "DocumentType",
+            "line": 13,
+            "type": "class"
+          },
+          {
+            "name": "DocumentStatus",
+            "line": 20,
+            "type": "class"
+          },
+          {
+            "name": "AccountingRulesEngine",
+            "line": 27,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "should_generate_csv",
+            "line": 65,
+            "type": "function"
+          },
+          {
+            "name": "get_transaction_type",
+            "line": 69,
+            "type": "function"
+          },
+          {
+            "name": "generate_accounting_csv",
+            "line": 89,
+            "type": "function"
+          },
+          {
+            "name": "get_accounting_status_message",
+            "line": 165,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 173,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "modern_document_generator": {
+        "file_path": "/home/johnny5/Squirt/src/modern_document_generator.py",
+        "system": "squirt",
+        "module_name": "modern_document_generator",
+        "docstring": "Modern Document Generator for WaterWizard Uses LibreOffice templates with professional formatting instead of ASCII art",
+        "classes": [
+          {
+            "name": "ModernDocumentGenerator",
+            "line": 23,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "generate_professional_contract_html",
+            "line": 503,
+            "type": "function"
+          },
+          {
+            "name": "generate_professional_contract",
+            "line": 531,
+            "type": "function"
+          },
+          {
+            "name": "generate_modern_professional_contract",
+            "line": 621,
+            "type": "function"
+          },
+          {
+            "name": "convert_to_pdf",
+            "line": 776,
+            "type": "function"
+          },
+          {
+            "name": "open_document_for_human_review",
+            "line": 798,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 896,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "fall_cleanup_template": {
+        "file_path": "/home/johnny5/Squirt/src/fall_cleanup_template.py",
+        "system": "squirt",
+        "module_name": "fall_cleanup_template",
+        "docstring": "Fall Clean-up Contract Template Generator Based on manually refined Liam Smith estimate structure Template for WaterWizard's Fall Clean-up service contracts",
+        "classes": [
+          {
+            "name": "FallCleanupTemplate",
+            "line": 20,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "generate_fall_cleanup_contract",
+            "line": 80,
+            "type": "function"
+          },
+          {
+            "name": "close_connection",
+            "line": 524,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 535,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "uno_estimate_generator_BROKEN_BACKUP": {
+        "file_path": "/home/johnny5/Squirt/src/uno_estimate_generator_BROKEN_BACKUP.py",
+        "system": "squirt",
+        "module_name": "uno_estimate_generator_BROKEN_BACKUP",
+        "docstring": "WaterWizard UNO Estimate Generator LibreOffice UNO-based estimate generation for Squirt 1.2 Professional estimates with modern formatting and reliable ODT output",
+        "classes": [
+          {
+            "name": "UnoEstimateGenerator",
+            "line": 21,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "create_new_document",
+            "line": 82,
+            "type": "function"
+          },
+          {
+            "name": "generate_estimate",
+            "line": 93,
+            "type": "function"
+          },
+          {
+            "name": "close_connection",
+            "line": 817,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 828,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "automated_screenshot_system": {
+        "file_path": "/home/johnny5/Squirt/src/automated_screenshot_system.py",
+        "system": "squirt",
+        "module_name": "automated_screenshot_system",
+        "docstring": "Automated Screenshot System for Squirt Visual Validation Handles screenshots, dialogue responses, and file management automatically",
+        "classes": [
+          {
+            "name": "AutomatedScreenshotSystem",
+            "line": 15,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "take_screenshot_auto",
+            "line": 20,
+            "type": "function"
+          },
+          {
+            "name": "handle_libreoffice_dialogs",
+            "line": 99,
+            "type": "function"
+          },
+          {
+            "name": "wait_for_libreoffice_ready",
+            "line": 131,
+            "type": "function"
+          },
+          {
+            "name": "capture_libreoffice_document",
+            "line": 157,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 173,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "simple_screenshot_validator": {
+        "file_path": "/home/johnny5/Squirt/src/simple_screenshot_validator.py",
+        "system": "squirt",
+        "module_name": "simple_screenshot_validator",
+        "docstring": "Simple screenshot validator that uses existing PDFs for validation workflow. Focus on integrating with Claude vision analysis rather than complex PDF conversion.",
+        "classes": [
+          {
+            "name": "SimpleScreenshotValidator",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "prepare_for_visual_validation",
+            "line": 23,
+            "type": "function"
+          },
+          {
+            "name": "create_validation_report",
+            "line": 138,
+            "type": "function"
+          },
+          {
+            "name": "test_simple_validator",
+            "line": 165,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "template_driven_uno_generator": {
+        "file_path": "/home/johnny5/Squirt/src/template_driven_uno_generator.py",
+        "system": "squirt",
+        "module_name": "template_driven_uno_generator",
+        "docstring": "Template-Driven UNO Estimate Generator for Squirt 1.2 Processes JSON templates to generate dynamic estimates",
+        "classes": [
+          {
+            "name": "TemplateProcessor",
+            "line": 21,
+            "type": "class"
+          },
+          {
+            "name": "TemplateDrivenUnoGenerator",
+            "line": 192,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "load_template",
+            "line": 28,
+            "type": "function"
+          },
+          {
+            "name": "load_input_data",
+            "line": 39,
+            "type": "function"
+          },
+          {
+            "name": "calculate_material_costs",
+            "line": 50,
+            "type": "function"
+          },
+          {
+            "name": "calculate_labor_costs",
+            "line": 91,
+            "type": "function"
+          },
+          {
+            "name": "generate_estimate_data",
+            "line": 146,
+            "type": "function"
+          },
+          {
+            "name": "generate_from_template",
+            "line": 230,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 344,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "field_mapper": {
+        "file_path": "/home/johnny5/Squirt/src/field_mapper.py",
+        "system": "squirt",
+        "module_name": "field_mapper",
+        "docstring": "WaterWizard Field Mapper Maps worksheet fields to template parameters and generates template inputs",
+        "classes": [
+          {
+            "name": "FieldMapper",
+            "line": 11,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "map_project_to_template_params",
+            "line": 101,
+            "type": "function"
+          },
+          {
+            "name": "map_batch_projects",
+            "line": 192,
+            "type": "function"
+          },
+          {
+            "name": "generate_mapping_report",
+            "line": 205,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 232,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "template_processor": {
+        "file_path": "/home/johnny5/Squirt/src/template_processor.py",
+        "system": "squirt",
+        "module_name": "template_processor",
+        "docstring": "WaterWizard Template Processor Processes templates with parameters to generate itemized documents",
+        "classes": [
+          {
+            "name": "TemplateProcessor",
+            "line": 13,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "load_elements",
+            "line": 25,
+            "type": "function"
+          },
+          {
+            "name": "load_template",
+            "line": 34,
+            "type": "function"
+          },
+          {
+            "name": "evaluate_formula",
+            "line": 39,
+            "type": "function"
+          },
+          {
+            "name": "evaluate_condition",
+            "line": 64,
+            "type": "function"
+          },
+          {
+            "name": "get_element_rate",
+            "line": 81,
+            "type": "function"
+          },
+          {
+            "name": "process_template",
+            "line": 103,
+            "type": "function"
+          },
+          {
+            "name": "find_element",
+            "line": 181,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 188,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "file_organizer": {
+        "file_path": "/home/johnny5/Squirt/src/file_organizer.py",
+        "system": "squirt",
+        "module_name": "file_organizer",
+        "docstring": "Squirt File Organizer Manages client-facing and company-facing file organization for WaterWizard",
+        "classes": [
+          {
+            "name": "SquirtFileOrganizer",
+            "line": 13,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "organize_client_documents",
+            "line": 36,
+            "type": "function"
+          },
+          {
+            "name": "organize_company_files",
+            "line": 79,
+            "type": "function"
+          },
+          {
+            "name": "generate_client_index",
+            "line": 114,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 174,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "csv_exporter": {
+        "file_path": "/home/johnny5/Squirt/src/csv_exporter.py",
+        "system": "squirt",
+        "module_name": "csv_exporter",
+        "docstring": "WaterWizard CSV Exporter Generates QuickBooks-compatible CSV files from invoice data",
+        "classes": [
+          {
+            "name": "CSVExporter",
+            "line": 12,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "export_invoice_to_csv",
+            "line": 21,
+            "type": "function"
+          },
+          {
+            "name": "save_csv",
+            "line": 88,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 94,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "screenshot_validator": {
+        "file_path": "/home/johnny5/Squirt/src/screenshot_validator.py",
+        "system": "squirt",
+        "module_name": "screenshot_validator",
+        "docstring": "Screenshot-based validation system for WaterWizard document generation. Automatically captures document screenshots for Claude vision analysis.",
+        "classes": [
+          {
+            "name": "ScreenshotValidator",
+            "line": 15,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "capture_document_screenshot",
+            "line": 24,
+            "type": "function"
+          },
+          {
+            "name": "validate_with_vision",
+            "line": 119,
+            "type": "function"
+          },
+          {
+            "name": "test_screenshot_validator",
+            "line": 148,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "document_session_manager_enhanced": {
+        "file_path": "/home/johnny5/Squirt/src/document_session_manager_enhanced.py",
+        "system": "squirt",
+        "module_name": "document_session_manager_enhanced",
+        "docstring": "Enhanced Document Session Manager for Squirt 1.2 Manages LibreOffice document sessions with priority, context, and grouping  Enhanced Rules: 1. Close documents before opening new ones (unless specific reason to keep open) 2. Maximum 4 documents open simultaneously during validation/processing 3. Priority-based document retention with smart preemption 4. Smart document grouping for comparative and multi-phase workflows 5. Context-aware auto-closure (time limits for machine-only, no limits for human processes)",
+        "classes": [
+          {
+            "name": "SessionPriority",
+            "line": 26,
+            "type": "class"
+          },
+          {
+            "name": "SessionContext",
+            "line": 35,
+            "type": "class"
+          },
+          {
+            "name": "DocumentSession",
+            "line": 44,
+            "type": "class"
+          },
+          {
+            "name": "EnhancedDocumentSessionManager",
+            "line": 59,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "get_active_session_count",
+            "line": 79,
+            "type": "function"
+          },
+          {
+            "name": "close_document",
+            "line": 149,
+            "type": "function"
+          },
+          {
+            "name": "close_lowest_priority_document",
+            "line": 188,
+            "type": "function"
+          },
+          {
+            "name": "close_oldest_document",
+            "line": 218,
+            "type": "function"
+          },
+          {
+            "name": "close_all_documents",
+            "line": 243,
+            "type": "function"
+          },
+          {
+            "name": "create_document_group",
+            "line": 271,
+            "type": "function"
+          },
+          {
+            "name": "close_document_group",
+            "line": 296,
+            "type": "function"
+          },
+          {
+            "name": "get_related_sessions",
+            "line": 320,
+            "type": "function"
+          },
+          {
+            "name": "update_session_activity",
+            "line": 335,
+            "type": "function"
+          },
+          {
+            "name": "set_session_exempt",
+            "line": 341,
+            "type": "function"
+          },
+          {
+            "name": "open_document_gui",
+            "line": 353,
+            "type": "function"
+          },
+          {
+            "name": "open_for_template_comparison",
+            "line": 454,
+            "type": "function"
+          },
+          {
+            "name": "open_for_client_portfolio",
+            "line": 487,
+            "type": "function"
+          },
+          {
+            "name": "get_session_status",
+            "line": 549,
+            "type": "function"
+          },
+          {
+            "name": "print_session_status",
+            "line": 578,
+            "type": "function"
+          },
+          {
+            "name": "get_enhanced_session_manager",
+            "line": 617,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 625,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "scope_based_odt_generator": {
+        "file_path": "/home/johnny5/Squirt/src/scope_based_odt_generator.py",
+        "system": "squirt",
+        "module_name": "scope_based_odt_generator",
+        "docstring": "Scope-based ODT generator specifically designed for Squirt scope-based contracts. Unlike FixedODTGenerator, this supports proper scope organization without hardcoded category headers.",
+        "classes": [
+          {
+            "name": "ScopeBasedODTGenerator",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "create_scope_based_contract",
+            "line": 34,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "protocol_enforcement_automation": {
+        "file_path": "/home/johnny5/Squirt/src/protocol_enforcement_automation.py",
+        "system": "squirt",
+        "module_name": "protocol_enforcement_automation",
+        "docstring": "Protocol Enforcement Automation System for Squirt Provides real-time compliance checking and automatic protocol enforcement.",
+        "classes": [
+          {
+            "name": "ComplianceLevel",
+            "line": 21,
+            "type": "class"
+          },
+          {
+            "name": "OperationType",
+            "line": 27,
+            "type": "class"
+          },
+          {
+            "name": "ComplianceViolation",
+            "line": 35,
+            "type": "class"
+          },
+          {
+            "name": "ProtocolEnforcementAutomation",
+            "line": 55,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "to_dict",
+            "line": 45,
+            "type": "function"
+          },
+          {
+            "name": "enforce_operation_compliance",
+            "line": 149,
+            "type": "function"
+          },
+          {
+            "name": "monitor_operation",
+            "line": 495,
+            "type": "function"
+          },
+          {
+            "name": "get_compliance_summary",
+            "line": 558,
+            "type": "function"
+          },
+          {
+            "name": "set_compliance_level",
+            "line": 574,
+            "type": "function"
+          },
+          {
+            "name": "with_protocol_enforcement",
+            "line": 580,
+            "type": "function"
+          },
+          {
+            "name": "decorator",
+            "line": 583,
+            "type": "function"
+          },
+          {
+            "name": "wrapper",
+            "line": 584,
+            "type": "function"
+          },
+          {
+            "name": "test_protocol_enforcement",
+            "line": 596,
+            "type": "function"
+          },
+          {
+            "name": "mock_document_generation",
+            "line": 605,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "document_session_manager": {
+        "file_path": "/home/johnny5/Squirt/src/document_session_manager.py",
+        "system": "squirt",
+        "module_name": "document_session_manager",
+        "docstring": "Document Session Manager for Squirt 1.2 Manages LibreOffice document sessions to prevent system slowdown  Rules: 1. Close documents before opening new ones (unless specific reason to keep open) 2. Maximum 4 documents open simultaneously during validation/processing 3. Priority-based document retention with smart preemption 4. Smart document grouping for comparative and multi-phase workflows 5. Context-aware auto-closure (time limits for machine-only, no limits for human processes)",
+        "classes": [
+          {
+            "name": "SessionPriority",
+            "line": 26,
+            "type": "class"
+          },
+          {
+            "name": "SessionContext",
+            "line": 35,
+            "type": "class"
+          },
+          {
+            "name": "DocumentSession",
+            "line": 44,
+            "type": "class"
+          },
+          {
+            "name": "DocumentSessionManager",
+            "line": 59,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "get_active_session_count",
+            "line": 79,
+            "type": "function"
+          },
+          {
+            "name": "close_document",
+            "line": 141,
+            "type": "function"
+          },
+          {
+            "name": "close_lowest_priority_document",
+            "line": 169,
+            "type": "function"
+          },
+          {
+            "name": "close_oldest_document",
+            "line": 199,
+            "type": "function"
+          },
+          {
+            "name": "close_all_documents",
+            "line": 224,
+            "type": "function"
+          },
+          {
+            "name": "create_document_group",
+            "line": 252,
+            "type": "function"
+          },
+          {
+            "name": "close_document_group",
+            "line": 277,
+            "type": "function"
+          },
+          {
+            "name": "get_related_sessions",
+            "line": 300,
+            "type": "function"
+          },
+          {
+            "name": "open_document_gui",
+            "line": 315,
+            "type": "function"
+          },
+          {
+            "name": "convert_document_headless",
+            "line": 390,
+            "type": "function"
+          },
+          {
+            "name": "get_session_status",
+            "line": 484,
+            "type": "function"
+          },
+          {
+            "name": "print_session_status",
+            "line": 503,
+            "type": "function"
+          },
+          {
+            "name": "get_session_manager",
+            "line": 530,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 538,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "fixed_odt_generator": {
+        "file_path": "/home/johnny5/Squirt/src/fixed_odt_generator.py",
+        "system": "squirt",
+        "module_name": "fixed_odt_generator",
+        "docstring": "Fixed ODT generator using LibreOffice-compatible XML structure. This module creates proper ODT files that LibreOffice can open without errors.",
+        "classes": [
+          {
+            "name": "FixedODTGenerator",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "create_waterwizard_contract",
+            "line": 34,
+            "type": "function"
+          },
+          {
+            "name": "open_document_for_human_review",
+            "line": 271,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "uno_estimate_generator": {
+        "file_path": "/home/johnny5/Squirt/src/uno_estimate_generator.py",
+        "system": "squirt",
+        "module_name": "uno_estimate_generator",
+        "docstring": "SQUIRT 1.2 UNO ESTIMATE GENERATOR - PRODUCTION VERSION Template-driven professional estimate generator replacing hardcoded system",
+        "classes": [
+          {
+            "name": "UnoEstimateGenerator",
+            "line": 17,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "load_files",
+            "line": 25,
+            "type": "function"
+          },
+          {
+            "name": "calculate_costs",
+            "line": 136,
+            "type": "function"
+          },
+          {
+            "name": "create_professional_html",
+            "line": 238,
+            "type": "function"
+          },
+          {
+            "name": "convert_to_odt",
+            "line": 574,
+            "type": "function"
+          },
+          {
+            "name": "generate_from_template",
+            "line": 622,
+            "type": "function"
+          },
+          {
+            "name": "get_tracked_path",
+            "line": 639,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 645,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "document_generator": {
+        "file_path": "/home/johnny5/Squirt/src/document_generator.py",
+        "system": "squirt",
+        "module_name": "document_generator",
+        "docstring": "WaterWizard Document Generator Generates professional contracts, invoices, and receipts from templates",
+        "classes": [
+          {
+            "name": "DocumentGenerator",
+            "line": 16,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "generate_contract",
+            "line": 26,
+            "type": "function"
+          },
+          {
+            "name": "generate_invoice",
+            "line": 53,
+            "type": "function"
+          },
+          {
+            "name": "generate_contract_odt",
+            "line": 78,
+            "type": "function"
+          },
+          {
+            "name": "generate_invoice_odt",
+            "line": 99,
+            "type": "function"
+          },
+          {
+            "name": "generate_contract_multiformat",
+            "line": 272,
+            "type": "function"
+          },
+          {
+            "name": "generate_invoice_multiformat",
+            "line": 306,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 340,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "simple_template_generator": {
+        "file_path": "/home/johnny5/Squirt/src/simple_template_generator.py",
+        "system": "squirt",
+        "module_name": "simple_template_generator",
+        "docstring": "Simple Template-Based Document Generator Uses LibreOffice headless conversion instead of UNO for reliability",
+        "classes": [
+          {
+            "name": "SimpleTemplateGenerator",
+            "line": 14,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "load_files",
+            "line": 21,
+            "type": "function"
+          },
+          {
+            "name": "calculate_costs",
+            "line": 33,
+            "type": "function"
+          },
+          {
+            "name": "create_html_document",
+            "line": 90,
+            "type": "function"
+          },
+          {
+            "name": "generate_estimate",
+            "line": 250,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 298,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "odt_generator": {
+        "file_path": "/home/johnny5/Squirt/src/odt_generator.py",
+        "system": "squirt",
+        "module_name": "odt_generator",
+        "docstring": "WaterWizard ODT Generator Generates LibreOffice Writer (ODT) documents from template parameters",
+        "classes": [
+          {
+            "name": "ODTGenerator",
+            "line": 15,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "generate_contract_odt",
+            "line": 21,
+            "type": "function"
+          },
+          {
+            "name": "generate_worksheet_to_documents",
+            "line": 191,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 299,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "batch_csv_exporter": {
+        "file_path": "/home/johnny5/Squirt/src/batch_csv_exporter.py",
+        "system": "squirt",
+        "module_name": "batch_csv_exporter",
+        "docstring": "WaterWizard Batch CSV Exporter Enhanced CSV export functionality for multiple projects and better QuickBooks integration",
+        "classes": [
+          {
+            "name": "BatchCSVExporter",
+            "line": 13,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "export_batch_projects",
+            "line": 31,
+            "type": "function"
+          },
+          {
+            "name": "create_quickbooks_mapping_guide",
+            "line": 112,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 163,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "text_template_generator": {
+        "file_path": "/home/johnny5/Squirt/src/text_template_generator.py",
+        "system": "squirt",
+        "module_name": "text_template_generator",
+        "docstring": "Text-Based Template Generator Generates text estimates to prove template processing works",
+        "classes": [],
+        "functions": [
+          {
+            "name": "generate_text_estimate",
+            "line": 12,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "vision_validator": {
+        "file_path": "/home/johnny5/Squirt/src/vision_validator.py",
+        "system": "squirt",
+        "module_name": "vision_validator",
+        "docstring": "Complete vision-based validation system for WaterWizard documents. Includes screenshot capture and Claude vision API integration.",
+        "classes": [
+          {
+            "name": "VisionValidator",
+            "line": 17,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "capture_document_screenshot",
+            "line": 131,
+            "type": "function"
+          },
+          {
+            "name": "analyze_document_with_vision",
+            "line": 347,
+            "type": "function"
+          },
+          {
+            "name": "save_validation_history",
+            "line": 443,
+            "type": "function"
+          },
+          {
+            "name": "test_vision_validator",
+            "line": 471,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "file_tracking_system": {
+        "file_path": "/home/johnny5/Squirt/src/file_tracking_system.py",
+        "system": "squirt",
+        "module_name": "file_tracking_system",
+        "docstring": "Squirt File Tracking System Ensures all generated and imported files are properly tracked and organized",
+        "classes": [
+          {
+            "name": "FileTrackingSystem",
+            "line": 17,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "get_client_directory",
+            "line": 63,
+            "type": "function"
+          },
+          {
+            "name": "get_tracked_output_path",
+            "line": 78,
+            "type": "function"
+          },
+          {
+            "name": "scan_and_organize_untracked_files",
+            "line": 157,
+            "type": "function"
+          },
+          {
+            "name": "get_client_files",
+            "line": 255,
+            "type": "function"
+          },
+          {
+            "name": "cleanup_temp_files",
+            "line": 267,
+            "type": "function"
+          },
+          {
+            "name": "create_safe_backup",
+            "line": 282,
+            "type": "function"
+          },
+          {
+            "name": "get_tracked_path",
+            "line": 305,
+            "type": "function"
+          },
+          {
+            "name": "scan_and_organize",
+            "line": 309,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "unified_validation_system": {
+        "file_path": "/home/johnny5/Squirt/src/unified_validation_system.py",
+        "system": "squirt",
+        "module_name": "unified_validation_system",
+        "docstring": "Unified Validation System for Squirt Consolidates 4 separate validation systems into a single, comprehensive framework.  Previous Systems Consolidated: 1. VisionValidator - Screenshot capture and Claude Vision analysis 2. ScreenshotValidator - GUI screenshot and validation preparation 3. RobustValidator - Fallback validation with error handling 4. AutomatedValidator - Template content and compliance checking",
+        "classes": [
+          {
+            "name": "ValidationLevel",
+            "line": 26,
+            "type": "class"
+          },
+          {
+            "name": "ValidationResult",
+            "line": 33,
+            "type": "class"
+          },
+          {
+            "name": "UnifiedValidationSystem",
+            "line": 77,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "add_check",
+            "line": 46,
+            "type": "function"
+          },
+          {
+            "name": "add_error",
+            "line": 55,
+            "type": "function"
+          },
+          {
+            "name": "add_warning",
+            "line": 59,
+            "type": "function"
+          },
+          {
+            "name": "to_dict",
+            "line": 63,
+            "type": "function"
+          },
+          {
+            "name": "validate_document",
+            "line": 89,
+            "type": "function"
+          },
+          {
+            "name": "validate_document_basic",
+            "line": 592,
+            "type": "function"
+          },
+          {
+            "name": "validate_document_production",
+            "line": 597,
+            "type": "function"
+          },
+          {
+            "name": "validate_with_visual",
+            "line": 602,
+            "type": "function"
+          },
+          {
+            "name": "test_unified_validation",
+            "line": 608,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "modern_html_document_generator": {
+        "file_path": "/home/johnny5/Squirt/src/modern_html_document_generator.py",
+        "system": "squirt",
+        "module_name": "modern_html_document_generator",
+        "docstring": "Modern HTML>ODT Document Generator Replacement for legacy generators using the fixed HTML>ODT pipeline",
+        "classes": [
+          {
+            "name": "ModernHtmlDocumentGenerator",
+            "line": 26,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "generate_contract",
+            "line": 37,
+            "type": "function"
+          },
+          {
+            "name": "generate_invoice",
+            "line": 59,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 192,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "html_to_odt_generator": {
+        "file_path": "/home/johnny5/Squirt/src/html_to_odt_generator.py",
+        "system": "squirt",
+        "module_name": "html_to_odt_generator",
+        "docstring": "HTML-to-ODT Template Generator Uses LibreOffice headless conversion for reliable ODT generation",
+        "classes": [
+          {
+            "name": "HtmlToOdtGenerator",
+            "line": 15,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "load_files",
+            "line": 22,
+            "type": "function"
+          },
+          {
+            "name": "calculate_costs",
+            "line": 36,
+            "type": "function"
+          },
+          {
+            "name": "create_professional_html",
+            "line": 121,
+            "type": "function"
+          },
+          {
+            "name": "convert_to_odt",
+            "line": 579,
+            "type": "function"
+          },
+          {
+            "name": "generate_estimate",
+            "line": 651,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 678,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "enhanced_pipeline": {
+        "file_path": "/home/johnny5/Squirt/src/enhanced_pipeline.py",
+        "system": "squirt",
+        "module_name": "enhanced_pipeline",
+        "docstring": "WaterWizard Enhanced Pipeline Sprint 3: Adds validation, enhanced CSV export, and PDF polish to the document pipeline",
+        "classes": [
+          {
+            "name": "EnhancedPipeline",
+            "line": 27,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "process_worksheet_with_validation",
+            "line": 52,
+            "type": "function"
+          },
+          {
+            "name": "generate_client_package",
+            "line": 271,
+            "type": "function"
+          },
+          {
+            "name": "process_worksheet_modern",
+            "line": 411,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 582,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "simple_auto_screenshot": {
+        "file_path": "/home/johnny5/Squirt/src/simple_auto_screenshot.py",
+        "system": "squirt",
+        "module_name": "simple_auto_screenshot",
+        "docstring": "Simple automated screenshot system using available system tools",
+        "classes": [],
+        "functions": [
+          {
+            "name": "auto_screenshot",
+            "line": 10,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "worksheet_parser": {
+        "file_path": "/home/johnny5/Squirt/src/worksheet_parser.py",
+        "system": "squirt",
+        "module_name": "worksheet_parser",
+        "docstring": "WaterWizard Worksheet Parser Reads CSV/ODS files with project data and returns structured information",
+        "classes": [
+          {
+            "name": "WorksheetParser",
+            "line": 13,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "parse_csv",
+            "line": 18,
+            "type": "function"
+          },
+          {
+            "name": "parse_ods",
+            "line": 50,
+            "type": "function"
+          },
+          {
+            "name": "validate_required_fields",
+            "line": 113,
+            "type": "function"
+          },
+          {
+            "name": "parse_file",
+            "line": 139,
+            "type": "function"
+          },
+          {
+            "name": "get_project_summary",
+            "line": 155,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 182,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "schema": {
+        "file_path": "/home/johnny5/Squirt/src/schema.py",
+        "system": "squirt",
+        "module_name": "schema",
+        "docstring": "Base element for all irrigation components",
+        "classes": [
+          {
+            "name": "Element",
+            "line": 9,
+            "type": "class"
+          },
+          {
+            "name": "LineItem",
+            "line": 20,
+            "type": "class"
+          },
+          {
+            "name": "Document",
+            "line": 30,
+            "type": "class"
+          }
+        ],
+        "functions": [],
+        "type": "module"
+      },
+      "realtime_protocol_injection": {
+        "file_path": "/home/johnny5/Squirt/src/realtime_protocol_injection.py",
+        "system": "squirt",
+        "module_name": "realtime_protocol_injection",
+        "docstring": "Real-Time Protocol Injection System for Squirt Automatically loads and injects protocol context for AI operators during operations.",
+        "classes": [
+          {
+            "name": "ProtocolContext",
+            "line": 30,
+            "type": "class"
+          },
+          {
+            "name": "FileWatcher",
+            "line": 63,
+            "type": "class"
+          },
+          {
+            "name": "FileWatcher",
+            "line": 82,
+            "type": "class"
+          },
+          {
+            "name": "RealTimeProtocolInjection",
+            "line": 107,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "update_context",
+            "line": 39,
+            "type": "function"
+          },
+          {
+            "name": "get_context_for_operation",
+            "line": 45,
+            "type": "function"
+          },
+          {
+            "name": "on_modified",
+            "line": 75,
+            "type": "function"
+          },
+          {
+            "name": "check_file_changes",
+            "line": 95,
+            "type": "function"
+          },
+          {
+            "name": "start_realtime_injection",
+            "line": 138,
+            "type": "function"
+          },
+          {
+            "name": "stop_realtime_injection",
+            "line": 161,
+            "type": "function"
+          },
+          {
+            "name": "refresh_loop",
+            "line": 199,
+            "type": "function"
+          },
+          {
+            "name": "refresh_protocols",
+            "line": 212,
+            "type": "function"
+          },
+          {
+            "name": "inject_protocols_for_operation",
+            "line": 244,
+            "type": "function"
+          },
+          {
+            "name": "get_injection_summary",
+            "line": 437,
+            "type": "function"
+          },
+          {
+            "name": "inject_protocols_now",
+            "line": 456,
+            "type": "function"
+          },
+          {
+            "name": "start_protocol_monitoring",
+            "line": 461,
+            "type": "function"
+          },
+          {
+            "name": "test_realtime_injection",
+            "line": 468,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "libreoffice_monitor": {
+        "file_path": "/home/johnny5/Squirt/src/libreoffice_monitor.py",
+        "system": "squirt",
+        "module_name": "libreoffice_monitor",
+        "docstring": "LibreOffice State Monitoring System for Squirt Provides real-time monitoring of LibreOffice application state, dialog detection, and automatic screenshot capture for AI validation.",
+        "classes": [
+          {
+            "name": "LibreOfficeMonitor",
+            "line": 16,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "get_libreoffice_state",
+            "line": 25,
+            "type": "function"
+          },
+          {
+            "name": "detect_state_change",
+            "line": 154,
+            "type": "function"
+          },
+          {
+            "name": "capture_screenshot",
+            "line": 188,
+            "type": "function"
+          },
+          {
+            "name": "encode_screenshot_for_claude",
+            "line": 242,
+            "type": "function"
+          },
+          {
+            "name": "monitor_and_capture",
+            "line": 255,
+            "type": "function"
+          },
+          {
+            "name": "get_monitoring_summary",
+            "line": 305,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 313,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "human_validation_helper": {
+        "file_path": "/home/johnny5/Squirt/src/human_validation_helper.py",
+        "system": "squirt",
+        "module_name": "human_validation_helper",
+        "docstring": "Human-in-the-loop validation helper for Squirt document generators Provides consistent methods for opening documents for human validation",
+        "classes": [
+          {
+            "name": "HumanValidationHelper",
+            "line": 12,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "open_for_validation",
+            "line": 22,
+            "type": "function"
+          },
+          {
+            "name": "wait_for_validation_response",
+            "line": 121,
+            "type": "function"
+          },
+          {
+            "name": "get_validation_summary",
+            "line": 149,
+            "type": "function"
+          },
+          {
+            "name": "main",
+            "line": 167,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "script_template_generator": {
+        "file_path": "/home/johnny5/Squirt/template_generator.py",
+        "system": "squirt",
+        "script_name": "template_generator",
+        "description": "Create a WaterWizard contract template using LibreOffice to generate valid ODT structure. This will serve as our reference for proper ODT XML generation.",
+        "executable": true,
+        "type": "script"
+      },
+      "script_batch_template_generator": {
+        "file_path": "/home/johnny5/Squirt/batch_template_generator.py",
+        "system": "squirt",
+        "script_name": "batch_template_generator",
+        "description": "Batch Template Generator for All 17 Templates Generates professional ODT estimates from all template files using working HTML-to-ODT process",
+        "executable": true,
+        "type": "script"
+      },
+      "script_ai_operator_helper": {
+        "file_path": "/home/johnny5/Squirt/ai_operator_helper.py",
+        "system": "squirt",
+        "script_name": "ai_operator_helper",
+        "description": "AI Operator Helper Script for Squirt Provides easy integration of protocol management and monitoring for AI operations.",
+        "executable": true,
+        "type": "script"
+      },
+      "script_contract_generator_modern_professional": {
+        "file_path": "/home/johnny5/Squirt/contract_generator_modern_professional.py",
+        "system": "squirt",
+        "script_name": "contract_generator_modern_professional",
+        "description": "Generate Modern Professional contract using visual styling Privacy-safe version with generic client data",
+        "executable": true,
+        "type": "script"
+      },
+      "script_protocols_command": {
+        "file_path": "/home/johnny5/Squirt/protocols_command.py",
+        "system": "squirt",
+        "script_name": "protocols_command",
+        "description": "Simple /protocols command - Load all critical operational protocols",
+        "executable": true,
+        "type": "script"
+      },
+      "script_automated_validation_checks": {
+        "file_path": "/home/johnny5/Squirt/automated_validation_checks.py",
+        "system": "squirt",
+        "script_name": "automated_validation_checks",
+        "description": "Automated Validation Checks for Generated Templates Validates that generated estimates meet the validation expectations in templates",
+        "executable": true,
+        "type": "script"
+      },
+      "script_simple_template_validator": {
+        "file_path": "/home/johnny5/Squirt/simple_template_validator.py",
+        "system": "squirt",
+        "script_name": "simple_template_validator",
+        "description": "Simple Template Validator - Opens 2 templates at a time for human review Direct approach without complex input handling",
+        "executable": true,
+        "type": "script"
+      },
+      "script_debug_html_only": {
+        "file_path": "/home/johnny5/Squirt/debug_html_only.py",
+        "system": "squirt",
+        "script_name": "debug_html_only",
+        "description": "!/usr/bin/env python3",
+        "executable": true,
+        "type": "script"
+      },
+      "script_template_fixer": {
+        "file_path": "/home/johnny5/Squirt/template_fixer.py",
+        "system": "squirt",
+        "script_name": "template_fixer",
+        "description": "Fix the populated template by using proper ODT XML formatting",
+        "executable": true,
+        "type": "script"
+      },
+      "script_quick_validate": {
+        "file_path": "/home/johnny5/Squirt/quick_validate.py",
+        "system": "squirt",
+        "script_name": "quick_validate",
+        "description": "!/usr/bin/env python3 Quick validation",
+        "executable": true,
+        "type": "script"
+      },
+      "script_contract_generator_advanced": {
+        "file_path": "/home/johnny5/Squirt/contract_generator_advanced.py",
+        "system": "squirt",
+        "script_name": "contract_generator_advanced",
+        "description": "Create a perfectly aligned WaterWizard contract using the proper table structure",
+        "executable": true,
+        "type": "script"
+      },
+      "script_validate_17_templates": {
+        "file_path": "/home/johnny5/Squirt/validate_17_templates.py",
+        "system": "squirt",
+        "script_name": "validate_17_templates",
+        "description": "Human-in-the-Loop Validation for 17 Squirt Templates Uses enhanced session manager to systematically validate all batch-generated templates",
+        "executable": true,
+        "type": "script"
+      },
+      "script_file_scan_daemon": {
+        "file_path": "/home/johnny5/Squirt/file_scan_daemon.py",
+        "system": "squirt",
+        "script_name": "file_scan_daemon",
+        "description": "Squirt File Scan Daemon Automated routine to detect and organize untracked files",
+        "executable": true,
+        "type": "script"
+      },
+      "script_validate_all_templates": {
+        "file_path": "/home/johnny5/Squirt/validate_all_templates.py",
+        "system": "squirt",
+        "script_name": "validate_all_templates",
+        "description": "Template Validation Script for Squirt 1.2 Generates and visually validates all estimate templates",
+        "executable": true,
+        "type": "script"
+      },
+      "script_take_screenshot": {
+        "file_path": "/home/johnny5/Squirt/take_screenshot.py",
+        "system": "squirt",
+        "script_name": "take_screenshot",
+        "description": "Simple screenshot utility for Squirt visual validation",
+        "executable": true,
+        "type": "script"
+      },
+      "script_test_template_processing": {
+        "file_path": "/home/johnny5/Squirt/test_template_processing.py",
+        "system": "squirt",
+        "script_name": "test_template_processing",
+        "description": "Test template processing logic without LibreOffice complexity",
+        "executable": true,
+        "type": "script"
+      },
+      "script_test_sample_templates": {
+        "file_path": "/home/johnny5/Squirt/test_sample_templates.py",
+        "system": "squirt",
+        "script_name": "test_sample_templates",
+        "description": "Test a few sample templates to ensure the system works",
+        "executable": true,
+        "type": "script"
+      },
+      "script_validate_templates_fixed": {
+        "file_path": "/home/johnny5/Squirt/validate_templates_fixed.py",
+        "system": "squirt",
+        "script_name": "validate_templates_fixed",
+        "description": "Fixed Human-in-the-Loop Validation for Squirt Templates Opens 2 templates at a time with proper error handling and persistence",
+        "executable": true,
+        "type": "script"
+      },
+      "script_enable_file_tracking": {
+        "file_path": "/home/johnny5/Squirt/enable_file_tracking.py",
+        "system": "squirt",
+        "script_name": "enable_file_tracking",
+        "description": "Squirt File Tracking Enabler One-time setup and ongoing maintenance for the file tracking system",
+        "executable": true,
+        "type": "script"
+      },
+      "script_template_populator": {
+        "file_path": "/home/johnny5/Squirt/template_populator.py",
+        "system": "squirt",
+        "script_name": "template_populator",
+        "description": "Populate the working LibreOffice-generated template with actual contract data to test if the structure remains valid when populated.",
+        "executable": true,
+        "type": "script"
+      }
+    }
+  },
+  "loaded_modules": {
+    "squirt.vision_validator": {
+      "info": {
+        "file_path": "/home/johnny5/Squirt/src/vision_validator.py",
+        "system": "squirt",
+        "module_name": "vision_validator",
+        "docstring": "Complete vision-based validation system for WaterWizard documents. Includes screenshot capture and Claude vision API integration.",
+        "classes": [
+          {
+            "name": "VisionValidator",
+            "line": 17,
+            "type": "class"
+          }
+        ],
+        "functions": [
+          {
+            "name": "capture_document_screenshot",
+            "line": 131,
+            "type": "function"
+          },
+          {
+            "name": "analyze_document_with_vision",
+            "line": 347,
+            "type": "function"
+          },
+          {
+            "name": "save_validation_history",
+            "line": 443,
+            "type": "function"
+          },
+          {
+            "name": "test_vision_validator",
+            "line": 471,
+            "type": "function"
+          }
+        ],
+        "type": "module"
+      },
+      "loaded_at": "2025-09-27T17:18:21.616712"
+    }
+  }
+}

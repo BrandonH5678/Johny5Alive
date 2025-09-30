@@ -1,0 +1,158 @@
+{
+  "plan_name": "Sherlock Incremental Checkpoint Saving",
+  "plan_version": "1.0",
+  "created": "2024-09-30",
+  "project": "sherlock",
+  "description": "Implement incremental checkpoint saving for long-running audio transcription to prevent data loss from crashes or interruptions",
+
+  "hardware_requirements": {
+    "min_ram_gb": 2.5,
+    "recommended_ram_gb": 3.7,
+    "thermal_monitoring_required": false
+  },
+
+  "blocking_conditions": [],
+
+  "motivation": "Operation Gladio demonstrated 17+ hours of transcription work at risk in volatile memory. This implements the general principle that chunked processes must save incrementally.",
+
+  "general_principle": {
+    "name": "Incremental Save Pattern",
+    "category": "risk_management",
+    "priority": "mandatory",
+    "applies_when": [
+      "Process runtime > 1 hour",
+      "Data accumulation > 100 MB",
+      "Chunk count > 10",
+      "Re-processing cost is high"
+    ],
+    "enforcement": "J5A methodology enforcer checks for pattern violations"
+  },
+
+  "phases": [
+    {
+      "phase_id": "phase_1",
+      "phase_name": "Checkpoint System Implementation",
+      "status": "ready",
+      "risk_level": "low",
+      "dependencies": [],
+      "blocking_conditions": [],
+      "estimated_tokens": 40000,
+      "estimated_duration_hours": 2.0,
+      "python_module": "sherlock_checkpoint_tasks.py",
+      "tasks": [
+        {
+          "task_id": "sherlock_checkpoint_1",
+          "task_name": "Create TranscriptionCheckpointManager class",
+          "priority": "high",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 30,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Sherlock/sherlock_checkpoint_manager.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/sherlock_checkpoint_manager.py"
+        },
+        {
+          "task_id": "sherlock_checkpoint_2",
+          "task_name": "Integrate checkpointing into Gladio processor",
+          "priority": "high",
+          "estimated_tokens": 12000,
+          "estimated_ram_gb": 0.4,
+          "estimated_duration_minutes": 45,
+          "thermal_risk": "low",
+          "dependencies": ["sherlock_checkpoint_1"],
+          "outputs": [
+            "/home/johnny5/Sherlock/process_gladio_fast_small.py"
+          ],
+          "rollback": "git checkout /home/johnny5/Sherlock/process_gladio_fast_small.py",
+          "requires_poc": true,
+          "notes": "Test with small sample before modifying production processor"
+        },
+        {
+          "task_id": "sherlock_checkpoint_3",
+          "task_name": "Create checkpoint recovery script",
+          "priority": "normal",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.2,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "low",
+          "dependencies": ["sherlock_checkpoint_1"],
+          "outputs": [
+            "/home/johnny5/Sherlock/recover_gladio_from_checkpoints.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/recover_gladio_from_checkpoints.py"
+        },
+        {
+          "task_id": "sherlock_checkpoint_4",
+          "task_name": "Add incremental save pattern to J5A methodology enforcer",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 25,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Johny5Alive/j5a_methodology_enforcer.py"
+          ],
+          "rollback": "git checkout /home/johnny5/Johny5Alive/j5a_methodology_enforcer.py",
+          "notes": "Teaches J5A to detect and prevent missing incremental saves"
+        },
+        {
+          "task_id": "sherlock_checkpoint_5",
+          "task_name": "Create checkpoint system test suite",
+          "priority": "normal",
+          "estimated_tokens": 6000,
+          "estimated_ram_gb": 0.3,
+          "estimated_duration_minutes": 20,
+          "thermal_risk": "low",
+          "dependencies": ["sherlock_checkpoint_1", "sherlock_checkpoint_2", "sherlock_checkpoint_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/tests/test_checkpoint_system.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/tests/test_checkpoint_system.py"
+        }
+      ]
+    }
+  ],
+
+  "execution_history": [],
+
+  "current_status": {
+    "phase_1": "ready",
+    "overall_progress": "0%",
+    "tasks_completed": [],
+    "tasks_failed": [],
+    "last_execution": null
+  },
+
+  "resource_constraints": {
+    "total_tokens_estimated": 40000,
+    "sessions_required": 1,
+    "ram_sufficient": true,
+    "thermal_monitoring": false
+  },
+
+  "benefits": {
+    "immediate": [
+      "Prevents data loss from crashes",
+      "Enables progress sampling during processing",
+      "Reduces anxiety during long operations",
+      "Allows pause/resume capability"
+    ],
+    "long_term": [
+      "Pattern applies to all chunked processing",
+      "J5A learns to enforce incremental saves",
+      "Reduces risk for all future operations",
+      "Better resource utilization"
+    ]
+  },
+
+  "lessons_from_operation_gladio": {
+    "problem": "17+ hours of transcription work at risk in volatile memory",
+    "root_cause": "Accumulate-then-save pattern instead of incremental persistence",
+    "solution": "Save checkpoint after each chunk with atomic writes",
+    "general_principle": "All chunked processes must save incrementally"
+  }
+}

@@ -1,0 +1,298 @@
+{
+  "plan_name": "Operation Gladio Intelligence Analysis",
+  "plan_version": "1.0",
+  "created": "2025-09-30",
+  "project": "sherlock",
+  "description": "Background processing to populate evidence database from Operation Gladio transcript with entity extraction, relationship mapping, and intelligence analysis",
+
+  "hardware_requirements": {
+    "min_ram_gb": 0.15,
+    "recommended_ram_gb": 0.2,
+    "max_ram_per_task_mb": 150,
+    "thermal_monitoring_required": false
+  },
+
+  "blocking_conditions": [],
+
+  "motivation": "Operation Gladio transcript (590KB, 96k words) contains rich intelligence data that needs structured extraction for analysis. Database schema exists but is empty. Need low-memory background processing to enable concurrent Squirt/Sherlock work.",
+
+  "general_principle": {
+    "name": "Low-Memory Batch Processing",
+    "category": "resource_management",
+    "priority": "recommended",
+    "applies_when": [
+      "Large document analysis",
+      "Background processing required",
+      "Concurrent foreground work needed",
+      "Memory constrained environment"
+    ],
+    "enforcement": "All tasks use <150MB RAM, checkpoint pattern, background priority"
+  },
+
+  "phases": [
+    {
+      "phase_id": "phase_2",
+      "phase_name": "Entity Extraction",
+      "status": "ready",
+      "risk_level": "low",
+      "dependencies": ["transcript_complete"],
+      "blocking_conditions": [],
+      "estimated_tokens": 27000,
+      "estimated_duration_hours": 4,
+      "python_module": "gladio_analysis_tasks.py",
+      "tasks": [
+        {
+          "task_id": "gladio_analysis_2_1",
+          "task_name": "Create BatchEntityExtractor",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_batch_entity_extractor.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/gladio_batch_entity_extractor.py"
+        },
+        {
+          "task_id": "gladio_analysis_2_2",
+          "task_name": "Create EntityDossierBuilder",
+          "priority": "normal",
+          "estimated_tokens": 6000,
+          "estimated_ram_mb": 100,
+          "estimated_duration_minutes": 45,
+          "thermal_risk": "low",
+          "dependencies": [],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_dossier_builder.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/gladio_dossier_builder.py"
+        },
+        {
+          "task_id": "gladio_analysis_2_3",
+          "task_name": "Populate people and organizations tables",
+          "priority": "normal",
+          "estimated_tokens": 5000,
+          "estimated_ram_mb": 100,
+          "estimated_duration_minutes": 90,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_1", "gladio_analysis_2_2"],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_populate_entities.py"
+          ],
+          "rollback": "python3 -c \"import sqlite3; conn=sqlite3.connect('gladio_intelligence.db'); conn.execute('DELETE FROM people'); conn.execute('DELETE FROM organizations'); conn.commit()\"",
+          "notes": "Populates database with 50+ people, 30+ organizations"
+        },
+        {
+          "task_id": "gladio_analysis_2_4",
+          "task_name": "Validate entity extraction quality",
+          "priority": "low",
+          "estimated_tokens": 3000,
+          "estimated_ram_mb": 50,
+          "estimated_duration_minutes": 30,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/entity_extraction_report.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/audiobooks/operation_gladio/entity_extraction_report.json"
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_3",
+      "phase_name": "Relationship Mapping",
+      "status": "ready",
+      "risk_level": "low",
+      "dependencies": ["phase_2_complete"],
+      "blocking_conditions": [],
+      "estimated_tokens": 27000,
+      "estimated_duration_hours": 3,
+      "python_module": "gladio_analysis_tasks.py",
+      "tasks": [
+        {
+          "task_id": "gladio_analysis_3_1",
+          "task_name": "Create RelationshipExtractor",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_relationship_extractor.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/gladio_relationship_extractor.py"
+        },
+        {
+          "task_id": "gladio_analysis_3_2",
+          "task_name": "Create ResourceFlowTracker",
+          "priority": "normal",
+          "estimated_tokens": 7000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_resource_flow_tracker.py"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/gladio_resource_flow_tracker.py"
+        },
+        {
+          "task_id": "gladio_analysis_3_3",
+          "task_name": "Build network graph",
+          "priority": "low",
+          "estimated_tokens": 5000,
+          "estimated_ram_mb": 100,
+          "estimated_duration_minutes": 45,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_3_1", "gladio_analysis_3_2"],
+          "outputs": [
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/gladio_network.dot",
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/network_metrics.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/audiobooks/operation_gladio/gladio_network.dot /home/johnny5/Sherlock/audiobooks/operation_gladio/network_metrics.json"
+        },
+        {
+          "task_id": "gladio_analysis_3_4",
+          "task_name": "Validate relationship mapping",
+          "priority": "low",
+          "estimated_tokens": 3000,
+          "estimated_ram_mb": 50,
+          "estimated_duration_minutes": 30,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_3_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/relationship_mapping_report.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/audiobooks/operation_gladio/relationship_mapping_report.json"
+        }
+      ]
+    },
+    {
+      "phase_id": "phase_4",
+      "phase_name": "Intelligence Analysis",
+      "status": "ready",
+      "risk_level": "low",
+      "dependencies": ["phase_3_complete"],
+      "blocking_conditions": [],
+      "estimated_tokens": 30000,
+      "estimated_duration_hours": 3,
+      "python_module": "gladio_analysis_tasks.py",
+      "tasks": [
+        {
+          "task_id": "gladio_analysis_4_1",
+          "task_name": "Build chronological event timeline",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_timeline_constructor.py"
+          ],
+          "rollback": "python3 -c \"import sqlite3; conn=sqlite3.connect('gladio_intelligence.db'); conn.execute('DELETE FROM timeline'); conn.commit()\""
+        },
+        {
+          "task_id": "gladio_analysis_4_2",
+          "task_name": "Build evidence correlation system",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_2_3", "gladio_analysis_4_1"],
+          "outputs": [
+            "/home/johnny5/Sherlock/gladio_evidence_correlator.py"
+          ],
+          "rollback": "python3 -c \"import sqlite3; conn=sqlite3.connect('gladio_intelligence.db'); conn.execute('DELETE FROM evidence'); conn.commit()\""
+        },
+        {
+          "task_id": "gladio_analysis_4_3",
+          "task_name": "Analyze patterns in intelligence network",
+          "priority": "normal",
+          "estimated_tokens": 8000,
+          "estimated_ram_mb": 150,
+          "estimated_duration_minutes": 60,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_3_3", "gladio_analysis_4_1", "gladio_analysis_4_2"],
+          "outputs": [
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/pattern_analysis_report.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/audiobooks/operation_gladio/pattern_analysis_report.json"
+        },
+        {
+          "task_id": "gladio_analysis_4_4",
+          "task_name": "Generate comprehensive intelligence reports",
+          "priority": "low",
+          "estimated_tokens": 6000,
+          "estimated_ram_mb": 100,
+          "estimated_duration_minutes": 45,
+          "thermal_risk": "low",
+          "dependencies": ["gladio_analysis_4_3"],
+          "outputs": [
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/gladio_intelligence_summary.md",
+            "/home/johnny5/Sherlock/audiobooks/operation_gladio/top_entities_report.json"
+          ],
+          "rollback": "rm -f /home/johnny5/Sherlock/audiobooks/operation_gladio/gladio_intelligence_summary.md /home/johnny5/Sherlock/audiobooks/operation_gladio/top_entities_report.json"
+        }
+      ]
+    }
+  ],
+
+  "execution_history": [],
+
+  "current_status": {
+    "phase_2": "ready",
+    "phase_3": "ready",
+    "phase_4": "ready",
+    "overall_progress": "0%",
+    "tasks_completed": [],
+    "tasks_failed": [],
+    "last_execution": null
+  },
+
+  "resource_constraints": {
+    "total_tokens_estimated": 84000,
+    "sessions_required": 8,
+    "ram_sufficient": true,
+    "thermal_monitoring": false,
+    "priority": "background",
+    "yields_to": ["squirt_voice", "sherlock_print"]
+  },
+
+  "benefits": {
+    "immediate": [
+      "Low-memory processing (<150MB per task)",
+      "Background operation (non-blocking)",
+      "Checkpoint-based (resume capability)",
+      "Structured intelligence database"
+    ],
+    "long_term": [
+      "Queryable network analysis",
+      "Reusable pattern for other audiobooks",
+      "Foundation for cross-document intelligence",
+      "Network visualization capabilities"
+    ]
+  },
+
+  "design_patterns": {
+    "low_memory_batch_processing": {
+      "problem": "Large document analysis in memory-constrained environment",
+      "solution": "Process in small batches (<150MB), save incrementally",
+      "benefits": "Enables background processing, prevents memory exhaustion"
+    },
+    "checkpoint_pattern": {
+      "problem": "Long-running processes vulnerable to interruption",
+      "solution": "Save after each batch, enable resume from last checkpoint",
+      "benefits": "Crash recovery, progress visibility, interruptibility"
+    },
+    "background_priority": {
+      "problem": "Need concurrent foreground and background work",
+      "solution": "Background tasks yield to foreground, use minimal resources",
+      "benefits": "User can work on priority tasks while analysis runs"
+    }
+  }
+}
