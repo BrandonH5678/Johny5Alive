@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_36",
+  "task_type": "sherlock_research",
+  "package_id": 36,
+  "target_name": "Albert Stubblebine",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Albert+Stubblebine",
+    "https://en.wikipedia.org/wiki/Albert_Stubblebine"
+  ],
+  "expected_outputs": [
+    "research/albert_stubblebine_overview.json",
+    "evidence/albert_stubblebine_claims.json",
+    "timeline/albert_stubblebine_events.json",
+    "network/albert_stubblebine_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:13.802615"
+}

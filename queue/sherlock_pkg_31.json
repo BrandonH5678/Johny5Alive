@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_31",
+  "task_type": "sherlock_research",
+  "package_id": 31,
+  "target_name": "George Tenet",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=George+Tenet",
+    "https://en.wikipedia.org/wiki/George_Tenet"
+  ],
+  "expected_outputs": [
+    "research/george_tenet_overview.json",
+    "evidence/george_tenet_claims.json",
+    "timeline/george_tenet_events.json",
+    "network/george_tenet_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:12.187182"
+}

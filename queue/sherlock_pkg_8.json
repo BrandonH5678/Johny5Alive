@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_8",
+  "task_type": "sherlock_research",
+  "package_id": 8,
+  "target_name": "US Army INSCOM",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=US+Army+INSCOM"
+  ],
+  "expected_outputs": [
+    "research/us_army_inscom_overview.json",
+    "evidence/us_army_inscom_claims.json",
+    "timeline/us_army_inscom_events.json",
+    "network/us_army_inscom_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:04.550783"
+}

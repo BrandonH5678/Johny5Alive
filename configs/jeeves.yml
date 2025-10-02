@@ -1,0 +1,48 @@
+# Jeeves Configuration - House-Cleaner & Standards Enforcer
+
+# Tidy scan thresholds
+inactive_days: 60
+orphan_imports: true
+max_binary_mb: 50
+
+# Directory classification
+treat_as_data:
+  - "**/data/**"
+  - "**/snapshots/**"
+  - "**/*.aaxc"
+
+ignore_globs:
+  - "**/node_modules/**"
+  - "**/.venv/**"
+  - "**/legacy/**"
+  - "**/__pycache__/**"
+  - "**/.git/**"
+
+# Duplicate detection
+duplicate_detection:
+  min_token_len: 120
+  min_similarity: 0.92
+  use_ast: true
+  use_embeddings: false   # enable if you want deeper search
+
+# Snapshot policy
+snapshot:
+  compress: zstd
+  verify_restore: true
+
+# UI settings
+ui:
+  bind: "127.0.0.1:8077"
+  title: "Jeeves - J5A House-Cleaner"
+
+# Repositories to scan
+repos:
+  - name: "j5a"
+    path: "/home/johnny5/Johny5Alive"
+    type: "main"
+  - name: "squirt"
+    path: "/home/johnny5/Squirt"
+    type: "subsystem"
+  - name: "sherlock"
+    path: "/home/johnny5/Sherlock"
+    type: "subsystem"

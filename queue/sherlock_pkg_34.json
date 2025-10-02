@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_34",
+  "task_type": "sherlock_research",
+  "package_id": 34,
+  "target_name": "Richard Bissell",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Richard+Bissell",
+    "https://en.wikipedia.org/wiki/Richard_Bissell"
+  ],
+  "expected_outputs": [
+    "research/richard_bissell_overview.json",
+    "evidence/richard_bissell_claims.json",
+    "timeline/richard_bissell_events.json",
+    "network/richard_bissell_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:13.153851"
+}

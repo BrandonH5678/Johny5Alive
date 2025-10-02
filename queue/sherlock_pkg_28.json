@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_28",
+  "task_type": "sherlock_research",
+  "package_id": 28,
+  "target_name": "George H. W. Bush",
+  "package_type": "composite",
+  "priority": 1,
+  "collection_urls": [
+    "https://www.google.com/search?q=George+H.+W.+Bush",
+    "https://en.wikipedia.org/wiki/George_H._W._Bush"
+  ],
+  "expected_outputs": [
+    "research/george_h._w._bush_overview.json",
+    "evidence/george_h._w._bush_claims.json",
+    "timeline/george_h._w._bush_events.json",
+    "network/george_h._w._bush_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:11.103272"
+}

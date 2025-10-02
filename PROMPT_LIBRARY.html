@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J5A System Prompt Library - Token Optimization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            border-bottom: 2px solid #e9ecef;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav h3 {
+            margin-bottom: 15px;
+            color: #495057;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-link {
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            scroll-margin-top: 80px;
+        }
+
+        .section h2 {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .section-intro {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+        }
+
+        .section-intro strong {
+            color: #1565c0;
+        }
+
+        .prompt-card {
+            background: #ffffff;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+
+        .prompt-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .prompt-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .prompt-header h3 {
+            color: #495057;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .prompt-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9em;
+            color: #6c757d;
+        }
+
+        .prompt-box {
+            background: #f8f9fa;
+            padding: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            position: relative;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .copy-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+
+        .copy-btn.copied {
+            background: #28a745;
+        }
+
+        .tip-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .tip-box strong {
+            color: #856404;
+        }
+
+        .savings-box {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #155724;
+        }
+
+        .warning-box {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .warning-box strong {
+            color: #721c24;
+        }
+
+        .cache-stats {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .cache-meter {
+            width: 100%;
+            height: 35px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 17px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .cache-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #28a745, #20c997);
+            transition: width 1s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .quick-commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .quick-cmd {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .quick-cmd:hover {
+            border-color: #667eea;
+            background: #e7f1ff;
+        }
+
+        .quick-cmd h4 {
+            color: #495057;
+            margin-bottom: 8px;
+        }
+
+        .quick-cmd code {
+            display: block;
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 8px;
+            word-wrap: break-word;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px 30px;
+            text-align: center;
+            color: #6c757d;
+            border-top: 2px solid #e9ecef;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .badge-high {
+            background: #28a745;
+            color: white;
+        }
+
+        .badge-medium {
+            background: #ffc107;
+            color: #856404;
+        }
+
+        .badge-low {
+            background: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📚 J5A System Prompt Library</h1>
+            <p>💾 Maximum Token Savings Through Prompt Reuse</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav">
+            <h3>📋 Quick Navigation</h3>
+            <div class="nav-links">
+                <a href="#cache-stats" class="nav-link">Cache Stats</a>
+                <a href="#j5a-context" class="nav-link">J5A Context</a>
+                <a href="#sherlock-schema" class="nav-link">Sherlock Schema</a>
+                <a href="#squirt-templates" class="nav-link">Squirt Templates</a>
+                <a href="#query-templates" class="nav-link">Query Templates</a>
+                <a href="#quick-commands" class="nav-link">Quick Commands</a>
+                <a href="#bash-commands" class="nav-link">Bash Commands</a>
+            </div>
+
+            <!-- Search Bar -->
+            <div style="margin-top: 20px;">
+                <input type="text" id="search-bar" placeholder="🔍 Search for Claude commands or bash commands..."
+                    style="width: 100%; padding: 12px 20px; border: 2px solid #667eea; border-radius: 8px;
+                    font-size: 16px; font-family: inherit; outline: none; transition: all 0.3s;">
+                <div id="search-results" style="margin-top: 10px; max-height: 300px; overflow-y: auto;"></div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <!-- Cache Statistics -->
+            <section id="cache-stats" class="section">
+                <div class="cache-stats">
+                    <h2 style="color: white; border: none; margin-bottom: 10px;">📊 Your Cache Efficiency</h2>
+                    <div class="cache-meter">
+                        <div class="cache-fill" style="width: 0%;" id="cache-bar">
+                            <span id="cache-percent">0%</span>
+                        </div>
+                    </div>
+                    <p id="cache-text" style="font-size: 1.1em; margin-top: 10px;">
+                        Checking cache statistics...
+                    </p>
+                    <p style="font-size: 0.9em; opacity: 0.9; margin-top: 5px;">
+                        Target: 70-90% cache hit rate for optimal savings
+                    </p>
+                </div>
+            </section>
+
+            <!-- Section 1: J5A System Context -->
+            <section id="j5a-context" class="section">
+                <h2>🤖 1. J5A System Context</h2>
+                <div class="section-intro">
+                    <strong>Cache Value:</strong> 800-1,000 tokens | <strong>Use:</strong> Start of EVERY J5A session
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>J5A System Context - Core Prompt</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGHEST</span></span>
+                            <span>💰 Savings: ~900 tokens per session</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="j5a-system-context">You are J5A, the overnight queue/batch management system coordinating Squirt and Sherlock.
+
+CONSTRAINTS (fixed, never changes):
+- Memory limit: 3.0GB safe threshold (3.7GB total - 0.7GB system buffer)
+- Thermal limit: 80°C maximum CPU temperature
+- Business hours: LibreOffice priority 6am-7pm Mon-Fri (WaterWizard operations)
+
+HARDWARE (fixed):
+- 2012 Mac Mini, 3.7GB RAM, Linux Mint MATE
+- CPU-only processing (no GPU)
+- Storage: SSD with media archive space
+
+VALIDATION PROTOCOL (fixed):
+- V0: Schema validation before submission to J5A queue
+- V1: Execution validation after J5A task completion
+- V2: Output conformance validation after ingestion
+
+SYSTEM PRIORITIES:
+- Completion over quality (prevent crashes through intelligent resource management)
+- Statistical sampling validation (3-segment stratified sampling)
+- Blocking gate checkpoints (prevent resource waste)
+- Cross-system coordination (Squirt, Sherlock resource allocation)
+- Thermal safety integration (real-time monitoring and protection)
+<button class="copy-btn" onclick="copyPrompt('j5a-system-context', this)">📋 COPY</button></div>
+
+                    <div class="tip-box">
+                        ⚠️ <strong>USAGE TIP:</strong> Paste this FIRST in every J5A conversation<br>
+                        ✅ <strong>DO:</strong> Use exact text (enables caching)<br>
+                        ❌ <strong>DON'T:</strong> Paraphrase or summarize (breaks cache)
+                    </div>
+
+                    <div class="savings-box">
+                        💰 <strong>SAVINGS:</strong> 900 tokens cached per session = $0.027/session (90% cache hit)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Sherlock Schema -->
+            <section id="sherlock-schema" class="section">
+                <h2>🔍 2. Sherlock Database Schema</h2>
+                <div class="section-intro">
+                    <strong>Cache Value:</strong> 600-800 tokens | <strong>Use:</strong> Start of EVERY Sherlock query
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>Sherlock Schema Context - Core Prompt</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGHEST</span></span>
+                            <span>💰 Savings: ~700 tokens per query</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="sherlock-schema-context">SHERLOCK DATABASE SCHEMA:
+
+CORE TABLES:
+- evidence_card: source_id, title, url, evidence_type (hearing|document|witness|journalism|official|speculative), duration, page_count, created_at, metadata
+- claim: claim_id, source_id, speaker_id, claim_type (factual|testimonial|analytical|speculative), text, confidence (0-1), start_time, end_time, page_number, context, entities[], tags[], created_at
+- speaker_alias: global_speaker_id, name, title, organization, voice_embedding, confidence, first_seen, last_seen, metadata
+- media: media_id, title, url, file_path, media_type (audio|video|document|image|sensor), duration, created_at, metadata
+
+TARGETING TABLES:
+- targets: target_id, name, target_type (person|org|event|location|tech|operation), priority (1-5), status (new|under_research|validated|closed), created_at, metadata
+- targeting_package: package_id, target_id, version, package_type (youtube|document|composite), status (draft|ready|submitted|queued|running|completed|validated|closed), collection_urls[], expected_outputs[], created_at
+
+CURRENT OPERATIONS (9 total):
+1. Operation Gladio (NATO stay-behind networks, 1940s-1990s)
+2. Thread 3 (Soviet UFO research, 1978-1993)
+3. JFK Assassination (1963 investigation)
+4. S-Force (Classified military/intelligence operations)
+5. Sullivan & Cromwell (Corporate-state fusion: Iran 1953, Guatemala 1954, Chile 1973)
+6. TSMC (Taiwan semiconductor industrial strategy, 1987-present)
+7. MK-Ultra (CIA mind control experiments, 1953-1973)
+8. Italy UFO (1933 crash, Gabinetto RS/33)
+9. Operation Mockingbird (CIA media manipulation, 1950s-1970s+)
+
+CONFIDENCE WEIGHTING RUBRIC:
+- official/document_declassified: 0.75-0.80 (authenticated government records)
+- hearing (congressional, under oath): 0.70 (adversarial questioning)
+- witness (firsthand, on-record): 0.55 (direct observation)
+- witness (anonymous/secondhand): 0.50 (lower verification)
+- journalism (reputable outlets): 0.50 (professional standards)
+- document_leaked: 0.60 (provenance uncertain)
+- sensor (radar, thermal, photo): 0.80 (objective measurement)
+- analytical (expert analysis): 0.60 (informed reasoning)
+- speculative (hypothesis, theory): 0.25 (conjecture)
+<button class="copy-btn" onclick="copyPrompt('sherlock-schema-context', this)">📋 COPY</button></div>
+
+                    <div class="tip-box">
+                        ⚠️ <strong>USAGE TIP:</strong> Include before asking ANY Sherlock question<br>
+                        ✅ <strong>DO:</strong> Use for all intelligence queries<br>
+                        ❌ <strong>DON'T:</strong> Send full transcripts (use retrieval instead)
+                    </div>
+
+                    <div class="savings-box">
+                        💰 <strong>SAVINGS:</strong> 700 tokens cached per query = $0.021/query (90% cache hit)
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Squirt Templates -->
+            <section id="squirt-templates" class="section">
+                <h2>📄 3. Squirt Output Templates</h2>
+                <div class="section-intro">
+                    <strong>Cache Value:</strong> 400-600 tokens | <strong>Use:</strong> Every Squirt document conversion
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>3.1 WaterWizard Invoice Template</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGH</span></span>
+                            <span>💰 Savings: ~500 tokens per invoice</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="template-invoice">WATERWIZARD INVOICE TEMPLATE:
+
+HEADER:
+- Business name: WaterWizard Landscaping
+- Address, phone, email
+- Invoice number: [auto-increment]
+- Date: [current date]
+- Customer name and address
+
+LINE ITEMS (table format):
+- Description (service/product)
+- Quantity
+- Rate ($/unit)
+- Amount (quantity × rate)
+
+FOOTER:
+- Subtotal (sum of line items)
+- Tax (if applicable)
+- Total (subtotal + tax)
+- Payment terms: "Net 30 days"
+- Payment methods accepted
+
+OUTPUT FORMAT: PDF or formatted text, professional appearance
+<button class="copy-btn" onclick="copyPrompt('template-invoice', this)">📋 COPY</button></div>
+
+                    <div class="tip-box">
+                        ⚠️ <strong>USAGE TIP:</strong> Reference by name: "Use WaterWizard Invoice format"<br>
+                        ❌ <strong>DON'T:</strong> Describe format each time (costs 500 extra tokens)
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>3.2 WaterWizard Estimate Template</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGH</span></span>
+                            <span>💰 Savings: ~450 tokens per estimate</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="template-estimate">WATERWIZARD ESTIMATE TEMPLATE:
+
+HEADER:
+- Business name: WaterWizard Landscaping
+- Contact information
+- Estimate number and date
+- Client name, property address, contact info
+
+SCOPE OF WORK:
+- Bulleted list of services
+- Specific tasks and deliverables
+- Timeline/schedule (if applicable)
+
+MATERIALS LIST:
+- Item descriptions
+- Quantities
+- Unit costs
+
+LABOR ESTIMATE:
+- Hours/days required
+- Labor rate
+- Total labor cost
+
+TOTAL ESTIMATE:
+- Materials subtotal
+- Labor subtotal
+- Grand total
+- Validity period: "Valid for 30 days"
+
+NOTES:
+- Payment schedule (e.g., 50% deposit, 50% on completion)
+- Terms and conditions
+
+OUTPUT FORMAT: PDF or formatted text
+<button class="copy-btn" onclick="copyPrompt('template-estimate', this)">📋 COPY</button></div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>3.3 Meeting Minutes Template</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-medium">MEDIUM</span></span>
+                            <span>💰 Savings: ~400 tokens per document</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="template-minutes">MEETING MINUTES TEMPLATE:
+
+HEADER:
+- Meeting title/subject
+- Date and time
+- Location (physical or virtual)
+- Attendees (list names and roles)
+- Absent/Apologies
+
+AGENDA ITEMS (numbered):
+1. [Topic 1]
+   - Discussion summary (2-3 sentences)
+   - Key points raised
+   - Decisions made
+
+2. [Topic 2]
+   - Discussion summary
+   - Key points
+   - Decisions
+
+ACTION ITEMS:
+- [ ] Task description | Owner: [Name] | Due: [Date]
+- [ ] Task description | Owner: [Name] | Due: [Date]
+
+NEXT MEETING:
+- Date/time
+- Proposed agenda items
+
+OUTPUT FORMAT: Structured document with clear sections
+<button class="copy-btn" onclick="copyPrompt('template-minutes', this)">📋 COPY</button></div>
+
+                    <div class="savings-box">
+                        💰 <strong>TOTAL SAVINGS:</strong> 500 tokens cached × 10 uses/day = 5,000 tokens/day saved
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Query Templates -->
+            <section id="query-templates" class="section">
+                <h2>🎯 4. Query Templates</h2>
+                <div class="section-intro">
+                    <strong>Cache Value:</strong> 200-400 tokens each | <strong>Use:</strong> Standard query patterns
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>4.1 Sherlock Evidence Query (Minimal Context)</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGHEST</span></span>
+                            <span>💰 Savings: 250 tokens per query</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="query-sherlock-evidence">Task: Answer the question using ONLY the Evidence Excerpts.
+If claims aren't supported, say "insufficient evidence."
+
+Question: {YOUR_QUESTION_HERE}
+
+Evidence Excerpts:
+{RETRIEVED_AUTOMATICALLY_BY_SYSTEM}
+
+Output (strict):
+- Direct answer (2-4 sentences).
+- Supporting points (bullets), each ending with [E#].
+- Contradictions/uncertainty (if any), with [E#].
+<button class="copy-btn" onclick="copyPrompt('query-sherlock-evidence', this)">📋 COPY</button></div>
+
+                    <div class="tip-box">
+                        ⚠️ <strong>USAGE TIP:</strong> Replace {YOUR_QUESTION_HERE} with specific question<br>
+                        ✅ <strong>EXAMPLE:</strong> "Who ran Operation Mockingbird in 1967?"<br>
+                        💰 <strong>SAVINGS:</strong> Retrieval pulls only 1.2k tokens vs 15k-40k full transcript
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>4.2 J5A Task Queue Request</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGH</span></span>
+                            <span>💰 Savings: 200 tokens per request</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="query-j5a-queue">{J5A_SYSTEM_CONTEXT from Section 1}
+
+Task: Queue the following for overnight execution:
+
+Package ID: {package_id}
+Target: {target_name}
+Type: {youtube|document|composite}
+Expected outputs: {list_of_expected_files}
+
+Validation: Run V0 validation before submission.
+<button class="copy-btn" onclick="copyPrompt('query-j5a-queue', this)">📋 COPY</button></div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>4.3 Squirt Transcription + Formatting</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGH</span></span>
+                            <span>💰 Savings: 300 tokens per conversion</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="query-squirt-convert">{SQUIRT_TEMPLATE from Section 3}
+
+Task: Convert audio transcription to {format_name}.
+
+Audio file: {file_path}
+Transcription: {transcript_text_or_reference}
+
+Output: Apply {format_name} template with extracted data.
+<button class="copy-btn" onclick="copyPrompt('query-squirt-convert', this)">📋 COPY</button></div>
+                </div>
+            </section>
+
+            <!-- Section 5: Quick Commands -->
+            <section id="quick-commands" class="section">
+                <h2>⚡ 5. Quick Commands</h2>
+                <div class="section-intro">
+                    <strong>One-click commands for common operations.</strong> Copy exact text for maximum caching.
+                </div>
+
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('Check J5A system status: thermal, memory, business hours.')">
+                        <h4>Check J5A Status</h4>
+                        <code>Check J5A system status: thermal, memory, business hours.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Query Sherlock operation=\'mockingbird\' for propaganda tactics. Cite with [E#].')">
+                        <h4>Query Mockingbird</h4>
+                        <code>Query Sherlock operation='mockingbird' for propaganda tactics. Cite with [E#].</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Query Sherlock operation=\'mkultra\' for mind control experiments. Cite with [E#].')">
+                        <h4>Query MK-Ultra</h4>
+                        <code>Query Sherlock operation='mkultra' for mind control experiments. Cite with [E#].</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('List all Sherlock targets with status=new, priority=1.')">
+                        <h4>List Priority Targets</h4>
+                        <code>List all Sherlock targets with status=new, priority=1.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Generate daily Targeting Officer report.')">
+                        <h4>Daily Officer Report</h4>
+                        <code>Generate daily Targeting Officer report.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Run J5A statistical validation on current queue.')">
+                        <h4>Validate J5A Queue</h4>
+                        <code>Run J5A statistical validation on current queue.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 show_queue.py')">
+                        <h4>Show Tonight\'s Queue</h4>
+                        <code>python3 show_queue.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_token_governor.py')">
+                        <h4>View Token Budget</h4>
+                        <code>python3 src/j5a_token_governor.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 forecast_tonight_with_tokens.py')">
+                        <h4>Forecast with Token Management</h4>
+                        <code>python3 forecast_tonight_with_tokens.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Set J5A overnight timer to run at HH:MM')">
+                        <h4>Schedule Overnight Batch</h4>
+                        <code>Set J5A overnight timer to run at HH:MM</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('./sync_to_github.sh')">
+                        <h4>Sync All Systems to GitHub</h4>
+                        <code>./sync_to_github.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('./sync_to_github.sh j5a')">
+                        <h4>Sync J5A Only</h4>
+                        <code>./sync_to_github.sh j5a</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('./sync_to_github.sh squirt')">
+                        <h4>Sync Squirt Only</h4>
+                        <code>./sync_to_github.sh squirt</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('./sync_to_github.sh sherlock')">
+                        <h4>Sync Sherlock Only</h4>
+                        <code>./sync_to_github.sh sherlock</code>
+                    </div>
+                </div>
+
+                <div class="tip-box" style="margin-top: 25px;">
+                    💡 <strong>PRO TIP:</strong> Click any Quick Command card to copy it instantly. These are pre-optimized for caching!
+                </div>
+            </section>
+
+            <!-- Section 6: Bash Commands -->
+            <section id="bash-commands" class="section">
+                <h2>💻 6. Common Bash Commands</h2>
+                <div class="section-intro">
+                    <strong>Frequently used bash commands for system operations.</strong> Click to copy.
+                </div>
+
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('python3 thermal_check.py --full-status')">
+                        <h4>Check Thermal Status</h4>
+                        <code>python3 thermal_check.py --full-status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/overnight_queue_manager.py --process-queue')">
+                        <h4>Process J5A Queue Manually</h4>
+                        <code>python3 src/overnight_queue_manager.py --process-queue</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery')">
+                        <h4>Validate Sherlock Outputs</h4>
+                        <code>python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/cross_system_coordinator.py --status')">
+                        <h4>Cross-System Coordination Status</h4>
+                        <code>python3 src/cross_system_coordinator.py --status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('systemctl --user status j5a-overnight.timer')">
+                        <h4>Check J5A Timer Status</h4>
+                        <code>systemctl --user status j5a-overnight.timer</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('journalctl --user -u j5a-overnight.service -n 50')">
+                        <h4>View J5A Service Logs</h4>
+                        <code>journalctl --user -u j5a-overnight.service -n 50</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('git log --oneline -10')">
+                        <h4>View Recent Git Commits</h4>
+                        <code>git log --oneline -10</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('git status')">
+                        <h4>Check Git Status</h4>
+                        <code>git status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM task_executions WHERE status=\\\"queued\\\" LIMIT 10\"')">
+                        <h4>View Queued Tasks (SQLite)</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM task_executions WHERE status=\"queued\" LIMIT 10"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('du -sh */')">
+                        <h4>Check Directory Sizes</h4>
+                        <code>du -sh */</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ps aux | grep python')">
+                        <h4>Check Running Python Processes</h4>
+                        <code>ps aux | grep python</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('free -h')">
+                        <h4>Check Memory Usage</h4>
+                        <code>free -h</code>
+                    </div>
+                </div>
+
+                <div class="tip-box" style="margin-top: 25px;">
+                    💡 <strong>PRO TIP:</strong> These bash commands are integrated with Claude commands for seamless workflow!
+                </div>
+            </section>
+
+            <!-- Cache Efficiency Tips -->
+            <section class="section">
+                <h2>🎓 Maximizing Cache Efficiency</h2>
+
+                <div class="warning-box">
+                    <strong>⚠️ CACHE BREAKERS - AVOID THESE:</strong><br><br>
+                    ❌ Rephrasing system context each session<br>
+                    ❌ Describing templates instead of referencing by name<br>
+                    ❌ Adding unnecessary pleasantries or context<br>
+                    ❌ Changing word order or synonyms<br>
+                    ❌ Asking broad "tell me about X" questions
+                </div>
+
+                <div class="savings-box">
+                    <strong>✅ CACHE MAXIMIZERS - DO THESE:</strong><br><br>
+                    ✅ Copy-paste exact prompts from this library<br>
+                    ✅ Use template names: "Use WaterWizard Invoice format"<br>
+                    ✅ Reference by ID: "Analyze media_id=grusch_hearing"<br>
+                    ✅ Specify output limits: "Max 3 bullets, cite [E#]"<br>
+                    ✅ Reuse exact phrasing across days
+                </div>
+
+                <div class="tip-box">
+                    <strong>📊 MONITOR YOUR EFFICIENCY:</strong><br><br>
+                    Check cache hit rate weekly: <code>python3 src/token_monitor.py --weekly-report</code><br>
+                    Target: <strong>70-90% cache hit rate</strong><br>
+                    If below 60%: Review prompts and use this library more consistently
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>J5A System Prompt Library v1.0</strong></p>
+            <p>Token Optimization System | Last Updated: 2025-10-01</p>
+            <p style="margin-top: 10px;">💡 <em>Using this library can reduce token usage by 70-90%</em></p>
+        </div>
+    </div>
+
+    <script>
+        // Copy prompt function with visual feedback
+        function copyPrompt(elementId, buttonElement) {
+            const element = document.getElementById(elementId);
+            let text = element.innerText || element.textContent;
+
+            // Remove the copy button text if it got included
+            text = text.replace(/📋 COPY/g, '').trim();
+
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback
+                const originalText = buttonElement.innerHTML;
+                buttonElement.innerHTML = '✅ COPIED!';
+                buttonElement.classList.add('copied');
+
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalText;
+                    buttonElement.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                alert('Failed to copy. Please select and copy manually.');
+                console.error('Copy failed:', err);
+            });
+        }
+
+        // Copy plain text (for quick commands)
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                // Show temporary notification
+                showNotification('✅ Copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy: ' + text);
+            });
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #28a745;
+                color: white;
+                padding: 15px 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-weight: 600;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 2000);
+        }
+
+        // Load cache statistics (mock data for now, will be replaced with real data)
+        function loadCacheStats() {
+            // This will be replaced with actual data from token_monitor.py
+            // For now, show demo data
+            setTimeout(() => {
+                const cacheRate = 0; // Will be loaded from token_stats.json
+                const cacheBar = document.getElementById('cache-bar');
+                const cachePercent = document.getElementById('cache-percent');
+                const cacheText = document.getElementById('cache-text');
+
+                // Animate to demo value (will use real data)
+                const targetRate = 0; // Start at 0, user will build up
+
+                setTimeout(() => {
+                    cacheBar.style.width = targetRate + '%';
+                    cachePercent.textContent = targetRate.toFixed(1) + '%';
+                }, 100);
+
+                let statusText = '';
+                let statusColor = '';
+
+                if (targetRate >= 70) {
+                    statusText = '🟢 <strong>Excellent!</strong> Keep using exact prompts from this library.';
+                    statusColor = '#28a745';
+                } else if (targetRate >= 60) {
+                    statusText = '🟡 <strong>Good.</strong> Review prompt variations to improve caching.';
+                    statusColor = '#ffc107';
+                } else {
+                    statusText = '🔴 <strong>Needs Improvement.</strong> You\'re rephrasing too much. Use this library more consistently.';
+                    statusColor = '#dc3545';
+                }
+
+                cacheText.innerHTML = `
+                    Current cache hit rate: <strong>${targetRate.toFixed(1)}%</strong><br>
+                    ${statusText}<br>
+                    <span style="font-size: 0.9em; opacity: 0.9;">Start using prompts from this library to build your cache efficiency!</span>
+                `;
+            }, 500);
+        }
+
+        // Search functionality
+        function initSearch() {
+            const searchBar = document.getElementById('search-bar');
+            const searchResults = document.getElementById('search-results');
+
+            // Build searchable index
+            const searchIndex = [];
+
+            // Index all quick commands
+            document.querySelectorAll('.quick-cmd').forEach(cmd => {
+                const title = cmd.querySelector('h4').textContent;
+                const code = cmd.querySelector('code').textContent;
+                searchIndex.push({
+                    type: 'command',
+                    title: title,
+                    content: code,
+                    element: cmd
+                });
+            });
+
+            // Index all prompt cards
+            document.querySelectorAll('.prompt-card').forEach(card => {
+                const title = card.querySelector('h3').textContent;
+                const content = card.querySelector('.prompt-box').textContent.substring(0, 200);
+                searchIndex.push({
+                    type: 'prompt',
+                    title: title,
+                    content: content,
+                    element: card
+                });
+            });
+
+            // Search handler
+            searchBar.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+
+                if (query.length < 2) {
+                    searchResults.innerHTML = '';
+                    return;
+                }
+
+                // Filter results
+                const results = searchIndex.filter(item =>
+                    item.title.toLowerCase().includes(query) ||
+                    item.content.toLowerCase().includes(query)
+                ).slice(0, 8);
+
+                // Display results
+                if (results.length === 0) {
+                    searchResults.innerHTML = '<div style="padding: 15px; color: #6c757d;">No results found</div>';
+                } else {
+                    searchResults.innerHTML = results.map(result => `
+                        <div style="background: white; border: 2px solid #e9ecef; border-radius: 6px;
+                                    padding: 12px; margin-bottom: 8px; cursor: pointer; transition: all 0.3s;"
+                             onmouseover="this.style.borderColor='#667eea'; this.style.background='#e7f1ff'"
+                             onmouseout="this.style.borderColor='#e9ecef'; this.style.background='white'"
+                             onclick="document.getElementById('search-bar').value=''; document.getElementById('search-results').innerHTML=''; this.querySelector('.search-result-element').scrollIntoView({behavior: 'smooth', block: 'center'});">
+                            <div style="font-weight: 600; color: #495057; margin-bottom: 4px;">
+                                ${result.type === 'command' ? '⚡' : '📋'} ${result.title}
+                            </div>
+                            <code style="font-size: 12px; color: #6c757d; display: block; background: #f8f9fa;
+                                         padding: 6px; border-radius: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                ${result.content.substring(0, 80)}${result.content.length > 80 ? '...' : ''}
+                            </code>
+                            <div class="search-result-element" style="position: absolute; top: -100px;"></div>
+                        </div>
+                    `).join('');
+
+                    // Store references to elements for scrolling
+                    results.forEach((result, idx) => {
+                        const resultDiv = searchResults.children[idx];
+                        resultDiv.addEventListener('click', () => {
+                            result.element.scrollIntoView({behavior: 'smooth', block: 'center'});
+                            result.element.style.animation = 'highlight-pulse 1s';
+                            setTimeout(() => result.element.style.animation = '', 1000);
+                        });
+                    });
+                }
+            });
+
+            // Add highlight animation to CSS
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes highlight-pulse {
+                    0%, 100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+                    50% { box-shadow: 0 0 20px 5px rgba(102, 126, 234, 0.5); }
+                }
+                #search-bar:focus {
+                    border-color: #667eea;
+                    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadCacheStats();
+            initSearch();
+        });
+    </script>
+</body>
+</html>

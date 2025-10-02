@@ -1,0 +1,17 @@
+{
+  "task_id": "sherlock_pkg_5",
+  "task_type": "sherlock_research",
+  "package_id": 5,
+  "target_name": "Imminent \u2014 Luis Elizondo",
+  "package_type": "document",
+  "priority": 1,
+  "collection_urls": [
+    "https://books.google.com/books?q=Imminent+\u2014+Luis+Elizondo"
+  ],
+  "expected_outputs": [
+    "documents/imminent_-_luis_elizondo_text.txt",
+    "evidence/imminent_-_luis_elizondo_claims.json",
+    "analysis/imminent_-_luis_elizondo_summary.json"
+  ],
+  "created_at": "2025-10-01T20:23:03.353198"
+}

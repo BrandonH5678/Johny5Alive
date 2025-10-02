@@ -1,0 +1,17 @@
+{
+  "task_id": "sherlock_pkg_1",
+  "task_type": "sherlock_research",
+  "package_id": 1,
+  "target_name": "A People's History of the United States \u2014 Howard Zinn",
+  "package_type": "document",
+  "priority": 3,
+  "collection_urls": [
+    "https://books.google.com/books?q=A+People's+History+of+the+United+States+\u2014+Howard+Zinn"
+  ],
+  "expected_outputs": [
+    "documents/a_people's_history_of_the_united_states_-_howard_zinn_text.txt",
+    "evidence/a_people's_history_of_the_united_states_-_howard_zinn_claims.json",
+    "analysis/a_people's_history_of_the_united_states_-_howard_zinn_summary.json"
+  ],
+  "created_at": "2025-10-01T20:23:01.811261"
+}

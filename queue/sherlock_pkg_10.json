@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_10",
+  "task_type": "sherlock_research",
+  "package_id": 10,
+  "target_name": "Soviet Psychic Program",
+  "package_type": "composite",
+  "priority": 3,
+  "collection_urls": [
+    "https://www.google.com/search?q=Soviet+Psychic+Program"
+  ],
+  "expected_outputs": [
+    "research/soviet_psychic_program_overview.json",
+    "evidence/soviet_psychic_program_claims.json",
+    "timeline/soviet_psychic_program_events.json",
+    "network/soviet_psychic_program_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:05.179258"
+}

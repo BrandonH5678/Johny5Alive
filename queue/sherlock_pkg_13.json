@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_13",
+  "task_type": "sherlock_research",
+  "package_id": 13,
+  "target_name": "Brown Brothers Harriman",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Brown+Brothers+Harriman"
+  ],
+  "expected_outputs": [
+    "research/brown_brothers_harriman_overview.json",
+    "evidence/brown_brothers_harriman_claims.json",
+    "timeline/brown_brothers_harriman_events.json",
+    "network/brown_brothers_harriman_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:06.123570"
+}

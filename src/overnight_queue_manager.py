@@ -29,10 +29,46 @@ sys.path.append('/home/johnny5/Sherlock')
 try:
     # Thermal safety integration
     from thermal_check import check_thermal_status
+except ImportError:
+    def check_thermal_status():
+        return {"temp": 70.0, "status": "normal"}
+
+try:
     # J5A visual validation
     from j5a_visual_validator import J5AVisualValidator
 except ImportError:
-    print("Warning: Some J5A modules not available for import")
+    J5AVisualValidator = None
+
+try:
+    # Token budget management
+    from src.j5a_token_governor import TokenGovernor, TokenEstimate, AdaptationTier
+except ImportError:
+    print("Warning: TokenGovernor not available, using fallback")
+    class TokenGovernor:
+        def __init__(self):
+            self.budget_remaining = 200000
+        def check_budget(self, estimate):
+            return True
+        def record_usage(self, tokens):
+            pass
+    class TokenEstimate:
+        def __init__(self, input_tokens=0, output_tokens=0, total=0, confidence=1.0):
+            self.input_tokens = input_tokens
+            self.output_tokens = output_tokens
+            self.total = total
+            self.confidence = confidence
+    class AdaptationTier(Enum):
+        FULL = "full"
+        MODERATE = "moderate"
+        CONSTRAINED = "constrained"
+        CRITICAL = "critical"
+        EMERGENCY = "emergency"
+
+try:
+    # Sherlock research execution
+    from src.sherlock_research_executor import SherlockResearchExecutor
+except ImportError:
+    SherlockResearchExecutor = None
 
 
 class TaskType(Enum):
@@ -163,6 +199,12 @@ class J5AOvernightQueueManager:
         self.active_tasks = {}
         self.validation_history = []
 
+        # Token budget management
+        self.token_governor = TokenGovernor()
+
+        # Sherlock research executor
+        self.sherlock_executor = SherlockResearchExecutor()
+
         # Quality thresholds adapted from Sherlock
         self.quality_thresholds = {
             "min_success_rate": 0.6,           # 60% of samples must succeed
@@ -171,6 +213,22 @@ class J5AOvernightQueueManager:
             "max_thermal_temp": 80.0,          # Maximum CPU temperature (°C)
             "max_memory_usage_gb": 3.0         # Maximum memory usage
         }
+
+        # TEMPORARY: RAM upgrade constraint (remove after RAM upgrade delivered)
+        # Block multi-speaker audio (podcasts/interviews) until 8GB+ RAM available
+        self.ram_upgrade_pending = True
+        self.blocked_content_types = [
+            "podcast",
+            "interview_series",
+            "youtube",  # Often multi-speaker
+            "multi_speaker_audio"
+        ]
+        self.allowed_content_types = [
+            "document",
+            "book",
+            "single_speaker_audio",
+            "visual_media"
+        ]
 
         # Initialize database
         self._init_database()
@@ -311,6 +369,292 @@ class J5AOvernightQueueManager:
         except Exception as e:
             self.logger.error(f"❌ Failed to queue task {task_def.task_id}: {e}")
             return False
+
+    def import_sherlock_queue(self) -> Dict[str, Any]:
+        """
+        Import Sherlock research packages from queue/ directory
+
+        Returns:
+            Dict with import summary
+        """
+        import_summary = {
+            "total_found": 0,
+            "imported": 0,
+            "skipped": 0,
+            "errors": []
+        }
+
+        queue_dir = Path("/home/johnny5/Johny5Alive/queue")
+
+        if not queue_dir.exists():
+            self.logger.warning(f"⚠️ Queue directory not found: {queue_dir}")
+            return import_summary
+
+        self.logger.info(f"📥 Importing Sherlock research packages from {queue_dir}")
+
+        # Find all Sherlock package JSON files
+        for json_file in sorted(queue_dir.glob("sherlock_pkg_*.json")):
+            import_summary["total_found"] += 1
+
+            try:
+                with open(json_file) as f:
+                    pkg_data = json.load(f)
+
+                # Check if already imported
+                with sqlite3.connect(self.db_path) as conn:
+                    cursor = conn.execute(
+                        'SELECT task_id FROM task_definitions WHERE task_id = ?',
+                        (pkg_data["task_id"],)
+                    )
+                    if cursor.fetchone():
+                        self.logger.debug(f"⏭️ Skipping already imported: {pkg_data['task_id']}")
+                        import_summary["skipped"] += 1
+                        continue
+
+                # Determine if task is RAM-blocked
+                package_type = pkg_data.get("package_type", "")
+                is_ram_blocked = package_type in self.blocked_content_types
+
+                # Map priority (JSON uses 1-5, TaskPriority uses enum)
+                priority_map = {1: TaskPriority.CRITICAL, 2: TaskPriority.HIGH,
+                               3: TaskPriority.NORMAL, 4: TaskPriority.LOW, 5: TaskPriority.BATCH}
+                priority = priority_map.get(pkg_data.get("priority", 3), TaskPriority.NORMAL)
+
+                # Create TaskDefinition
+                task_def = TaskDefinition(
+                    task_id=pkg_data["task_id"],
+                    name=pkg_data["target_name"],
+                    description=f"Sherlock research: {pkg_data['target_name']} ({package_type})",
+                    task_type=TaskType.THROUGHPUT,
+                    priority=priority,
+                    target_system=SystemTarget.SHERLOCK,
+                    estimated_duration_minutes=pkg_data.get("estimated_duration_min", 30),
+                    thermal_safety_required=True,
+                    validation_checkpoints=[],
+                    dependencies=[],
+                    expected_outputs=pkg_data.get("expected_outputs", []),
+                    success_criteria={"research_complete": True},
+                    created_timestamp=pkg_data.get("created_at", datetime.now().isoformat())
+                )
+
+                # Queue task (will be deferred automatically if RAM-blocked)
+                if self.queue_task(task_def):
+                    import_summary["imported"] += 1
+
+                    # If RAM-blocked, immediately defer
+                    if is_ram_blocked:
+                        self._update_task_status(task_def.task_id, TaskStatus.DEFERRED)
+                        self.logger.info(f"⚠️ Deferred (RAM constraint): {task_def.task_id}")
+
+            except Exception as e:
+                error_msg = f"Failed to import {json_file.name}: {e}"
+                self.logger.error(f"❌ {error_msg}")
+                import_summary["errors"].append(error_msg)
+
+        self.logger.info(
+            f"✅ Sherlock import complete: {import_summary['imported']} imported, "
+            f"{import_summary['skipped']} skipped, {len(import_summary['errors'])} errors"
+        )
+
+        return import_summary
+
+    def import_j5a_plans(self) -> Dict[str, Any]:
+        """
+        Import development tasks from j5a_plans/ directory
+
+        Returns:
+            Dict with import summary
+        """
+        import importlib.util
+
+        import_summary = {
+            "plans_found": 0,
+            "tasks_imported": 0,
+            "tasks_blocked": 0,
+            "errors": []
+        }
+
+        plans_dir = Path("/home/johnny5/Johny5Alive/j5a_plans")
+
+        if not plans_dir.exists():
+            self.logger.warning(f"⚠️ Plans directory not found: {plans_dir}")
+            return import_summary
+
+        self.logger.info(f"📥 Importing J5A development plans from {plans_dir}")
+
+        # Find all metadata.json files
+        for metadata_file in sorted(plans_dir.glob("*_metadata.json")):
+            import_summary["plans_found"] += 1
+
+            try:
+                with open(metadata_file) as f:
+                    plan_meta = json.load(f)
+
+                plan_name = plan_meta.get("plan_name", metadata_file.stem)
+                self.logger.info(f"📋 Processing plan: {plan_name}")
+
+                # Find corresponding tasks.py file
+                tasks_file = metadata_file.with_name(
+                    metadata_file.stem.replace("_metadata", "_tasks") + ".py"
+                )
+
+                if not tasks_file.exists():
+                    self.logger.warning(f"⚠️ Tasks file not found: {tasks_file.name}")
+                    continue
+
+                # Dynamically import tasks module
+                spec = importlib.util.spec_from_file_location(
+                    f"j5a_plans.{tasks_file.stem}",
+                    tasks_file
+                )
+                tasks_module = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(tasks_module)
+
+                # Get tasks from module - try multiple function name patterns
+                tasks = []
+                if hasattr(tasks_module, 'create_tasks'):
+                    tasks = tasks_module.create_tasks()
+                elif hasattr(tasks_module, 'create_phase_tasks'):
+                    tasks = tasks_module.create_phase_tasks()
+                else:
+                    # Try phase-specific functions (create_phase1_tasks, create_phase2_tasks, etc.)
+                    for attr_name in dir(tasks_module):
+                        if attr_name.startswith('create_phase') and attr_name.endswith('_tasks'):
+                            phase_func = getattr(tasks_module, attr_name)
+                            if callable(phase_func):
+                                try:
+                                    phase_tasks = phase_func()
+                                    if phase_tasks:
+                                        tasks.extend(phase_tasks)
+                                except Exception as e:
+                                    self.logger.warning(f"⚠️ Error calling {attr_name}(): {e}")
+
+                if not tasks:
+                    self.logger.warning(f"⚠️ No tasks found in {tasks_file.name}")
+                    continue
+
+                # Import each task from the plan
+                for task in tasks:
+                    # Check if already imported
+                    with sqlite3.connect(self.db_path) as conn:
+                        cursor = conn.execute(
+                            'SELECT task_id FROM task_definitions WHERE task_id = ?',
+                            (task.task_id,)
+                        )
+                        if cursor.fetchone():
+                            continue
+
+                    # Check blocking conditions from metadata
+                    is_blocked = False
+                    if "phases" in plan_meta:
+                        for phase in plan_meta["phases"]:
+                            if phase.get("status") == "blocked":
+                                # Check if this task is in a blocked phase
+                                phase_tasks = [t.get("task_id") for t in phase.get("tasks", [])]
+                                if task.task_id in phase_tasks:
+                                    is_blocked = True
+                                    import_summary["tasks_blocked"] += 1
+                                    self.logger.info(f"⏸️ Blocked task skipped: {task.task_id}")
+                                    break
+
+                    if is_blocked:
+                        continue
+
+                    # Convert J5AWorkAssignment to TaskDefinition
+                    task_def = self._convert_work_assignment_to_task_def(task)
+
+                    if self.queue_task(task_def):
+                        import_summary["tasks_imported"] += 1
+
+            except Exception as e:
+                error_msg = f"Failed to import plan {metadata_file.name}: {e}"
+                self.logger.error(f"❌ {error_msg}")
+                import_summary["errors"].append(error_msg)
+
+        self.logger.info(
+            f"✅ J5A plans import complete: {import_summary['tasks_imported']} tasks imported, "
+            f"{import_summary['tasks_blocked']} blocked, {len(import_summary['errors'])} errors"
+        )
+
+        return import_summary
+
+    def _convert_work_assignment_to_task_def(self, work_assignment) -> TaskDefinition:
+        """
+        Convert J5AWorkAssignment to TaskDefinition
+
+        Args:
+            work_assignment: J5AWorkAssignment object
+
+        Returns:
+            TaskDefinition
+        """
+        # Map J5AWorkAssignment priority to TaskPriority
+        priority_map = {
+            "CRITICAL": TaskPriority.CRITICAL,
+            "HIGH": TaskPriority.HIGH,
+            "NORMAL": TaskPriority.NORMAL,
+            "LOW": TaskPriority.LOW
+        }
+
+        priority_str = str(work_assignment.priority).split('.')[-1] if hasattr(work_assignment.priority, 'name') else "NORMAL"
+        priority = priority_map.get(priority_str, TaskPriority.NORMAL)
+
+        # Determine target system from domain
+        domain = getattr(work_assignment, 'domain', 'j5a')
+        if 'squirt' in domain.lower():
+            target_system = SystemTarget.SQUIRT
+        elif 'sherlock' in domain.lower():
+            target_system = SystemTarget.SHERLOCK
+        else:
+            target_system = SystemTarget.J5A
+
+        # Extract expected outputs - handle OutputSpecification objects
+        expected_outputs = []
+        outputs_raw = getattr(work_assignment, 'expected_outputs', [])
+        for output in outputs_raw:
+            if isinstance(output, str):
+                expected_outputs.append(output)
+            elif hasattr(output, 'path'):  # OutputSpecification object
+                expected_outputs.append(str(output.path))
+            else:
+                expected_outputs.append(str(output))
+
+        # Extract success criteria - handle QuantitativeMeasure objects
+        success_criteria = {}
+        criteria_raw = getattr(work_assignment, 'success_criteria', {})
+        if isinstance(criteria_raw, dict):
+            for key, value in criteria_raw.items():
+                if isinstance(value, (str, int, float, bool)):
+                    success_criteria[key] = value
+                else:
+                    success_criteria[key] = str(value)
+        else:
+            success_criteria = {"task_complete": True}
+
+        # Extract dependencies - ensure simple strings
+        dependencies = []
+        deps_raw = getattr(work_assignment, 'dependencies', [])
+        for dep in deps_raw:
+            if isinstance(dep, str):
+                dependencies.append(dep)
+            else:
+                dependencies.append(str(dep))
+
+        return TaskDefinition(
+            task_id=work_assignment.task_id,
+            name=work_assignment.task_name,
+            description=work_assignment.description,
+            task_type=TaskType.DEVELOPMENT,
+            priority=priority,
+            target_system=target_system,
+            estimated_duration_minutes=getattr(work_assignment, 'estimated_duration_minutes', 60),
+            thermal_safety_required=True,
+            validation_checkpoints=[],
+            dependencies=dependencies,
+            expected_outputs=expected_outputs,
+            success_criteria=success_criteria,
+            created_timestamp=datetime.now().isoformat()
+        )
 
     def process_overnight_queue(self, max_concurrent_tasks: int = 2) -> Dict[str, Any]:
         """
@@ -454,6 +798,32 @@ class J5AOvernightQueueManager:
             # Update task status to in_progress
             self._update_task_status(task_def.task_id, TaskStatus.IN_PROGRESS)
 
+            # TEMPORARY: RAM upgrade constraint check
+            if not self._check_ram_constraint(task_def):
+                result["validation_blocked"] = True
+                result["ram_constraint"] = True
+                self.logger.warning(f"⚠️ RAM CONSTRAINT: Task {task_def.task_id} blocked - multi-speaker audio requires RAM upgrade")
+                self._update_task_status(task_def.task_id, TaskStatus.DEFERRED)
+                return result
+
+            # Token budget constraint check
+            token_check = self._check_token_budget(task_def)
+            if not token_check["can_execute"]:
+                result["validation_blocked"] = True
+                result["token_constraint"] = True
+                result["token_reason"] = token_check["reason"]
+                result["adapted_estimate"] = token_check.get("adapted_estimate")
+                self.logger.warning(f"⚠️ TOKEN CONSTRAINT: {token_check['reason']}")
+
+                # Defer task if cannot adapt
+                if token_check["adapted_estimate"] is None:
+                    self._update_task_status(task_def.task_id, TaskStatus.DEFERRED)
+                    return result
+                else:
+                    # Use adapted estimate for execution
+                    self.logger.info(f"✅ ADAPTED: Using {token_check['adapted_estimate'].total:,} tokens (estimated)")
+                    task_def.token_estimate = token_check["adapted_estimate"]
+
             # Pre-execution validation checkpoint
             if not self._execute_validation_checkpoint(task_def, "pre_execution"):
                 result["validation_blocked"] = True
@@ -471,6 +841,17 @@ class J5AOvernightQueueManager:
             execution_result = self._execute_task_with_validation(task_def)
 
             if execution_result["success"]:
+                # Record actual token usage
+                actual_tokens = execution_result.get("token_usage", {})
+                if actual_tokens:
+                    input_tokens = actual_tokens.get("input", 0)
+                    output_tokens = actual_tokens.get("output", 0)
+                    self.token_governor.record(input_tokens, output_tokens)
+                elif hasattr(task_def, 'token_estimate'):
+                    # Fallback: record estimate if no actual usage reported
+                    estimate = task_def.token_estimate
+                    self.token_governor.record(estimate.input_tokens, estimate.output_tokens)
+
                 # Output validation checkpoint
                 if self._execute_output_validation(task_def, execution_result["outputs"]):
                     result["success"] = True
@@ -627,6 +1008,121 @@ class J5AOvernightQueueManager:
         sample.processing_time = time.time() - start_time
         return sample
 
+    def _check_ram_constraint(self, task_def: TaskDefinition) -> bool:
+        """
+        TEMPORARY: Check RAM upgrade constraint
+
+        Block multi-speaker audio (podcasts, interviews, youtube) until RAM upgrade.
+        Allow: documents, books, single-speaker audio, visual media.
+
+        Args:
+            task_def: Task definition to check
+
+        Returns:
+            bool: True if allowed, False if blocked by RAM constraint
+        """
+        if not self.ram_upgrade_pending:
+            return True  # RAM upgrade complete, all tasks allowed
+
+        # Check task metadata for content type indicators
+        task_name = task_def.name.lower()
+        task_desc = task_def.description.lower()
+
+        # Check if Sherlock research package
+        if task_def.target_system == SystemTarget.SHERLOCK:
+            # Load package metadata from queue file if exists
+            queue_file = Path(f"/home/johnny5/Johny5Alive/queue/{task_def.task_id}.json")
+            if queue_file.exists():
+                with open(queue_file) as f:
+                    pkg_data = json.load(f)
+                    package_type = pkg_data.get('package_type', '').lower()
+
+                    # Block multi-speaker audio types
+                    if package_type in self.blocked_content_types:
+                        self.logger.info(f"🚫 RAM CONSTRAINT: Blocking {package_type} package - requires RAM upgrade")
+                        return False
+
+                    # Explicitly allow document types
+                    if package_type in ['document', 'book']:
+                        return True
+
+        # Check task name/description for blocked keywords
+        blocked_keywords = ['podcast', 'interview', 'multi-speaker', 'youtube', 'video']
+        for keyword in blocked_keywords:
+            if keyword in task_name or keyword in task_desc:
+                self.logger.info(f"🚫 RAM CONSTRAINT: Blocking task with '{keyword}' - requires RAM upgrade")
+                return False
+
+        # Allow by default (document/single-speaker content)
+        return True
+
+    def _check_token_budget(self, task_def: TaskDefinition) -> Dict[str, Any]:
+        """
+        Check token budget and adapt task sizing if needed.
+
+        Args:
+            task_def: Task definition to check
+
+        Returns:
+            Dict with keys:
+                - can_execute: bool
+                - reason: str explaining decision
+                - adapted_estimate: TokenEstimate if adapted, None if deferred
+        """
+        # Estimate token usage for task
+        if task_def.target_system == SystemTarget.SHERLOCK:
+            # Load package metadata
+            queue_file = Path(f"/home/johnny5/Johny5Alive/queue/{task_def.task_id}.json")
+            if queue_file.exists():
+                with open(queue_file) as f:
+                    pkg_data = json.load(f)
+                    package_type = pkg_data.get('package_type', 'composite')
+                    url_count = len(pkg_data.get('collection_urls', []))
+
+                    estimate = self.token_governor.estimate_sherlock_task(
+                        package_type=package_type,
+                        url_count=url_count
+                    )
+            else:
+                # Conservative fallback estimate
+                estimate = self.token_governor.estimate_sherlock_task('composite', 2)
+
+        elif task_def.target_system == SystemTarget.SQUIRT:
+            # Estimate based on task duration (minutes)
+            audio_minutes = task_def.estimated_duration_minutes
+            estimate = self.token_governor.estimate_squirt_task(audio_minutes)
+
+        else:
+            # Generic estimate
+            estimate = TokenEstimate(
+                input_tokens=500,
+                output_tokens=300,
+                total=800,
+                confidence=0.5
+            )
+
+        # Check if can run with current estimate
+        if self.token_governor.can_run(estimate):
+            return {
+                "can_execute": True,
+                "reason": f"Within budget: {estimate.total:,} tokens estimated",
+                "adapted_estimate": estimate
+            }
+
+        # Try adaptation
+        priority = task_def.priority.value if isinstance(task_def.priority, TaskPriority) else task_def.priority
+        can_execute, reason, adapted_estimate = self.token_governor.adapt_or_defer(
+            task_id=task_def.task_id,
+            estimate=estimate,
+            priority=priority
+        )
+
+        return {
+            "can_execute": can_execute,
+            "reason": reason,
+            "adapted_estimate": adapted_estimate
+        }
+
     def _thermal_safety_check(self) -> bool:
         """
         Thermal safety check integration
@@ -700,16 +1196,34 @@ class J5AOvernightQueueManager:
             bool: Output validation success
         """
         try:
-            expected_outputs = set(task_def.expected_outputs)
-            actual_outputs = set(outputs)
+            # Normalize paths for comparison (extract relative paths from absolute)
+            expected_set = set()
+            for exp_path in task_def.expected_outputs:
+                # Expected paths are relative like "documents/file.txt"
+                expected_set.add(Path(exp_path).as_posix())
+
+            actual_set = set()
+            for out_path in outputs:
+                # Actual paths are absolute, extract the relative part
+                # Match pattern: .../documents/file.txt -> documents/file.txt
+                path_obj = Path(out_path)
+                # Find where documents/, evidence/, or analysis/ starts
+                parts = path_obj.parts
+                for i, part in enumerate(parts):
+                    if part in ['documents', 'evidence', 'analysis', 'research', 'timeline', 'network', 'entities']:
+                        rel_path = '/'.join(parts[i:])
+                        actual_set.add(rel_path)
+                        break
 
             # Check output completeness
-            missing_outputs = expected_outputs - actual_outputs
-            completeness_rate = (len(expected_outputs) - len(missing_outputs)) / len(expected_outputs)
+            missing_outputs = expected_set - actual_set
+            completeness_rate = (len(expected_set) - len(missing_outputs)) / len(expected_set) if expected_set else 1.0
 
             if completeness_rate < self.quality_thresholds["min_output_completeness"]:
                 self.logger.error(f"❌ Output validation failed: {completeness_rate:.1%} completeness")
-                self.logger.error(f"Missing outputs: {missing_outputs}")
+                self.logger.error(f"Expected: {expected_set}")
+                self.logger.error(f"Actual: {actual_set}")
+                self.logger.error(f"Missing: {missing_outputs}")
                 return False
 
             # Validate output file integrity
@@ -722,7 +1236,7 @@ class J5AOvernightQueueManager:
                     self.logger.error(f"❌ Output file empty: {output_file}")
                     return False
 
-            self.logger.info(f"✅ Output validation passed: {completeness_rate:.1%} completeness")
+            self.logger.info(f"✅ Output validation passed: {completeness_rate:.1%} completeness ({len(actual_set)} files)")
             return True
 
         except Exception as e:
@@ -735,8 +1249,55 @@ class J5AOvernightQueueManager:
         return {"success": True, "outputs": [], "system": "squirt"}
 
     def _execute_sherlock_task(self, task_def: TaskDefinition) -> Dict[str, Any]:
-        """Execute Sherlock-specific task"""
-        return {"success": True, "outputs": [], "system": "sherlock"}
+        """
+        Execute Sherlock research package.
+
+        Args:
+            task_def: Task definition with package metadata
+
+        Returns:
+            Dict with execution results and token usage
+        """
+        try:
+            # Load package data from queue file
+            queue_file = Path(f"/home/johnny5/Johny5Alive/queue/{task_def.task_id}.json")
+            if not queue_file.exists():
+                return {
+                    "success": False,
+                    "outputs": [],
+                    "system": "sherlock",
+                    "error": f"Package file not found: {queue_file}"
+                }
+
+            with open(queue_file) as f:
+                package_data = json.load(f)
+
+            # Execute research package
+            self.logger.info(f"🔬 Executing Sherlock research: {package_data['target_name']}")
+            result = self.sherlock_executor.execute_package(package_data)
+
+            # Return in J5A format
+            return {
+                "success": result.success,
+                "outputs": result.outputs_generated,
+                "system": "sherlock",
+                "token_usage": result.token_usage,
+                "performance_metrics": {
+                    "claims_extracted": result.claims_extracted,
+                    "entities_found": result.entities_found,
+                    "processing_time": result.processing_time
+                },
+                "error": result.error_message
+            }
+
+        except Exception as e:
+            self.logger.error(f"❌ Sherlock execution error: {e}")
+            return {
+                "success": False,
+                "outputs": [],
+                "system": "sherlock",
+                "error": str(e)
+            }
 
     def _execute_j5a_task(self, task_def: TaskDefinition) -> Dict[str, Any]:
         """Execute J5A-specific task"""
@@ -817,38 +1378,122 @@ class J5AOvernightQueueManager:
 
 
 if __name__ == "__main__":
-    # Example usage
-    manager = J5AOvernightQueueManager()
+    import argparse
 
-    # Example task definition
-    example_task = TaskDefinition(
-        task_id="dev_001",
-        name="Implement Squirt Voice Enhancement",
-        description="Enhance Squirt voice processing with new accuracy improvements",
-        task_type=TaskType.DEVELOPMENT,
-        priority=TaskPriority.HIGH,
-        target_system=SystemTarget.SQUIRT,
-        estimated_duration_minutes=120,
-        thermal_safety_required=True,
-        validation_checkpoints=[
-            ValidationCheckpoint(
-                checkpoint_id="pre_execution_format",
-                name="Format Validation",
-                description="Validate input format compatibility",
-                validation_function="validate_format",
-                blocking=True,
-                quality_threshold=0.8,
-                sample_size=3
-            )
-        ],
-        dependencies=[],
-        expected_outputs=["enhanced_voice_processor.py", "test_results.json"],
-        success_criteria={"accuracy_improvement": 0.05},
-        created_timestamp=datetime.now().isoformat()
+    # Set up logging
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
     )
 
-    # Queue and process example
-    if manager.queue_task(example_task):
-        print("✅ Example task queued successfully")
+    # Parse command-line arguments
+    parser = argparse.ArgumentParser(
+        description="J5A Overnight Queue/Batch Manager",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  # Import and process overnight queue
+  python3 overnight_queue_manager.py --import-sherlock --import-plans --process-queue
+
+  # Import Sherlock queue only
+  python3 overnight_queue_manager.py --import-sherlock
+
+  # Process existing queue without importing
+  python3 overnight_queue_manager.py --process-queue
+
+  # Full overnight automation (typical usage)
+  python3 overnight_queue_manager.py --import-all --process-queue
+        """
+    )
+
+    parser.add_argument(
+        '--import-sherlock',
+        action='store_true',
+        help='Import Sherlock research packages from queue/ directory'
+    )
+
+    parser.add_argument(
+        '--import-plans',
+        action='store_true',
+        help='Import development tasks from j5a_plans/ directory'
+    )
+
+    parser.add_argument(
+        '--import-all',
+        action='store_true',
+        help='Import both Sherlock queue and J5A plans (equivalent to --import-sherlock --import-plans)'
+    )
+
+    parser.add_argument(
+        '--process-queue',
+        action='store_true',
+        help='Process the overnight queue'
+    )
+
+    parser.add_argument(
+        '--dry-run',
+        action='store_true',
+        help='Show what would be imported/processed without making changes'
+    )
+
+    args = parser.parse_args()
+
+    # If no arguments provided, show help
+    if not any([args.import_sherlock, args.import_plans, args.import_all, args.process_queue]):
+        parser.print_help()
+        sys.exit(0)
+
+    # Initialize manager
+    manager = J5AOvernightQueueManager()
+
+    # Import Sherlock queue
+    if args.import_sherlock or args.import_all:
+        print("\n" + "="*70)
+        print("📥 IMPORTING SHERLOCK RESEARCH QUEUE")
+        print("="*70)
+        sherlock_summary = manager.import_sherlock_queue()
+        print(f"\n📊 Sherlock Import Summary:")
+        print(f"   Found: {sherlock_summary['total_found']}")
+        print(f"   Imported: {sherlock_summary['imported']}")
+        print(f"   Skipped: {sherlock_summary['skipped']}")
+        print(f"   Errors: {len(sherlock_summary['errors'])}")
+        if sherlock_summary['errors']:
+            print(f"\n❌ Import Errors:")
+            for error in sherlock_summary['errors']:
+                print(f"   - {error}")
+
+    # Import J5A plans
+    if args.import_plans or args.import_all:
+        print("\n" + "="*70)
+        print("📥 IMPORTING J5A DEVELOPMENT PLANS")
+        print("="*70)
+        plans_summary = manager.import_j5a_plans()
+        print(f"\n📊 J5A Plans Import Summary:")
+        print(f"   Plans Found: {plans_summary['plans_found']}")
+        print(f"   Tasks Imported: {plans_summary['tasks_imported']}")
+        print(f"   Tasks Blocked: {plans_summary['tasks_blocked']}")
+        print(f"   Errors: {len(plans_summary['errors'])}")
+        if plans_summary['errors']:
+            print(f"\n❌ Import Errors:")
+            for error in plans_summary['errors']:
+                print(f"   - {error}")
+
+    # Process overnight queue
+    if args.process_queue:
+        print("\n" + "="*70)
+        print("🌙 PROCESSING OVERNIGHT QUEUE")
+        print("="*70)
         summary = manager.process_overnight_queue()
-        print(f"📊 Processing summary: {summary}")
+        print(f"\n📊 Processing Summary:")
+        print(f"   Start: {summary.get('start_time', 'N/A')}")
+        print(f"   Tasks Processed: {summary.get('tasks_processed', 0)}")
+        print(f"   Tasks Completed: {summary.get('tasks_completed', 0)}")
+        print(f"   Tasks Failed: {summary.get('tasks_failed', 0)}")
+        print(f"   Validation Blocks: {summary.get('validation_blocks', 0)}")
+        print(f"   Thermal Events: {summary.get('thermal_safety_events', 0)}")
+        print(f"   End: {summary.get('end_time', 'N/A')}")
+        print(f"   Duration: {summary.get('total_duration_minutes', 0):.2f} minutes")
+
+    print("\n" + "="*70)
+    print("✅ J5A OVERNIGHT QUEUE MANAGER - COMPLETE")
+    print("="*70 + "\n")

@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_3",
+  "task_type": "sherlock_research",
+  "package_id": 3,
+  "target_name": "American Alchemy with Harald Malmgren",
+  "package_type": "youtube",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.youtube.com/results?search_query=American+Alchemy+with+Harald+Malmgren"
+  ],
+  "expected_outputs": [
+    "transcripts/american_alchemy_with_harald_malmgren_transcript.json",
+    "diarization/american_alchemy_with_harald_malmgren_speakers.json",
+    "evidence/american_alchemy_with_harald_malmgren_claims.json",
+    "media/american_alchemy_with_harald_malmgren_audio.mp3"
+  ],
+  "created_at": "2025-10-01T20:23:02.597772"
+}

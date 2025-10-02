@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_17",
+  "task_type": "sherlock_research",
+  "package_id": 17,
+  "target_name": "James Jesus Angleton",
+  "package_type": "composite",
+  "priority": 1,
+  "collection_urls": [
+    "https://www.google.com/search?q=James+Jesus+Angleton",
+    "https://en.wikipedia.org/wiki/James_Jesus_Angleton"
+  ],
+  "expected_outputs": [
+    "research/james_jesus_angleton_overview.json",
+    "evidence/james_jesus_angleton_claims.json",
+    "timeline/james_jesus_angleton_events.json",
+    "network/james_jesus_angleton_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:07.387197"
+}

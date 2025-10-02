@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_35",
+  "task_type": "sherlock_research",
+  "package_id": 35,
+  "target_name": "Vladimir Lenin",
+  "package_type": "composite",
+  "priority": 3,
+  "collection_urls": [
+    "https://www.google.com/search?q=Vladimir+Lenin",
+    "https://en.wikipedia.org/wiki/Vladimir_Lenin"
+  ],
+  "expected_outputs": [
+    "research/vladimir_lenin_overview.json",
+    "evidence/vladimir_lenin_claims.json",
+    "timeline/vladimir_lenin_events.json",
+    "network/vladimir_lenin_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:13.422786"
+}

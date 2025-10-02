@@ -21,7 +21,7 @@ Need to process large transcript (590KB) with minimal RAM/token usage to run in 
 ### Resource Constraints
 
 **Memory Budget:**
-- Maximum RAM per chunk: 150MB (leaves 2.25GB for other work)
+- Maximum RAM per chunk: 200MB (leaves 2.0GB for other work)
 - Process transcript in ~50 line batches (small enough for efficient processing)
 - Incremental saves prevent memory accumulation
 
@@ -53,7 +53,7 @@ Need to process large transcript (590KB) with minimal RAM/token usage to run in 
 4. Deduplicate and merge at end
 
 **Memory Profile:**
-- Per batch: ~100MB (text + model inference)
+- Per batch: ~150MB (text + model inference)
 - Checkpoint files: ~50KB per batch
 - Total storage: ~5MB for all entity data
 
@@ -77,7 +77,7 @@ Need to process large transcript (590KB) with minimal RAM/token usage to run in 
 4. Build network graph from saved relationships
 
 **Memory Profile:**
-- Per batch: ~100MB
+- Per batch: ~150MB
 - Relationship storage: ~10MB total
 - Graph data structures: <50MB
 
@@ -113,7 +113,7 @@ Need to process large transcript (590KB) with minimal RAM/token usage to run in 
    - Key findings report
 
 **Memory Profile:**
-- Per analysis: ~150MB
+- Per analysis: ~200MB
 - Report generation: ~50MB
 - Total outputs: ~15MB
 
@@ -243,10 +243,10 @@ for batch_id in range(total_batches):
 
 | Phase | RAM (peak) | Tokens/session | Sessions | Total Time |
 |-------|-----------|---------------|----------|------------|
-| Phase 2 | 150MB | 15,000 | 3-4 | 3-4 hours |
-| Phase 3 | 150MB | 12,000 | 2-3 | 2-3 hours |
-| Phase 4 | 150MB | 18,000 | 2-3 | 2-3 hours |
-| **Total** | **150MB** | **45,000** | **8-10** | **8-10 hours** |
+| Phase 2 | 200MB | 15,000 | 3-4 | 3-4 hours |
+| Phase 3 | 200MB | 12,000 | 2-3 | 2-3 hours |
+| Phase 4 | 200MB | 18,000 | 2-3 | 2-3 hours |
+| **Total** | **200MB** | **45,000** | **8-10** | **8-10 hours** |
 
 ### Disk Usage
 
@@ -303,7 +303,7 @@ python3 evidence_schema_gladio.py --init-schema
 ## Benefits
 
 ### Immediate
-- ✅ Low-memory background processing (150MB max)
+- ✅ Low-memory background processing (200MB max)
 - ✅ Non-blocking for priority work
 - ✅ Incremental progress (visible checkpoints)
 - ✅ Crash-resistant (resume from checkpoints)

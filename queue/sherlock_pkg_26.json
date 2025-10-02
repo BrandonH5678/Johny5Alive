@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_26",
+  "task_type": "sherlock_research",
+  "package_id": 26,
+  "target_name": "Agnew Bahnson",
+  "package_type": "composite",
+  "priority": 3,
+  "collection_urls": [
+    "https://www.google.com/search?q=Agnew+Bahnson",
+    "https://en.wikipedia.org/wiki/Agnew_Bahnson"
+  ],
+  "expected_outputs": [
+    "research/agnew_bahnson_overview.json",
+    "evidence/agnew_bahnson_claims.json",
+    "timeline/agnew_bahnson_events.json",
+    "network/agnew_bahnson_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:10.512586"
+}

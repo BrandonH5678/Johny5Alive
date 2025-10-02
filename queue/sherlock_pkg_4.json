@@ -1,0 +1,17 @@
+{
+  "task_id": "sherlock_pkg_4",
+  "task_type": "sherlock_research",
+  "package_id": 4,
+  "target_name": "Danny Sheehan Bibliography",
+  "package_type": "document",
+  "priority": 2,
+  "collection_urls": [
+    "https://books.google.com/books?q=Danny+Sheehan+Bibliography"
+  ],
+  "expected_outputs": [
+    "documents/danny_sheehan_bibliography_text.txt",
+    "evidence/danny_sheehan_bibliography_claims.json",
+    "analysis/danny_sheehan_bibliography_summary.json"
+  ],
+  "created_at": "2025-10-01T20:23:02.889508"
+}

@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_2",
+  "task_type": "sherlock_research",
+  "package_id": 2,
+  "target_name": "American Alchemy Interviews with Danny Sheehan",
+  "package_type": "youtube",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.youtube.com/results?search_query=American+Alchemy+Interviews+with+Danny+Sheehan"
+  ],
+  "expected_outputs": [
+    "transcripts/american_alchemy_interviews_with_danny_sheehan_transcript.json",
+    "diarization/american_alchemy_interviews_with_danny_sheehan_speakers.json",
+    "evidence/american_alchemy_interviews_with_danny_sheehan_claims.json",
+    "media/american_alchemy_interviews_with_danny_sheehan_audio.mp3"
+  ],
+  "created_at": "2025-10-01T20:23:02.289276"
+}

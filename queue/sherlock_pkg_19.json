@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_19",
+  "task_type": "sherlock_research",
+  "package_id": 19,
+  "target_name": "Harald Malmgren",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Harald+Malmgren",
+    "https://en.wikipedia.org/wiki/Harald_Malmgren"
+  ],
+  "expected_outputs": [
+    "research/harald_malmgren_overview.json",
+    "evidence/harald_malmgren_claims.json",
+    "timeline/harald_malmgren_events.json",
+    "network/harald_malmgren_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:08.075734"
+}

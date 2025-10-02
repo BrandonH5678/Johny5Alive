@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_11",
+  "task_type": "sherlock_research",
+  "package_id": 11,
+  "target_name": "US Radar Lab (Naval Intelligence, 1930s)",
+  "package_type": "composite",
+  "priority": 3,
+  "collection_urls": [
+    "https://www.google.com/search?q=US+Radar+Lab+(Naval+Intelligence,+1930s)"
+  ],
+  "expected_outputs": [
+    "research/us_radar_lab_(naval_intelligence,_1930s)_overview.json",
+    "evidence/us_radar_lab_(naval_intelligence,_1930s)_claims.json",
+    "timeline/us_radar_lab_(naval_intelligence,_1930s)_events.json",
+    "network/us_radar_lab_(naval_intelligence,_1930s)_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:05.567984"
+}

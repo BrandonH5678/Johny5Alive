@@ -1,0 +1,44 @@
+# J5A Engineering Standards for Jeeves Enforcement
+
+# Naming conventions
+naming:
+  modules_snake_case: true
+  no_mixed_tabs_spaces: true
+
+# Repository layout
+layout:
+  src_roots:
+    - "j5a/"
+    - "squirt/"
+    - "sherlock/"
+  forbid_code_in_docs:
+    - "*.md: no inline secrets, no exec perms"
+
+# Required files validation
+validation:
+  repo_must_define:
+    - "AI_OPERATOR_MANUAL.md"
+    - "AUTO_CONTEXT.md"
+  every_cli_command:
+    - "--validate"
+    - "--dry-run"
+
+# Interface requirements
+interfaces:
+  agents_must_expose:
+    - "validate()"
+    - "plan()"
+    - "apply(dry_run:bool=True)"
+
+# Safety requirements
+safety:
+  changes_require_snapshot: true
+
+# Output validation (Existence → Process → Outputs model)
+outputs:
+  sherlock:
+    transcripts_must_have: ["timestamps", "speaker_id"]
+  squirt:
+    documents_must_meet: ["format_spec", "validation_passed"]
+  j5a:
+    plans_must_include: ["sampling_validation", "expected_outputs"]

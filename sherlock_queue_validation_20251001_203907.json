@@ -1,0 +1,124 @@
+{
+  "total_packages": 35,
+  "sample_size": 5,
+  "samples": [
+    {
+      "package_id": 24,
+      "target_name": "Ingo Swann",
+      "package_type": "composite",
+      "priority": 2,
+      "format_valid": true,
+      "format_errors": [],
+      "viability": {
+        "can_execute": true,
+        "warnings": [],
+        "estimated_duration_min": 40,
+        "thermal_risk": "low",
+        "memory_risk": "low"
+      },
+      "url_check": {
+        "valid_urls": [
+          "https://www.google.com/search?q=Ingo+Swann",
+          "https://en.wikipedia.org/wiki/Ingo_Swann"
+        ],
+        "invalid_urls": [],
+        "warnings": []
+      }
+    },
+    {
+      "package_id": 11,
+      "target_name": "US Radar Lab (Naval Intelligence, 1930s)",
+      "package_type": "composite",
+      "priority": 3,
+      "format_valid": true,
+      "format_errors": [],
+      "viability": {
+        "can_execute": true,
+        "warnings": [],
+        "estimated_duration_min": 20,
+        "thermal_risk": "low",
+        "memory_risk": "low"
+      },
+      "url_check": {
+        "valid_urls": [
+          "https://www.google.com/search?q=US+Radar+Lab+(Naval+Intelligence,+1930s)"
+        ],
+        "invalid_urls": [],
+        "warnings": []
+      }
+    },
+    {
+      "package_id": 31,
+      "target_name": "George Tenet",
+      "package_type": "composite",
+      "priority": 2,
+      "format_valid": true,
+      "format_errors": [],
+      "viability": {
+        "can_execute": true,
+        "warnings": [],
+        "estimated_duration_min": 40,
+        "thermal_risk": "low",
+        "memory_risk": "low"
+      },
+      "url_check": {
+        "valid_urls": [
+          "https://www.google.com/search?q=George+Tenet",
+          "https://en.wikipedia.org/wiki/George_Tenet"
+        ],
+        "invalid_urls": [],
+        "warnings": []
+      }
+    },
+    {
+      "package_id": 7,
+      "target_name": "The Day After Roswell \u2014 Colonel Philip J. Corso",
+      "package_type": "document",
+      "priority": 2,
+      "format_valid": true,
+      "format_errors": [],
+      "viability": {
+        "can_execute": true,
+        "warnings": [],
+        "estimated_duration_min": 10,
+        "thermal_risk": "low",
+        "memory_risk": "low"
+      },
+      "url_check": {
+        "valid_urls": [
+          "https://books.google.com/books?q=The+Day+After+Roswell+\u2014+Colonel+Philip+J.+Corso"
+        ],
+        "invalid_urls": [],
+        "warnings": []
+      }
+    },
+    {
+      "package_id": 2,
+      "target_name": "American Alchemy Interviews with Danny Sheehan",
+      "package_type": "youtube",
+      "priority": 2,
+      "format_valid": true,
+      "format_errors": [],
+      "viability": {
+        "can_execute": true,
+        "warnings": [
+          "YouTube package: High thermal load (video processing + transcription)"
+        ],
+        "estimated_duration_min": 30,
+        "thermal_risk": "high",
+        "memory_risk": "low"
+      },
+      "url_check": {
+        "valid_urls": [
+          "https://www.youtube.com/results?search_query=American+Alchemy+Interviews+with+Danny+Sheehan"
+        ],
+        "invalid_urls": [],
+        "warnings": []
+      }
+    }
+  ],
+  "format_success_rate": 100.0,
+  "viability_rate": 100.0,
+  "url_validity_rate": 100.0,
+  "overall_success_rate": 100.0
+}

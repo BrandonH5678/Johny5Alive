@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_6",
+  "task_type": "sherlock_research",
+  "package_id": 6,
+  "target_name": "Weaponized Podcast",
+  "package_type": "youtube",
+  "priority": 1,
+  "collection_urls": [
+    "https://www.youtube.com/results?search_query=Weaponized+Podcast",
+    "https://www.youtube.com/@WeaponizedPodcast/videos"
+  ],
+  "expected_outputs": [
+    "transcripts/weaponized_podcast_transcript.json",
+    "diarization/weaponized_podcast_speakers.json",
+    "evidence/weaponized_podcast_claims.json",
+    "media/weaponized_podcast_audio.mp3"
+  ],
+  "created_at": "2025-10-01T20:23:03.653226"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_27",
+  "task_type": "sherlock_research",
+  "package_id": 27,
+  "target_name": "Wernher von Braun",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Wernher+von+Braun",
+    "https://en.wikipedia.org/wiki/Wernher_von_Braun"
+  ],
+  "expected_outputs": [
+    "research/wernher_von_braun_overview.json",
+    "evidence/wernher_von_braun_claims.json",
+    "timeline/wernher_von_braun_events.json",
+    "network/wernher_von_braun_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:10.834898"
+}

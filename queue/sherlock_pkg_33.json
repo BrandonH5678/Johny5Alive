@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_33",
+  "task_type": "sherlock_research",
+  "package_id": 33,
+  "target_name": "Hal Puthoff",
+  "package_type": "composite",
+  "priority": 1,
+  "collection_urls": [
+    "https://www.google.com/search?q=Hal+Puthoff",
+    "https://en.wikipedia.org/wiki/Hal_Puthoff"
+  ],
+  "expected_outputs": [
+    "research/hal_puthoff_overview.json",
+    "evidence/hal_puthoff_claims.json",
+    "timeline/hal_puthoff_events.json",
+    "network/hal_puthoff_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:12.867442"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_32",
+  "task_type": "sherlock_research",
+  "package_id": 32,
+  "target_name": "Osama bin Laden",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Osama+bin+Laden",
+    "https://en.wikipedia.org/wiki/Osama_bin_Laden"
+  ],
+  "expected_outputs": [
+    "research/osama_bin_laden_overview.json",
+    "evidence/osama_bin_laden_claims.json",
+    "timeline/osama_bin_laden_events.json",
+    "network/osama_bin_laden_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:12.464718"
+}

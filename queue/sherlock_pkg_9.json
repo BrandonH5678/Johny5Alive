@@ -1,0 +1,18 @@
+{
+  "task_id": "sherlock_pkg_9",
+  "task_type": "sherlock_research",
+  "package_id": 9,
+  "target_name": "US Naval Intelligence",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=US+Naval+Intelligence"
+  ],
+  "expected_outputs": [
+    "research/us_naval_intelligence_overview.json",
+    "evidence/us_naval_intelligence_claims.json",
+    "timeline/us_naval_intelligence_events.json",
+    "network/us_naval_intelligence_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:04.901172"
+}

@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_25",
+  "task_type": "sherlock_research",
+  "package_id": 25,
+  "target_name": "Pat Price",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Pat+Price",
+    "https://en.wikipedia.org/wiki/Pat_Price"
+  ],
+  "expected_outputs": [
+    "research/pat_price_overview.json",
+    "evidence/pat_price_claims.json",
+    "timeline/pat_price_events.json",
+    "network/pat_price_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:10.212489"
+}

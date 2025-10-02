@@ -1,0 +1,17 @@
+{
+  "task_id": "sherlock_pkg_7",
+  "task_type": "sherlock_research",
+  "package_id": 7,
+  "target_name": "The Day After Roswell \u2014 Colonel Philip J. Corso",
+  "package_type": "document",
+  "priority": 2,
+  "collection_urls": [
+    "https://books.google.com/books?q=The+Day+After+Roswell+\u2014+Colonel+Philip+J.+Corso"
+  ],
+  "expected_outputs": [
+    "documents/the_day_after_roswell_-_colonel_philip_j._corso_text.txt",
+    "evidence/the_day_after_roswell_-_colonel_philip_j._corso_claims.json",
+    "analysis/the_day_after_roswell_-_colonel_philip_j._corso_summary.json"
+  ],
+  "created_at": "2025-10-01T20:23:03.953311"
+}

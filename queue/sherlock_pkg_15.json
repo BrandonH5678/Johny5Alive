@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_15",
+  "task_type": "sherlock_research",
+  "package_id": 15,
+  "target_name": "Thomas Townsend Brown",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Thomas+Townsend+Brown",
+    "https://en.wikipedia.org/wiki/Thomas_Townsend_Brown"
+  ],
+  "expected_outputs": [
+    "research/thomas_townsend_brown_overview.json",
+    "evidence/thomas_townsend_brown_claims.json",
+    "timeline/thomas_townsend_brown_events.json",
+    "network/thomas_townsend_brown_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:06.928089"
+}

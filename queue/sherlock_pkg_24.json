@@ -1,0 +1,19 @@
+{
+  "task_id": "sherlock_pkg_24",
+  "task_type": "sherlock_research",
+  "package_id": 24,
+  "target_name": "Ingo Swann",
+  "package_type": "composite",
+  "priority": 2,
+  "collection_urls": [
+    "https://www.google.com/search?q=Ingo+Swann",
+    "https://en.wikipedia.org/wiki/Ingo_Swann"
+  ],
+  "expected_outputs": [
+    "research/ingo_swann_overview.json",
+    "evidence/ingo_swann_claims.json",
+    "timeline/ingo_swann_events.json",
+    "network/ingo_swann_connections.json"
+  ],
+  "created_at": "2025-10-01T20:23:09.912635"
+}
