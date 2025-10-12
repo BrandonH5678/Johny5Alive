@@ -1,0 +1,5 @@
+- Main point: "Every Git repository is a complete copy with full history" (source: test_job_03_git_version_control.txt)
+- Main point: "Git stores project history as a series of snapshots" (source: test_job_03_git_version_control.txt)
+- Main point: "Branching and merging in Git are made trivially easy" (source: test_job_03_git_version_control.txt)
+- Main point: "A collaborative workflow where developers propose changes, discuss them, and get approval before merging into the main codebase" (source: test_job_03_git_version_control.txt)
+- Main point: "Write clear, descriptive commit messages" (source: test_job_03_git_version_control.txt)

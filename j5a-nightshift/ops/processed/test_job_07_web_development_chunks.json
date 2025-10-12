@@ -1,0 +1,36 @@
+{
+  "source": "test_job_07_web_development.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_07_web_development.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1500,
+      "text": "# Modern Web Development\n\nWeb development has evolved dramatically from simple static HTML pages to complex, interactive applications that power modern businesses and services.\n\n## Frontend Development\n\n**HTML5**: The latest version of HTML provides semantic elements, multimedia support, and APIs for advanced web functionality.\n\n**CSS3**: Modern CSS includes flexbox and grid layouts, animations, transitions, and responsive design features for creating beautiful, adaptive interfaces.\n\n**JavaScript**: The dominant programming language for web browsers, with ES6+ bringing modern features like arrow functions, promises, async/await, and modules.\n\n**Frameworks and Libraries**:\n- React: Component-based library for building user interfaces\n- Vue.js: Progressive framework with gentle learning curve\n- Angular: Full-featured framework with TypeScript\n- Svelte: Compiler-based approach with minimal runtime overhead\n\n## Backend Development\n\n**Server-Side Languages**:\n- Node.js: JavaScript on the server using V8 engine\n- Python: Django and Flask frameworks for rapid development\n- Ruby: Rails framework emphasizing convention over configuration\n- PHP: Still powering many websites including WordPress\n- Java: Spring framework for enterprise applications\n\n**RESTful APIs**: Architectural style using HTTP methods (GET, POST, PUT, DELETE) for client-server communication with stateless operations.\n\n**GraphQL**: Query language allowing clients to request exactly the data they need, reducing over-fet",
+      "length": 1500,
+      "score": 1.0,
+      "tokens_estimate": 375
+    },
+    {
+      "id": 1,
+      "start": 1300,
+      "end": 2319,
+      "text": "HTTP methods (GET, POST, PUT, DELETE) for client-server communication with stateless operations.\n\n**GraphQL**: Query language allowing clients to request exactly the data they need, reducing over-fetching and under-fetching problems.\n\n## Full-Stack Development\n\n**MEAN/MERN Stack**: MongoDB, Express, Angular/React, Node.js - popular JavaScript-based full-stack combinations.\n\n**JAMstack**: JavaScript, APIs, and Markup - modern architecture for fast, secure websites with decoupled frontend and backend.\n\n## Web Performance\n\n- Code splitting and lazy loading\n- Image optimization and modern formats (WebP, AVIF)\n- Content Delivery Networks (CDN) for global distribution\n- Caching strategies (browser, service worker, server-side)\n- Minification and compression\n\n## Security Considerations\n\n- HTTPS encryption for all connections\n- Input validation and sanitization\n- SQL injection prevention\n- Cross-Site Scripting (XSS) protection\n- Cross-Site Request Forgery (CSRF) tokens\n- Secure authentication and authorization",
+      "length": 1017,
+      "score": 1.0,
+      "tokens_estimate": 254
+    },
+    {
+      "id": 2,
+      "start": 2119,
+      "end": 2319,
+      "text": "connections\n- Input validation and sanitization\n- SQL injection prevention\n- Cross-Site Scripting (XSS) protection\n- Cross-Site Request Forgery (CSRF) tokens\n- Secure authentication and authorization",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

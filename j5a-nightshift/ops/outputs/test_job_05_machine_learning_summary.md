@@ -1,0 +1,5 @@
+- Main point: "Machine learning is a subset of artificial intelligence that enables computers to learn from data and improve their performance without being explicitly programmed for specific tasks." (source: test_job_05_machine_learning.txt)
+- Main point: "The model learns patterns from datasets containing examples of inputs and desired outputs." (source: test_job_05_machine_learning.txt)
+- Main point: "Common tasks include classification (categorizing data) and regression (predicting continuous values)." (source: test_job_05_machine_learning.txt)
+- Main point: "Test the model on unseen data to measure its generalization ability." (source: test_job_05_machine_learning.txt)
+- Main point: "Linear Regression: Predicts continuous values based on linear relationships" (source: test_job_05_machine_learning.txt)

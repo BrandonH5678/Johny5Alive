@@ -1,0 +1,36 @@
+{
+  "source": "test_job_09_cybersecurity.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_09_cybersecurity.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1500,
+      "text": "# Cybersecurity Essentials\n\nCybersecurity protects computer systems, networks, and data from digital attacks, unauthorized access, and damage.\n\n## Core Principles\n\n**Confidentiality**: Ensuring information is accessible only to authorized individuals through encryption, access controls, and authentication.\n\n**Integrity**: Maintaining accuracy and completeness of data by preventing unauthorized modifications through checksums, digital signatures, and version control.\n\n**Availability**: Ensuring systems and data remain accessible to authorized users through redundancy, backups, and disaster recovery planning.\n\n## Common Threats\n\n**Malware**: Malicious software including viruses, worms, trojans, ransomware, and spyware designed to damage systems or steal data.\n\n**Phishing**: Social engineering attacks using deceptive emails or websites to trick users into revealing sensitive information.\n\n**Denial of Service (DoS)**: Overwhelming systems with traffic to make them unavailable to legitimate users.\n\n**Man-in-the-Middle Attacks**: Intercepting communications between two parties to eavesdrop or manipulate data.\n\n**SQL Injection**: Exploiting vulnerabilities in web applications to execute malicious database queries.\n\n## Defense Strategies\n\n**Multi-Factor Authentication (MFA)**: Requiring multiple forms of verification beyond just passwords significantly improves account security.\n\n**Encryption**: Converting data into unreadable format using algorithms, protecting information both in t",
+      "length": 1500,
+      "score": 1.0,
+      "tokens_estimate": 375
+    },
+    {
+      "id": 1,
+      "start": 1300,
+      "end": 2435,
+      "text": "multiple forms of verification beyond just passwords significantly improves account security.\n\n**Encryption**: Converting data into unreadable format using algorithms, protecting information both in transit and at rest.\n\n**Firewalls**: Network security systems that monitor and control incoming and outgoing traffic based on security rules.\n\n**Intrusion Detection Systems (IDS)**: Monitor network traffic for suspicious activity and alert administrators to potential threats.\n\n**Regular Updates**: Applying security patches promptly closes known vulnerabilities that attackers might exploit.\n\n## Security Best Practices\n\n- Strong, unique passwords for each account\n- Regular backups of critical data\n- Principle of least privilege (minimal necessary access)\n- Security awareness training for employees\n- Regular security audits and penetration testing\n- Incident response planning\n- Network segmentation\n- Monitoring and logging\n\n## Emerging Challenges\n\n- AI-powered attacks and deepfakes\n- IoT device security vulnerabilities\n- Cloud security and shared responsibility\n- Supply chain attacks\n- Quantum computing threats to encryption",
+      "length": 1134,
+      "score": 1.0,
+      "tokens_estimate": 283
+    },
+    {
+      "id": 2,
+      "start": 2235,
+      "end": 2435,
+      "text": "erging Challenges\n\n- AI-powered attacks and deepfakes\n- IoT device security vulnerabilities\n- Cloud security and shared responsibility\n- Supply chain attacks\n- Quantum computing threats to encryption",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+- Main point: "Cloud computing delivers computing services over the internet" (source: test_job_08_cloud_computing.txt)
+- Main point: "Infrastructure as a Service (IaaS) provides virtualized computing resources like servers, storage, and networking" (source: test_job_08_cloud_computing.txt)
+- Main point: "Amazon Web Services (AWS): The largest and most mature cloud provider with comprehensive services including EC2, S3, Lambda, and hundreds more" (source: test_job_08_cloud_computing.txt)
+- Main point: "Scalability: Resources can scale up or down based on demand, from handling traffic spikes to accommodating business growth" (source: test_job_08_cloud_computing.txt)
+- Main point: "Containers (Docker) and orchestration (Kubernetes)" (source: test_job_08_cloud_computing.txt)

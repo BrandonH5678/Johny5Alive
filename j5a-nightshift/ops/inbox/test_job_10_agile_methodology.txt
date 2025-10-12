@@ -1,0 +1,60 @@
+# Agile Software Development
+
+Agile is an iterative approach to software development that emphasizes flexibility, collaboration, and rapid delivery of working software.
+
+## Agile Manifesto Values
+
+**Individuals and interactions** over processes and tools: Emphasizing team communication and collaboration rather than rigid adherence to procedures.
+
+**Working software** over comprehensive documentation: Prioritizing functional code that delivers value while maintaining necessary documentation.
+
+**Customer collaboration** over contract negotiation: Engaging customers throughout development to ensure the product meets their evolving needs.
+
+**Responding to change** over following a plan: Embracing changing requirements even late in development to maintain competitive advantage.
+
+## Scrum Framework
+
+**Roles**:
+- Product Owner: Defines features and prioritizes work based on business value
+- Scrum Master: Facilitates the process and removes obstacles
+- Development Team: Self-organizing group that builds the product
+
+**Events**:
+- Sprint: Time-boxed iteration (typically 2-4 weeks) producing potentially shippable product increment
+- Sprint Planning: Team commits to work for upcoming sprint
+- Daily Standup: Brief daily synchronization meeting
+- Sprint Review: Demonstration of completed work to stakeholders
+- Sprint Retrospective: Team reflects on process improvements
+
+**Artifacts**:
+- Product Backlog: Prioritized list of features and requirements
+- Sprint Backlog: Work committed to for current sprint
+- Increment: Potentially releasable product version
+
+## Kanban Methodology
+
+**Visual Workflow**: Cards representing work items move across columns showing their status (To Do, In Progress, Done).
+
+**Work in Progress (WIP) Limits**: Constraining concurrent work prevents overload and identifies bottlenecks.
+
+**Continuous Flow**: Unlike Scrum's time-boxed sprints, Kanban allows continuous delivery of completed items.
+
+**Pull System**: Team members pull new work only when capacity exists, maintaining sustainable pace.
+
+## Extreme Programming (XP)
+
+Core practices:
+- Pair programming: Two developers working together at one workstation
+- Test-Driven Development (TDD): Writing tests before implementation code
+- Continuous Integration: Frequently merging code changes into shared repository
+- Refactoring: Improving code structure without changing behavior
+- Simple design: Implementing only what's needed today
+
+## Benefits of Agile
+
+- Faster time to market with incremental releases
+- Improved product quality through continuous testing and feedback
+- Greater flexibility to adapt to changing requirements
+- Enhanced customer satisfaction through frequent delivery and involvement
+- Better risk management through early problem detection
+- Increased team morale and productivity

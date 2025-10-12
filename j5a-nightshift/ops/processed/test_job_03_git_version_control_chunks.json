@@ -1,0 +1,36 @@
+{
+  "source": "test_job_03_git_version_control.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_03_git_version_control.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1500,
+      "text": "# Git Version Control System\n\nGit is a distributed version control system created by Linus Torvalds in 2005 for managing the Linux kernel source code. It has since become the dominant version control system in software development.\n\n## Fundamental Concepts\n\n**Distributed Architecture**: Unlike centralized version control systems, every Git repository is a complete copy with full history, allowing developers to work independently and merge changes later.\n\n**Commits**: Git stores project history as a series of snapshots (commits) rather than file-based changes, making operations fast and branching lightweight.\n\n**Branches**: Git makes creating and merging branches trivially easy, enabling developers to experiment with new features without affecting the main codebase.\n\n**Staging Area**: The staging area (index) allows developers to carefully construct commits by selecting which changes to include.\n\n## Essential Commands\n\nBasic workflow commands:\n- git clone: Copy a repository\n- git add: Stage changes for commit\n- git commit: Save staged changes to history\n- git push: Upload local commits to remote repository\n- git pull: Download and merge remote changes\n\nBranching and merging:\n- git branch: List, create, or delete branches\n- git checkout: Switch between branches\n- git merge: Combine branch histories\n\n## Collaboration Features\n\n**Remote Repositories**: Services like GitHub, GitLab, and Bitbucket host Git repositories and add features like pull requests, issue tracking, and contin",
+      "length": 1500,
+      "score": 1.0,
+      "tokens_estimate": 375
+    },
+    {
+      "id": 1,
+      "start": 1300,
+      "end": 2012,
+      "text": "branch histories\n\n## Collaboration Features\n\n**Remote Repositories**: Services like GitHub, GitLab, and Bitbucket host Git repositories and add features like pull requests, issue tracking, and continuous integration.\n\n**Pull Requests**: A collaborative workflow where developers propose changes, discuss them, and get approval before merging into the main codebase.\n\n**Conflict Resolution**: Git helps developers identify and resolve conflicts when multiple people modify the same code.\n\n## Best Practices\n\n- Write clear, descriptive commit messages\n- Commit related changes together\n- Create feature branches for new work\n- Keep commits small and focused\n- Pull frequently to stay up-to-date with team changes",
+      "length": 710,
+      "score": 1.0,
+      "tokens_estimate": 177
+    },
+    {
+      "id": 2,
+      "start": 1812,
+      "end": 2012,
+      "text": "ite clear, descriptive commit messages\n- Commit related changes together\n- Create feature branches for new work\n- Keep commits small and focused\n- Pull frequently to stay up-to-date with team changes",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

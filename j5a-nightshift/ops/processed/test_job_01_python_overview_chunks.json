@@ -1,0 +1,27 @@
+{
+  "source": "test_job_01_python_overview.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_01_python_overview.txt",
+  "total_chunks": 2,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1346,
+      "text": "# Python Programming Language Overview\n\nPython is a high-level, interpreted programming language created by Guido van Rossum and first released in 1991. It emphasizes code readability with significant whitespace and a clear, expressive syntax.\n\n## Key Features\n\n**Readability**: Python's syntax is designed to be readable and straightforward, making it an excellent language for beginners while remaining powerful for experts.\n\n**Interpreted**: Python code is executed line by line, which makes debugging easier and development faster.\n\n**Dynamically Typed**: Variables in Python don't need explicit declaration of their data type, which can speed up development but requires careful attention to type safety.\n\n**Multi-Paradigm**: Python supports multiple programming paradigms including procedural, object-oriented, and functional programming.\n\n## Popular Use Cases\n\nPython is widely used in:\n- Web development (Django, Flask frameworks)\n- Data science and machine learning (NumPy, Pandas, TensorFlow)\n- Automation and scripting\n- Scientific computing\n- Artificial intelligence applications\n\n## Community and Ecosystem\n\nPython has a large and active community with extensive libraries available through PyPI (Python Package Index). The language continues to evolve with regular updates and improvements while maintaining backward compatibility.",
+      "length": 1345,
+      "score": 1.0,
+      "tokens_estimate": 336
+    },
+    {
+      "id": 1,
+      "start": 1146,
+      "end": 1346,
+      "text": "tive community with extensive libraries available through PyPI (Python Package Index). The language continues to evolve with regular updates and improvements while maintaining backward compatibility.",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "source": "test_job_02_linux_basics.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_02_linux_basics.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1498,
+      "text": "# Linux Operating System Basics\n\nLinux is an open-source, Unix-like operating system kernel first released by Linus Torvalds in 1991. It has become one of the most important and widely-used operating systems in computing.\n\n## Core Characteristics\n\n**Open Source**: Linux is distributed under the GNU General Public License, meaning its source code is freely available for anyone to view, modify, and distribute.\n\n**Modular Design**: The Linux kernel is highly modular, allowing users to customize their system by enabling or disabling various components.\n\n**Multi-User and Multi-Tasking**: Linux was designed from the ground up to support multiple users running multiple programs simultaneously.\n\n**Security**: Linux's permission system and separation of user privileges provide strong security features that have made it popular for servers and critical systems.\n\n## Distributions\n\nLinux comes in many \"distributions\" (distros) that package the Linux kernel with various software:\n- Ubuntu: Popular for desktop users and beginners\n- Debian: Known for stability and extensive software repositories\n- Red Hat Enterprise Linux: Widely used in enterprise environments\n- Arch Linux: Favored by advanced users who want maximum control\n\n## Command Line Interface\n\nThe Linux command line (shell) is powerful and efficient:\n- File operations: ls, cp, mv, rm\n- Text processing: grep, sed, awk\n- System monitoring: top, ps, df\n- Package management: apt, yum, pacman (varies by distribution)\n\n## Applications",
+      "length": 1497,
+      "score": 1.0,
+      "tokens_estimate": 374
+    },
+    {
+      "id": 1,
+      "start": 1298,
+      "end": 1698,
+      "text": "ul and efficient:\n- File operations: ls, cp, mv, rm\n- Text processing: grep, sed, awk\n- System monitoring: top, ps, df\n- Package management: apt, yum, pacman (varies by distribution)\n\n## Applications\n\nLinux powers:\n- Most web servers and cloud infrastructure\n- Android mobile devices\n- Supercomputers (over 90% run Linux)\n- Embedded systems and IoT devices\n- Development environments for programmers",
+      "length": 399,
+      "score": 1.0,
+      "tokens_estimate": 99
+    },
+    {
+      "id": 2,
+      "start": 1498,
+      "end": 1698,
+      "text": "Linux powers:\n- Most web servers and cloud infrastructure\n- Android mobile devices\n- Supercomputers (over 90% run Linux)\n- Embedded systems and IoT devices\n- Development environments for programmers",
+      "length": 198,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+- Main point: "Python is a high-level interpreted programming language created by Guido van Rossum." (source: test_document.txt)
+- Main point: "Python supports multiple programming paradigms including procedural, object-oriented, and functional programming." (source: test_document.txt)
+- Main point: "Python is widely used in web development, data science, machine learning, and automation." (source: test_document.txt)
+- Main point: "Python is a high-level interpreted programming language created by Guido van Rossum." (source: test_document.txt)
+- Main point: "Python supports multiple programming paradigms including procedural, object-oriented, and functional programming." (source: test_document.txt)

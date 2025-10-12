@@ -1,0 +1,132 @@
+# J5A Nightshift Configuration - Phase 1
+# Local/Remote-Local LLM operations only
+# Hardware: 16GB RAM, Intel i5-3210M (4 cores), CPU-only
+
+phase: 1
+system_name: "j5a-nightshift"
+version: "1.0.0"
+
+# LLM Configuration
+llm:
+  default_mode: local  # local | remote | api
+  local_endpoint: "http://localhost:11434"  # Ollama local
+  remote_endpoint: "http://10.8.0.2:11434"  # Remote Ollama (if available)
+  model: "qwen2.5:7b-instruct-q4_K_M"
+  max_context: 4096
+  max_output: 600
+  temperature: 0.7
+  top_p: 0.9
+
+# Resource Constraints
+resources:
+  max_ram_mb: 12288  # 12GB safe limit (16GB total - 4GB buffer)
+  thermal_limit_celsius: 87  # Matches CPU "high" spec (was 80, critical is 105)
+  max_processing_time_minutes: 30
+  cpu_cores: 4
+
+# Task Processing
+processing:
+  retries: 1
+  retry_delay_seconds: 10
+  batch_size: 1  # Process one job at a time
+  parallel_execution: false  # No parallel jobs (thermal safety)
+
+# API Configuration (Phase 1: DISABLED)
+api:
+  enabled: false
+  model: "claude-sonnet-4-5"
+  endpoint: "https://api.anthropic.com/v1/messages"
+  daily_job_cap: 5
+  per_job_token_cap: 60000
+  kill_env: "J5A_API_DISABLED"
+
+# Job Classification
+job_classes:
+  standard:
+    description: "Simple tasks suitable for local 7B models"
+    examples:
+      - "Text summarization (<3000 words)"
+      - "Simple code stubs (<40 lines, stdlib only)"
+      - "Template rendering"
+      - "Format conversion"
+    max_complexity: low
+
+  demanding:
+    description: "Complex tasks requiring larger models or API"
+    examples:
+      - "Complex code generation (>100 lines)"
+      - "Multi-document synthesis (>10K words)"
+      - "Advanced reasoning tasks"
+    action_phase_1: park  # Park for Phase 2
+    action_phase_2: escalate_to_api
+
+# Validation Thresholds
+validation:
+  code:
+    ruff_required: true
+    mypy_required: true
+    pytest_required: true
+    pass_rate: 1.0  # 100% pass required
+
+  docs:
+    build_check: true
+    format_validation: true
+
+  viz:
+    graphviz_build: true
+    hash_comparison: true  # Compare to golden hash
+
+  summaries:
+    min_excerpts: 3
+    insufficient_evidence_allowed: true
+
+# Business Hours Coordination
+business_hours:
+  enabled: true
+  days: [0, 1, 2, 3, 4]  # Monday-Friday (0=Monday)
+  start_hour: 6
+  end_hour: 19
+  priority_system: "squirt"  # LibreOffice has priority
+  nightshift_pause: true  # Pause demanding operations
+
+# Thermal Safety
+thermal:
+  monitoring_enabled: true
+  check_interval_seconds: 60
+  safe_temp: 75
+  warning_temp: 80
+  critical_temp: 85
+  emergency_temp: 90
+  actions:
+    warning: "throttle"  # Reduce job complexity
+    critical: "defer"  # Defer current job
+    emergency: "shutdown"  # Emergency stop
+
+# Logging
+logging:
+  level: "INFO"
+  file: "/home/johnny5/Johny5Alive/j5a-nightshift/ops/logs/worker.log"
+  max_size_mb: 100
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Output Paths
+paths:
+  base: "/home/johnny5/Johny5Alive/j5a-nightshift"
+  inbox: "ops/inbox"
+  processed: "ops/processed"
+  outputs: "ops/outputs"
+  logs: "ops/logs"
+  schemas: "ops/schemas"
+  templates: "ops/templates"
+  validators: "ops/validators"
+  contracts: "contracts"
+  models: "models"
+  queue_db: "/home/johnny5/Johny5Alive/j5a_queue_manager.db"
+
+# Milestone Targets (Phase 1)
+milestones:
+  m1_local_loop:
+    target_success_rate: 0.85  # 85% jobs complete w/out API
+    measurement_window_days: 30
+    min_sample_size: 100

@@ -216,7 +216,7 @@ class J5AOvernightQueueManager:
 
         # TEMPORARY: RAM upgrade constraint (remove after RAM upgrade delivered)
         # Block multi-speaker audio (podcasts/interviews) until 8GB+ RAM available
-        self.ram_upgrade_pending = True
+        self.ram_upgrade_pending = False  # RAM UPGRADE COMPLETE - 16GB installed
         self.blocked_content_types = [
             "podcast",
             "interview_series",

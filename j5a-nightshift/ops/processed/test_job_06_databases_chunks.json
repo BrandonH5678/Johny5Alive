@@ -1,0 +1,36 @@
+{
+  "source": "test_job_06_databases.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_06_databases.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1500,
+      "text": "# Database Management Systems\n\nDatabases are organized collections of structured information or data, typically stored electronically and accessed through Database Management Systems (DBMS).\n\n## Relational Databases\n\n**SQL Databases**: Use Structured Query Language (SQL) to define and manipulate data organized in tables with rows and columns.\n\n**ACID Properties**: Atomicity, Consistency, Isolation, and Durability ensure reliable transaction processing even in the event of errors or system failures.\n\n**Schema**: Relational databases require a predefined structure (schema) that defines tables, columns, data types, and relationships.\n\n**Normalization**: The process of organizing data to reduce redundancy and improve data integrity by dividing large tables into smaller, related tables.\n\nPopular relational databases:\n- PostgreSQL: Advanced open-source with extensive features\n- MySQL: Widely used, particularly for web applications\n- Oracle: Enterprise-grade with comprehensive capabilities\n- Microsoft SQL Server: Integrated with Microsoft ecosystem\n\n## NoSQL Databases\n\n**Schema-less Design**: NoSQL databases typically don't require fixed schemas, allowing for more flexible data models.\n\n**Horizontal Scalability**: Designed to scale out across multiple servers rather than scaling up on a single machine.\n\n**Types of NoSQL Databases**:\n- Document stores (MongoDB): Store data as JSON-like documents\n- Key-value stores (Redis): Simple key-value pairs for fast lookups\n- Column-family store",
+      "length": 1500,
+      "score": 1.0,
+      "tokens_estimate": 375
+    },
+    {
+      "id": 1,
+      "start": 1300,
+      "end": 2383,
+      "text": "single machine.\n\n**Types of NoSQL Databases**:\n- Document stores (MongoDB): Store data as JSON-like documents\n- Key-value stores (Redis): Simple key-value pairs for fast lookups\n- Column-family stores (Cassandra): Organize data by columns rather than rows\n- Graph databases (Neo4j): Optimized for relationship-heavy data\n\n## Database Design Principles\n\n**Data Modeling**: Carefully design the structure to reflect real-world entities and their relationships.\n\n**Indexing**: Create indexes on frequently queried columns to speed up data retrieval at the cost of slower writes.\n\n**Query Optimization**: Write efficient queries and use EXPLAIN plans to understand and improve performance.\n\n**Backup and Recovery**: Regular backups and tested recovery procedures protect against data loss.\n\n## Modern Database Trends\n\n- Cloud databases (AWS RDS, Google Cloud SQL)\n- NewSQL systems combining SQL benefits with NoSQL scalability\n- Time-series databases for IoT and monitoring data\n- Vector databases for AI and similarity search\n- Multi-model databases supporting multiple data paradigms",
+      "length": 1081,
+      "score": 1.0,
+      "tokens_estimate": 270
+    },
+    {
+      "id": 2,
+      "start": 2183,
+      "end": 2383,
+      "text": "ning SQL benefits with NoSQL scalability\n- Time-series databases for IoT and monitoring data\n- Vector databases for AI and similarity search\n- Multi-model databases supporting multiple data paradigms",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

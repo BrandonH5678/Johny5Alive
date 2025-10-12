@@ -1,0 +1,36 @@
+{
+  "source": "test_job_05_machine_learning.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_05_machine_learning.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1404,
+      "text": "# Machine Learning Fundamentals\n\nMachine learning is a subset of artificial intelligence that enables computers to learn from data and improve their performance without being explicitly programmed for specific tasks.\n\n## Core Concepts\n\n**Training Data**: Machine learning models learn patterns from datasets containing examples of inputs and desired outputs.\n\n**Features**: The measurable properties or characteristics of the data that the model uses to make predictions or decisions.\n\n**Model**: A mathematical representation of patterns learned from training data, used to make predictions on new, unseen data.\n\n**Parameters**: Internal variables that the model adjusts during training to minimize prediction errors.\n\n## Types of Machine Learning\n\n**Supervised Learning**: The model learns from labeled data where the correct answer is provided. Common tasks include classification (categorizing data) and regression (predicting continuous values).\n\n**Unsupervised Learning**: The model finds patterns in unlabeled data without predefined categories. Clustering and dimensionality reduction are typical applications.\n\n**Reinforcement Learning**: An agent learns to make decisions by interacting with an environment, receiving rewards or penalties for its actions.\n\n## The Training Process\n\n**Data Preparation**: Clean and organize data, handle missing values, and split into training and testing sets.",
+      "length": 1403,
+      "score": 1.0,
+      "tokens_estimate": 350
+    },
+    {
+      "id": 1,
+      "start": 1204,
+      "end": 2510,
+      "text": "environment, receiving rewards or penalties for its actions.\n\n## The Training Process\n\n**Data Preparation**: Clean and organize data, handle missing values, and split into training and testing sets.\n\n**Feature Engineering**: Select and transform relevant features that help the model learn effectively.\n\n**Model Selection**: Choose an appropriate algorithm (neural networks, decision trees, support vector machines, etc.) based on the problem.\n\n**Training**: Feed training data through the model, adjusting parameters to minimize errors.\n\n**Evaluation**: Test the model on unseen data to measure its generalization ability.\n\n**Iteration**: Refine the model based on performance metrics and domain knowledge.\n\n## Common Algorithms\n\n- Linear Regression: Predicts continuous values based on linear relationships\n- Decision Trees: Makes decisions using a tree-like model of choices\n- Neural Networks: Inspired by biological neurons, can learn complex patterns\n- Random Forests: Combines multiple decision trees for robust predictions\n- Support Vector Machines: Finds optimal boundaries between classes\n\n## Applications\n\n- Image and speech recognition\n- Natural language processing\n- Recommendation systems (Netflix, Amazon)\n- Autonomous vehicles\n- Fraud detection\n- Medical diagnosis\n- Predictive maintenance",
+      "length": 1304,
+      "score": 1.0,
+      "tokens_estimate": 326
+    },
+    {
+      "id": 2,
+      "start": 2310,
+      "end": 2510,
+      "text": "lications\n\n- Image and speech recognition\n- Natural language processing\n- Recommendation systems (Netflix, Amazon)\n- Autonomous vehicles\n- Fraud detection\n- Medical diagnosis\n- Predictive maintenance",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

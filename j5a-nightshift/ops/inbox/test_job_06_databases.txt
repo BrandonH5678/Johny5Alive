@@ -1,0 +1,49 @@
+# Database Management Systems
+
+Databases are organized collections of structured information or data, typically stored electronically and accessed through Database Management Systems (DBMS).
+
+## Relational Databases
+
+**SQL Databases**: Use Structured Query Language (SQL) to define and manipulate data organized in tables with rows and columns.
+
+**ACID Properties**: Atomicity, Consistency, Isolation, and Durability ensure reliable transaction processing even in the event of errors or system failures.
+
+**Schema**: Relational databases require a predefined structure (schema) that defines tables, columns, data types, and relationships.
+
+**Normalization**: The process of organizing data to reduce redundancy and improve data integrity by dividing large tables into smaller, related tables.
+
+Popular relational databases:
+- PostgreSQL: Advanced open-source with extensive features
+- MySQL: Widely used, particularly for web applications
+- Oracle: Enterprise-grade with comprehensive capabilities
+- Microsoft SQL Server: Integrated with Microsoft ecosystem
+
+## NoSQL Databases
+
+**Schema-less Design**: NoSQL databases typically don't require fixed schemas, allowing for more flexible data models.
+
+**Horizontal Scalability**: Designed to scale out across multiple servers rather than scaling up on a single machine.
+
+**Types of NoSQL Databases**:
+- Document stores (MongoDB): Store data as JSON-like documents
+- Key-value stores (Redis): Simple key-value pairs for fast lookups
+- Column-family stores (Cassandra): Organize data by columns rather than rows
+- Graph databases (Neo4j): Optimized for relationship-heavy data
+
+## Database Design Principles
+
+**Data Modeling**: Carefully design the structure to reflect real-world entities and their relationships.
+
+**Indexing**: Create indexes on frequently queried columns to speed up data retrieval at the cost of slower writes.
+
+**Query Optimization**: Write efficient queries and use EXPLAIN plans to understand and improve performance.
+
+**Backup and Recovery**: Regular backups and tested recovery procedures protect against data loss.
+
+## Modern Database Trends
+
+- Cloud databases (AWS RDS, Google Cloud SQL)
+- NewSQL systems combining SQL benefits with NoSQL scalability
+- Time-series databases for IoT and monitoring data
+- Vector databases for AI and similarity search
+- Multi-model databases supporting multiple data paradigms

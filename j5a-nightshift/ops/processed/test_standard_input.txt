@@ -1,0 +1,45 @@
+# J5A Nightshift System Overview
+
+J5A Nightshift is an autonomous overnight queue/batch management system designed for local LLM operations.
+
+## Key Features
+
+**Phase 1: Local-Only Operations**
+- Runs on 2012 Mac Mini with 16GB RAM
+- Uses Ollama with qwen2.5:7b-instruct model (4.7GB)
+- Safe memory limit: 12GB (leaves 4GB for system)
+- Thermal safety monitoring at 80°C threshold
+- Evidence-based summarization with ≥3 citation requirement
+
+**Processing Pipeline**
+The system uses a multi-stage pipeline:
+1. Sherlock Ingest: Normalizes content from multiple formats (TXT, MD, PDF, HTML, JSON, URLs) to UTF-8 text
+2. Sherlock Chunk: Splits text into scored excerpts with relevance ranking
+3. LLM Summarization: Generates citations-backed summaries using local model
+4. Validation Gates: Enforces quality requirements (ruff, mypy, pytest for code; citation checking for summaries)
+
+**Job Classification**
+Jobs are classified as either "standard" or "demanding":
+- Standard jobs run immediately with local 7B model (summaries <3000 words, simple code <40 lines)
+- Demanding jobs are parked for Phase 2 API escalation (complex research, large documents, advanced code)
+
+**Quality Gates**
+All outputs must pass validation:
+- Code validation requires 100% pass on ruff linting, mypy type checking, and pytest tests
+- Summary validation requires ≥3 distinct excerpt citations with verbatim quotes
+- Insufficient evidence outputs are valid when marked explicitly
+
+**Phase Progression**
+- Phase 1: Local-only with strict resource constraints (current status)
+- Phase 2: Hybrid local + API fallback for demanding jobs (planned)
+- Phase 3: Continuous learning with adaptive routing (future)
+
+## Success Metrics
+
+Target: ≥85% autonomous overnight task completion
+- Processing viability threshold: 60% success on statistical samples
+- Format validation threshold: 80% valid format detection
+- Output generation threshold: 80% expected outputs created
+- Overall quality score threshold: ≥50% combined metrics
+
+The system prioritizes completion over quality to maintain viability on constrained hardware, using intelligent model selection and thermal safety protocols to prevent crashes.

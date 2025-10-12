@@ -1,0 +1,43 @@
+# Git Version Control System
+
+Git is a distributed version control system created by Linus Torvalds in 2005 for managing the Linux kernel source code. It has since become the dominant version control system in software development.
+
+## Fundamental Concepts
+
+**Distributed Architecture**: Unlike centralized version control systems, every Git repository is a complete copy with full history, allowing developers to work independently and merge changes later.
+
+**Commits**: Git stores project history as a series of snapshots (commits) rather than file-based changes, making operations fast and branching lightweight.
+
+**Branches**: Git makes creating and merging branches trivially easy, enabling developers to experiment with new features without affecting the main codebase.
+
+**Staging Area**: The staging area (index) allows developers to carefully construct commits by selecting which changes to include.
+
+## Essential Commands
+
+Basic workflow commands:
+- git clone: Copy a repository
+- git add: Stage changes for commit
+- git commit: Save staged changes to history
+- git push: Upload local commits to remote repository
+- git pull: Download and merge remote changes
+
+Branching and merging:
+- git branch: List, create, or delete branches
+- git checkout: Switch between branches
+- git merge: Combine branch histories
+
+## Collaboration Features
+
+**Remote Repositories**: Services like GitHub, GitLab, and Bitbucket host Git repositories and add features like pull requests, issue tracking, and continuous integration.
+
+**Pull Requests**: A collaborative workflow where developers propose changes, discuss them, and get approval before merging into the main codebase.
+
+**Conflict Resolution**: Git helps developers identify and resolve conflicts when multiple people modify the same code.
+
+## Best Practices
+
+- Write clear, descriptive commit messages
+- Commit related changes together
+- Create feature branches for new work
+- Keep commits small and focused
+- Pull frequently to stay up-to-date with team changes

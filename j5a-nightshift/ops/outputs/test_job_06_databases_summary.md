@@ -1,0 +1,5 @@
+- Main point: "Databases are organized collections of structured information or data." (source: test_job_06_databases.txt)
+- Main point: "Atomicity, Consistency, Isolation, and Durability ensure reliable transaction processing even in the event of errors or system failures." (source: test_job_06_databases.txt)
+- Main point: "Popular relational databases include PostgreSQL, MySQL, Oracle, and Microsoft SQL Server." (source: test_job_06_databases.txt)
+- Main point: "NoSQL databases typically don't require fixed schemas, allowing for more flexible data models." (source: test_job_06_databases.txt)
+- Main point: "Modern database trends include cloud databases, NewSQL systems, time-series databases, vector databases, and multi-model databases." (source: test_job_06_databases.txt)

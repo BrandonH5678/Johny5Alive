@@ -1,0 +1,36 @@
+{
+  "source": "test_job_04_docker_containers.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_04_docker_containers.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1465,
+      "text": "# Docker and Containerization\n\nDocker is a platform for developing, shipping, and running applications in containers. Released in 2013, it has revolutionized software deployment and DevOps practices.\n\n## Container Technology\n\n**Containers vs Virtual Machines**: Containers package application code with its dependencies but share the host OS kernel, making them much lighter than virtual machines which include entire operating systems.\n\n**Images**: Docker images are read-only templates that contain the application, its dependencies, libraries, and configuration files needed to run.\n\n**Layers**: Images are built in layers, with each instruction in a Dockerfile creating a new layer. This layered approach enables efficient storage and transfer.\n\n**Isolation**: Containers provide process and filesystem isolation, allowing applications to run independently without interfering with each other.\n\n## Key Benefits\n\n**Consistency**: \"It works on my machine\" problems are eliminated because containers ensure the application runs the same way across all environments.\n\n**Portability**: Containers can run on any system that supports Docker, from developer laptops to production servers in the cloud.\n\n**Efficiency**: Containers start in seconds and use minimal resources compared to traditional virtual machines.\n\n**Scalability**: Container orchestration platforms like Kubernetes make it easy to scale applications up or down based on demand.\n\n## Docker Components",
+      "length": 1464,
+      "score": 1.0,
+      "tokens_estimate": 366
+    },
+    {
+      "id": 1,
+      "start": 1265,
+      "end": 2099,
+      "text": "rces compared to traditional virtual machines.\n\n**Scalability**: Container orchestration platforms like Kubernetes make it easy to scale applications up or down based on demand.\n\n## Docker Components\n\n**Docker Engine**: The core runtime that builds and runs containers on the host operating system.\n\n**Dockerfile**: A text file containing instructions to build a Docker image automatically.\n\n**Docker Hub**: A public registry where developers can find and share container images.\n\n**Docker Compose**: A tool for defining and running multi-container applications using YAML configuration files.\n\n## Use Cases\n\n- Microservices architectures\n- Continuous Integration/Continuous Deployment (CI/CD) pipelines\n- Development environment standardization\n- Application isolation and dependency management\n- Cloud-native application deployment",
+      "length": 833,
+      "score": 1.0,
+      "tokens_estimate": 208
+    },
+    {
+      "id": 2,
+      "start": 1899,
+      "end": 2099,
+      "text": "ures\n- Continuous Integration/Continuous Deployment (CI/CD) pipelines\n- Development environment standardization\n- Application isolation and dependency management\n- Cloud-native application deployment",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

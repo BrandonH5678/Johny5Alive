@@ -1,0 +1,5 @@
+- Main point: "J5A Nightshift is an autonomous overnight queue/batch management system designed for local LLM operations" (source: test_standard_input.txt)
+- Main point: "Code validation requires 100% pass on ruff linting, mypy type checking, and pytest tests" (source: test_standard_input.txt)
+- Main point: "All outputs must pass validation" (source: test_standard_input.txt)
+- Main point: "The system prioritizes completion over quality to maintain viability on constrained hardware" (source: test_standard_input.txt)
+- Main point: "Target: ≥85% autonomous overnight task completion" (source: test_standard_input.txt)

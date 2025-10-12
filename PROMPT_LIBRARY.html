@@ -332,6 +332,7 @@
                 <a href="#query-templates" class="nav-link">Query Templates</a>
                 <a href="#quick-commands" class="nav-link">Quick Commands</a>
                 <a href="#bash-commands" class="nav-link">Bash Commands</a>
+                <a href="#ollama-commands" class="nav-link">Ollama LLM</a>
             </div>
 
             <!-- Search Bar -->
@@ -767,6 +768,21 @@ Output: Apply {format_name} template with extracted data.
                         <h4>Sync Sherlock Only</h4>
                         <code>./sync_to_github.sh sherlock</code>
                     </div>
+
+                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and queue for overnight processing')">
+                        <h4>Create Package & Queue</h4>
+                        <code>Create Sherlock research package for [URL] and queue for overnight processing</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and execute immediately')">
+                        <h4>Create Package & Execute Now</h4>
+                        <code>Create Sherlock research package for [URL] and execute immediately</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Process [URL] as Sherlock evidence document with standard intelligence extraction')">
+                        <h4>Process Document as Evidence</h4>
+                        <code>Process [URL] as Sherlock evidence document with standard intelligence extraction</code>
+                    </div>
                 </div>
 
                 <div class="tip-box" style="margin-top: 25px;">
@@ -845,6 +861,82 @@ Output: Apply {format_name} template with extracted data.
 
                 <div class="tip-box" style="margin-top: 25px;">
                     💡 <strong>PRO TIP:</strong> These bash commands are integrated with Claude commands for seamless workflow!
+                </div>
+            </section>
+
+            <!-- Section 7: Ollama Commands -->
+            <section id="ollama-commands" class="section">
+                <h2>🦙 7. Ollama LLM Commands</h2>
+                <div class="section-intro">
+                    <strong>Local LLM management for J5A Nightshift operations.</strong> Click to copy.
+                </div>
+
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('ollama list')">
+                        <h4>List Installed Models</h4>
+                        <code>ollama list</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ollama pull qwen2.5:7b-instruct-q4_K_M')">
+                        <h4>Pull Qwen 7B Model (Nightshift Default)</h4>
+                        <code>ollama pull qwen2.5:7b-instruct-q4_K_M</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ollama run qwen2.5:7b-instruct-q4_K_M')">
+                        <h4>Run Interactive Chat (Testing)</h4>
+                        <code>ollama run qwen2.5:7b-instruct-q4_K_M</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ollama serve &')">
+                        <h4>Start Ollama Server (Background)</h4>
+                        <code>ollama serve &</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('curl http://localhost:11434/api/version')">
+                        <h4>Check Ollama Server Status</h4>
+                        <code>curl http://localhost:11434/api/version</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ollama ps')">
+                        <h4>Show Running Models</h4>
+                        <code>ollama ps</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('pkill ollama')">
+                        <h4>Stop Ollama Server</h4>
+                        <code>pkill ollama</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ollama rm qwen2.5:7b-instruct-q4_K_M')">
+                        <h4>Remove Model (Free Space)</h4>
+                        <code>ollama rm qwen2.5:7b-instruct-q4_K_M</code>
+                    </div>
+                </div>
+
+                <div class="code-block" style="margin-top: 25px;">
+                    <div class="code-header">
+                        <strong>🧪 Test LLM Gateway</strong>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre>cd /home/johnny5/Johny5Alive/j5a-nightshift
+python3 llm_gateway.py</pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <strong>📝 Test Summarization Pipeline</strong>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <pre>cd /home/johnny5/Johny5Alive/j5a-nightshift
+python3 summarize_local.py --test</pre>
+                </div>
+
+                <div class="tip-box" style="margin-top: 25px;">
+                    💡 <strong>MODEL INFO:</strong> qwen2.5:7b-instruct-q4_K_M is 4.7GB and uses ~6GB RAM during inference. Perfect for 16GB systems!
+                </div>
+
+                <div class="warning-box" style="margin-top: 15px;">
+                    <strong>⚠️ THERMAL SAFETY:</strong> Local LLM inference generates sustained CPU load. Monitor temperature: <code>sensors | grep "Package id 0"</code>
                 </div>
             </section>
 

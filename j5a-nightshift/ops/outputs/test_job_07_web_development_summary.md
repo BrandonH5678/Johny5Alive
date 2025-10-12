@@ -1,0 +1,5 @@
+- Main point: "Web development has evolved dramatically from simple static HTML pages to complex, interactive applications that power modern businesses and services." (source: test_job_07_web_development.txt)
+- Main point: "The latest version of HTML provides semantic elements, multimedia support, and APIs for advanced web functionality." (source: test_job_07_web_development.txt)
+- Main point: "React: Component-based library for building user interfaces" (source: test_job_07_web_development.txt)
+- Main point: "HTTP methods (GET, POST, PUT, DELETE) for client-server communication with stateless operations." (source: test_job_07_web_development.txt)
+- Main point: "Input validation and sanitization" (source: test_job_07_web_development.txt)

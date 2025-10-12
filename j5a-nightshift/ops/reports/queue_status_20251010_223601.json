@@ -1,0 +1,182 @@
+{
+  "timestamp": "2025-10-10T22:36:01.572108",
+  "job_distribution": {
+    "by_status": {
+      "completed": 1,
+      "deferred": 6,
+      "failed": 4,
+      "parked": 4,
+      "queued": 27
+    },
+    "by_type": {
+      "development": {
+        "deferred": 6,
+        "failed": 1
+      },
+      "throughput": {
+        "completed": 1,
+        "failed": 3,
+        "parked": 4,
+        "queued": 27
+      }
+    },
+    "by_priority": {
+      "1": {
+        "completed": 1,
+        "failed": 3,
+        "queued": 7
+      },
+      "2": {
+        "failed": 1,
+        "parked": 1,
+        "queued": 18
+      },
+      "3": {
+        "deferred": 6,
+        "parked": 3,
+        "queued": 2
+      }
+    },
+    "by_system": {
+      "j5a": {
+        "deferred": 6
+      },
+      "sherlock": {
+        "completed": 1,
+        "failed": 3,
+        "parked": 4,
+        "queued": 27
+      },
+      "squirt": {
+        "failed": 1
+      }
+    }
+  },
+  "processing_time_trends": {
+    "by_task_type": [],
+    "daily_trend": []
+  },
+  "success_rate": {
+    "overall": {
+      "total_jobs": 42,
+      "completed": 1,
+      "failed": 4,
+      "deferred": 6,
+      "parked": 4,
+      "success_rate": 2.38,
+      "failure_rate": 9.52
+    },
+    "by_type": [
+      {
+        "task_type": "development",
+        "total": 7,
+        "completed": 0,
+        "failed": 1,
+        "success_rate": 0.0
+      },
+      {
+        "task_type": "throughput",
+        "total": 35,
+        "completed": 1,
+        "failed": 3,
+        "success_rate": 2.86
+      }
+    ],
+    "daily_trend": []
+  },
+  "failure_patterns": {
+    "recent_failures": [
+      {
+        "task_id": "dev_001",
+        "name": "Implement Squirt Voice Enhancement",
+        "task_type": "development",
+        "error_category": "unknown",
+        "error_details": null,
+        "retry_count": 0,
+        "timestamp": null
+      },
+      {
+        "task_id": "sherlock_pkg_12",
+        "name": "S-Force",
+        "task_type": "throughput",
+        "error_category": "unknown",
+        "error_details": null,
+        "retry_count": 0,
+        "timestamp": null
+      },
+      {
+        "task_id": "sherlock_pkg_14",
+        "name": "Allen Dulles",
+        "task_type": "throughput",
+        "error_category": "unknown",
+        "error_details": null,
+        "retry_count": 0,
+        "timestamp": null
+      },
+      {
+        "task_id": "sherlock_pkg_17",
+        "name": "James Jesus Angleton",
+        "task_type": "throughput",
+        "error_category": "unknown",
+        "error_details": null,
+        "retry_count": 0,
+        "timestamp": null
+      }
+    ],
+    "error_categories": {
+      "unknown": 4
+    },
+    "deferred_count": 6,
+    "deferred_jobs": [
+      {
+        "task_id": "squirt_visual_1_1",
+        "name": "Create visual/ and memory/ folder structure",
+        "task_type": "development",
+        "reason": "unknown"
+      },
+      {
+        "task_id": "squirt_visual_1_2",
+        "name": "Define Pydantic data schemas for visual tasks",
+        "task_type": "development",
+        "reason": "unknown"
+      },
+      {
+        "task_id": "squirt_visual_1_3",
+        "name": "Set up ChromaDB vector store for design memory",
+        "task_type": "development",
+        "reason": "unknown"
+      },
+      {
+        "task_id": "squirt_visual_1_4",
+        "name": "Implement visual output validators",
+        "task_type": "development",
+        "reason": "unknown"
+      },
+      {
+        "task_id": "squirt_visual_1_5",
+        "name": "Install Phase 1 dependencies",
+        "task_type": "development",
+        "reason": "unknown"
+      },
+      {
+        "task_id": "squirt_visual_1_6",
+        "name": "Create Phase 1 test suite",
+        "task_type": "development",
+        "reason": "unknown"
+      }
+    ]
+  },
+  "resource_utilization": {
+    "thermal_safety_stats": {
+      "thermal_required": {
+        "completed": 1,
+        "deferred": 6,
+        "failed": 4,
+        "parked": 4,
+        "queued": 27
+      }
+    },
+    "performance_samples": 0,
+    "sample_metrics": []
+  }
+}

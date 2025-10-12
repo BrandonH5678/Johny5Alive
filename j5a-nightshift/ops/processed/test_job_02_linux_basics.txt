@@ -1,0 +1,38 @@
+# Linux Operating System Basics
+
+Linux is an open-source, Unix-like operating system kernel first released by Linus Torvalds in 1991. It has become one of the most important and widely-used operating systems in computing.
+
+## Core Characteristics
+
+**Open Source**: Linux is distributed under the GNU General Public License, meaning its source code is freely available for anyone to view, modify, and distribute.
+
+**Modular Design**: The Linux kernel is highly modular, allowing users to customize their system by enabling or disabling various components.
+
+**Multi-User and Multi-Tasking**: Linux was designed from the ground up to support multiple users running multiple programs simultaneously.
+
+**Security**: Linux's permission system and separation of user privileges provide strong security features that have made it popular for servers and critical systems.
+
+## Distributions
+
+Linux comes in many "distributions" (distros) that package the Linux kernel with various software:
+- Ubuntu: Popular for desktop users and beginners
+- Debian: Known for stability and extensive software repositories
+- Red Hat Enterprise Linux: Widely used in enterprise environments
+- Arch Linux: Favored by advanced users who want maximum control
+
+## Command Line Interface
+
+The Linux command line (shell) is powerful and efficient:
+- File operations: ls, cp, mv, rm
+- Text processing: grep, sed, awk
+- System monitoring: top, ps, df
+- Package management: apt, yum, pacman (varies by distribution)
+
+## Applications
+
+Linux powers:
+- Most web servers and cloud infrastructure
+- Android mobile devices
+- Supercomputers (over 90% run Linux)
+- Embedded systems and IoT devices
+- Development environments for programmers

@@ -1,0 +1,5 @@
+- Containers vs virtual machines: "Containers package application code with its dependencies but share the host OS kernel, making them much lighter than virtual machines which include entire operating systems." (source: test_job_04_docker_containers.txt)
+- Consistency: "It works on my machine" problems are eliminated because containers ensure the application runs the same way across all environments. (source: test_job_04_docker_containers.txt)
+- Scalability: "Container orchestration platforms like Kubernetes make it easy to scale applications up or down based on demand." (source: test_job_04_docker_containers.txt)
+- Docker Engine: The core runtime that builds and runs containers on the host operating system. (source: test_job_04_docker_containers.txt)
+- Use cases: Microservices architectures, Continuous Integration/Continuous Deployment (CI/CD) pipelines, Development environment standardization, Application isolation and dependency management, Cloud-native application deployment. (source: test_job_04_docker_containers.txt)

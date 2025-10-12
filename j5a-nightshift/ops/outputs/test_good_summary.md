@@ -1,0 +1,5 @@
+- Python is a "high-level programming language" (source: intro.txt)
+- It emphasizes "code readability with significant whitespace" (source: intro.txt)
+- Python supports "multiple programming paradigms" (source: features.txt)
+- It has a "comprehensive standard library" (source: features.txt)
+- Python is used in "web development, data science, and machine learning" (source: usecases.txt)

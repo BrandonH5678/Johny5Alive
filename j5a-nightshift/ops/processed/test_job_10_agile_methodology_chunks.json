@@ -1,0 +1,36 @@
+{
+  "source": "test_job_10_agile_methodology.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_10_agile_methodology.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1500,
+      "text": "# Agile Software Development\n\nAgile is an iterative approach to software development that emphasizes flexibility, collaboration, and rapid delivery of working software.\n\n## Agile Manifesto Values\n\n**Individuals and interactions** over processes and tools: Emphasizing team communication and collaboration rather than rigid adherence to procedures.\n\n**Working software** over comprehensive documentation: Prioritizing functional code that delivers value while maintaining necessary documentation.\n\n**Customer collaboration** over contract negotiation: Engaging customers throughout development to ensure the product meets their evolving needs.\n\n**Responding to change** over following a plan: Embracing changing requirements even late in development to maintain competitive advantage.\n\n## Scrum Framework\n\n**Roles**:\n- Product Owner: Defines features and prioritizes work based on business value\n- Scrum Master: Facilitates the process and removes obstacles\n- Development Team: Self-organizing group that builds the product\n\n**Events**:\n- Sprint: Time-boxed iteration (typically 2-4 weeks) producing potentially shippable product increment\n- Sprint Planning: Team commits to work for upcoming sprint\n- Daily Standup: Brief daily synchronization meeting\n- Sprint Review: Demonstration of completed work to stakeholders\n- Sprint Retrospective: Team reflects on process improvements\n\n**Artifacts**:\n- Product Backlog: Prioritized list of features and requirements\n- Sprint Backlog: Work committed to for",
+      "length": 1499,
+      "score": 1.0,
+      "tokens_estimate": 374
+    },
+    {
+      "id": 1,
+      "start": 1300,
+      "end": 2797,
+      "text": "to stakeholders\n- Sprint Retrospective: Team reflects on process improvements\n\n**Artifacts**:\n- Product Backlog: Prioritized list of features and requirements\n- Sprint Backlog: Work committed to for current sprint\n- Increment: Potentially releasable product version\n\n## Kanban Methodology\n\n**Visual Workflow**: Cards representing work items move across columns showing their status (To Do, In Progress, Done).\n\n**Work in Progress (WIP) Limits**: Constraining concurrent work prevents overload and identifies bottlenecks.\n\n**Continuous Flow**: Unlike Scrum's time-boxed sprints, Kanban allows continuous delivery of completed items.\n\n**Pull System**: Team members pull new work only when capacity exists, maintaining sustainable pace.\n\n## Extreme Programming (XP)\n\nCore practices:\n- Pair programming: Two developers working together at one workstation\n- Test-Driven Development (TDD): Writing tests before implementation code\n- Continuous Integration: Frequently merging code changes into shared repository\n- Refactoring: Improving code structure without changing behavior\n- Simple design: Implementing only what's needed today\n\n## Benefits of Agile\n\n- Faster time to market with incremental releases\n- Improved product quality through continuous testing and feedback\n- Greater flexibility to adapt to changing requirements\n- Enhanced customer satisfaction through frequent delivery and involvement\n- Better risk management through early problem detection\n- Increased team morale and productivity",
+      "length": 1495,
+      "score": 1.0,
+      "tokens_estimate": 373
+    },
+    {
+      "id": 2,
+      "start": 2597,
+      "end": 2797,
+      "text": "t to changing requirements\n- Enhanced customer satisfaction through frequent delivery and involvement\n- Better risk management through early problem detection\n- Increased team morale and productivity",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

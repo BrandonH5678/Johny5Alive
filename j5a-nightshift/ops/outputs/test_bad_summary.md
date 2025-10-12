@@ -1,0 +1,2 @@
+- Python is a "high-level programming language" (source: intro.txt)
+- It emphasizes readability

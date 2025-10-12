@@ -1,0 +1,39 @@
+[Unit]
+Description=J5A Nightshift Queue Processor
+Documentation=file:///home/johnny5/Johny5Alive/j5a-nightshift/README.md
+After=network.target
+StartLimitIntervalSec=3600
+StartLimitBurst=3
+
+[Service]
+Type=oneshot
+User=johnny5
+Group=johnny5
+WorkingDirectory=/home/johnny5/Johny5Alive/j5a-nightshift
+
+# Timeout for long-running jobs (30 minutes)
+TimeoutStartSec=1800
+
+# Pre-flight safety checks
+ExecStartPre=/home/johnny5/Johny5Alive/j5a-nightshift/ops/pre_flight_check.sh
+
+# Main processing with timeout wrapper
+ExecStart=/usr/bin/timeout 1800 /usr/bin/python3 /home/johnny5/Johny5Alive/j5a-nightshift/process_nightshift_queue.py
+
+# Post-processing summary (don't fail if this errors)
+ExecStartPost=-/usr/bin/python3 /home/johnny5/Johny5Alive/j5a-nightshift/ops/nightshift_summary.py
+
+# Logging
+StandardOutput=append:/home/johnny5/Johny5Alive/j5a-nightshift/ops/logs/systemd.log
+StandardError=append:/home/johnny5/Johny5Alive/j5a-nightshift/ops/logs/systemd_error.log
+
+# Resource limits
+MemoryMax=12G
+CPUQuota=75%
+
+# Restart on failure (but don't loop infinitely)
+Restart=on-failure
+RestartSec=300
+
+[Install]
+WantedBy=multi-user.target

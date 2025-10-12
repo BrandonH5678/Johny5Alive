@@ -1,0 +1,36 @@
+{
+  "source": "test_job_08_cloud_computing.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_job_08_cloud_computing.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1406,
+      "text": "# Cloud Computing Fundamentals\n\nCloud computing delivers computing services over the internet, enabling organizations to access technology resources without maintaining physical infrastructure.\n\n## Service Models\n\n**Infrastructure as a Service (IaaS)**: Provides virtualized computing resources like servers, storage, and networking. Users manage operating systems and applications while the provider handles hardware.\n\n**Platform as a Service (PaaS)**: Offers a development and deployment environment including runtime, database, and web servers. Developers focus on code while the platform manages infrastructure.\n\n**Software as a Service (SaaS)**: Delivers complete applications over the internet. Users access software through web browsers without installation or maintenance.\n\n## Deployment Models\n\n**Public Cloud**: Services offered over the public internet and shared across organizations. Examples include AWS, Azure, and Google Cloud.\n\n**Private Cloud**: Infrastructure dedicated to a single organization, offering greater control and security but requiring more management.\n\n**Hybrid Cloud**: Combination of public and private clouds, allowing data and applications to move between them for flexibility and optimization.\n\n## Major Cloud Providers\n\n**Amazon Web Services (AWS)**: The largest and most mature cloud provider with comprehensive services including EC2, S3, Lambda, and hundreds more.",
+      "length": 1405,
+      "score": 1.0,
+      "tokens_estimate": 351
+    },
+    {
+      "id": 1,
+      "start": 1206,
+      "end": 2368,
+      "text": "bility and optimization.\n\n## Major Cloud Providers\n\n**Amazon Web Services (AWS)**: The largest and most mature cloud provider with comprehensive services including EC2, S3, Lambda, and hundreds more.\n\n**Microsoft Azure**: Strong integration with Microsoft products and extensive enterprise services.\n\n**Google Cloud Platform (GCP)**: Known for data analytics, machine learning, and Kubernetes orchestration.\n\n## Key Benefits\n\n**Scalability**: Resources can scale up or down based on demand, from handling traffic spikes to accommodating business growth.\n\n**Cost Efficiency**: Pay-as-you-go pricing eliminates large upfront capital expenditures and reduces operational costs.\n\n**Global Reach**: Deploy applications across multiple geographic regions to serve users worldwide with low latency.\n\n**Disaster Recovery**: Built-in redundancy and backup services protect against data loss and ensure business continuity.\n\n## Cloud-Native Technologies\n\n- Containers (Docker) and orchestration (Kubernetes)\n- Serverless computing (AWS Lambda, Azure Functions)\n- Microservices architecture\n- DevOps and CI/CD pipelines\n- Infrastructure as Code (Terraform, CloudFormation)",
+      "length": 1161,
+      "score": 1.0,
+      "tokens_estimate": 290
+    },
+    {
+      "id": 2,
+      "start": 2168,
+      "end": 2368,
+      "text": "ker) and orchestration (Kubernetes)\n- Serverless computing (AWS Lambda, Azure Functions)\n- Microservices architecture\n- DevOps and CI/CD pipelines\n- Infrastructure as Code (Terraform, CloudFormation)",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

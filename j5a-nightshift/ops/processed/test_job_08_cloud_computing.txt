@@ -1,0 +1,45 @@
+# Cloud Computing Fundamentals
+
+Cloud computing delivers computing services over the internet, enabling organizations to access technology resources without maintaining physical infrastructure.
+
+## Service Models
+
+**Infrastructure as a Service (IaaS)**: Provides virtualized computing resources like servers, storage, and networking. Users manage operating systems and applications while the provider handles hardware.
+
+**Platform as a Service (PaaS)**: Offers a development and deployment environment including runtime, database, and web servers. Developers focus on code while the platform manages infrastructure.
+
+**Software as a Service (SaaS)**: Delivers complete applications over the internet. Users access software through web browsers without installation or maintenance.
+
+## Deployment Models
+
+**Public Cloud**: Services offered over the public internet and shared across organizations. Examples include AWS, Azure, and Google Cloud.
+
+**Private Cloud**: Infrastructure dedicated to a single organization, offering greater control and security but requiring more management.
+
+**Hybrid Cloud**: Combination of public and private clouds, allowing data and applications to move between them for flexibility and optimization.
+
+## Major Cloud Providers
+
+**Amazon Web Services (AWS)**: The largest and most mature cloud provider with comprehensive services including EC2, S3, Lambda, and hundreds more.
+
+**Microsoft Azure**: Strong integration with Microsoft products and extensive enterprise services.
+
+**Google Cloud Platform (GCP)**: Known for data analytics, machine learning, and Kubernetes orchestration.
+
+## Key Benefits
+
+**Scalability**: Resources can scale up or down based on demand, from handling traffic spikes to accommodating business growth.
+
+**Cost Efficiency**: Pay-as-you-go pricing eliminates large upfront capital expenditures and reduces operational costs.
+
+**Global Reach**: Deploy applications across multiple geographic regions to serve users worldwide with low latency.
+
+**Disaster Recovery**: Built-in redundancy and backup services protect against data loss and ensure business continuity.
+
+## Cloud-Native Technologies
+
+- Containers (Docker) and orchestration (Kubernetes)
+- Serverless computing (AWS Lambda, Azure Functions)
+- Microservices architecture
+- DevOps and CI/CD pipelines
+- Infrastructure as Code (Terraform, CloudFormation)

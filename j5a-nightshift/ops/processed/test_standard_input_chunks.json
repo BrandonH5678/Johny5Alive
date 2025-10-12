@@ -1,0 +1,36 @@
+{
+  "source": "test_standard_input.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_standard_input.txt",
+  "total_chunks": 3,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 1456,
+      "text": "# J5A Nightshift System Overview\n\nJ5A Nightshift is an autonomous overnight queue/batch management system designed for local LLM operations.\n\n## Key Features\n\n**Phase 1: Local-Only Operations**\n- Runs on 2012 Mac Mini with 16GB RAM\n- Uses Ollama with qwen2.5:7b-instruct model (4.7GB)\n- Safe memory limit: 12GB (leaves 4GB for system)\n- Thermal safety monitoring at 80°C threshold\n- Evidence-based summarization with ≥3 citation requirement\n\n**Processing Pipeline**\nThe system uses a multi-stage pipeline:\n1. Sherlock Ingest: Normalizes content from multiple formats (TXT, MD, PDF, HTML, JSON, URLs) to UTF-8 text\n2. Sherlock Chunk: Splits text into scored excerpts with relevance ranking\n3. LLM Summarization: Generates citations-backed summaries using local model\n4. Validation Gates: Enforces quality requirements (ruff, mypy, pytest for code; citation checking for summaries)\n\n**Job Classification**\nJobs are classified as either \"standard\" or \"demanding\":\n- Standard jobs run immediately with local 7B model (summaries <3000 words, simple code <40 lines)\n- Demanding jobs are parked for Phase 2 API escalation (complex research, large documents, advanced code)\n\n**Quality Gates**\nAll outputs must pass validation:\n- Code validation requires 100% pass on ruff linting, mypy type checking, and pytest tests\n- Summary validation requires ≥3 distinct excerpt citations with verbatim quotes\n- Insufficient evidence outputs are valid when marked explicitly",
+      "length": 1455,
+      "score": 1.0,
+      "tokens_estimate": 363
+    },
+    {
+      "id": 1,
+      "start": 1256,
+      "end": 2174,
+      "text": "on ruff linting, mypy type checking, and pytest tests\n- Summary validation requires ≥3 distinct excerpt citations with verbatim quotes\n- Insufficient evidence outputs are valid when marked explicitly\n\n**Phase Progression**\n- Phase 1: Local-only with strict resource constraints (current status)\n- Phase 2: Hybrid local + API fallback for demanding jobs (planned)\n- Phase 3: Continuous learning with adaptive routing (future)\n\n## Success Metrics\n\nTarget: ≥85% autonomous overnight task completion\n- Processing viability threshold: 60% success on statistical samples\n- Format validation threshold: 80% valid format detection\n- Output generation threshold: 80% expected outputs created\n- Overall quality score threshold: ≥50% combined metrics\n\nThe system prioritizes completion over quality to maintain viability on constrained hardware, using intelligent model selection and thermal safety protocols to prevent crashes.",
+      "length": 917,
+      "score": 1.0,
+      "tokens_estimate": 229
+    },
+    {
+      "id": 2,
+      "start": 1974,
+      "end": 2174,
+      "text": "≥50% combined metrics\n\nThe system prioritizes completion over quality to maintain viability on constrained hardware, using intelligent model selection and thermal safety protocols to prevent crashes.",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

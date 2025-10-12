@@ -1,0 +1,232 @@
+[
+  {
+    "job_id": "overnight_test_001",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize Python programming overview",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_01_python_overview.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_01_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_002",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize Linux operating system basics",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_02_linux_basics.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_02_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_003",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize Git version control",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_03_git_version_control.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_03_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_004",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize Docker containerization",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_04_docker_containers.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_04_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_005",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize machine learning fundamentals",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_05_machine_learning.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_05_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_006",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize database management systems",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_06_databases.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_06_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_007",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize modern web development",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_07_web_development.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_07_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_008",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize cloud computing fundamentals",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_08_cloud_computing.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_08_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_009",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize cybersecurity essentials",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_09_cybersecurity.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_09_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  },
+  {
+    "job_id": "overnight_test_010",
+    "type": "summary",
+    "class": "standard",
+    "priority": 2,
+    "description": "Summarize agile methodology",
+    "inputs": [
+      {
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/inbox/test_job_10_agile_methodology.txt"
+      }
+    ],
+    "outputs": [
+      {
+        "kind": "markdown",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/test_job_10_summary.md"
+      }
+    ],
+    "metadata": {
+      "created": "2025-10-09",
+      "estimated_duration_minutes": 10,
+      "thermal_sensitive": true
+    }
+  }
+]

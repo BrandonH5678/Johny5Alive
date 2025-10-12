@@ -1,0 +1,5 @@
+- Main point: "Python is a high-level, interpreted programming language created by Guido van Rossum" (source: test_job_01_python_overview.txt)
+- Main point: "Python's syntax is designed to be readable and straightforward, making it an excellent language for beginners while remaining powerful for experts" (source: test_job_01_python_overview.txt)
+- Main point: "Python code is executed line by line, which makes debugging easier and development faster" (source: test_job_01_python_overview.txt)
+- Main point: "Python supports multiple programming paradigms including procedural, object-oriented, and functional programming" (source: test_job_01_python_overview.txt)
+- Main point: "The language continues to evolve with regular updates and improvements while maintaining backward compatibility" (source: test_job_01_python_overview.txt)

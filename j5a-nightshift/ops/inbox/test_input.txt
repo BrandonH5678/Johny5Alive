@@ -1,0 +1,16 @@
+# Introduction to Autonomous Systems
+
+Autonomous systems are capable of performing tasks without human intervention.
+They use sensors, algorithms, and machine learning to make decisions.
+
+# Applications
+
+Autonomous systems are used in:
+- Self-driving cars
+- Robotics
+- Drone delivery
+- Industrial automation
+
+# Challenges
+
+Key challenges include safety, reliability, and ethical considerations.

@@ -1,0 +1,27 @@
+{
+  "source": "test_input.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_input.txt",
+  "total_chunks": 2,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 394,
+      "text": "# Introduction to Autonomous Systems\n\nAutonomous systems are capable of performing tasks without human intervention.\nThey use sensors, algorithms, and machine learning to make decisions.\n\n# Applications\n\nAutonomous systems are used in:\n- Self-driving cars\n- Robotics\n- Drone delivery\n- Industrial automation\n\n# Challenges\n\nKey challenges include safety, reliability, and ethical considerations.",
+      "length": 394,
+      "score": 1.0,
+      "tokens_estimate": 98
+    },
+    {
+      "id": 1,
+      "start": 194,
+      "end": 394,
+      "text": "ications\n\nAutonomous systems are used in:\n- Self-driving cars\n- Robotics\n- Drone delivery\n- Industrial automation\n\n# Challenges\n\nKey challenges include safety, reliability, and ethical considerations.",
+      "length": 200,
+      "score": 1.0,
+      "tokens_estimate": 50
+    }
+  ]
+}
