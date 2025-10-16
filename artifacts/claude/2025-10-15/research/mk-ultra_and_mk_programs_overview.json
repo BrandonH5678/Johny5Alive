@@ -1,0 +1,84 @@
+{
+  "package_id": 39,
+  "target": "MK-Ultra and MK Programs",
+  "target_type": "program_cluster",
+  "research_date": "2025-10-15",
+  "concealment_classification": "Active Record Destruction",
+
+  "executive_summary": {
+    "overview": "MK-Ultra was an illegal CIA human experimentation program (1953-1973) designed to develop mind control procedures and interrogation drugs. Part of a larger cluster of behavioral control programs including Bluebird, Artichoke, MK-Naomi, and MK-Search.",
+    "concealment_method": "Systematic record destruction ordered by CIA Director Richard Helms and program director Sidney Gottlieb in 1973",
+    "significance": "Represents documented case of CIA destroying evidence of illegal human experimentation to prevent accountability",
+    "current_status": "Partially exposed through 1975 Church Committee and surviving documents; full scope remains unknown due to destruction"
+  },
+
+  "program_cluster": {
+    "bluebird": {
+      "name": "Project Bluebird",
+      "dates": "1950-1951",
+      "focus": "Investigative techniques including drugs and hypnosis",
+      "status": "Renamed to Artichoke"
+    },
+    "artichoke": {
+      "name": "Project Artichoke",
+      "dates": "1951-1953",
+      "focus": "Forced interrogation, involuntary assassination attempts, morphine addiction/withdrawal, LSD, amnesia induction",
+      "operated_by": "CIA Office of Scientific Intelligence",
+      "status": "Evolved into MK-Ultra"
+    },
+    "mk_ultra": {
+      "name": "Project MK-Ultra",
+      "dates": "1953-1973",
+      "approved_by": "CIA Director Allen Dulles, April 13, 1953",
+      "director": "Sidney Gottlieb",
+      "focus": "Mind control drugs, LSD experimentation, psychological torture, brainwashing techniques",
+      "scale": "150+ human experiments, unwitting and cognizant subjects",
+      "status": "Halted 1973, records destroyed 1973"
+    },
+    "mk_naomi": {
+      "name": "MK-Naomi",
+      "dates": "1950s-1970s",
+      "focus": "Biological and chemical weapons development",
+      "relationship": "Related cryptonym to MK-Ultra"
+    },
+    "mk_search": {
+      "name": "MK-Search",
+      "dates": "1964-1973",
+      "focus": "Continuation of MK-Ultra research",
+      "relationship": "MK-Ultra renamed in 1964"
+    }
+  },
+
+  "concealment_strategy": {
+    "primary_method": "Complete record destruction 1973",
+    "executed_by": ["CIA Director Richard Helms", "Sidney Gottlieb"],
+    "destruction_timing": "Upon program termination and Gottlieb's departure",
+    "partial_failure": "20,000 pages survived at non-standard records center",
+    "disclosure_forced_by": "1975 Church Committee and Rockefeller Commission investigations",
+    "remaining_gaps": "Full scope of experiments, complete victim list, all participating institutions"
+  },
+
+  "peripheral_evidence_available": {
+    "congressional_testimony": "Church Committee hearings 1975",
+    "surviving_documents": "~20,000 pages found 1977 by Admiral Stansfield Turner",
+    "institutional_records": "McGill University, other academic institutions",
+    "victim_testimony": "Lawsuits and personal accounts",
+    "financial_records": "Some CIA appropriations survived",
+    "physical_evidence": "LSD purchases ($240,000 for world supply), facility records"
+  },
+
+  "key_findings": [
+    "MK-Ultra approved April 13, 1953 by CIA Director Allen Dulles in response to alleged Soviet/Chinese/North Korean mind control use on POWs",
+    "Sidney Gottlieb arranged CIA purchase of entire world LSD supply for $240,000",
+    "150+ human experiments involved psychedelic drugs, paralytics, electroshock therapy",
+    "Experiments conducted on unwitting and cognizant subjects",
+    "Program included psychiatric research to 'crush the human psyche to the point that it would admit anything'",
+    "Most records destroyed by Richard Helms and Sidney Gottlieb in 1973",
+    "Frank Olson death November 28, 1953 after being dosed with LSD by Gottlieb - ruled suicide but evidence suggests murder",
+    "Program exposed publicly in 1975 by Church Committee and Rockefeller Commission",
+    "Survived 20,000 pages discovered 1977 at non-standard records center",
+    "Program originated from Operation Paperclip Nazi scientist recruitment"
+  ],
+
+  "research_methodology_notes": "This analysis employs peripheral evidence attack strategy: when direct records are destroyed, reconstruct from financial records, institutional partnerships, victim documentation, and surviving fragments. Congressional appropriations, university IRB records, pharmaceutical shipment logs, and victim lawsuits provide angles of approach that cannot be destroyed by the primary perpetrators."
+}

@@ -1,0 +1,193 @@
+{
+  "description": "Example job definitions for Retriever v2.1 integration",
+  "jobs": [
+    {
+      "job_id": "intel_discovery_001",
+      "type": "intelligence_discovery",
+      "class": "standard",
+      "inputs": {
+        "topic": "UAP government disclosure 2024",
+        "source_types": ["files", "databases", "web"],
+        "search_depth": "comprehensive"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/intel_discovery_001_discovered_sources.json"
+        }
+      ],
+      "metadata": {
+        "priority": 1,
+        "system": "sherlock",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "db_query_001",
+      "type": "database_query",
+      "class": "standard",
+      "inputs": {
+        "query": "SELECT * FROM intelligence_reports WHERE topic LIKE '%UAP%' ORDER BY date DESC LIMIT 100",
+        "database_type": "sqlite",
+        "database_path": "/home/johnny5/Johny5Alive/j5a-nightshift/sherlock_intelligence.db"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/db_query_001_query_results.json"
+        }
+      ],
+      "metadata": {
+        "priority": 2,
+        "system": "sherlock",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "web_scrape_001",
+      "type": "web_scraping",
+      "class": "standard",
+      "inputs": {
+        "url": "https://example.com/intelligence-reports",
+        "backend": "selenium",
+        "headless": true,
+        "wait_for": ".report-list",
+        "selectors": {
+          "title": "h1.page-title",
+          "reports": ".report-item",
+          "dates": ".report-date"
+        },
+        "screenshot": true
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/web_scrape_001_scraped_data.json"
+        },
+        {
+          "kind": "image",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/web_scrape_001_screenshot.png"
+        }
+      ],
+      "metadata": {
+        "priority": 3,
+        "system": "sherlock",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "ml_inference_001",
+      "type": "ml_inference",
+      "class": "demanding",
+      "inputs": {
+        "model_path": "/home/johnny5/Johny5Alive/models/sentiment_classifier.pkl",
+        "input_data": [
+          ["This is a positive document about UAP disclosure"],
+          ["Skeptical analysis of recent sightings"],
+          ["Government confirms unexplained aerial phenomena"]
+        ],
+        "operation": "predict",
+        "preprocess": "standardize",
+        "postprocess": "argmax"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/ml_inference_001_ml_predictions.json"
+        }
+      ],
+      "metadata": {
+        "priority": 2,
+        "system": "sherlock",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "multi_source_001",
+      "type": "multi_source_retrieval",
+      "class": "demanding",
+      "inputs": {
+        "query": "Find all UAP intelligence reports from government sources, extract key findings, and analyze sentiment patterns",
+        "sources": ["databases", "files", "web"],
+        "depth": "comprehensive"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/multi_source_001_multi_source_results.json"
+        }
+      ],
+      "metadata": {
+        "priority": 1,
+        "system": "sherlock",
+        "created": "2025-10-14T00:00:00Z",
+        "notes": "This uses AgentChain for orchestration"
+      }
+    },
+    {
+      "job_id": "squirt_template_fetch_001",
+      "type": "multi_source_retrieval",
+      "class": "standard",
+      "inputs": {
+        "query": "Fetch WaterWizard invoice template from local storage",
+        "template_name": "invoice_template_2024",
+        "source": "local"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/squirt_template_fetch_001_multi_source_results.json"
+        }
+      ],
+      "metadata": {
+        "priority": 2,
+        "system": "squirt",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "jeeves_research_001",
+      "type": "multi_source_retrieval",
+      "class": "demanding",
+      "inputs": {
+        "query": "Research latest developments in autonomous systems for daily briefing",
+        "topic": "autonomous systems",
+        "depth": "detailed",
+        "sources": ["web", "databases", "files"]
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/jeeves_research_001_multi_source_results.json"
+        }
+      ],
+      "metadata": {
+        "priority": 3,
+        "system": "jeeves",
+        "created": "2025-10-14T00:00:00Z"
+      }
+    },
+    {
+      "job_id": "podcast_db_query_001",
+      "type": "database_query",
+      "class": "standard",
+      "inputs": {
+        "query": "SELECT episode_number, title, transcription_path FROM podcast_episodes WHERE transcribed = 1 AND intelligence_extracted = 0 ORDER BY episode_number DESC LIMIT 10",
+        "database_type": "sqlite",
+        "database_path": "/home/johnny5/Johny5Alive/j5a-nightshift/podcast_intelligence.db"
+      },
+      "outputs": [
+        {
+          "kind": "json",
+          "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/podcast_db_query_001_query_results.json"
+        }
+      ],
+      "metadata": {
+        "priority": 2,
+        "system": "nightshift",
+        "created": "2025-10-14T00:00:00Z",
+        "notes": "Find podcast episodes ready for intelligence extraction"
+      }
+    }
+  ]
+}

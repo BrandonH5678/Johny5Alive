@@ -1,0 +1,26 @@
+{
+  "package_id": 13,
+  "target": "Brown Brothers Harriman",
+  "events": [
+    {
+      "date": "1818",
+      "event": "Brown Brothers founded"
+    },
+    {
+      "date": "1931",
+      "event": "Merger with Harriman & Co"
+    },
+    {
+      "date": "1942",
+      "event": "Union Banking Corp seized under Trading with the Enemy Act"
+    },
+    {
+      "date": "1940s-1950s",
+      "event": "Partners shape post-WWII intelligence architecture"
+    },
+    {
+      "date": "1950s-present",
+      "event": "Continued Wall Street-intelligence nexus"
+    }
+  ]
+}

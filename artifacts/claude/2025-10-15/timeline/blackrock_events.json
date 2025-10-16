@@ -1,0 +1,58 @@
+{
+  "package_id": 63,
+  "target": "BlackRock",
+  "events": [
+    {
+      "date": "1988",
+      "event": "BlackRock founded by Larry Fink, Robert Kapito, Susan Wagner, Barbara Novick (Blackstone subsidiary)"
+    },
+    {
+      "date": "1994",
+      "event": "BlackRock spins off from Blackstone as independent company"
+    },
+    {
+      "date": "1999",
+      "event": "BlackRock IPO - begins massive expansion"
+    },
+    {
+      "date": "2006",
+      "event": "Acquires Merrill Lynch Investment Managers - major growth"
+    },
+    {
+      "date": "2008",
+      "event": "Financial crisis - BlackRock hired by Fed to value toxic assets (conflict of interest)"
+    },
+    {
+      "date": "2009",
+      "event": "Acquires Barclays Global Investors (including iShares ETF business) - becomes largest asset manager"
+    },
+    {
+      "date": "2012",
+      "event": "Assets under management surpass $3.5 trillion"
+    },
+    {
+      "date": "2018",
+      "event": "Larry Fink's annual letter emphasizes ESG and stakeholder capitalism (signals policy shift)"
+    },
+    {
+      "date": "2020",
+      "event": "BlackRock hired by Federal Reserve for COVID bond purchase programs"
+    },
+    {
+      "date": "2020",
+      "event": "Brian Deese (BlackRock exec) appointed Biden National Economic Council Director"
+    },
+    {
+      "date": "2021",
+      "event": "Assets under management exceed $10 trillion"
+    },
+    {
+      "date": "2021-present",
+      "event": "ESG voting campaigns against fossil fuel companies, board composition mandates"
+    },
+    {
+      "date": "2022-present",
+      "event": "Political backlash - Republican state treasurers divest from BlackRock over ESG policies"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "package_id": 69,
+  "target": "Lockheed Martin Skunk Works",
+  "claims_summary": "Advanced aircraft development division with history of decades-long classification (F-117 example), alleged Aurora hypersonic program, Ben Rich claims of exotic/UAP technology access",
+  "evidence_categories": {
+    "documented_programs": [
+      "U-2 spy plane (1955): CIA contracts, flight records, Gary Powers shootdown",
+      "SR-71 Blackbird (1964): Air Force reconnaissance, now publicly documented",
+      "F-117 Nighthawk: First flew 1981, classified until 1988 reveal (7-year concealment)",
+      "Have Blue: F-117 demonstrator program, declassified documents available",
+      "Kelly Johnson autobiography and technical papers document development process"
+    ],
+    "classification_pattern": [
+      "F-117 precedent: Operational aircraft concealed for 7 years",
+      "U-2 revealed only after shootdown forced disclosure",
+      "Special Access Programs: Compartmented clearances limit oversight",
+      "Black budget: Classified appropriations for Skunk Works programs",
+      "Congressional testimony: Limited even to oversight committees with clearances"
+    ],
+    "aurora_allegations": [
+      "Hypersonic reconnaissance aircraft: Persistent rumors, aviation observer reports",
+      "Strange sonic booms: Southern California, 1990s (attributed to Aurora by witnesses)",
+      "Budget analysis: Aviation experts identify unexplained classified appropriations",
+      "Official denials: Air Force and Lockheed deny Aurora exists",
+      "Circumstantial evidence: Pulse detonation engine patents, unusual contrails"
+    ],
+    "ben_rich_uap_claims": [
+      "1993 UCLA speech: 'We now have the technology to take ET home' (witnessed, disputed interpretation)",
+      "Deathbed statements (1995): Alleged claims about UFO technology (second-hand accounts)",
+      "Jan Harzan testimony: MUFON director claims Rich told him 'we found an error in the equations'",
+      "Interpretation disputes: Skeptics say metaphorical, believers claim literal exotic tech",
+      "No official Lockheed confirmation or denial of UAP technology programs"
+    ],
+    "concealment_mechanisms": [
+      "Contractor status: Private company shields from some FOIA",
+      "Compartmentation: Need-to-know prevents holistic understanding",
+      "Plausible deniability: Officials deny programs that may exist",
+      "Classification duration: Decades pass before public disclosure",
+      "Facility security: Area 51, Palmdale Plant 42 restricted access"
+    ]
+  },
+  "validation_status": "Historical programs (U-2, SR-71, F-117) extensively documented - Aurora remains unconfirmed despite persistent evidence - Ben Rich UAP claims second-hand and disputed interpretation"
+}

@@ -1,0 +1,34 @@
+{
+  "package_id": 53,
+  "target": "Anthony Fauci",
+  "events": [
+    {
+      "date": "1984",
+      "event": "Appointed NIAID Director"
+    },
+    {
+      "date": "2014",
+      "event": "US gain-of-function research moratorium"
+    },
+    {
+      "date": "2017",
+      "event": "Moratorium lifted, research resumes"
+    },
+    {
+      "date": "2014-2019",
+      "event": "NIH grants to EcoHealth Alliance for Wuhan research"
+    },
+    {
+      "date": "2020-2022",
+      "event": "COVID-19 pandemic response and Task Force"
+    },
+    {
+      "date": "2021-2022",
+      "event": "Congressional hearings on gain-of-function and lab leak"
+    },
+    {
+      "date": "December 2022",
+      "event": "Retirement from NIAID"
+    }
+  ]
+}

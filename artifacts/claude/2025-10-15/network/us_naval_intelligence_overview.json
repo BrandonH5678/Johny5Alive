@@ -1,0 +1,11 @@
+{
+  "package_id": 9,
+  "target": "US Naval Intelligence",
+  "connected_entities": [
+    "Thomas Townsend Brown",
+    "Naval Radar Lab",
+    "UAPTF",
+    "CIA",
+    "Project Mogul"
+  ]
+}

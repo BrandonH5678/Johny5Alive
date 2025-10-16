@@ -1,0 +1,66 @@
+{
+  "entity_type": "waterwizard_clients",
+  "description": "WaterWizard Landscaping client database for context memory",
+  "version": "1.0",
+  "last_updated": "2025-10-15",
+  "clients": [
+    {
+      "client_id": "example_001",
+      "name": "Example Client (Template)",
+      "business_type": "residential",
+      "service_type": "irrigation_system",
+      "location": {
+        "address": "123 Example Street",
+        "city": "Example City",
+        "state": "CA",
+        "zip": "90210"
+      },
+      "contact": {
+        "primary_contact": "John Doe",
+        "phone": "(555) 123-4567",
+        "email": "john@example.com",
+        "preferred_contact_method": "phone"
+      },
+      "service_history": [
+        {
+          "date": "2025-01-15",
+          "service": "Irrigation system installation",
+          "technician": "WaterWizard Tech",
+          "notes": "Installed 8-zone system with smart controller",
+          "invoice_number": "INV-2025-001"
+        }
+      ],
+      "recurring_services": {
+        "enabled": true,
+        "frequency": "quarterly",
+        "next_service_date": "2025-04-15",
+        "service_type": "maintenance_check"
+      },
+      "preferences": {
+        "communication_style": "brief and technical",
+        "scheduling": "weekday mornings preferred",
+        "special_instructions": "Gate code: 1234, dog in backyard"
+      },
+      "billing": {
+        "payment_method": "credit_card",
+        "billing_cycle": "per_service",
+        "credit_status": "good"
+      },
+      "lifetime_value": 5000.00,
+      "customer_since": "2024-06-01",
+      "tags": ["residential", "irrigation", "quarterly_maintenance"]
+    }
+  ],
+  "usage_notes": {
+    "purpose": "Provides client context for voice memo transcription and document generation",
+    "integration": "Used by Squirt system to auto-populate client details in invoices/contracts",
+    "update_frequency": "After each new client onboarding or service completion",
+    "privacy": "Contains PII - treat as confidential"
+  },
+  "template_instructions": {
+    "adding_clients": "Copy the example_001 structure, update all fields",
+    "required_fields": ["client_id", "name", "contact.phone", "service_history"],
+    "optional_fields": ["recurring_services", "preferences", "billing"],
+    "client_id_format": "waterwizard_{YYYY}_{###}"
+  }
+}

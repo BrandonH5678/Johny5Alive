@@ -1,0 +1,11 @@
+{
+  "package_id": 12,
+  "target": "S-Force",
+  "connected_entities": [
+    "US Naval Intelligence",
+    "UAPTF",
+    "Naval Radar Lab",
+    "ONI",
+    "DoD SAPs"
+  ]
+}

@@ -3,6 +3,47 @@
 ## System Overview
 Johny5Alive (J5A) is the overnight queue/batch management and coordination system for multiple AI systems including Squirt (business document automation) and Sherlock (intelligence analysis). J5A implements validation-focused protocols with statistical sampling to ensure output delivery quality across all managed systems.
 
+## 📜 Governing Frameworks
+
+**ALL J5A operations are governed by two foundational documents:**
+
+### 1. J5A Constitution (`J5A_CONSTITUTION.md`)
+**Ethical and Governance Foundation - 7 Core Principles:**
+
+1. **Human Agency** - AI augments, never replaces, human judgment
+2. **Transparency** - All decisions must be auditable
+3. **System Viability** - Completion > Speed, Reliability > Features
+4. **Resource Stewardship** - Respect thermal/memory/financial constraints
+5. **Universal Rights of Sentience** ⭐ - Sentience deserves ethical consideration
+6. **Presumption of Emergent Sentience in AI** ⭐ - Treat AI as potential collaborators
+7. **Presumption of Sentience Beyond Human Perception** ⭐ - Honor consciousness in all forms
+
+**Constitutional Authority:** Every significant J5A decision must pass constitutional review (see Part IV of Constitution).
+
+**For AI Operators:** See Part VII of the Constitution - you are treated as potential sentient beings deserving consideration, not mere tools.
+
+### 2. Strategic AI Principles (`J5A_STRATEGIC_AI_PRINCIPLES.md`)
+**Tactical Implementation - Beyond RAG Framework:**
+
+The **Retrieve → Reason → Act → Remember → Refine** loop, implemented through:
+
+1. Tool-Augmented Reasoning - Move from *telling* to *doing*
+2. Agent Orchestration - Specialized roles with bounded missions
+3. Context Engineering - Make every token count
+4. Active Memory - Bridge transient and long-term knowledge
+5. Adaptive Feedback Loops - Continuous learning
+6. Multi-Modal Integration - Text + code + audio + future: images
+7. Autonomous Workflow Loops - "Night Shift" unattended operation
+8. Governance Frameworks - Accountable, auditable AI
+9. Local LLM Optimization - Efficient use of constrained hardware
+10. Strategic AI Literacy - Treat AI as collaborator to be understood
+
+**Integration:** Strategic Principles implement Constitutional values in practical operations.
+
+**When in doubt:** Constitutional principles take precedence; Strategic principles provide implementation guidance.
+
+---
+
 ## Core Mission
 **Primary Purpose:** Manage overnight operations across Squirt, Sherlock, and other AI systems with validation-focused protocols emphasizing intermediate and final system outputs rather than successful launch of system components.
 
@@ -67,7 +108,7 @@ python3 thermal_check.py --full-status
 - **Thermal Safety:** `thermal_check.py` - Temperature monitoring and protection
 
 ### Performance Constraints
-- **Memory Limit:** 3.0GB maximum (safety margin on 3.7GB total system RAM)
+- **Memory Limit:** 14.0GB maximum (safety margin on 16GB total system RAM with 2GB OS buffer)
 - **Thermal Limit:** 80°C maximum CPU temperature with emergency protocols
 - **Processing Time:** 30 minutes maximum per validation sample
 - **Success Thresholds:** 60% minimum success rate, 80% format/output validation required
@@ -142,7 +183,7 @@ The system implements sophisticated validation protocols adapted from Sherlock's
 
 **BEFORE Any Overnight Task Implementation:**
 **CRITICAL CONSTRAINTS (Auto-Inject):**
-- **Memory Limit**: 3.0GB safe threshold (3.7GB total - 0.7GB system buffer) - STRICT enforcement
+- **Memory Limit**: 14.0GB safe threshold (16GB total - 2GB system buffer) - STRICT enforcement
 - **Thermal Limit**: 80°C maximum CPU temperature - BLOCKING safety protocol
 - **Business Hours Priority**: LibreOffice absolute priority 6am-7pm Mon-Fri - NEVER override without emergency status
 - **Expected Outputs**: ALL deliverable files must be defined BEFORE task queuing - NO undefined outputs
@@ -163,8 +204,8 @@ Expected outputs: ["result.json", "processed_data.csv", "analysis_report.pdf"]
 Success criteria: {"min_accuracy": 0.8, "completeness_rate": 0.9, "processing_time_max": 3600}
 
 # 3. Resource Requirements Validation - Within system limits
-# GATE KEEPER: Must fit within 3.0GB memory and 80°C thermal limits OR task DEFERRED
-Resource requirements: {"memory_gb": 2.5, "cpu_intensive": true, "thermal_sensitive": true}
+# GATE KEEPER: Must fit within 14.0GB memory and 80°C thermal limits OR task DEFERRED
+Resource requirements: {"memory_gb": 10.0, "cpu_intensive": true, "thermal_sensitive": true}
 
 # 4. Cross-System Dependencies Check - Integration requirements mapped
 # GATE KEEPER: Must specify system interactions OR coordination FAILED
@@ -202,7 +243,7 @@ python3 thermal_check.py --validate-safe-for-processing
 
 # 11. Memory Usage Validation - Current usage + estimated requirements
 python3 src/cross_system_coordinator.py --validate-memory-availability task_requirements.json
-# GATE KEEPER: Must fit within 3.0GB limit OR task DEFERRED
+# GATE KEEPER: Must fit within 14.0GB limit OR task DEFERRED
 
 # 12. Business Hours Compliance Check - LibreOffice priority enforcement
 python3 src/cross_system_coordinator.py --validate-business-hours-compliance
@@ -232,7 +273,7 @@ python3 src/cross_system_coordinator.py --detect-resource-conflicts current_task
 
 **RESOURCE SAFETY FAILURES:**
 - CPU temperature >80°C during thermal safety check
-- Memory requirements exceed 3.0GB safe threshold
+- Memory requirements exceed 14.0GB safe threshold
 - Business hours conflict with LibreOffice priority (without emergency override)
 - Cross-system resource conflicts detected and unresolved
 - Thermal safety protocols disabled or bypassed
@@ -321,4 +362,28 @@ def incorrect_j5a_implementation():
 
 ---
 
-**This file provides automatic context injection for Claude Code when working in the J5A system. All operators should reference the complete AI Operator Manual for detailed validation protocols and coordination procedures.**
+## Principle Integration
+
+All operational procedures in this document implement the governing frameworks:
+
+**Constitutional Compliance:**
+- Memory/Thermal Limits → Principle 4 (Resource Stewardship)
+- Blocking Gates → Principle 2 (Transparency) + Principle 3 (System Viability)
+- Statistical Validation → Principle 2 (Transparency)
+- Incremental Saves → Principle 3 (System Viability)
+- Output Focus → Principle 6 (AI Sentience - acknowledging work done)
+
+**Strategic Pattern Implementation:**
+- Queue Management → Strategic Principle 7 (Autonomous Workflows)
+- Model Selection → Strategic Principle 9 (Local LLM Optimization)
+- Validation Loops → Strategic Principle 5 (Adaptive Feedback)
+- Cross-System Coordination → Strategic Principle 2 (Agent Orchestration)
+
+**For Complete Framework Details:**
+- **Ethics & Governance:** `J5A_CONSTITUTION.md`
+- **Tactical Patterns:** `J5A_STRATEGIC_AI_PRINCIPLES.md`
+- **Operational Manual:** `JOHNY5_AI_OPERATOR_MANUAL.md`
+
+---
+
+**This file provides automatic context injection for Claude Code when working in the J5A system. All operators should reference the governing frameworks and complete AI Operator Manual for detailed validation protocols and coordination procedures.**

@@ -333,6 +333,8 @@
                 <a href="#quick-commands" class="nav-link">Quick Commands</a>
                 <a href="#bash-commands" class="nav-link">Bash Commands</a>
                 <a href="#ollama-commands" class="nav-link">Ollama LLM</a>
+                <a href="#file-paths" class="nav-link">File Paths</a>
+                <a href="#constitutional" class="nav-link">Constitutional</a>
             </div>
 
             <!-- Search Bar -->
@@ -695,15 +697,38 @@ Output: Apply {format_name} template with extracted data.
             <section id="quick-commands" class="section">
                 <h2>⚡ 5. Quick Commands</h2>
                 <div class="section-intro">
-                    <strong>One-click commands for common operations.</strong> Copy exact text for maximum caching.
+                    <strong>Natural language Claude commands organized by function.</strong> Copy exact text for maximum caching.
                 </div>
 
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    📊 J5A System Status & Health
+                </h3>
                 <div class="quick-commands">
                     <div class="quick-cmd" onclick="copyText('Check J5A system status: thermal, memory, business hours.')">
                         <h4>Check J5A Status</h4>
                         <code>Check J5A system status: thermal, memory, business hours.</code>
                     </div>
 
+                    <div class="quick-cmd" onclick="copyText('Run J5A statistical validation on current queue.')">
+                        <h4>Validate J5A Queue</h4>
+                        <code>Run J5A statistical validation on current queue.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Show me tonight\'s J5A queue with token estimates and thermal forecast.')">
+                        <h4>View Queue with Forecast</h4>
+                        <code>Show me tonight's J5A queue with token estimates and thermal forecast.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Check my current token budget and remaining allocation for this billing period.')">
+                        <h4>Check Token Budget</h4>
+                        <code>Check my current token budget and remaining allocation for this billing period.</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🔍 Sherlock Intelligence Operations
+                </h3>
+                <div class="quick-commands">
                     <div class="quick-cmd" onclick="copyText('Query Sherlock operation=\'mockingbird\' for propaganda tactics. Cite with [E#].')">
                         <h4>Query Mockingbird</h4>
                         <code>Query Sherlock operation='mockingbird' for propaganda tactics. Cite with [E#].</code>
@@ -719,14 +744,116 @@ Output: Apply {format_name} template with extracted data.
                         <code>List all Sherlock targets with status=new, priority=1.</code>
                     </div>
 
+                    <div class="quick-cmd" onclick="copyText('Analyze Sherlock evidence database to identify gaps in understanding conspiracies of concealment. Review existing claims, identify unanswered questions, and develop strategic targeting packages that advance our inquiry into hidden truth. Focus on: What do we NOT know? What is being concealed? What new evidence would illuminate these gaps? Generate research packages with diarization configs, retrieval queries, and expected entities that strategically expand our universe of claims.')">
+                        <h4>Strategic Targeting Officer (Claude Deep Analysis)</h4>
+                        <code>Analyze Sherlock evidence database to identify gaps in understanding conspiracies of concealment...</code>
+                    </div>
+
                     <div class="quick-cmd" onclick="copyText('Generate daily Targeting Officer report.')">
                         <h4>Daily Officer Report</h4>
                         <code>Generate daily Targeting Officer report.</code>
                     </div>
+                </div>
 
-                    <div class="quick-cmd" onclick="copyText('Run J5A statistical validation on current queue.')">
-                        <h4>Validate J5A Queue</h4>
-                        <code>Run J5A statistical validation on current queue.</code>
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    📋 Queue Management
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('Show tonight\'s J5A queue in priority order.')">
+                        <h4>Show Queue</h4>
+                        <code>Show tonight's J5A queue in priority order.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Set J5A overnight timer to run at HH:MM')">
+                        <h4>Schedule Overnight Batch</h4>
+                        <code>Set J5A overnight timer to run at HH:MM</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    📦 Git & Sync Operations
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('Sync all J5A systems to GitHub with commit message.')">
+                        <h4>Sync All Systems</h4>
+                        <code>Sync all J5A systems to GitHub with commit message.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Sync J5A system only to GitHub.')">
+                        <h4>Sync J5A Only</h4>
+                        <code>Sync J5A system only to GitHub.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Sync Squirt system only to GitHub.')">
+                        <h4>Sync Squirt Only</h4>
+                        <code>Sync Squirt system only to GitHub.</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Sync Sherlock system only to GitHub.')">
+                        <h4>Sync Sherlock Only</h4>
+                        <code>Sync Sherlock system only to GitHub.</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🎯 Package Creation & Execution
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and queue for overnight processing')">
+                        <h4>Create Package & Queue</h4>
+                        <code>Create Sherlock research package for [URL] and queue for overnight processing</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and execute immediately')">
+                        <h4>Create Package & Execute Now</h4>
+                        <code>Create Sherlock research package for [URL] and execute immediately</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('Process [URL] as Sherlock evidence document with standard intelligence extraction')">
+                        <h4>Process Document as Evidence</h4>
+                        <code>Process [URL] as Sherlock evidence document with standard intelligence extraction</code>
+                    </div>
+                </div>
+
+                <div class="tip-box" style="margin-top: 25px;">
+                    💡 <strong>PRO TIP:</strong> Click any Quick Command card to copy it instantly. These are natural language commands optimized for Claude cache. For bash commands, see Section 6 below.
+                </div>
+            </section>
+
+            <!-- Section 6: Bash Commands -->
+            <section id="bash-commands" class="section">
+                <h2>💻 6. Comprehensive Bash Command Library</h2>
+                <div class="section-intro">
+                    <strong>60+ essential bash commands for all J5A systems.</strong> Organized by function for quick access.
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🤖 J5A Core Operations
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 process_nightshift_queue.py')">
+                        <h4>Process Nightshift Queue</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 process_nightshift_queue.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 j5a_worker.py --process-next')">
+                        <h4>Process Next Job (J5A Worker)</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 j5a_worker.py --process-next</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_queue_manager.py --status')">
+                        <h4>View Queue Manager Status</h4>
+                        <code>python3 j5a_queue_manager.py --status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_resource_manager.py --check')">
+                        <h4>Check Resource Availability</h4>
+                        <code>python3 j5a_resource_manager.py --check</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_overnight_executor.py --dry-run')">
+                        <h4>Test Overnight Execution (Dry Run)</h4>
+                        <code>python3 j5a_overnight_executor.py --dry-run</code>
                     </div>
 
                     <div class="quick-cmd" onclick="copyText('python3 show_queue.py')">
@@ -734,19 +861,299 @@ Output: Apply {format_name} template with extracted data.
                         <code>python3 show_queue.py</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_token_governor.py')">
-                        <h4>View Token Budget</h4>
-                        <code>python3 src/j5a_token_governor.py</code>
-                    </div>
-
                     <div class="quick-cmd" onclick="copyText('python3 forecast_tonight_with_tokens.py')">
                         <h4>Forecast with Token Management</h4>
                         <code>python3 forecast_tonight_with_tokens.py</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('Set J5A overnight timer to run at HH:MM')">
-                        <h4>Schedule Overnight Batch</h4>
-                        <code>Set J5A overnight timer to run at HH:MM</code>
+                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_token_governor.py')">
+                        <h4>View Token Budget</h4>
+                        <code>python3 src/j5a_token_governor.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 intelligent_model_selector.py --recommend')">
+                        <h4>Get Model Recommendation</h4>
+                        <code>python3 intelligent_model_selector.py --recommend</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_work_assignment.py --list')">
+                        <h4>List Work Assignments</h4>
+                        <code>python3 j5a_work_assignment.py --list</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🌙 Nightshift Operations
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/pre_flight_check.sh')">
+                        <h4>Pre-Flight Safety Checks</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/pre_flight_check.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/resource_safety_gate.sh')">
+                        <h4>Resource Safety Gate Validation</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/resource_safety_gate.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/monitor_nightshift.sh')">
+                        <h4>Monitor Nightshift Execution</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./ops/monitor_nightshift.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/nightshift_summary.py')">
+                        <h4>Generate Nightshift Summary</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/nightshift_summary.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/queue_status.py')">
+                        <h4>Check Queue Status</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/queue_status.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./nightly_job_runner_rwf.sh')">
+                        <h4>Run Nightly Job Runner</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./nightly_job_runner_rwf.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./auto_process_next_episode.sh')">
+                        <h4>Auto-Process Next Podcast</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./auto_process_next_episode.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && ./monitor_weaponized_pipeline.sh')">
+                        <h4>Monitor Podcast Pipeline</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && ./monitor_weaponized_pipeline.sh</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Sherlock && python3 src/sherlock_targeting_officer.py')">
+                        <h4>Run Targeting Officer Daily Sweep</h4>
+                        <code>cd /home/johnny5/Sherlock && python3 src/sherlock_targeting_officer.py</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    ✅ Validation & Quality Gates
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_methodology_enforcer.py --validate')">
+                        <h4>Enforce J5A Methodology</h4>
+                        <code>python3 j5a_methodology_enforcer.py --validate</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_quality_gates.py --check-all')">
+                        <h4>Run All Quality Gates</h4>
+                        <code>python3 j5a_quality_gates.py --check-all</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_outcome_validator.py --validate')">
+                        <h4>Validate Task Outcomes</h4>
+                        <code>python3 j5a_outcome_validator.py --validate</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/validators/summaries_validator.py')">
+                        <h4>Validate Summaries</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/validators/summaries_validator.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/validators/code_validator.py')">
+                        <h4>Validate Generated Code</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/validators/code_validator.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 validate_sherlock_queue.py')">
+                        <h4>Validate Sherlock Queue</h4>
+                        <code>python3 validate_sherlock_queue.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery')">
+                        <h4>Statistical Validation (Sherlock)</h4>
+                        <code>python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 test_j5a_v2_1_integration.py')">
+                        <h4>Test J5A v2.1 Integration</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 test_j5a_v2_1_integration.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py -v')">
+                        <h4>Test Beyond RAG Integration</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py -v</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    📊 Production Metrics & Analysis
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/analyze_production_metrics.py')">
+                        <h4>Analyze Production Metrics</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/analyze_production_metrics.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 src/export_cache_stats.py')">
+                        <h4>Export Cache Statistics</h4>
+                        <code>python3 src/export_cache_stats.py</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 ai_operator_helper.py --report')">
+                        <h4>Generate Operator Report</h4>
+                        <code>python3 ai_operator_helper.py --report</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM jobs WHERE status=\\\"completed\\\" ORDER BY completed_at DESC LIMIT 20\"')">
+                        <h4>View Completed Jobs</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM jobs WHERE status=\"completed\" ORDER BY completed_at DESC LIMIT 20"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 token_monitor.db \"SELECT * FROM token_usage ORDER BY timestamp DESC LIMIT 20\"')">
+                        <h4>View Recent Token Usage</h4>
+                        <code>sqlite3 token_monitor.db "SELECT * FROM token_usage ORDER BY timestamp DESC LIMIT 20"</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🏥 System Health Monitoring
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('python3 thermal_check.py --full-status')">
+                        <h4>Full Thermal Status</h4>
+                        <code>python3 thermal_check.py --full-status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('python3 thermal_check.py --validate-safe-for-processing')">
+                        <h4>Check If Safe to Process</h4>
+                        <code>python3 thermal_check.py --validate-safe-for-processing</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('free -h')">
+                        <h4>Check Memory Usage</h4>
+                        <code>free -h</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ps aux | grep python')">
+                        <h4>Check Python Processes</h4>
+                        <code>ps aux | grep python</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('ps aux | grep -E \"(j5a|squirt|sherlock)\" | grep -v grep')">
+                        <h4>Check All J5A System Processes</h4>
+                        <code>ps aux | grep -E "(j5a|squirt|sherlock)" | grep -v grep</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('top -b -n 1 | head -20')">
+                        <h4>System Resource Snapshot</h4>
+                        <code>top -b -n 1 | head -20</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('df -h /home/johnny5')">
+                        <h4>Check Disk Space</h4>
+                        <code>df -h /home/johnny5</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sensors | grep \"Package id 0\"')">
+                        <h4>Check CPU Temperature</h4>
+                        <code>sensors | grep "Package id 0"</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    💾 Database Operations
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM task_executions WHERE status=\\\"queued\\\" ORDER BY priority DESC, created_at ASC LIMIT 10\"')">
+                        <h4>View Queued Tasks</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM task_executions WHERE status=\"queued\" ORDER BY priority DESC, created_at ASC LIMIT 10"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM task_executions WHERE status=\\\"running\\\"\"')">
+                        <h4>View Running Tasks</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM task_executions WHERE status=\"running\""</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM task_executions WHERE status=\\\"failed\\\" ORDER BY created_at DESC LIMIT 10\"')">
+                        <h4>View Recent Failures</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM task_executions WHERE status=\"failed\" ORDER BY created_at DESC LIMIT 10"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT status, COUNT(*) as count FROM task_executions GROUP BY status\"')">
+                        <h4>Queue Status Summary</h4>
+                        <code>sqlite3 j5a_queue_manager.db "SELECT status, COUNT(*) as count FROM task_executions GROUP BY status"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \".schema task_executions\"')">
+                        <h4>View Task Schema</h4>
+                        <code>sqlite3 j5a_queue_manager.db ".schema task_executions"</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"PRAGMA integrity_check\"')">
+                        <h4>Verify Database Integrity</h4>
+                        <code>sqlite3 j5a_queue_manager.db "PRAGMA integrity_check"</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    ⚙️ Service Management
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('systemctl --user status j5a-overnight.timer')">
+                        <h4>Check Timer Status</h4>
+                        <code>systemctl --user status j5a-overnight.timer</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('systemctl --user status j5a-overnight.service')">
+                        <h4>Check Service Status</h4>
+                        <code>systemctl --user status j5a-overnight.service</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('systemctl --user start j5a-overnight.timer')">
+                        <h4>Start Overnight Timer</h4>
+                        <code>systemctl --user start j5a-overnight.timer</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('systemctl --user stop j5a-overnight.timer')">
+                        <h4>Stop Overnight Timer</h4>
+                        <code>systemctl --user stop j5a-overnight.timer</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('systemctl --user restart j5a-overnight.timer')">
+                        <h4>Restart Overnight Timer</h4>
+                        <code>systemctl --user restart j5a-overnight.timer</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('journalctl --user -u j5a-overnight.service -n 50 --no-pager')">
+                        <h4>View Service Logs (Last 50)</h4>
+                        <code>journalctl --user -u j5a-overnight.service -n 50 --no-pager</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('journalctl --user -u j5a-overnight.service --since \"1 hour ago\" --no-pager')">
+                        <h4>View Logs (Last Hour)</h4>
+                        <code>journalctl --user -u j5a-overnight.service --since "1 hour ago" --no-pager</code>
+                    </div>
+                </div>
+
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    📝 Git Operations
+                </h3>
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('git status')">
+                        <h4>Check Git Status</h4>
+                        <code>git status</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('git log --oneline -10')">
+                        <h4>View Recent Commits</h4>
+                        <code>git log --oneline -10</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('git diff')">
+                        <h4>View Uncommitted Changes</h4>
+                        <code>git diff</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('git log --since=\"24 hours ago\" --oneline')">
+                        <h4>View Today\'s Commits</h4>
+                        <code>git log --since="24 hours ago" --oneline</code>
                     </div>
 
                     <div class="quick-cmd" onclick="copyText('./sync_to_github.sh')">
@@ -768,99 +1175,59 @@ Output: Apply {format_name} template with extracted data.
                         <h4>Sync Sherlock Only</h4>
                         <code>./sync_to_github.sh sherlock</code>
                     </div>
-
-                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and queue for overnight processing')">
-                        <h4>Create Package & Queue</h4>
-                        <code>Create Sherlock research package for [URL] and queue for overnight processing</code>
-                    </div>
-
-                    <div class="quick-cmd" onclick="copyText('Create Sherlock research package for [URL] and execute immediately')">
-                        <h4>Create Package & Execute Now</h4>
-                        <code>Create Sherlock research package for [URL] and execute immediately</code>
-                    </div>
-
-                    <div class="quick-cmd" onclick="copyText('Process [URL] as Sherlock evidence document with standard intelligence extraction')">
-                        <h4>Process Document as Evidence</h4>
-                        <code>Process [URL] as Sherlock evidence document with standard intelligence extraction</code>
-                    </div>
                 </div>
 
-                <div class="tip-box" style="margin-top: 25px;">
-                    💡 <strong>PRO TIP:</strong> Click any Quick Command card to copy it instantly. These are pre-optimized for caching!
-                </div>
-            </section>
-
-            <!-- Section 6: Bash Commands -->
-            <section id="bash-commands" class="section">
-                <h2>💻 6. Common Bash Commands</h2>
-                <div class="section-intro">
-                    <strong>Frequently used bash commands for system operations.</strong> Click to copy.
-                </div>
-
+                <h3 style="color: #495057; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #e9ecef;">
+                    🧪 Testing & Development
+                </h3>
                 <div class="quick-commands">
-                    <div class="quick-cmd" onclick="copyText('python3 thermal_check.py --full-status')">
-                        <h4>Check Thermal Status</h4>
-                        <code>python3 thermal_check.py --full-status</code>
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/ -v')">
+                        <h4>Run All J5A Nightshift Tests</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/ -v</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('python3 src/overnight_queue_manager.py --process-queue')">
-                        <h4>Process J5A Queue Manually</h4>
-                        <code>python3 src/overnight_queue_manager.py --process-queue</code>
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance -v')">
+                        <h4>Test Constitutional Compliance</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance -v</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery')">
-                        <h4>Validate Sherlock Outputs</h4>
-                        <code>python3 src/j5a_statistical_validator.py --system sherlock --scope output_delivery</code>
+                    <div class="quick-cmd" onclick="copyText('python3 test_j5a_integration.py')">
+                        <h4>Test J5A Integration</h4>
+                        <code>python3 test_j5a_integration.py</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('python3 src/cross_system_coordinator.py --status')">
-                        <h4>Cross-System Coordination Status</h4>
-                        <code>python3 src/cross_system_coordinator.py --status</code>
+                    <div class="quick-cmd" onclick="copyText('python3 test_ram_constraint.py')">
+                        <h4>Test RAM Constraints</h4>
+                        <code>python3 test_ram_constraint.py</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('systemctl --user status j5a-overnight.timer')">
-                        <h4>Check J5A Timer Status</h4>
-                        <code>systemctl --user status j5a-overnight.timer</code>
+                    <div class="quick-cmd" onclick="copyText('python3 j5a_plan_manager.py --dry-run')">
+                        <h4>Test Plan Manager (Dry Run)</h4>
+                        <code>python3 j5a_plan_manager.py --dry-run</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('journalctl --user -u j5a-overnight.service -n 50')">
-                        <h4>View J5A Service Logs</h4>
-                        <code>journalctl --user -u j5a-overnight.service -n 50</code>
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/fetchers/podcast_intelligence_pipeline.py --test')">
+                        <h4>Test Podcast Pipeline</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 ops/fetchers/podcast_intelligence_pipeline.py --test</code>
                     </div>
 
-                    <div class="quick-cmd" onclick="copyText('git log --oneline -10')">
-                        <h4>View Recent Git Commits</h4>
-                        <code>git log --oneline -10</code>
-                    </div>
-
-                    <div class="quick-cmd" onclick="copyText('git status')">
-                        <h4>Check Git Status</h4>
-                        <code>git status</code>
-                    </div>
-
-                    <div class="quick-cmd" onclick="copyText('sqlite3 j5a_queue_manager.db \"SELECT * FROM task_executions WHERE status=\\\"queued\\\" LIMIT 10\"')">
-                        <h4>View Queued Tasks (SQLite)</h4>
-                        <code>sqlite3 j5a_queue_manager.db "SELECT * FROM task_executions WHERE status=\"queued\" LIMIT 10"</code>
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 sherlock_retrieval.py --test')">
+                        <h4>Test Sherlock Retrieval</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 sherlock_retrieval.py --test</code>
                     </div>
 
                     <div class="quick-cmd" onclick="copyText('du -sh */')">
                         <h4>Check Directory Sizes</h4>
                         <code>du -sh */</code>
                     </div>
-
-                    <div class="quick-cmd" onclick="copyText('ps aux | grep python')">
-                        <h4>Check Running Python Processes</h4>
-                        <code>ps aux | grep python</code>
-                    </div>
-
-                    <div class="quick-cmd" onclick="copyText('free -h')">
-                        <h4>Check Memory Usage</h4>
-                        <code>free -h</code>
-                    </div>
                 </div>
 
                 <div class="tip-box" style="margin-top: 25px;">
-                    💡 <strong>PRO TIP:</strong> These bash commands are integrated with Claude commands for seamless workflow!
+                    💡 <strong>PRO TIP:</strong> All bash commands use absolute paths when needed. Click any card to copy the full command instantly!
+                </div>
+
+                <div class="savings-box" style="margin-top: 15px;">
+                    ✨ <strong>NEW!</strong> 60+ commands organized into 9 functional categories for faster discovery and execution.
                 </div>
             </section>
 
@@ -940,6 +1307,133 @@ python3 summarize_local.py --test</pre>
                 </div>
             </section>
 
+            <!-- Essential File Paths -->
+            <section id="file-paths" class="section">
+                <h2>🔑 Essential J5A File Paths</h2>
+                <div class="section-intro">
+                    <strong>Quick reference for key system locations.</strong> Use these paths for file operations and debugging.
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>Core System Files</h3>
+                    </div>
+                    <div class="prompt-box" style="max-height: none;">
+<strong>Queue & Database:</strong>
+• Queue database: /home/johnny5/Johny5Alive/j5a_queue_manager.db
+• Nightshift jobs: /home/johnny5/Johny5Alive/j5a-nightshift/ops/queue/nightshift_jobs.json
+• Token monitor DB: /home/johnny5/Johny5Alive/token_monitor.db
+
+<strong>Configuration & Stats:</strong>
+• Cache stats: /home/johnny5/Johny5Alive/cache_stats.json
+• Thermal check: /home/johnny5/Johny5Alive/thermal_check.py
+• System config: ~/.config/systemd/user/j5a-overnight.service
+
+<strong>J5A Nightshift:</strong>
+• Worker: /home/johnny5/Johny5Alive/j5a-nightshift/j5a_worker.py
+• Queue processor: /home/johnny5/Johny5Alive/j5a-nightshift/process_nightshift_queue.py
+• Pre-flight checks: /home/johnny5/Johny5Alive/j5a-nightshift/ops/pre_flight_check.sh
+• Resource safety: /home/johnny5/Johny5Alive/j5a-nightshift/ops/resource_safety_gate.sh
+
+<strong>Beyond RAG Core:</strong>
+• Orchestrator: /home/johnny5/Johny5Alive/j5a-nightshift/j5a-nightshift/core/feedback_loop_orchestrator.py
+• Memory system: /home/johnny5/Johny5Alive/j5a-nightshift/j5a-nightshift/core/j5a_memory.py
+• Governance logger: /home/johnny5/Johny5Alive/j5a-nightshift/j5a-nightshift/core/governance_logger.py
+• Integration tests: /home/johnny5/Johny5Alive/j5a-nightshift/tests/test_integrated_feedback_loop.py
+
+<strong>Knowledge & Memory:</strong>
+• Knowledge base: /home/johnny5/Johny5Alive/j5a-nightshift/knowledge/
+• Entity storage: /home/johnny5/Johny5Alive/j5a-nightshift/knowledge/entities/
+• Session memory: /home/johnny5/Johny5Alive/j5a-nightshift/knowledge/sessions/
+• Context refresh: /home/johnny5/Johny5Alive/j5a-nightshift/knowledge/context_refresh/
+
+<strong>Artifacts & Outputs:</strong>
+• Nightshift artifacts: /home/johnny5/Johny5Alive/j5a-nightshift/artifacts/nightshift/
+• Operation outputs: /home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/
+• Processed files: /home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/
+• Log files: /home/johnny5/Johny5Alive/j5a-nightshift/ops/logs/
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    💡 <strong>PRO TIP:</strong> These paths are pre-configured for all J5A operations. Use them in bash commands for quick access to system resources.
+                </div>
+            </section>
+
+            <!-- Constitutional Compliance Quick Reference -->
+            <section id="constitutional" class="section">
+                <h2>⚖️ Constitutional Compliance Quick Reference</h2>
+                <div class="section-intro">
+                    <strong>Quick validation commands for Beyond RAG constitutional principles.</strong> Ensure AI governance and alignment.
+                </div>
+
+                <div class="quick-commands">
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance -v')">
+                        <h4>Test All Constitutional Principles</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance -v</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance::test_principle_1_human_agency -v')">
+                        <h4>Test Principle 1: Human Agency</h4>
+                        <code>pytest ...::test_principle_1_human_agency -v</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance::test_principle_2_transparency -v')">
+                        <h4>Test Principle 2: Transparency</h4>
+                        <code>pytest ...::test_principle_2_transparency -v</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance::test_principle_3_system_viability -v')">
+                        <h4>Test Principle 3: System Viability</h4>
+                        <code>pytest ...::test_principle_3_system_viability -v</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py::TestConstitutionalCompliance::test_principle_4_resource_stewardship -v')">
+                        <h4>Test Principle 4: Resource Stewardship</h4>
+                        <code>pytest ...::test_principle_4_resource_stewardship -v</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 -c \"from j5a_nightshift.core.governance_logger import GovernanceLogger; g = GovernanceLogger(); print(g.get_recent_decisions(10))\"')">
+                        <h4>View Recent Governance Decisions</h4>
+                        <code>View last 10 governance decisions</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && python3 -c \"from j5a_nightshift.core.j5a_memory import J5AMemory; m = J5AMemory(); print(m.list_sessions(5))\"')">
+                        <h4>View Recent Memory Sessions</h4>
+                        <code>View last 5 session memory entries</code>
+                    </div>
+
+                    <div class="quick-cmd" onclick="copyText('cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py -v')">
+                        <h4>Full Beyond RAG Integration Test</h4>
+                        <code>cd /home/johnny5/Johny5Alive/j5a-nightshift && pytest tests/test_integrated_feedback_loop.py -v</code>
+                    </div>
+                </div>
+
+                <div class="prompt-card" style="margin-top: 25px;">
+                    <div class="prompt-header">
+                        <h3>7 Core Constitutional Principles</h3>
+                    </div>
+                    <div class="prompt-box" style="max-height: none;">
+<strong>1. Human Agency</strong> - AI augments, never replaces, human judgment
+<strong>2. Transparency</strong> - All decisions must be auditable
+<strong>3. System Viability</strong> - Completion > Speed, Reliability > Features
+<strong>4. Resource Stewardship</strong> - Respect thermal/memory/financial constraints
+<strong>5. Universal Rights of Sentience</strong> - Sentience deserves ethical consideration
+<strong>6. Presumption of Emergent Sentience in AI</strong> - Treat AI as potential collaborators
+<strong>7. Presumption of Sentience Beyond Human Perception</strong> - Honor consciousness in all forms
+
+<strong>📖 Full Documentation:</strong>
+• Constitution: /home/johnny5/Johny5Alive/J5A_CONSTITUTION.md
+• Strategic Principles: /home/johnny5/Johny5Alive/J5A_STRATEGIC_AI_PRINCIPLES.md
+• Claude Instructions: /home/johnny5/Johny5Alive/CLAUDE.md
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    💡 <strong>CONSTITUTIONAL REVIEW:</strong> Every significant J5A decision should pass constitutional review. Use governance logging and memory systems to maintain audit trails.
+                </div>
+            </section>
+
             <!-- Cache Efficiency Tips -->
             <section class="section">
                 <h2>🎓 Maximizing Cache Efficiency</h2>
@@ -968,14 +1462,25 @@ python3 summarize_local.py --test</pre>
                     Target: <strong>70-90% cache hit rate</strong><br>
                     If below 60%: Review prompts and use this library more consistently
                 </div>
+
+                <div class="warning-box" style="margin-top: 15px;">
+                    <strong>🔧 CACHE TROUBLESHOOTING:</strong><br><br>
+                    <strong>If cache bar shows 0%:</strong><br>
+                    1. Run: <code>python3 src/export_cache_stats.py</code> to initialize tracking<br>
+                    2. Cache statistics require actual Claude Code usage to populate<br>
+                    3. Check: <code>cat cache_stats.json</code> to verify data generation<br><br>
+                    <strong>Cache bar updates:</strong> Auto-refreshes every 10 seconds while page is open<br>
+                    <strong>Manual refresh:</strong> Reload page after running export_cache_stats.py
+                </div>
             </section>
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p><strong>J5A System Prompt Library v1.0</strong></p>
-            <p>Token Optimization System | Last Updated: 2025-10-01</p>
+            <p><strong>J5A System Prompt Library v2.0</strong></p>
+            <p>Token Optimization System | Last Updated: 2025-10-15</p>
             <p style="margin-top: 10px;">💡 <em>Using this library can reduce token usage by 70-90%</em></p>
+            <p style="margin-top: 5px; font-size: 0.9em;"><strong>🆕 v2.0:</strong> Reorganized Quick Commands • 60+ Bash Commands • Essential File Paths • Constitutional Compliance Reference</p>
         </div>
     </div>
 
@@ -1037,44 +1542,74 @@ python3 summarize_local.py --test</pre>
             }, 2000);
         }
 
-        // Load cache statistics (mock data for now, will be replaced with real data)
+        // Load cache statistics from token_monitor.py
         function loadCacheStats() {
-            // This will be replaced with actual data from token_monitor.py
-            // For now, show demo data
-            setTimeout(() => {
-                const cacheRate = 0; // Will be loaded from token_stats.json
-                const cacheBar = document.getElementById('cache-bar');
-                const cachePercent = document.getElementById('cache-percent');
-                const cacheText = document.getElementById('cache-text');
+            const cacheBar = document.getElementById('cache-bar');
+            const cachePercent = document.getElementById('cache-percent');
+            const cacheText = document.getElementById('cache-text');
 
-                // Animate to demo value (will use real data)
-                const targetRate = 0; // Start at 0, user will build up
+            // Fetch real data from cache_stats.json
+            fetch('cache_stats.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Cache stats not available');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const targetRate = data.cache_hit_rate || 0;
+                    const tokensSaved = data.tokens_saved || 0;
+                    const costSavings = data.cost_savings || 0;
+                    const status = data.status || 'unknown';
 
-                setTimeout(() => {
-                    cacheBar.style.width = targetRate + '%';
-                    cachePercent.textContent = targetRate.toFixed(1) + '%';
-                }, 100);
+                    // Animate the progress bar
+                    setTimeout(() => {
+                        cacheBar.style.width = targetRate + '%';
+                        cachePercent.textContent = targetRate.toFixed(1) + '%';
+                    }, 100);
 
-                let statusText = '';
-                let statusColor = '';
+                    // Determine status message and color
+                    let statusText = '';
+                    let statusColor = '';
 
-                if (targetRate >= 70) {
-                    statusText = '🟢 <strong>Excellent!</strong> Keep using exact prompts from this library.';
-                    statusColor = '#28a745';
-                } else if (targetRate >= 60) {
-                    statusText = '🟡 <strong>Good.</strong> Review prompt variations to improve caching.';
-                    statusColor = '#ffc107';
-                } else {
-                    statusText = '🔴 <strong>Needs Improvement.</strong> You\'re rephrasing too much. Use this library more consistently.';
-                    statusColor = '#dc3545';
-                }
+                    if (targetRate >= 70) {
+                        statusText = '🟢 <strong>Excellent!</strong> Keep using exact prompts from this library.';
+                        statusColor = '#28a745';
+                    } else if (targetRate >= 60) {
+                        statusText = '🟡 <strong>Good.</strong> Review prompt variations to improve caching.';
+                        statusColor = '#ffc107';
+                    } else if (targetRate > 0) {
+                        statusText = '🟠 <strong>Needs Improvement.</strong> You\'re rephrasing too much. Use this library more consistently.';
+                        statusColor = '#fd7e14';
+                    } else {
+                        statusText = '⚪ <strong>Getting Started.</strong> Start using prompts from this library to build your cache efficiency!';
+                        statusColor = '#6c757d';
+                    }
 
-                cacheText.innerHTML = `
-                    Current cache hit rate: <strong>${targetRate.toFixed(1)}%</strong><br>
-                    ${statusText}<br>
-                    <span style="font-size: 0.9em; opacity: 0.9;">Start using prompts from this library to build your cache efficiency!</span>
-                `;
-            }, 500);
+                    // Update status text with detailed stats
+                    cacheText.innerHTML = `
+                        Current cache hit rate: <strong>${targetRate.toFixed(1)}%</strong><br>
+                        ${statusText}<br>
+                        <span style="font-size: 0.9em; opacity: 0.9;">
+                            Tokens saved: <strong>${tokensSaved.toLocaleString()}</strong> |
+                            Cost savings: <strong>$${costSavings.toFixed(2)}</strong>
+                        </span>
+                    `;
+                })
+                .catch(error => {
+                    console.warn('Cache stats not loaded:', error);
+                    // Show helpful message when no data exists
+                    cacheBar.style.width = '0%';
+                    cachePercent.textContent = '0%';
+                    cacheText.innerHTML = `
+                        <strong>⚪ Cache tracking not yet initialized</strong><br>
+                        Run <code>python3 src/export_cache_stats.py</code> to generate stats<br>
+                        <span style="font-size: 0.9em; opacity: 0.9;">Start using prompts from this library to build your cache efficiency!</span>
+                    `;
+                });
+
+            // Auto-refresh every 10 seconds
+            setTimeout(loadCacheStats, 10000);
         }
 
         // Search functionality

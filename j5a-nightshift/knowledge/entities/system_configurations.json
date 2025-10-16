@@ -1,0 +1,157 @@
+{
+  "entity_type": "system_configurations",
+  "description": "J5A system configuration and operational parameters",
+  "version": "1.0",
+  "last_updated": "2025-10-15",
+  "systems": {
+    "j5a_nightshift": {
+      "system_id": "j5a",
+      "name": "Johny5Alive - Night Shift Coordinator",
+      "role": "Overnight queue/batch management and cross-system coordination",
+      "status": "operational",
+      "hardware": {
+        "model": "Mac Mini 2012",
+        "cpu": "Intel i7 (no GPU)",
+        "ram_total_gb": 16,
+        "ram_safe_threshold_gb": 14.0,
+        "thermal_limit_celsius": 80,
+        "storage": "SSD"
+      },
+      "resource_constraints": {
+        "max_memory_mb": 14336,
+        "safety_buffer_mb": 500,
+        "thermal_warning_threshold": 75,
+        "thermal_emergency_threshold": 80,
+        "business_hours": {
+          "enabled": true,
+          "days": ["monday", "tuesday", "wednesday", "thursday", "friday"],
+          "hours": "06:00-19:00",
+          "priority_process": "LibreOffice"
+        }
+      },
+      "operational_parameters": {
+        "queue_check_interval_minutes": 15,
+        "max_concurrent_jobs": 1,
+        "retry_failed_jobs": true,
+        "max_retries": 3,
+        "checkpoint_interval_minutes": 30
+      },
+      "integration_points": {
+        "squirt": "Voice memo processing coordination",
+        "sherlock": "Intelligence analysis job queuing",
+        "claude_api": "Remote AI capabilities",
+        "local_llm": "Qwen2.5 for routing and lightweight tasks"
+      }
+    },
+    "squirt": {
+      "system_id": "squirt",
+      "name": "Squirt - Business Document Automation",
+      "role": "Voice memo to professional document conversion",
+      "status": "operational",
+      "primary_client": "WaterWizard Landscaping",
+      "processing_capabilities": {
+        "input_formats": ["voice_memo", "audio_file"],
+        "output_formats": ["invoice_pdf", "contract_pdf", "estimate_pdf"],
+        "max_audio_length_minutes": 10,
+        "typical_processing_time_minutes": 5
+      },
+      "resource_usage": {
+        "typical_ram_mb": 1500,
+        "peak_ram_mb": 2000,
+        "business_hours_priority": "absolute"
+      },
+      "model_selection": {
+        "business_hours_model": "tiny",
+        "after_hours_model": "small",
+        "quality_preference": "speed_over_accuracy"
+      }
+    },
+    "sherlock": {
+      "system_id": "sherlock",
+      "name": "Sherlock - Intelligence Analysis",
+      "role": "Long-form audio analysis and evidence correlation",
+      "status": "operational",
+      "processing_capabilities": {
+        "input_formats": ["podcast", "hearing", "audiobook"],
+        "output_formats": ["transcript_txt", "analysis_json", "evidence_markdown"],
+        "max_audio_length_hours": 24,
+        "typical_processing_time_hours": 12
+      },
+      "resource_usage": {
+        "typical_ram_mb": 2500,
+        "peak_ram_mb": 3500,
+        "operates_primarily": "overnight"
+      },
+      "model_selection": {
+        "default_model": "small",
+        "chunking_strategy": "10_minute_segments",
+        "quality_preference": "accuracy_over_speed"
+      },
+      "intelligence_features": {
+        "cross_correlation": true,
+        "entity_extraction": true,
+        "evidence_tagging": true,
+        "temporal_analysis": true
+      }
+    }
+  },
+  "model_inventory": {
+    "faster_whisper": {
+      "tiny": {
+        "ram_required_mb": 200,
+        "speed": "fastest",
+        "accuracy": "~70%",
+        "use_case": "Quick voice memos, business hours"
+      },
+      "base": {
+        "ram_required_mb": 400,
+        "speed": "fast",
+        "accuracy": "~80%",
+        "use_case": "General voice processing"
+      },
+      "small": {
+        "ram_required_mb": 600,
+        "speed": "medium",
+        "accuracy": "~85%",
+        "use_case": "Default for long-form content"
+      },
+      "medium": {
+        "ram_required_mb": 1200,
+        "speed": "slow",
+        "accuracy": "~90%",
+        "use_case": "High accuracy short content"
+      },
+      "large-v3": {
+        "ram_required_mb": 2900,
+        "speed": "slowest",
+        "accuracy": "~95%",
+        "use_case": "NEVER on this hardware (exceeds RAM)"
+      }
+    },
+    "qwen": {
+      "qwen2.5-1.5b": {
+        "ram_required_mb": 2000,
+        "use_case": "Local task routing and lightweight analysis"
+      }
+    }
+  },
+  "operational_principles": {
+    "constitutional_alignment": {
+      "principle_1_human_agency": "All significant decisions require human approval",
+      "principle_2_transparency": "Full audit trails and decision logging",
+      "principle_3_system_viability": "Completion prioritized over speed",
+      "principle_4_resource_stewardship": "Respect hardware constraints strictly"
+    },
+    "strategic_implementation": {
+      "principle_7_autonomous_workflows": "Night Shift operations unattended",
+      "principle_9_local_llm_optimization": "Constraint-aware model selection",
+      "principle_8_governance": "Constitutional review for all operations"
+    }
+  },
+  "usage_notes": {
+    "purpose": "Centralized system configuration for cross-system coordination",
+    "integration": "Referenced by J5A for resource allocation and job scheduling",
+    "update_frequency": "After hardware changes or system upgrades",
+    "security": "Contains operational parameters - treat as operational security"
+  }
+}

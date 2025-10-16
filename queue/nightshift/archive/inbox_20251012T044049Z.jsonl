@@ -1,0 +1,2 @@
+{"id":"2025-10-11T21:30:00Z-repo-sync","task":"repo_sync","args":{"manifest":"configs/repos.json"},"priority":"normal"}
+{"id":"2025-10-11T21:35:00Z-sherlock-uap","task":"sherlock_export","args":{"topic":"anti-gravity","out":"artifacts/nightshift/2025-10-11/sherlock/anti_gravity_packet.jsonl"},"priority":"normal"}

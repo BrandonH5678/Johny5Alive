@@ -1,0 +1,16 @@
+{
+  "package_id": 41,
+  "target": "TSMC",
+  "target_type": "org",
+  "research_date": "2025-10-15",
+  "executive_summary": "Taiwan Semiconductor Manufacturing Company - world's largest semiconductor foundry. Potential modern infrastructure control strategy similar to Operation Mockingbird (media control) but for chips (physical infrastructure control).",
+  "key_findings": [
+    "Founded 1987 in Taiwan with zero prior semiconductor industry",
+    "Morris Chang (founder) worked at Texas Instruments 25 years",
+    "By 2020s: 92% of world's advanced chip manufacturing",
+    "US government 'encouraged' formation - extent unknown",
+    "Creates strategic dependence: global chip reliance = Taiwan defense guarantee"
+  ],
+  "concealment_strategy": "Hidden in plain sight: Public company with obscured strategic origins. Question: Was dominance planned (strategic infrastructure control) or organic growth?",
+  "analysis_tasks": "Cross-reference Operation_Mockingbird, US_Taiwan_Relations, Chip_Export_Controls"
+}

@@ -1,0 +1,20 @@
+{
+  "package_id": 64,
+  "target": "In-Q-Tel",
+  "connected_entities": [
+    "CIA: Primary funder and strategic director (George Tenet founder)",
+    "Ruth David: CIA Deputy Director for Science and Technology, co-founder",
+    "Palantir Technologies: Major portfolio company (Peter Thiel), CIA seed funding recipient",
+    "Keyhole Inc.: Portfolio company acquired by Google, became Google Earth",
+    "Google: Indirect connection via Keyhole acquisition, geospatial intelligence",
+    "FireEye: Cybersecurity portfolio company, advanced threat detection for IC",
+    "NSA: Coordination on signals intelligence and cybersecurity investments",
+    "DIA: Defense Intelligence Agency coordination",
+    "NGA: National Geospatial-Intelligence Agency (geospatial tech focus)",
+    "Silicon Valley VC firms: Co-investment partnerships (Sequoia, Andreessen Horowitz, etc.)",
+    "Defense contractors: Lockheed Martin, Raytheon, Northrop Grumman (technology integration)",
+    "Amazon Web Services: Cloud computing for IC (In-Q-Tel portfolio companies often deploy on AWS)",
+    "Board members: Former IC officials and tech executives (revolving door)"
+  ],
+  "network_type": "CIA venture capital hub connecting intelligence community with commercial technology sector"
+}

@@ -1,0 +1,58 @@
+{
+  "package_id": 75,
+  "target": "William King Harvey",
+  "events": [
+    {
+      "date": "1918",
+      "event": "Born in Indiana"
+    },
+    {
+      "date": "1940",
+      "event": "Joins FBI"
+    },
+    {
+      "date": "1947",
+      "event": "Leaves FBI, joins CIA"
+    },
+    {
+      "date": "1951-1959",
+      "event": "Berlin station - planned and executed Berlin Tunnel operation"
+    },
+    {
+      "date": "1954-1956",
+      "event": "Berlin Tunnel operational - tapped Soviet communications in East Berlin"
+    },
+    {
+      "date": "1960-1962",
+      "event": "Chief of ZR/RIFLE assassination program under Richard Bissell"
+    },
+    {
+      "date": "1960-1961",
+      "event": "Recruits organized crime figures (Johnny Roselli, Sam Giancana) for Castro assassination"
+    },
+    {
+      "date": "1961-1963",
+      "event": "Chief of Task Force W - anti-Castro operations (largest CIA station)"
+    },
+    {
+      "date": "October 1962",
+      "event": "Cuban Missile Crisis - Harvey's operations conflicted with Kennedy policy"
+    },
+    {
+      "date": "1963",
+      "event": "Reassigned to Rome station after conflicts with Kennedy administration"
+    },
+    {
+      "date": "1967",
+      "event": "Retires from CIA"
+    },
+    {
+      "date": "1975",
+      "event": "Church Committee begins investigating CIA assassination programs"
+    },
+    {
+      "date": "June 1976",
+      "event": "Dies before fully testifying to Church Committee"
+    }
+  ]
+}

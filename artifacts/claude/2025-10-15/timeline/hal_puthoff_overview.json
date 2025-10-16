@@ -1,0 +1,30 @@
+{
+  "package_id": 33,
+  "target": "Hal Puthoff",
+  "events": [
+    {
+      "date": "1972",
+      "event": "Joined SRI for psychic research"
+    },
+    {
+      "date": "1972-1985",
+      "event": "Remote viewing protocol development with Swann"
+    },
+    {
+      "date": "1970s",
+      "event": "CIA funding for SRI psychic programs"
+    },
+    {
+      "date": "1995",
+      "event": "Stargate declassification reveals SRI work"
+    },
+    {
+      "date": "2008-2012",
+      "event": "AATIP advisor on advanced aerospace"
+    },
+    {
+      "date": "2017",
+      "event": "To The Stars Academy founding"
+    }
+  ]
+}

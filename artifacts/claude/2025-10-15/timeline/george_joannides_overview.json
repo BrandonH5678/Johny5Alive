@@ -1,0 +1,34 @@
+{
+  "package_id": 30,
+  "target": "George Joannides",
+  "events": [
+    {
+      "date": "1963",
+      "event": "CIA case officer for DRE in Miami"
+    },
+    {
+      "date": "August 1963",
+      "event": "DRE members encounter Oswald in New Orleans"
+    },
+    {
+      "date": "November 22, 1963",
+      "event": "JFK assassination"
+    },
+    {
+      "date": "1978",
+      "event": "CIA liaison to HSCA - failed to disclose 1963 role"
+    },
+    {
+      "date": "1990s",
+      "event": "JFK Records Act passed - Joannides files withheld"
+    },
+    {
+      "date": "2001",
+      "event": "Death"
+    },
+    {
+      "date": "2003-present",
+      "event": "Jefferson Morley lawsuit for records release"
+    }
+  ]
+}

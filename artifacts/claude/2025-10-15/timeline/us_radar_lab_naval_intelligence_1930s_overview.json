@@ -1,0 +1,26 @@
+{
+  "package_id": 11,
+  "target": "US Radar Lab (Naval Intelligence, 1930s)",
+  "events": [
+    {
+      "date": "1923",
+      "event": "Naval Research Laboratory established"
+    },
+    {
+      "date": "1930-1933",
+      "event": "Thomas Townsend Brown employed at NRL"
+    },
+    {
+      "date": "1930s",
+      "event": "Early radar and electronic warfare research"
+    },
+    {
+      "date": "1943",
+      "event": "Philadelphia Experiment alleged date (degaussing connection)"
+    },
+    {
+      "date": "1940s-present",
+      "event": "Continued advanced propulsion research"
+    }
+  ]
+}

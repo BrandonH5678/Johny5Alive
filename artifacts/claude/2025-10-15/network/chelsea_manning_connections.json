@@ -1,0 +1,22 @@
+{
+  "package_id": 73,
+  "target": "Chelsea Manning",
+  "connected_entities": [
+    "U.S. Army: Intelligence analyst 2009-2010",
+    "Forward Operating Base Hammer: Iraq deployment location",
+    "WikiLeaks: Platform for publishing 750,000+ leaked documents",
+    "Julian Assange: WikiLeaks founder who published Manning's leaks",
+    "Adrian Lamo: Hacker who turned Manning in to authorities",
+    "Iraq War: War logs documented civilian casualties and war crimes",
+    "Afghanistan War: Documents revealed Pakistan ISI-Taliban connections",
+    "State Department: 250,000+ diplomatic cables leaked",
+    "Collateral Murder video: Apache helicopter killing of Reuters journalists",
+    "Reuters: News organization whose journalists were killed (video documented)",
+    "Daniel Ellsberg: Pentagon Papers whistleblower who defended Manning",
+    "Barack Obama: President who commuted Manning sentence (2017)",
+    "Military justice system: Court-martialed under Espionage Act",
+    "Secret grand jury: Manning jailed for refusing to testify against Assange (2019)",
+    "Edward Snowden: Fellow national security whistleblower"
+  ],
+  "network_type": "Military intelligence whistleblower connecting war crimes documentation to WikiLeaks publication and Espionage Act prosecution"
+}

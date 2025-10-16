@@ -1,0 +1,50 @@
+{
+  "package_id": 64,
+  "target": "In-Q-Tel",
+  "events": [
+    {
+      "date": "February 1999",
+      "event": "In-Q-Tel founded by CIA Director George Tenet and Ruth David"
+    },
+    {
+      "date": "1999-2000",
+      "event": "Initial portfolio investments in data analytics and geospatial intelligence companies"
+    },
+    {
+      "date": "2001",
+      "event": "Investment in Keyhole Inc. (geospatial visualization) - later acquired by Google, became Google Earth"
+    },
+    {
+      "date": "2004",
+      "event": "Early investor in Palantir Technologies (Peter Thiel's intelligence data analytics company)"
+    },
+    {
+      "date": "2001-2010",
+      "event": "Post-9/11 expansion - increased funding for counterterrorism technologies"
+    },
+    {
+      "date": "2010",
+      "event": "Investments in big data analytics, cloud computing, mobile technologies"
+    },
+    {
+      "date": "2011",
+      "event": "Partnership withFireEye for cybersecurity (advanced persistent threat detection)"
+    },
+    {
+      "date": "2013",
+      "event": "Snowden revelations increase public awareness of IC-tech company relationships"
+    },
+    {
+      "date": "2015-present",
+      "event": "AI/machine learning investment focus - computer vision, natural language processing"
+    },
+    {
+      "date": "2016-present",
+      "event": "Biotechnology investments - synthetic biology, biometric identification, health monitoring"
+    },
+    {
+      "date": "2020-present",
+      "event": "Portfolio expansion to 300+ companies across all intelligence-relevant technology sectors"
+    }
+  ]
+}

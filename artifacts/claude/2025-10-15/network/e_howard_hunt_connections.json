@@ -1,0 +1,22 @@
+{
+  "package_id": 67,
+  "target": "E. Howard Hunt",
+  "connected_entities": [
+    "CIA Directorate of Plans: Covert operations employer (1949-1970)",
+    "Operation PBSUCCESS (1954): Guatemala coup propaganda chief",
+    "Bay of Pigs (1961): Political officer for Cuba invasion",
+    "JMWAVE station: Miami anti-Castro operations base",
+    "Richard Nixon: President who approved Plumbers unit",
+    "Charles Colson: White House aide who recruited Hunt for Plumbers",
+    "Frank Sturgis: Watergate burglar, CIA-connected Cuban operations",
+    "Bernard Barker: Watergate burglar, CIA operative from Guatemala/Cuba",
+    "James McCord: Watergate burglar, CIA security officer",
+    "G. Gordon Liddy: Plumbers co-leader, Watergate planner",
+    "Daniel Ellsberg: Pentagon Papers leaker, target of Plumbers operations",
+    "Allen Dulles: CIA Director during Guatemala, Bay of Pigs (Hunt's boss)",
+    "David Atlee Phillips: Fellow CIA Cuba operations officer",
+    "Lee Harvey Oswald: Alleged monitoring in Mexico City 1963 (unconfirmed)",
+    "Operation 40: Alleged assassination/regime change unit (disputed membership)"
+  ],
+  "network_type": "CIA operational officer connecting regime change operations to White House dirty tricks"
+}

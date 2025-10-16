@@ -2,10 +2,14 @@
 """
 J5A Queue Manager
 Manages prioritized task queue for overnight processing with incremental improvements
+
+Constitutional Authority: J5A_CONSTITUTION.md - Principles 1, 2, 3, 4
+Strategic Framework: J5A_STRATEGIC_AI_PRINCIPLES.md - Principles 7, 8
 """
 
 import json
 import logging
+import sys
 from pathlib import Path
 from datetime import datetime
 from typing import List, Dict, Optional
@@ -21,6 +25,17 @@ from j5a_work_assignment import (
     EscalationPolicy,
     TaskStatus
 )
+
+# Add j5a-nightshift/core to path for principle imports
+sys.path.insert(0, str(Path(__file__).parent / "j5a-nightshift" / "core"))
+
+try:
+    from strategic_principles import StrategicPrinciples
+    from governance_logger import GovernanceLogger
+    PRINCIPLES_AVAILABLE = True
+except ImportError:
+    PRINCIPLES_AVAILABLE = False
+    # Graceful degradation if principles module not available yet
 
 
 class ImprovementType(Enum):
@@ -65,9 +80,77 @@ class J5AQueueManager:
         # Task queue (priority-sorted)
         self.queue: List[J5AWorkAssignment] = []
 
+        # Initialize principles and governance if available
+        if PRINCIPLES_AVAILABLE:
+            try:
+                self.principles = StrategicPrinciples()
+                self.gov_logger = GovernanceLogger()
+                self.logger.info("✅ Strategic Principles and Governance logging enabled")
+            except Exception as e:
+                self.logger.warning(f"Could not initialize principles/governance: {e}")
+                self.principles = None
+                self.gov_logger = None
+        else:
+            self.principles = None
+            self.gov_logger = None
+
         # Load existing queue if available
         if self.queue_file.exists():
             self.load_queue()
+
+    def check_constitutional_compliance(self, task: J5AWorkAssignment, context: Dict) -> Dict[str, str]:
+        """
+        Check constitutional principle compliance for task queuing
+
+        Args:
+            task: Work assignment to check
+            context: Queue context (queue size, resource constraints, etc.)
+
+        Returns:
+            Dict mapping principle -> compliance status
+        """
+        compliance = {}
+
+        # Principle 1: Human Agency (High-risk tasks require approval)
+        if task.priority == Priority.CRITICAL:
+            compliance["Principle 1: Human Agency"] = "WARNING - Critical priority task should be reviewed by human"
+        else:
+            compliance["Principle 1: Human Agency"] = "PASS - Task priority allows autonomous queuing"
+
+        # Principle 2: Transparency (All decisions auditable)
+        if self.gov_logger:
+            compliance["Principle 2: Transparency"] = "PASS - Task queuing logged for audit trail"
+        else:
+            compliance["Principle 2: Transparency"] = "WARNING - Governance logging unavailable"
+
+        # Principle 3: System Viability (Completion > Speed)
+        if task.expected_outputs and task.success_criteria:
+            compliance["Principle 3: System Viability"] = "PASS - Task has clear outputs and success criteria"
+        else:
+            compliance["Principle 3: System Viability"] = "FAIL - Missing outputs or success criteria"
+
+        # Principle 4: Resource Stewardship (Respect constraints)
+        queue_size = context.get("queue_size", 0)
+        max_queue_size = context.get("max_queue_size", 100)
+
+        if queue_size < max_queue_size:
+            compliance["Principle 4: Resource Stewardship"] = f"PASS - Queue size {queue_size}/{max_queue_size}"
+        else:
+            compliance["Principle 4: Resource Stewardship"] = f"WARNING - Queue approaching capacity {queue_size}/{max_queue_size}"
+
+        # Strategic Principle 7: Autonomous Workflows (Night Shift operations)
+        if task.requires_poc:
+            compliance["Strategic Principle 7: Autonomous Workflows"] = "PASS - POC phase ensures safe autonomous execution"
+        else:
+            compliance["Strategic Principle 7: Autonomous Workflows"] = "WARNING - No POC phase, higher autonomous risk"
+
+        # Strategic Principle 8: Governance Frameworks (Accountable AI)
+        if task.rollback_plan:
+            compliance["Strategic Principle 8: Governance"] = "PASS - Rollback plan defined for accountability"
+        else:
+            compliance["Strategic Principle 8: Governance"] = "WARNING - No rollback plan defined"
+
+        return compliance
 
     def add_task(self, task: J5AWorkAssignment) -> bool:
         """
@@ -82,6 +165,51 @@ class J5AQueueManager:
         if not self._validate_task_definition(task):
             self.logger.error(f"❌ Task validation failed: {task.task_name}")
             return False
+
+        # Check constitutional compliance
+        queue_context = {
+            "queue_size": len(self.queue),
+            "max_queue_size": 100,
+            "current_date": datetime.now().isoformat()
+        }
+
+        compliance = self.check_constitutional_compliance(task, queue_context)
+
+        # Log constitutional compliance check
+        self.logger.info("⚖️ Constitutional Compliance Check:")
+        for principle, status in compliance.items():
+            status_icon = "✅" if "PASS" in status else ("⚠️" if "WARNING" in status else "❌")
+            self.logger.info(f"   {status_icon} {principle}: {status}")
+
+        # Check for blocking violations (FAIL status)
+        violations = [status for status in compliance.values() if "FAIL" in status]
+        if violations:
+            self.logger.error(f"❌ Task queuing blocked due to constitutional violations")
+            self.logger.error(f"   Violations: {violations}")
+            return False
+
+        # Log decision with governance logger if available
+        if self.gov_logger:
+            try:
+                self.gov_logger.log_decision(
+                    decision_type="task_queuing",
+                    context={
+                        "task_id": task.task_id,
+                        "task_name": task.task_name,
+                        "priority": task.priority.name,
+                        "queue_size": len(self.queue)
+                    },
+                    decision={
+                        "action": "queue_task",
+                        "reasoning": f"Task meets constitutional requirements for autonomous queuing"
+                    },
+                    principle_alignment=[
+                        principle for principle, status in compliance.items()
+                        if "PASS" in status
+                    ]
+                )
+            except Exception as e:
+                self.logger.warning(f"Failed to log governance decision: {e}")
 
         # Add to queue (sorted by priority)
         self.queue.append(task)

@@ -1,0 +1,46 @@
+{
+  "package_id": 62,
+  "target": "Federal Reserve",
+  "target_type": "organization",
+  "summary": "Central banking system of the United States (established 1913) - Monetary policy control, banking regulation, and financial system oversight with opaque governance structure",
+  "key_facts": [
+    "Established December 23, 1913 via Federal Reserve Act",
+    "Hybrid public-private structure: Federal government appoints governors, regional banks are privately owned by member banks",
+    "12 regional Federal Reserve Banks owned by private member banks",
+    "Board of Governors appointed by President, confirmed by Senate (14-year terms)",
+    "Controls money supply through open market operations, reserve requirements, discount rate",
+    "Not subject to congressional appropriations or regular audit of monetary policy decisions",
+    "Federal Reserve Bank of New York handles actual market operations - closest to Wall Street",
+    "Created after secret 1910 Jekyll Island meeting (Aldrich, Warburg, Vanderlip, Davison)",
+    "Banker opposition to audit attempts (Ron Paul's 'Audit the Fed' bills)",
+    "2008 financial crisis: $16+ trillion in emergency loans revealed only after Bloomberg FOIA lawsuit (2011)",
+    "Quantitative easing programs create trillions in new money for asset purchases"
+  ],
+  "intelligence_connections": [
+    "FRBNY proximity to Wall Street enables insider coordination",
+    "Board members frequently from Goldman Sachs, JPMorgan, BlackRock backgrounds",
+    "Emergency lending during 2008 crisis favored connected institutions",
+    "Revolving door: Fed officials to private banking sector",
+    "Coordination with Treasury Department and intelligence community on sanctions",
+    "SWIFT payment system control used for financial warfare and surveillance"
+  ],
+  "concealment_mechanisms": [
+    "Exemption from Freedom of Information Act for monetary policy deliberations",
+    "Delayed release of FOMC meeting minutes (3 weeks) and transcripts (5 years)",
+    "Emergency lending programs disclosed only under legal compulsion (Bloomberg lawsuit)",
+    "Private ownership structure of regional banks shields from oversight",
+    "Complex technical language obscures policy impacts",
+    "Opposition to comprehensive audits of operations and decision-making"
+  ],
+  "power_structure": "Federal Reserve Board (Washington DC) sets policy, Federal Reserve Bank of New York executes operations, private member banks own regional Fed banks and elect directors, creating hybrid governance insulated from democratic oversight",
+  "strategic_significance": "Control over money creation, interest rates, and credit allocation represents ultimate economic power - influences inflation, employment, asset prices, and availability of credit to government, corporations, and individuals. Financial system architecture enables monetary policy coordination with geopolitical objectives.",
+  "unanswered_questions": [
+    "What is the full extent of coordination between Fed and intelligence agencies on financial warfare?",
+    "How do Fed decisions benefit specific financial institutions with insider access?",
+    "What emergency powers exist beyond those revealed in 2008 crisis?",
+    "How does Fed coordinate with Bank for International Settlements and other central banks?",
+    "What role does Fed play in maintaining dollar hegemony and petrodollar system?"
+  ],
+  "gap_addressed": "Financial Control Infrastructure - Central banking control mechanisms",
+  "research_date": "2025-10-15"
+}

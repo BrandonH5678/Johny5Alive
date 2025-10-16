@@ -1,0 +1,5 @@
+# Optional per-site overrides (last resort). Example:
+# weaponizedpodcast.com:
+#   episode_url_template: "https://www.weaponizedpodcast.com/episodes-4/episode-{epnum}"
+#   validate_head: true
+#   min_bytes: 1000000

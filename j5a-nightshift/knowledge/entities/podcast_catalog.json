@@ -1,0 +1,104 @@
+{
+  "entity_type": "podcast_catalog",
+  "description": "Catalog of podcasts for intelligence analysis and transcription",
+  "version": "1.0",
+  "last_updated": "2025-10-15",
+  "podcasts": [
+    {
+      "podcast_id": "weaponized_podcast",
+      "title": "Weaponized",
+      "hosts": ["Jeremy Corbell", "George Knapp"],
+      "category": "UAP/Intelligence",
+      "description": "Investigative journalism on UAP phenomena and government transparency",
+      "rss_feed": "https://feeds.example.com/weaponized",
+      "website": "https://www.weaponizedpodcast.com",
+      "production_company": "Cadence13",
+      "status": "active",
+      "frequency": "weekly",
+      "average_episode_length_minutes": 90,
+      "transcription_priority": "high",
+      "analysis_tags": ["UAP", "government_transparency", "whistleblowers", "intelligence_community"],
+      "episodes": [
+        {
+          "episode_number": 91,
+          "title": "Example Episode Title",
+          "release_date": "2025-10-15",
+          "duration_minutes": 95,
+          "audio_url": "https://example.com/ep91.mp3",
+          "guests": ["Example Guest"],
+          "topics": ["example_topic_1", "example_topic_2"],
+          "transcription_status": "completed",
+          "transcription_path": "/path/to/transcription.txt",
+          "analysis_status": "pending",
+          "key_revelations": [
+            "Example revelation from episode"
+          ],
+          "evidence_references": [
+            {
+              "timestamp": "00:15:30",
+              "description": "Discussion of specific evidence",
+              "importance": "high"
+            }
+          ]
+        }
+      ],
+      "subscription_info": {
+        "premium_access": false,
+        "authentication_required": false
+      },
+      "processing_preferences": {
+        "model_selection": "balanced",
+        "chunking_strategy": "10_minute_segments",
+        "post_processing": "diarization_enabled",
+        "output_format": ["txt", "json", "markdown"]
+      },
+      "intelligence_value": {
+        "relevance_score": 9.5,
+        "credibility_rating": "high",
+        "source_classification": "primary_source_journalism",
+        "cross_reference_priority": true
+      }
+    },
+    {
+      "podcast_id": "need_to_know",
+      "title": "Need to Know with Coulthart and Zabel",
+      "hosts": ["Ross Coulthart", "Bryce Zabel"],
+      "category": "UAP/Intelligence",
+      "description": "Weekly news and analysis on UAP disclosure",
+      "status": "active",
+      "frequency": "weekly",
+      "average_episode_length_minutes": 60,
+      "transcription_priority": "high",
+      "analysis_tags": ["UAP", "disclosure", "international_perspectives"],
+      "intelligence_value": {
+        "relevance_score": 9.0,
+        "credibility_rating": "high",
+        "source_classification": "investigative_journalism"
+      }
+    }
+  ],
+  "categories": {
+    "UAP_intelligence": {
+      "description": "Unidentified Aerial Phenomena and related intelligence",
+      "priority": "high",
+      "podcasts": ["weaponized_podcast", "need_to_know"]
+    },
+    "general_intelligence": {
+      "description": "Broader intelligence community topics",
+      "priority": "medium",
+      "podcasts": []
+    }
+  },
+  "usage_notes": {
+    "purpose": "Provides podcast context for Sherlock intelligence analysis system",
+    "integration": "Used by Night Shift to queue and prioritize transcription jobs",
+    "update_frequency": "After each new episode release",
+    "retention_policy": "Maintain episode metadata indefinitely, audio files until transcribed"
+  },
+  "template_instructions": {
+    "adding_podcasts": "Copy existing podcast structure, update all fields",
+    "adding_episodes": "Add to episodes array with complete metadata",
+    "required_fields": ["podcast_id", "title", "hosts", "category", "status"],
+    "intelligence_integration": "Sherlock references this for cross-correlation analysis"
+  }
+}

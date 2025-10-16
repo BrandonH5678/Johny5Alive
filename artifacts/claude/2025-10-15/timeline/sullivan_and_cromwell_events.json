@@ -1,0 +1,26 @@
+{
+  "package_id": 40,
+  "target": "Sullivan & Cromwell",
+  "events": [
+    {
+      "date": "1879",
+      "event": "Sullivan & Cromwell founded"
+    },
+    {
+      "date": "1920s-1940s",
+      "event": "Dulles brothers join as partners"
+    },
+    {
+      "date": "1953",
+      "event": "Iran coup (Operation Ajax) - benefits Anglo-Iranian Oil client"
+    },
+    {
+      "date": "1954",
+      "event": "Guatemala coup (PBSUCCESS) - benefits United Fruit client"
+    },
+    {
+      "date": "1973",
+      "event": "Chile coup - corporate beneficiaries include ITT"
+    }
+  ]
+}

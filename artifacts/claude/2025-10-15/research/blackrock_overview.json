@@ -1,0 +1,48 @@
+{
+  "package_id": 63,
+  "target": "BlackRock",
+  "target_type": "organization",
+  "summary": "World's largest asset manager ($10+ trillion AUM) - Corporate board influence, ESG policy coordination, government contract holder, revolving door with Federal Reserve and Treasury",
+  "key_facts": [
+    "Founded 1988 by Larry Fink (CEO), Robert Kapito, Susan Wagner, Barbara Novick",
+    "Assets Under Management: $10+ trillion (larger than most national economies)",
+    "Major shareholder in virtually every S&P 500 company",
+    "Aladdin platform: Risk management software used by Fed and other central banks",
+    "Hired by Federal Reserve (2020) to manage COVID bond purchase programs",
+    "Hired by European Central Bank for bond programs",
+    "Top institutional investor in defense contractors, pharmaceutical companies, tech giants",
+    "ESG (Environmental, Social, Governance) policy enforcement through voting power",
+    "BlackRock executives to government: Brian Deese (Biden National Economic Council), others to Treasury",
+    "Government officials to BlackRock: Former central bankers join as advisors",
+    "Voting power exceeds ownership percentages due to passive fund structure",
+    "Three largest asset managers (BlackRock, Vanguard, State Street) own ~20% of S&P 500"
+  ],
+  "intelligence_connections": [
+    "Federal Reserve contracts for bond purchase execution (conflict of interest)",
+    "Treasury Department revolving door (policy coordination)",
+    "Central bank coordination globally (Aladdin platform access)",
+    "Corporate board control through voting shares (policy influence)",
+    "ESG standards used to enforce political/social objectives beyond fiduciary duty",
+    "Information asymmetry: BlackRock sees inside corporate books via Aladdin"
+  ],
+  "concealment_mechanisms": [
+    "Passive index fund structure obscures active influence",
+    "Voting decisions not transparent to individual investors",
+    "Aladdin algorithm proprietary (black box risk assessment)",
+    "Government contracts awarded without competitive bidding scrutiny",
+    "ESG metrics defined by BlackRock without democratic input",
+    "Financial media largely ignores concentration of power"
+  ],
+  "power_structure": "CEO Larry Fink sets strategic direction, board voting controlled centrally despite dispersed investor ownership, Aladdin platform provides information advantage, government contracts provide policy influence, asset concentration creates 'too big to fail' protection",
+  "strategic_significance": "Asset management scale enables effective control of corporate America without ownership - voting rights exceed ownership, ESG standards function as extra-governmental policy enforcement, Fed/Treasury relationships blur public-private boundaries, Aladdin platform provides systemic risk intelligence unavailable to others",
+  "unanswered_questions": [
+    "How does BlackRock coordinate with Federal Reserve beyond disclosed contracts?",
+    "What intelligence does Aladdin platform provide to government agencies?",
+    "How are voting decisions made for politically sensitive issues?",
+    "What is the full extent of ESG coordination with government policy objectives?",
+    "How does BlackRock benefit from Fed monetary policy and advance information?",
+    "What systemic risks does asset concentration create?"
+  ],
+  "gap_addressed": "Financial Control Infrastructure - Asset management, corporate board control, ESG policy influence",
+  "research_date": "2025-10-15"
+}

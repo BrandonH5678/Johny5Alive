@@ -1,0 +1,16 @@
+{
+  "package_id": 40,
+  "target": "Sullivan & Cromwell",
+  "target_type": "org",
+  "research_date": "2025-10-15",
+  "executive_summary": "Wall Street law firm serving as intelligence front through revolving door between corporate clients and government positions. Partners Allen and John Foster Dulles orchestrated coups benefiting firm clients.",
+  "key_findings": [
+    "Founded 1879, became premier Wall Street law firm",
+    "Allen Dulles: partner \u2192 CIA Director 1953-1961",
+    "John Foster Dulles: partner \u2192 Secretary of State 1953-1959",
+    "Represented United Fruit (Guatemala coup beneficiary), Anglo-Iranian Oil (Iran coup beneficiary)",
+    "Attorney-client privilege provided operational security for coup planning"
+  ],
+  "concealment_strategy": "Corporate-state fusion model: Attorney-client privilege conceals coup planning, revolving door ensures continuity, corporate interests drive policy",
+  "analysis_tasks": "Cross-reference Operation_Ajax, Operation_PBSUCCESS, Chile_1973"
+}

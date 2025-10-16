@@ -1,0 +1,34 @@
+{
+  "package_id": 61,
+  "target": "Howard Hughes",
+  "events": [
+    {
+      "date": "1926",
+      "event": "Inherited Hughes Tool Company"
+    },
+    {
+      "date": "1930s",
+      "event": "Film producer and aviation records"
+    },
+    {
+      "date": "1948",
+      "event": "Hughes Aircraft Company major defense contractor"
+    },
+    {
+      "date": "1960s",
+      "event": "Las Vegas casino acquisitions"
+    },
+    {
+      "date": "1970-1974",
+      "event": "CIA Project Azorian - Glomar Explorer"
+    },
+    {
+      "date": "1966-1976",
+      "event": "Extreme reclusiveness and decline"
+    },
+    {
+      "date": "April 5, 1976",
+      "event": "Death in flight to Houston"
+    }
+  ]
+}

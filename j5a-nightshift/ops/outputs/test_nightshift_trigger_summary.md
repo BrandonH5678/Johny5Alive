@@ -1,0 +1,5 @@
+- Main point: "Night Shift Test Job - Triggered at 8:40 PM" (source: test_nightshift_trigger.txt)
+- Main point: "Job processing from queue to completion" (source: test_nightshift_trigger.txt)
+- Main point: "Output file creation in the correct location" (source: test_nightshift_trigger.txt)
+- Main point: "Thermal monitoring during execution" (source: test_nightshift_trigger.txt)
+- Main point: "Proper logging of all operations" (source: test_nightshift_trigger.txt)

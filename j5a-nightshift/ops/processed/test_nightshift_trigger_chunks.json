@@ -1,0 +1,27 @@
+{
+  "source": "test_nightshift_trigger.txt",
+  "source_path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/processed/test_nightshift_trigger.txt",
+  "total_chunks": 2,
+  "chunk_size": 1500,
+  "overlap": 200,
+  "chunks": [
+    {
+      "id": 0,
+      "start": 0,
+      "end": 506,
+      "text": "Night Shift Test Job - Triggered at 8:40 PM\n\nThis is a simple test to validate the Night Shift automation system is working correctly after the systemd service fixes.\n\nKey points to verify:\n1. Job processing from queue to completion\n2. Summary generation with proper formatting\n3. Output file creation in the correct location\n4. Thermal monitoring during execution\n5. Proper logging of all operations\n\nExpected outcome: A concise summary document highlighting the main points about Night Shift validation.",
+      "length": 505,
+      "score": 1.0,
+      "tokens_estimate": 126
+    },
+    {
+      "id": 1,
+      "start": 306,
+      "end": 506,
+      "text": "he correct location\n4. Thermal monitoring during execution\n5. Proper logging of all operations\n\nExpected outcome: A concise summary document highlighting the main points about Night Shift validation.",
+      "length": 199,
+      "score": 1.0,
+      "tokens_estimate": 49
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "package_id": 66,
+  "target": "Google",
+  "claims_summary": "Search monopoly with 90%+ market share, NSA PRISM program participant, In-Q-Tel/CIA connections via Keyhole acquisition, Pentagon AI contracts, unprecedented mass data collection and surveillance infrastructure",
+  "evidence_categories": {
+    "nsa_prism_access": [
+      "Snowden documents (2013): PRISM program slides show Google participation",
+      "Direct server access to user communications (emails, searches, files)",
+      "Google initial denial, later admitted legal compliance with orders",
+      "Ongoing NSA access via classified legal framework (FISA orders)",
+      "National Security Letters prevent disclosure of many data requests"
+    ],
+    "cia_intelligence_connections": [
+      "Early Google funding from CIA/NSA-connected venture capital (documented)",
+      "Keyhole Inc. acquisition (2004): In-Q-Tel portfolio company → Google Earth",
+      "In-Q-Tel press releases confirm CIA investment in Keyhole",
+      "Google Earth military and intelligence applications",
+      "Regina Dugan: DARPA director → Google VP → Facebook (revolving door)"
+    ],
+    "pentagon_contracts": [
+      "Project Maven (2017): AI for drone targeting, $9M initial contract",
+      "Internal Google documents leaked showing contract details",
+      "4,000+ employee petition against military AI work",
+      "Contract canceled 2018 after employee protests and resignations",
+      "Google Cloud pursuit of Joint Enterprise Defense Infrastructure (JEDI) contract"
+    ],
+    "data_collection_scale": [
+      "Search: 90%+ global market share, billions of queries daily",
+      "Gmail: 1.8+ billion users, email content scanning",
+      "Android: 70%+ mobile OS market share, location/communications access",
+      "YouTube: 2+ billion users, viewing history and preferences",
+      "Chrome browser: 65%+ market share, browsing history access",
+      "Comprehensive user profiles: Search + email + location + video + browsing"
+    ],
+    "censorship_coordination": [
+      "YouTube content removal: COVID-19 'misinformation,' vaccine skepticism",
+      "Search results manipulation: Algorithmic changes favor establishment sources",
+      "Coordination with government: Content moderation aligned with official narratives",
+      "Project Veritas videos: Google executives discussing manipulation",
+      "Transparency reports show government content removal requests"
+    ]
+  },
+  "validation_status": "Extensively documented through Snowden leaks, internal Google documents, congressional testimony, SEC filings, investigative journalism - classified programs remain partially concealed"
+}

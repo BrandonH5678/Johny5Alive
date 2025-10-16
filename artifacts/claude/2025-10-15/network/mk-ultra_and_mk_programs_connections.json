@@ -1,0 +1,172 @@
+{
+  "package_id": 39,
+  "target": "MK-Ultra and MK Programs",
+  "network_type": "institutional_and_personnel",
+
+  "key_personnel": {
+    "directors_and_approvers": [
+      {
+        "name": "Allen Dulles",
+        "role": "CIA Director",
+        "connection": "Approved MK-Ultra April 13, 1953",
+        "significance": "Top-level authorization",
+        "related_operations": ["Operation Ajax", "PBSUCCESS", "Sullivan & Cromwell partnership"]
+      },
+      {
+        "name": "Sidney Gottlieb",
+        "role": "MK-Ultra Program Director, CIA Technical Services Chief",
+        "connection": "Ran MK-Ultra 1953-1973, ordered record destruction",
+        "significance": "Central figure - 'Poisoner in Chief'",
+        "actions": ["Purchased world LSD supply", "Dosed Frank Olson", "Destroyed all program files 1973"]
+      },
+      {
+        "name": "Richard Helms",
+        "role": "CIA Director",
+        "connection": "Ordered mass record destruction 1973",
+        "significance": "Active concealment at highest level"
+      }
+    ],
+    "victims": [
+      {
+        "name": "Frank Olson",
+        "role": "Bacteriologist, biological warfare scientist",
+        "connection": "Dosed with LSD by Gottlieb, died November 28, 1953",
+        "significance": "First documented MK-Ultra fatality",
+        "status": "Death ruled suicide but evidence suggests murder",
+        "workplace": "Camp Detrick, Maryland"
+      }
+    ]
+  },
+
+  "institutional_network": {
+    "government_agencies": [
+      {
+        "name": "CIA Technical Services Staff",
+        "role": "Operating unit",
+        "connection": "Sidney Gottlieb's division, ran experiments"
+      },
+      {
+        "name": "CIA Office of Scientific Intelligence",
+        "role": "Operating unit",
+        "connection": "Ran Project Artichoke"
+      },
+      {
+        "name": "US Army Chemical Corps",
+        "role": "Partner agency",
+        "connection": "Biological warfare research collaboration"
+      },
+      {
+        "name": "Department of Defense",
+        "role": "Partner agency",
+        "connection": "Conducted parallel experiments revealed in 1975"
+      }
+    ],
+    "academic_institutions": [
+      {
+        "name": "McGill University",
+        "role": "Research partner",
+        "connection": "Hosted MK-Ultra experiments",
+        "significance": "Academic institution complicity",
+        "evidence_location": "University archives may contain IRB records"
+      },
+      {
+        "name": "NIH (National Institutes of Health)",
+        "role": "Funding/research partner",
+        "connection": "Potential funding conduit",
+        "evidence_location": "Grant records"
+      }
+    ],
+    "facilities": [
+      {
+        "name": "Camp Detrick, Maryland",
+        "role": "Research facility",
+        "connection": "Biological warfare research, Frank Olson workplace"
+      },
+      {
+        "name": "Deep Creek Lake cabin, Maryland",
+        "role": "Experiment site",
+        "connection": "Location where Gottlieb dosed Olson and other CIA scientists"
+      }
+    ]
+  },
+
+  "program_relationships": {
+    "predecessor_programs": [
+      {
+        "name": "Operation Paperclip",
+        "dates": "1945+",
+        "connection": "Nazi scientist recruitment laid groundwork for behavioral research",
+        "significance": "Ideological and personnel origins"
+      },
+      {
+        "name": "Project Bluebird",
+        "dates": "1950-1951",
+        "connection": "Direct predecessor, focused on drugs and hypnosis"
+      },
+      {
+        "name": "Project Artichoke",
+        "dates": "1951-1953",
+        "connection": "Renamed Bluebird, focused on forced assassination and addiction"
+      }
+    ],
+    "related_programs": [
+      {
+        "name": "MK-Naomi",
+        "connection": "Related cryptonym, biological/chemical weapons",
+        "relationship": "Parallel program"
+      },
+      {
+        "name": "MK-Search",
+        "dates": "1964-1973",
+        "connection": "MK-Ultra renamed",
+        "relationship": "Continuation"
+      }
+    ]
+  },
+
+  "concealment_network": {
+    "destruction_actors": [
+      {
+        "name": "Richard Helms",
+        "role": "CIA Director",
+        "action": "Ordered record destruction 1973"
+      },
+      {
+        "name": "Sidney Gottlieb",
+        "role": "Program Director",
+        "action": "Executed record destruction upon CIA departure 1973"
+      }
+    ],
+    "disclosure_actors": [
+      {
+        "name": "Church Committee",
+        "role": "Congressional investigation",
+        "action": "Revealed program existence 1975"
+      },
+      {
+        "name": "Rockefeller Commission",
+        "role": "Presidential commission",
+        "action": "Revealed program existence 1975"
+      },
+      {
+        "name": "Admiral Stansfield Turner",
+        "role": "CIA Director",
+        "action": "Discovered surviving 20,000 pages 1977"
+      }
+    ]
+  },
+
+  "cross_references": {
+    "related_sherlock_targets": [
+      "Sidney Gottlieb (Package 50)",
+      "Louis Jolyon West (Package 52)",
+      "Allen Dulles (Target 17)"
+    ],
+    "related_operations": [
+      "Operation Mockingbird",
+      "Operation Paperclip"
+    ]
+  },
+
+  "network_analysis": "MK-Ultra represents a multi-institutional conspiracy involving CIA leadership, academic institutions, and biological warfare facilities. The 1973 destruction attempt by Helms and Gottlieb demonstrates top-level coordination to conceal illegal activities. Peripheral evidence remains in university archives, victim lawsuits, and the 20,000 surviving pages."
+}

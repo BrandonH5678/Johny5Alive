@@ -1,1 +1,59 @@
-[]
+[
+  {
+    "job_id": "weaponized_ep91_podcast_transcription_20251013",
+    "type": "podcast_transcription",
+    "class": "audio_processing",
+    "priority": 1,
+    "description": "Discover, download, and transcribe Weaponized Podcast Episode 91 using web scraping fallback (not in RSS feed), then queue intelligence extraction to Claude",
+    "inputs": {
+      "rss_feed": "https://feeds.megaphone.fm/weaponized",
+      "episode_number": 91,
+      "episode_title": null,
+      "episode_url": "https://www.weaponizedpodcast.com/episodes-4/episode-91"
+    },
+    "outputs": [
+      {
+        "kind": "transcript_txt",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/podcast_intelligence/transcripts/episode_91_transcript.txt",
+        "format": "txt"
+      },
+      {
+        "kind": "transcript_json",
+        "path": "/home/johnny5/Johny5Alive/j5a-nightshift/ops/outputs/podcast_intelligence/transcripts/episode_91_transcript.json",
+        "format": "json"
+      }
+    ],
+    "metadata": {
+      "podcast": "WEAPONIZED with Jeremy Corbell & George Knapp",
+      "episode": 91,
+      "pipeline": "podcast_intelligence_pipeline.py",
+      "architecture": "dual_queue",
+      "discovery_method": "web_scraping_fallback",
+      "phases": {
+        "night_shift": "1-3 (discovery via scraping, download, transcription)",
+        "claude_queue": "4 (intelligence extraction)"
+      },
+      "expected_outputs": [
+        "episode_91_transcript.txt",
+        "episode_91_transcript.json",
+        "claude_queue_job.json"
+      ],
+      "success_criteria": {
+        "page_scraped": true,
+        "audio_url_extracted": true,
+        "audio_downloaded": true,
+        "transcript_generated": true,
+        "claude_job_queued": true
+      },
+      "instructions": [
+        "RSS feed doesn't contain Episode 91 (Season 1, archived)",
+        "Use web scraping fallback with RWF + BeautifulSoup",
+        "Extract audio URL from episode page HTML",
+        "Download audio with curl (retry logic)",
+        "Transcribe with OpenAI Whisper Large",
+        "Automatically queue intelligence extraction to Claude Queue",
+        "Claude will perform deep analysis (claims, entities, timeline, evidence gaps)"
+      ]
+    }
+  }
+]

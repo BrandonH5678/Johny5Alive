@@ -1,0 +1,39 @@
+{
+  "package_id": 64,
+  "target": "In-Q-Tel",
+  "claims_summary": "CIA venture capital arm (founded 1999) invested in 300+ technology companies, providing intelligence community with early access to emerging tech while creating commercial-intelligence fusion",
+  "evidence_categories": {
+    "founding_and_structure": [
+      "CIA Director George Tenet announcement (1999)",
+      "Non-profit incorporation documents",
+      "CIA funding documented in IC budget disclosures",
+      "Ruth David (CIA Deputy Director S&T) co-founder role"
+    ],
+    "portfolio_investments": [
+      "Keyhole Inc. investment → Google acquisition → Google Earth (documented)",
+      "Palantir Technologies early funding (public reporting, Palantir SEC filings)",
+      "FireEye partnership announcements",
+      "In-Q-Tel press releases for select portfolio companies",
+      "300+ companies claimed in public statements"
+    ],
+    "intelligence_community_integration": [
+      "IC contract awards to portfolio companies (public procurement data)",
+      "Board composition: Former CIA, NSA, DoD officials (In-Q-Tel website)",
+      "Technology focus areas align with IC priorities (AI, cyber, biometrics)",
+      "Annual reports describe IC mission support"
+    ],
+    "technology_development_influence": [
+      "Portfolio companies develop features for IC requirements",
+      "Early access agreements give IC pre-release technology",
+      "Joint development programs between In-Q-Tel and portfolio companies",
+      "Patent applications show IC-relevant innovations"
+    ],
+    "concealment_and_opacity": [
+      "Complete portfolio list not publicly disclosed",
+      "Investment amounts not disclosed",
+      "IC contract terms with portfolio companies classified",
+      "Media coverage minimal compared to commercial VC scale"
+    ]
+  },
+  "validation_status": "Partially documented through In-Q-Tel press releases, IC budget documents, portfolio company public filings, and investigative journalism - full portfolio and financial details remain opaque"
+}

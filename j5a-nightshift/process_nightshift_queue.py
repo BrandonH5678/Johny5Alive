@@ -66,6 +66,127 @@ class NightshiftQueueProcessor:
         logger.info(f"Loaded {len(jobs)} jobs from {self.jobs_file}")
         return jobs
 
+    def check_running_jobs(self) -> Dict[str, Any]:
+        """
+        Check for already-running Night Shift processes
+
+        Returns:
+            Dict with has_running_job, process, pid, runtime if found
+        """
+        import subprocess
+
+        logger.info("Checking for running Night Shift processes...")
+
+        # Check for Whisper processes in nightshift artifacts
+        result = subprocess.run(
+            ['ps', 'aux'],
+            capture_output=True,
+            text=True
+        )
+
+        for line in result.stdout.split('\n'):
+            if 'whisper' in line and 'artifacts/nightshift' in line and 'grep' not in line:
+                # Extract PID and runtime
+                parts = line.split()
+                if len(parts) >= 10:
+                    pid = parts[1]
+                    etime = parts[9]  # Elapsed time
+
+                    logger.info(f"Found running Whisper job: PID {pid}, runtime {etime}")
+                    return {
+                        'has_running_job': True,
+                        'process': 'whisper',
+                        'pid': pid,
+                        'runtime': etime,
+                        'command': ' '.join(parts[10:])
+                    }
+
+        # Check for podcast_intelligence_pipeline processes
+        for line in result.stdout.split('\n'):
+            if 'podcast_intelligence_pipeline' in line and 'grep' not in line:
+                parts = line.split()
+                if len(parts) >= 10:
+                    pid = parts[1]
+                    etime = parts[9]
+
+                    logger.info(f"Found running pipeline job: PID {pid}, runtime {etime}")
+                    return {
+                        'has_running_job': True,
+                        'process': 'podcast_pipeline',
+                        'pid': pid,
+                        'runtime': etime,
+                        'command': ' '.join(parts[10:])
+                    }
+
+        logger.info("No running Night Shift processes detected")
+        return {'has_running_job': False}
+
+    def sync_queue_to_database(self):
+        """
+        Synchronize jobs from nightshift_jobs.json into database
+
+        Ensures both queue sources (JSON + DB) are synchronized before processing
+        """
+        logger.info("Synchronizing queue to database...")
+
+        jobs = self.load_jobs()
+        synced = 0
+        skipped = 0
+
+        for job in jobs:
+            job_id = job['job_id']
+
+            # Check if job already in database
+            cursor = self.conn.execute(
+                "SELECT task_id, status FROM task_executions WHERE task_id = ?",
+                (job_id,)
+            )
+            existing = cursor.fetchone()
+
+            if not existing:
+                # Insert new job into task_definitions and task_executions
+                try:
+                    # Insert into task_definitions first
+                    self.conn.execute("""
+                        INSERT INTO task_definitions
+                        (task_id, name, description, task_type, priority, target_system,
+                         thermal_safety_required, expected_outputs, success_criteria, created_timestamp)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """, (
+                        job_id,
+                        job.get('name', job.get('description', 'Unnamed job')),
+                        job.get('description', ''),
+                        job.get('type', 'unknown'),
+                        job.get('priority', 5),
+                        'nightshift',
+                        True,  # thermal_safety_required
+                        json.dumps(job.get('outputs', [])),
+                        json.dumps(job.get('metadata', {}).get('success_criteria', {})),
+                        datetime.now().isoformat()
+                    ))
+
+                    # Insert into task_executions
+                    self.conn.execute("""
+                        INSERT INTO task_executions
+                        (task_id, status, start_time, retry_count)
+                        VALUES (?, 'queued', ?, 0)
+                    """, (job_id, datetime.now().isoformat()))
+
+                    synced += 1
+                    logger.info(f"Synced job to database: {job_id}")
+
+                except Exception as e:
+                    logger.warning(f"Failed to sync job {job_id}: {e}")
+
+            else:
+                skipped += 1
+                logger.debug(f"Job already in database: {job_id} (status: {existing[1]})")
+
+        self.conn.commit()
+
+        logger.info(f"Queue sync complete: {synced} jobs synced, {skipped} already in database")
+        return {'synced': synced, 'skipped': skipped}
+
     def process_queue(self, max_jobs: int = None):
         """
         Process Nightshift queue
@@ -73,6 +194,33 @@ class NightshiftQueueProcessor:
         Args:
             max_jobs: Maximum number of jobs to process (default: all)
         """
+        # Synchronize queue JSON to database first
+        self.sync_queue_to_database()
+
+        # Then check for running Night Shift jobs
+        running_job = self.check_running_jobs()
+
+        if running_job['has_running_job']:
+            print()
+            print("="*60)
+            print("NIGHTSHIFT JOB MONITORING MODE")
+            print("="*60)
+            print()
+            print(f"⚠️  Detected running {running_job['process']} process")
+            print(f"   PID: {running_job['pid']}")
+            print(f"   Runtime: {running_job['runtime']}")
+            print(f"   Command: {running_job['command'][:80]}...")
+            print()
+            print("✅ Job already in progress - monitoring existing process")
+            print("   Night Shift will skip new job processing and monitor completion")
+            print()
+            logger.info(f"Monitoring mode: {running_job['process']} PID {running_job['pid']}")
+            return {
+                'mode': 'monitoring',
+                'running_job': running_job
+            }
+
+        # No running jobs - proceed with normal queue processing
         jobs = self.load_jobs()
 
         if max_jobs:

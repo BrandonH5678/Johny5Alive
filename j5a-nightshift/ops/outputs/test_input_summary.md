@@ -1,0 +1,5 @@
+- Main point: "Autonomous systems are capable of performing tasks without human intervention." (source: test_input.txt)
+- Main point: "They use sensors, algorithms, and machine learning to make decisions." (source: test_input.txt)
+- Main point: "Autonomous systems are used in: - Self-driving cars - Robotics - Drone delivery - Industrial automation" (source: test_input.txt)
+- Main point: "Key challenges include safety, reliability, and ethical considerations." (source: test_input.txt)
+- Main point: "Autonomous systems are used in: - Self-driving cars - Robotics - Drone delivery - Industrial automation" (source: test_input.txt)

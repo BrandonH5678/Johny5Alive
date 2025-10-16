@@ -1,0 +1,21 @@
+{
+  "package_id": 72,
+  "target": "Daniel Ellsberg",
+  "connected_entities": [
+    "RAND Corporation: Defense think tank employer, source of classified access",
+    "Pentagon Papers: 7,000-page classified Vietnam War study",
+    "New York Times: First publisher of Pentagon Papers",
+    "Washington Post: Second major publisher of leaked documents",
+    "Nixon administration: President Richard Nixon, targeted Ellsberg",
+    "White House Plumbers: E. Howard Hunt, G. Gordon Liddy - burglarized psychiatrist",
+    "FBI: Conducted illegal wiretapping of Ellsberg",
+    "Supreme Court: Ruled against government censorship attempt (NYT Co. v. United States)",
+    "Edward Snowden: Ellsberg supported and aided NSA whistleblower",
+    "Chelsea Manning: Ellsberg defended WikiLeaks source",
+    "Julian Assange: Ellsberg testified on behalf of WikiLeaks founder",
+    "Pentagon: Department of Defense Vietnam War deceptions exposed",
+    "CIA: Intelligence agency activities in Vietnam revealed",
+    "Whistleblower community: Mentor and advocate for truth-tellers"
+  ],
+  "network_type": "Whistleblower connecting defense establishment to media exposure and subsequent targeting by government"
+}

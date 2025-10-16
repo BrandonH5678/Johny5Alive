@@ -1,0 +1,30 @@
+{
+  "package_id": 60,
+  "target": "John Whiteside Parsons",
+  "events": [
+    {
+      "date": "1936",
+      "event": "Caltech rocket experiments begin"
+    },
+    {
+      "date": "1942",
+      "event": "Aerojet Engineering founded"
+    },
+    {
+      "date": "1944",
+      "event": "Jet Propulsion Laboratory established"
+    },
+    {
+      "date": "1946",
+      "event": "Babalon Working ritual with L. Ron Hubbard"
+    },
+    {
+      "date": "1950",
+      "event": "Security clearance revoked"
+    },
+    {
+      "date": "June 17, 1952",
+      "event": "Death in home explosion"
+    }
+  ]
+}

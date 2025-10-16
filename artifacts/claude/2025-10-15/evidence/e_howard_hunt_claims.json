@@ -1,0 +1,44 @@
+{
+  "package_id": 67,
+  "target": "E. Howard Hunt",
+  "claims_summary": "CIA operational officer (1949-1970) who executed Guatemala coup and Bay of Pigs, then Watergate burglar showing CIA-White House operational crossover, with disputed JFK assassination allegations",
+  "evidence_categories": {
+    "cia_career": [
+      "CIA employment records: 1949-1970 documented",
+      "Guatemala coup role: Operation PBSUCCESS documents, propaganda chief",
+      "Bay of Pigs: Taylor Commission report, Hunt as political officer",
+      "JMWAVE station: Miami anti-Castro operations documented",
+      "CIA personnel files partially released via FOIA"
+    ],
+    "watergate": [
+      "June 17, 1972 arrest: Police records, mugshots",
+      "Conviction 1973: Court records, conspiracy/burglary/wiretapping",
+      "Plumbers unit: White House documents, Charles Colson recruitment",
+      "Pentagon Papers response: Ellsberg psychiatrist break-in documented",
+      "Prison sentence: 33 months served, federal records",
+      "Nixon tapes: Watergate cover-up discussions mention Hunt"
+    ],
+    "jfk_assassination_allegations": [
+      "Deathbed confession (2007): Audio recording by son (disputed reliability)",
+      "Dallas presence alleged: No photographic evidence, circumstantial claims",
+      "Mexico City 1963: Alleged Oswald monitoring (unconfirmed)",
+      "Operation 40: Alleged assassination unit membership (disputed)",
+      "House Select Committee on Assassinations: Hunt testified, denied involvement",
+      "Family disputes: Hunt's children disagree on deathbed confession validity"
+    ],
+    "operational_pattern": [
+      "Guatemala 1954 → Bay of Pigs 1961 → Watergate 1972: Consistent covert operations role",
+      "Propaganda expertise: Guatemala shows information warfare skills",
+      "Regime change executor: Mid-level officer implementing director policy",
+      "White House liaison: CIA-to-domestic operations crossover",
+      "Team building: Recruited CIA-connected operatives for Watergate"
+    ],
+    "concealment": [
+      "CIA operational files: Many remain classified or redacted",
+      "JFK files: Hunt-related documents partially withheld",
+      "Watergate limited hangout: Domestic crimes prosecuted, CIA operations protected",
+      "Mexico City activities: CIA station records incomplete"
+    ]
+  },
+  "validation_status": "CIA career and Watergate well-documented through court records, congressional investigations, and declassified files - JFK involvement remains disputed with circumstantial evidence only"
+}

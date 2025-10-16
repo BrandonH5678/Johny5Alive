@@ -1,0 +1,79 @@
+{
+  "id": "2025-10-13T16:00:00Z-weaponized-ep91-sherlock-pkg",
+  "task": "sherlock_intelligence_extraction",
+  "priority": "high",
+  "sherlock_metadata": {
+    "package_id": "weaponized_ep91_20251013",
+    "target_name": "Weaponized Podcast Episode 91",
+    "target_type": "podcast_episode",
+    "target_description": "WEAPONIZED with Jeremy Corbell & George Knapp - Episode 91: UAP intelligence, witness testimony, government disclosure programs",
+    "evidence_category": "primary_source_audio",
+    "intelligence_focus": [
+      "UAP/UFO disclosure programs",
+      "Government witness testimony",
+      "Defense contractor involvement",
+      "Congressional oversight activities",
+      "Media investigation coordination"
+    ]
+  },
+  "args": {
+    "phase_1_retrieval": {
+      "home_url": "https://www.weaponizedpodcast.com",
+      "prefer_epnum": 91,
+      "episode_url_fallback": "https://www.weaponizedpodcast.com/episodes-4/episode-91",
+      "max_cascade_retries": 3,
+      "max_stage_retries": 2,
+      "download": true,
+      "outdir": "/home/johnny5/Johny5Alive/artifacts/nightshift/2025-10-13/weaponized",
+      "filename": "episode_91.mp3"
+    },
+    "phase_2_diarization": {
+      "model": "whisper-large-v3",
+      "enable_diarization": true,
+      "language": "en",
+      "output_formats": ["txt", "json", "srt"],
+      "speaker_labels": true,
+      "timestamps": true,
+      "output_prefix": "ep91_transcript_diarized"
+    },
+    "phase_3_claude_handoff": {
+      "queue_task": true,
+      "target_queue": "/home/johnny5/Johny5Alive/queue/claude/2025-10-13.jsonl",
+      "analysis_type": "sherlock_intelligence",
+      "inputs": [
+        "artifacts/nightshift/2025-10-13/weaponized/ep91_transcript_diarized.txt",
+        "artifacts/nightshift/2025-10-13/weaponized/ep91_transcript_diarized.json"
+      ],
+      "deliverables": [
+        "artifacts/claude/2025-10-13/sherlock/weaponized_ep91_overview.json",
+        "artifacts/claude/2025-10-13/sherlock/weaponized_ep91_claims.json",
+        "artifacts/claude/2025-10-13/sherlock/weaponized_ep91_entities.json",
+        "artifacts/claude/2025-10-13/sherlock/weaponized_ep91_timeline.json",
+        "artifacts/claude/2025-10-13/sherlock/weaponized_ep91_evidence_gaps.json",
+        "artifacts/claude/2025-10-13/reports/weaponized_ep91_intelligence_summary.md"
+      ]
+    }
+  },
+  "expected_outputs": [
+    "artifacts/nightshift/2025-10-13/weaponized/episode_91.mp3",
+    "artifacts/nightshift/2025-10-13/weaponized/ep91_transcript_diarized.txt",
+    "artifacts/nightshift/2025-10-13/weaponized/ep91_transcript_diarized.json",
+    "artifacts/nightshift/2025-10-13/weaponized/ep91_transcript_diarized.srt",
+    "queue/claude/2025-10-13.jsonl (appended task)"
+  ],
+  "success_criteria": {
+    "audio_downloaded": true,
+    "transcript_generated": true,
+    "speaker_diarization_enabled": true,
+    "min_duration_minutes": 30,
+    "claude_task_queued": true
+  },
+  "workflow_description": "Sherlock Intelligence Extraction Pipeline for Weaponized Episode 91",
+  "notes": [
+    "Phase 1: Use Night Shift Retriever with cascade retry logic to discover and download episode 91 audio",
+    "Phase 2: Execute OpenAI Whisper Large v3 with speaker diarization to generate annotated transcript",
+    "Phase 3: Automatically queue Sherlock intelligence analysis to Claude Queue",
+    "Claude will perform: claims extraction, entity identification, timeline reconstruction, evidence gap analysis",
+    "Final deliverables include structured JSON data for Sherlock evidence database integration"
+  ]
+}

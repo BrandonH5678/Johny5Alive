@@ -1,0 +1,51 @@
+{
+  "package_id": 72,
+  "target": "Daniel Ellsberg",
+  "target_type": "person",
+  "summary": "Pentagon Papers whistleblower (1971) - Exposed Vietnam War lies, targeted by Nixon Plumbers, charges dismissed due to government misconduct, later revealed nuclear secrets and continued whistleblower advocacy until death (2023)",
+  "key_facts": [
+    "RAND Corporation analyst and Marine Corps veteran",
+    "Pentagon Papers leak (1971): 7,000 page classified study of Vietnam War deceptions",
+    "New York Times and Washington Post published leaked documents",
+    "Nixon administration: Sought to discredit and prosecute Ellsberg",
+    "White House Plumbers: E. Howard Hunt unit formed partly to stop leaks after Pentagon Papers",
+    "Psychiatrist office break-in (1971): Plumbers burglarized Ellsberg's psychiatrist to find dirt",
+    "Trial dismissed (1973): Government misconduct including illegal wiretapping and break-in",
+    "Nuclear secrets advocacy: Later revealed classified nuclear war plans, advocated against first-strike",
+    "Snowden support: Defended Edward Snowden and Chelsea Manning",
+    "Doomsday Machine book (2017): Revealed nuclear war planning secrets from 1960s",
+    "Died June 2023: Continued whistleblower advocacy until death",
+    "Pattern: Demonstrates how whistleblowers are systematically targeted and criminalized"
+  ],
+  "intelligence_connections": [
+    "RAND Corporation: Defense think tank with classified access",
+    "Pentagon: Pentagon Papers documented Defense Department Vietnam deceptions",
+    "CIA: Pentagon Papers revealed CIA activities in Vietnam",
+    "Nixon White House: Plumbers unit targeted Ellsberg",
+    "E. Howard Hunt: Led Plumbers team that burglarized Ellsberg's psychiatrist",
+    "FBI: Conducted illegal wiretapping of Ellsberg",
+    "Nuclear command: Ellsberg had access to war plans, revealed decades later",
+    "Whistleblower network: Supported Snowden, Manning, other truth-tellers"
+  ],
+  "concealment_mechanisms": [
+    "Pentagon Papers classification: Government fought publication claiming national security",
+    "Prosecution attempt: Espionage Act charges to deter future whistleblowers",
+    "Character assassination: Attempted to discredit Ellsberg personally",
+    "Psychiatrist break-in: Illegal operation to find damaging information",
+    "Wiretapping: FBI illegally monitored Ellsberg communications",
+    "Trial dismissal necessary: Government misconduct so egregious judge dismissed case",
+    "Nuclear secrets: Ellsberg withheld some documents for decades, revealed later"
+  ],
+  "power_structure": "RAND analyst with classified access leaked to newspapers, Nixon administration mobilized FBI/CIA/Plumbers to stop and discredit, Pentagon Papers publication required Supreme Court decision against government censorship, Ellsberg's prosecution failed due to government overreach, established precedent for whistleblower targeting",
+  "strategic_significance": "Pentagon Papers revealed systematic government lying about Vietnam War - demonstrated that classification often protects political embarrassment not national security, Ellsberg case shows how whistleblowers are criminalized and targeted with illegal operations, trial dismissal established limits on government persecution but not protections for future whistleblowers",
+  "unanswered_questions": [
+    "What other classified documents did Ellsberg see but not leak?",
+    "What was the full extent of government targeting operations against Ellsberg?",
+    "How many other whistleblowers were deterred by Ellsberg prosecution attempt?",
+    "What do the nuclear secrets documents reveal about war planning?",
+    "How much coordination existed between FBI, CIA, and White House Plumbers?",
+    "What would have happened if government misconduct hadn't forced trial dismissal?"
+  ],
+  "gap_addressed": "Whistleblower Network - Pentagon Papers, nuclear secrets, pattern of government targeting",
+  "research_date": "2025-10-15"
+}

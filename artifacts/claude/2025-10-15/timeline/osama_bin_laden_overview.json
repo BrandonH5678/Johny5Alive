@@ -1,0 +1,30 @@
+{
+  "package_id": 32,
+  "target": "Osama bin Laden",
+  "events": [
+    {
+      "date": "1979-1989",
+      "event": "Soviet-Afghan War - Mujahideen fighter with CIA support"
+    },
+    {
+      "date": "1988",
+      "event": "Al-Qaeda founded"
+    },
+    {
+      "date": "1998",
+      "event": "US embassy bombings in Africa"
+    },
+    {
+      "date": "September 11, 2001",
+      "event": "9/11 attacks"
+    },
+    {
+      "date": "2001-2011",
+      "event": "Manhunt - allegedly hiding in Pakistan"
+    },
+    {
+      "date": "May 2, 2011",
+      "event": "Killed in Abbottabad raid by SEAL Team 6"
+    }
+  ]
+}

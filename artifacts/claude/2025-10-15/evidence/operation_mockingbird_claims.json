@@ -1,0 +1,43 @@
+{
+  "package_id": 70,
+  "target": "Operation Mockingbird",
+  "claims_summary": "CIA media infiltration program with 400+ journalist assets at major outlets (NYT, CBS, Time, AP, UPI), documented by Church Committee and Carl Bernstein, official reforms announced 1976 but evidence suggests continuation",
+  "evidence_categories": {
+    "church_committee_revelations": [
+      "Senate Select Committee to Study Intelligence (1975): Documented CIA media relationships",
+      "Testimony from CIA officials: Admitted journalist recruitment",
+      "Classified annex: Full list of journalists and outlets (never fully released)",
+      "George H.W. Bush reforms (1976): Announced restrictions after Church Committee",
+      "Congressional record: Hearings documented extent of infiltration"
+    ],
+    "carl_bernstein_investigation": [
+      "'The CIA and the Media' (Rolling Stone, October 1977): Investigative report",
+      "400+ journalists as CIA assets or contacts documented",
+      "Major outlets named: NYT, CBS, Time, Newsweek, AP, UPI",
+      "Publisher cooperation: Executives facilitated CIA relationships",
+      "Domestic and foreign operations: CIA charter violated by domestic propaganda"
+    ],
+    "documented_outlets_and_programs": [
+      "Radio Free Europe/Radio Liberty: CIA-funded (later declassified)",
+      "Congress for Cultural Freedom: CIA funding revealed",
+      "National Student Association: CIA funding exposed by Ramparts magazine (1967)",
+      "Book publishing: CIA funded anti-communist books through front organizations",
+      "Academic journals: CIA influence documented in intellectual publications"
+    ],
+    "continuation_evidence": [
+      "1980s-present: Investigative reports suggest media-intelligence coordination continues",
+      "Operation Mockingbird never officially ended, only 'restricted'",
+      "Whistleblower accounts: Former intelligence officials describe ongoing relationships",
+      "Modern coordination: Tech platforms and 'misinformation' narrative alignment",
+      "Limited disclosure: Full scope of program never revealed"
+    ],
+    "concealment_mechanisms": [
+      "Journalist secrecy: Assets agreed not to disclose CIA relationships",
+      "Editorial disguise: CIA influence appeared as normal editorial decisions",
+      "Compartmentation: Most journalists unaware of full program",
+      "Limited hangout: Some exposure in 1970s, but complete list never released",
+      "Reforms superficial: Restrictions announced but enforcement unclear"
+    ]
+  },
+  "validation_status": "Well-documented through Church Committee reports, Carl Bernstein investigation, CIA admissions, and congressional testimony - full scope remains partially concealed, current status unclear"
+}

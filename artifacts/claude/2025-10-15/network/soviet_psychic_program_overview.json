@@ -1,0 +1,11 @@
+{
+  "package_id": 10,
+  "target": "Soviet Psychic Program",
+  "connected_entities": [
+    "KGB Laboratory 12",
+    "DIA",
+    "US INSCOM",
+    "Stargate Project",
+    "CIA"
+  ]
+}

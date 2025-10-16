@@ -1,0 +1,62 @@
+{
+  "package_id": 65,
+  "target": "Palantir Technologies",
+  "events": [
+    {
+      "date": "2003",
+      "event": "Palantir Technologies founded by Peter Thiel, Alex Karp, Nathan Gettings, Joe Lonsdale, Stephen Cohen"
+    },
+    {
+      "date": "2004",
+      "event": "In-Q-Tel (CIA venture capital) provides $2 million seed investment"
+    },
+    {
+      "date": "2005-2008",
+      "event": "Development of Palantir Gotham platform for intelligence community"
+    },
+    {
+      "date": "2009",
+      "event": "First major CIA contract - counterterrorism operations support"
+    },
+    {
+      "date": "2010-2011",
+      "event": "Expansion to FBI, NSA, DHS contracts"
+    },
+    {
+      "date": "2011",
+      "event": "Reported use in operation that located Osama bin Laden (unconfirmed claims)"
+    },
+    {
+      "date": "2012",
+      "event": "Palantir Foundry launched for commercial sector"
+    },
+    {
+      "date": "2014",
+      "event": "Valuation reaches $9 billion in private funding round"
+    },
+    {
+      "date": "2015-2016",
+      "event": "ICE contracts for immigration enforcement - internal employee protests"
+    },
+    {
+      "date": "2018",
+      "event": "Controversy over ICE contracts intensifies - employee walkouts, public criticism"
+    },
+    {
+      "date": "2019",
+      "event": "Valuation reaches $20 billion pre-IPO"
+    },
+    {
+      "date": "September 2020",
+      "event": "Direct listing IPO at $10 per share, $21 billion valuation"
+    },
+    {
+      "date": "2021-present",
+      "event": "Expansion of commercial contracts while maintaining government revenue base"
+    },
+    {
+      "date": "2022-present",
+      "event": "Ukraine war support - providing intelligence platform for Ukrainian military"
+    }
+  ]
+}

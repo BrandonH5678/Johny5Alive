@@ -1,0 +1,34 @@
+{
+  "package_id": 34,
+  "target": "Richard Bissell",
+  "events": [
+    {
+      "date": "1954",
+      "event": "Joined CIA"
+    },
+    {
+      "date": "1950s",
+      "event": "U-2 spy plane program director"
+    },
+    {
+      "date": "1958",
+      "event": "Deputy Director for Plans"
+    },
+    {
+      "date": "1960-1961",
+      "event": "Bay of Pigs invasion planning"
+    },
+    {
+      "date": "April 17, 1961",
+      "event": "Bay of Pigs invasion failure"
+    },
+    {
+      "date": "February 1962",
+      "event": "Fired by JFK"
+    },
+    {
+      "date": "1994",
+      "event": "Death"
+    }
+  ]
+}

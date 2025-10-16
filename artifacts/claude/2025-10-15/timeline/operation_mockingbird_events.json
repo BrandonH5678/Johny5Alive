@@ -1,0 +1,50 @@
+{
+  "package_id": 70,
+  "target": "Operation Mockingbird",
+  "events": [
+    {
+      "date": "Early 1950s",
+      "event": "Operation Mockingbird initiated under CIA Director Allen Dulles"
+    },
+    {
+      "date": "1950s",
+      "event": "Frank Wisner builds 'Mighty Wurlitzer' - CIA media network with hundreds of journalist assets"
+    },
+    {
+      "date": "1950s-1960s",
+      "event": "Peak operations: CIA assets at NYT, CBS, Time, Newsweek, AP, UPI and other major outlets"
+    },
+    {
+      "date": "1967",
+      "event": "Ramparts magazine exposes CIA funding of National Student Association"
+    },
+    {
+      "date": "1975",
+      "event": "Church Committee investigation begins - exposes CIA media relationships"
+    },
+    {
+      "date": "1976",
+      "event": "CIA Director George H.W. Bush announces restrictions on media relationships"
+    },
+    {
+      "date": "October 1977",
+      "event": "Carl Bernstein 'CIA and the Media' Rolling Stone article - documents 400+ journalist assets"
+    },
+    {
+      "date": "1977",
+      "event": "Admiral Stansfield Turner (CIA Director) testifies to Congress on media reforms"
+    },
+    {
+      "date": "1980s-present",
+      "event": "Evidence of continued media-intelligence coordination despite official restrictions"
+    },
+    {
+      "date": "2010s",
+      "event": "Tech platform coordination with intelligence community (modern Mockingbird equivalent)"
+    },
+    {
+      "date": "2020-present",
+      "event": "'Misinformation' narratives used to coordinate content suppression across media and tech platforms"
+    }
+  ]
+}

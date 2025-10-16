@@ -1,0 +1,30 @@
+{
+  "package_id": 14,
+  "target": "Allen Dulles",
+  "events": [
+    {
+      "date": "1920s-1940s",
+      "event": "Sullivan & Cromwell partner"
+    },
+    {
+      "date": "1942-1945",
+      "event": "OSS Switzerland station chief"
+    },
+    {
+      "date": "1953",
+      "event": "CIA Director, approves MK-Ultra (April 13)"
+    },
+    {
+      "date": "1953-1954",
+      "event": "Iran and Guatemala coups"
+    },
+    {
+      "date": "1961",
+      "event": "Bay of Pigs, fired by JFK"
+    },
+    {
+      "date": "1963-1964",
+      "event": "Warren Commission service"
+    }
+  ]
+}

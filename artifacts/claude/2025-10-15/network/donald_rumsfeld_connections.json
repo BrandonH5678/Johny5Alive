@@ -1,0 +1,15 @@
+{
+  "package_id": 42,
+  "target": "Donald Rumsfeld",
+  "organizations": [
+    "Department of Defense",
+    "Bush Administration",
+    "Ford Administration"
+  ],
+  "programs": [
+    "Iraq War",
+    "Afghanistan War",
+    "Enhanced Interrogation",
+    "Abu Ghraib"
+  ]
+}

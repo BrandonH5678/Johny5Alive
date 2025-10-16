@@ -1,0 +1,51 @@
+{
+  "package_id": 73,
+  "target": "Chelsea Manning",
+  "target_type": "person",
+  "summary": "WikiLeaks source (2010) - U.S. Army intelligence analyst who leaked Iraq War logs, Afghan War documents, and diplomatic cables exposing war crimes and government deceptions, sentenced 35 years, commuted by Obama (2017)",
+  "key_facts": [
+    "U.S. Army intelligence analyst (2009-2010) with Top Secret clearance",
+    "WikiLeaks source: Leaked 750,000+ classified documents to WikiLeaks (2010)",
+    "Iraq War logs: Documented civilian casualties, torture, war crimes",
+    "Afghan War documents: Revealed Pakistan ISI support for Taliban, civilian deaths",
+    "Diplomatic cables (Cablegate): 250,000+ State Department communications",
+    "Collateral Murder video: Apache helicopter killing of Reuters journalists in Baghdad (2007)",
+    "Arrested May 2010: Turned in by hacker Adrian Lamo after confession",
+    "Court-martial 2013: Convicted of 20 charges under Espionage Act, acquitted of 'aiding the enemy'",
+    "35-year sentence: Military prison at Fort Leavenworth",
+    "Commuted 2017: President Obama commuted sentence after 7 years",
+    "Released May 2017: Continued activism for transparency and whistleblower rights",
+    "Re-jailed 2019: Contempt for refusing to testify in secret grand jury against Assange"
+  ],
+  "intelligence_connections": [
+    "U.S. Army intelligence: Forward Operating Base Hammer, Iraq (2009-2010)",
+    "Classified databases: SIPRNet and JWICS access",
+    "WikiLeaks: Platform for publishing leaked documents",
+    "Julian Assange: WikiLeaks founder who published Manning's leaks",
+    "State Department: Diplomatic cables revealed internal communications",
+    "Pentagon: Iraq/Afghanistan war logs exposed military operations",
+    "CIA: Some diplomatic cables revealed intelligence operations",
+    "Reuters: Collateral Murder video showed killing of Reuters journalists"
+  ],
+  "concealment_mechanisms": [
+    "Classification system: Documents classified to hide war crimes, not protect security",
+    "Collateral damage concealment: Civilian death tolls underreported",
+    "Diplomatic cable secrecy: State Department communications hidden from public",
+    "War crimes coverups: Torture, civilian killings documented but concealed",
+    "Espionage Act prosecution: Whistleblower criminalized, no public interest defense allowed",
+    "Secret grand jury: Manning jailed for refusing to testify against Assange in sealed proceedings",
+    "Media complicity: Some outlets criticized leaks rather than exposed crimes"
+  ],
+  "power_structure": "Army intelligence analyst with classified access leaked to WikiLeaks, military justice system prosecuted under Espionage Act with no public interest defense, 35-year sentence intended to deter future whistleblowers, Obama commutation acknowledged injustice but didn't pardon, re-imprisonment shows continued punishment for refusing to cooperate against Assange",
+  "strategic_significance": "Manning leaks exposed Iraq/Afghanistan war crimes and diplomatic duplicity - Collateral Murder video showed rules of engagement allowing civilian deaths, war logs revealed systematic casualty underreporting, diplomatic cables showed gap between public statements and private actions, prosecution established precedent for criminalizing national security whistleblowers without public interest defense",
+  "unanswered_questions": [
+    "What other classified documents did Manning see but not leak?",
+    "How much torture and war crimes remain concealed in classified databases?",
+    "What was the full content of the secret grand jury investigation?",
+    "How many other military whistleblowers were deterred by Manning prosecution?",
+    "What intelligence operations were revealed in diplomatic cables?",
+    "Why was Manning jailed again for refusing to testify against Assange?"
+  ],
+  "gap_addressed": "Whistleblower Network - Iraq War logs, diplomatic cables, war crimes exposure, military whistleblower prosecution",
+  "research_date": "2025-10-15"
+}

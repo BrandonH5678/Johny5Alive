@@ -1,0 +1,22 @@
+{
+  "package_id": 66,
+  "target": "Google",
+  "connected_entities": [
+    "Larry Page and Sergey Brin: Founders (dual-class voting control)",
+    "Sundar Pichai: CEO (operational control)",
+    "NSA: PRISM program direct server access (2007+)",
+    "In-Q-Tel: CIA venture capital, Keyhole Inc. connection",
+    "Keyhole Inc.: In-Q-Tel portfolio company acquired 2004 → Google Earth",
+    "Pentagon: Project Maven AI targeting contract (canceled 2018)",
+    "DARPA: Regina Dugan (director → Google VP)",
+    "Google Cloud: Intelligence community contracts",
+    "YouTube: Content moderation coordination with government",
+    "Android: Dominant mobile OS (location/communications tracking)",
+    "Five Eyes: Allied intelligence content moderation coordination",
+    "CIA: Early funding connections, ongoing coordination",
+    "FBI: National Security Letters for user data",
+    "Stanford University: Academic origins, ongoing research partnerships",
+    "Venture capital: Initial CIA/NSA-connected funding sources"
+  ],
+  "network_type": "Technology giant with search monopoly and deep intelligence community integration"
+}

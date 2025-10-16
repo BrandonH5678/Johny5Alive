@@ -1,0 +1,66 @@
+{
+  "package_id": 66,
+  "target": "Google",
+  "events": [
+    {
+      "date": "1996",
+      "event": "Larry Page and Sergey Brin begin Stanford research project (BackRub search engine)"
+    },
+    {
+      "date": "1998",
+      "event": "Google Inc. founded - early funding includes CIA/NSA-connected venture capital"
+    },
+    {
+      "date": "2004",
+      "event": "Google IPO - becomes publicly traded company"
+    },
+    {
+      "date": "2004",
+      "event": "Acquires Keyhole Inc. (In-Q-Tel/CIA portfolio company) - becomes Google Earth"
+    },
+    {
+      "date": "2004",
+      "event": "Gmail launched - email content scanning for advertising (surveillance potential)"
+    },
+    {
+      "date": "2005",
+      "event": "Android Inc. acquired - becomes dominant mobile OS"
+    },
+    {
+      "date": "2006",
+      "event": "YouTube acquired for $1.65 billion"
+    },
+    {
+      "date": "2007",
+      "event": "NSA PRISM program begins - direct server access to user data (revealed 2013)"
+    },
+    {
+      "date": "2013",
+      "event": "Snowden revelations expose NSA PRISM access to Google servers - Google denies knowledge"
+    },
+    {
+      "date": "2015",
+      "event": "Alphabet Inc. restructuring - creates holding company for various projects"
+    },
+    {
+      "date": "2017",
+      "event": "Project Maven: Pentagon AI contract for drone targeting - employee discovery and protests"
+    },
+    {
+      "date": "2018",
+      "event": "Project Maven canceled after 4,000+ employee petition and resignations"
+    },
+    {
+      "date": "2018-present",
+      "event": "YouTube content moderation increases - coordination with government on 'misinformation'"
+    },
+    {
+      "date": "2020-present",
+      "event": "COVID-19 'misinformation' censorship - removal of vaccine skepticism, lab leak theory"
+    },
+    {
+      "date": "2021-present",
+      "event": "Google Cloud expansion into government and intelligence community contracts"
+    }
+  ]
+}

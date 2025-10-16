@@ -1,0 +1,50 @@
+{
+  "package_id": 71,
+  "target": "Jeff Bezos",
+  "events": [
+    {
+      "date": "1994",
+      "event": "Amazon founded - initially online bookstore"
+    },
+    {
+      "date": "2002",
+      "event": "Amazon Web Services (AWS) launched - cloud computing business begins"
+    },
+    {
+      "date": "2006",
+      "event": "AWS publicly available - becomes infrastructure provider"
+    },
+    {
+      "date": "June 2013",
+      "event": "Edward Snowden NSA revelations begin - Washington Post publishes leaks"
+    },
+    {
+      "date": "October 2013",
+      "event": "Jeff Bezos purchases Washington Post for $250 million (personal purchase)"
+    },
+    {
+      "date": "2013",
+      "event": "AWS awarded $600M CIA cloud contract for Intelligence Community (near WaPo purchase timing)"
+    },
+    {
+      "date": "2014-present",
+      "event": "AWS expands intelligence community contracts - NSA, DoD, various agencies"
+    },
+    {
+      "date": "2018",
+      "event": "Pentagon JEDI cloud contract competition - Amazon competes"
+    },
+    {
+      "date": "2019",
+      "event": "Microsoft wins JEDI contract (Amazon protests, cites Trump political interference)"
+    },
+    {
+      "date": "2021",
+      "event": "Pentagon cancels JEDI, announces new multi-cloud strategy (AWS and Microsoft)"
+    },
+    {
+      "date": "2021",
+      "event": "Bezos steps down as Amazon CEO, remains executive chairman"
+    }
+  ]
+}

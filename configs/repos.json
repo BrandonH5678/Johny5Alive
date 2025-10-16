@@ -1,0 +1,5 @@
+[
+  {"name": "Johny5Alive", "url": "git@github.com:BrandonH5678/Johny5Alive.git", "path": "/home/johnny5/Johny5Alive", "branch": "main"},
+  {"name": "Squirt",      "url": "git@github.com:BrandonH5678/Squirt.git",      "path": "/home/johnny5/Squirt", "branch": "main"},
+  {"name": "Sherlock",    "url": "git@github.com:BrandonH5678/Sherlock.git",    "path": "/home/johnny5/Sherlock", "branch": "main"}
+]

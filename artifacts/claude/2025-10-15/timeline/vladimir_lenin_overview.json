@@ -1,0 +1,26 @@
+{
+  "package_id": 35,
+  "target": "Vladimir Lenin",
+  "events": [
+    {
+      "date": "1917",
+      "event": "German-arranged sealed train return to Russia"
+    },
+    {
+      "date": "October 1917",
+      "event": "Bolshevik Revolution"
+    },
+    {
+      "date": "1918-1921",
+      "event": "Russian Civil War, Red Terror"
+    },
+    {
+      "date": "1922",
+      "event": "Soviet Union founded"
+    },
+    {
+      "date": "1924",
+      "event": "Death - Stalin emerges victorious"
+    }
+  ]
+}

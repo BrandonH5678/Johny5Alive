@@ -1,0 +1,19 @@
+{
+  "package_id": 71,
+  "target": "Jeff Bezos",
+  "connected_entities": [
+    "Amazon/AWS: E-commerce and cloud computing empire",
+    "Washington Post: Owner since October 2013",
+    "CIA: $600M AWS cloud contract for Intelligence Community",
+    "NSA: AWS contracts for data storage and computing",
+    "Pentagon: Cloud computing contracts, JEDI competition",
+    "Intelligence Community: Multi-agency AWS infrastructure contracts",
+    "Edward Snowden: WaPo published NSA leaks during Bezos CIA contract period",
+    "Blue Origin: Bezos space company with national security launch contracts",
+    "Marty Baron: WaPo executive editor (2013-2021) maintained editorial independence claims",
+    "DoD: Department of Defense AWS contracts",
+    "National security reporters: WaPo staff covering intelligence community",
+    "Tech industry: AWS dominates cloud infrastructure market"
+  ],
+  "network_type": "Tech mogul connecting e-commerce dominance, media ownership, and intelligence community contracts"
+}

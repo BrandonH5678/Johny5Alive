@@ -1,0 +1,42 @@
+{
+  "package_id": 68,
+  "target": "David Atlee Phillips",
+  "claims_summary": "CIA officer (1950-1975) specializing in Cuba operations and propaganda, stationed in Mexico City during Lee Harvey Oswald visit (1963), alleged Oswald handler investigated by HSCA",
+  "evidence_categories": {
+    "cia_career": [
+      "CIA employment 1950-1975: Personnel records, retirement as Chief Western Hemisphere Division",
+      "Guatemala coup 1954: Operation PBSUCCESS documents show propaganda role",
+      "Bay of Pigs 1961: Propaganda chief documented in Taylor Commission report",
+      "JMWAVE station: Miami anti-Castro operations headquarters, Phillips documented role",
+      "Mexico City station 1963: CIA records place Phillips there during Oswald visit"
+    ],
+    "oswald_connection_allegations": [
+      "Antonio Veciana testimony: Alpha 66 leader claimed Phillips ('Maurice Bishop') introduced him to Oswald",
+      "Mexico City September 1963: Oswald visits Soviet and Cuban embassies while Phillips stationed there",
+      "HSCA investigation (1976-1978): Committee investigated Phillips-Oswald connection",
+      "Phillips denial: Testified he was not 'Maurice Bishop,' never met Oswald",
+      "HSCA conclusion: Could not definitively confirm or refute Veciana claims",
+      "Timing suspicious: Phillips in Mexico City during Oswald visit, two months before JFK assassination"
+    ],
+    "propaganda_expertise": [
+      "Guatemala 1954: Radio propaganda against Árbenz government",
+      "Cuba operations: Psychological operations, leaflets, radio broadcasts",
+      "Anti-Castro messaging: Coordination of exile group propaganda",
+      "Operational tradecraft: Use of aliases, compartmentation, agent recruitment"
+    ],
+    "operation_40_allegations": [
+      "Alleged assassination/regime change unit: Multiple sources claim existence",
+      "Phillips membership claimed: Disputed, no official confirmation",
+      "Cuban exile connections: Operation 40 allegedly included exile operatives",
+      "Violent operations: Unit allegedly conducted assassinations, sabotage"
+    ],
+    "concealment": [
+      "'Maurice Bishop' alias: Never officially confirmed or denied",
+      "Mexico City records: Some files destroyed or remain classified",
+      "JFK assassination files: Phillips-related documents partially withheld",
+      "HSCA obstruction: Operational secrecy prevented full investigation",
+      "AFIO founding: Post-retirement, Phillips organized former intelligence officers"
+    ]
+  },
+  "validation_status": "CIA career well-documented through personnel records and declassified operations files - Oswald connection remains disputed with witness testimony but no definitive proof, HSCA investigation inconclusive"
+}

@@ -1,0 +1,26 @@
+{
+  "package_id": 22,
+  "target": "Bigelow Aerospace",
+  "events": [
+    {
+      "date": "1996",
+      "event": "Robert Bigelow purchases Skinwalker Ranch"
+    },
+    {
+      "date": "1999",
+      "event": "Bigelow Aerospace founded"
+    },
+    {
+      "date": "2008-2012",
+      "event": "$22M AAWSAP contract from DIA"
+    },
+    {
+      "date": "2009-2012",
+      "event": "BAASS conducts UAP investigations"
+    },
+    {
+      "date": "2016",
+      "event": "BEAM habitat module attached to ISS"
+    }
+  ]
+}

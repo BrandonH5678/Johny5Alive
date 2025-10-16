@@ -1,0 +1,45 @@
+{
+  "package_id": 73,
+  "target": "Chelsea Manning",
+  "claims_summary": "Army intelligence analyst leaked 750,000+ classified documents to WikiLeaks exposing Iraq/Afghanistan war crimes and diplomatic deceptions, convicted under Espionage Act, sentenced 35 years, commuted after 7 years",
+  "evidence_categories": {
+    "leaked_documents": [
+      "750,000+ classified documents: Iraq War logs, Afghan War documents, diplomatic cables",
+      "Collateral Murder video: Apache helicopter footage of Reuters journalists killing (2007)",
+      "Iraq War logs: 391,832 documents on military operations, civilian casualties",
+      "Afghan War documents: 91,731 reports on war operations, Pakistan ISI-Taliban ties",
+      "Cablegate: 251,287 State Department diplomatic cables",
+      "WikiLeaks publication: All documents published and publicly available"
+    ],
+    "war_crimes_exposed": [
+      "Collateral Murder: Video shows Reuters journalists killed, children wounded, crew laughing",
+      "Civilian casualties: War logs document systematic underreporting of deaths",
+      "Torture: Detainee abuse documented beyond Abu Ghraib revelations",
+      "Rules of engagement: Permissive ROE allowed civilian deaths",
+      "Helicopter strikes: Pattern of civilian targeting documented"
+    ],
+    "diplomatic_cables_revelations": [
+      "State Department internal communications: Gap between public and private positions",
+      "Intelligence operations: CIA activities revealed in embassy cables",
+      "Foreign leader assessments: Candid (unflattering) evaluations of allies",
+      "Corporate espionage: State Department gathering intelligence for businesses",
+      "Yemen drone strikes: Secret U.S. operations revealed"
+    ],
+    "prosecution_and_imprisonment": [
+      "Arrested May 2010: Adrian Lamo confession led to arrest",
+      "20 charges: Espionage Act violations, convicted August 2013",
+      "35-year sentence: Longest sentence for leak in U.S. history at time",
+      "Acquitted of 'aiding the enemy': Most serious charge dismissed",
+      "Obama commutation: January 2017 after 7 years served",
+      "Re-imprisonment 2019: Contempt for refusing Assange grand jury testimony"
+    ],
+    "concealment_mechanisms": [
+      "Overclassification: Documents classified to hide embarrassment not security threats",
+      "No public interest defense: Espionage Act prevents explaining why documents leaked",
+      "Secret grand jury: Assange investigation sealed from public",
+      "Media criticism: Some outlets attacked Manning rather than exposed crimes",
+      "Military justice: Court-martial limits transparency compared to civilian trial"
+    ]
+  },
+  "validation_status": "Extensively documented through leaked documents themselves, court-martial records, WikiLeaks publication, journalistic investigation of revealed war crimes"
+}

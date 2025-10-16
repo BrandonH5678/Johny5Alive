@@ -1,0 +1,30 @@
+{
+  "package_id": 54,
+  "target": "Gain-of-function research",
+  "events": [
+    {
+      "date": "2011",
+      "event": "H5N1 ferret transmission studies controversy"
+    },
+    {
+      "date": "2014",
+      "event": "US government moratorium on GoF research"
+    },
+    {
+      "date": "2014-2019",
+      "event": "EcoHealth Alliance Wuhan bat coronavirus research"
+    },
+    {
+      "date": "2017",
+      "event": "US moratorium lifted with new oversight framework"
+    },
+    {
+      "date": "2019",
+      "event": "COVID-19 pandemic begins - lab leak hypothesis"
+    },
+    {
+      "date": "2021-2023",
+      "event": "Congressional investigations into GoF funding"
+    }
+  ]
+}

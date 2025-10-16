@@ -1,0 +1,42 @@
+{
+  "package_id": 65,
+  "target": "Palantir Technologies",
+  "claims_summary": "CIA-seeded data analytics company providing surveillance and targeting platforms to intelligence community, military, and law enforcement with classified capabilities and controversial domestic use",
+  "evidence_categories": {
+    "cia_founding": [
+      "In-Q-Tel $2 million seed investment (2004) - documented in In-Q-Tel disclosures",
+      "Peter Thiel public statements about CIA relationship",
+      "Early CIA contracts documented in federal procurement databases",
+      "Alex Karp interviews describing intelligence community origins"
+    ],
+    "government_contracts": [
+      "CIA contracts: Federal procurement data, Palantir SEC filings",
+      "NSA contracts: Budget documents, public reporting",
+      "ICE contracts: $51M+ documented via FOIA and procurement records",
+      "DoD contracts: Hundreds of millions annually (SEC filings)",
+      "FBI: Counterterrorism contracts (public reporting)"
+    ],
+    "surveillance_capabilities": [
+      "Palantir Gotham: Intelligence analysis platform documentation",
+      "Data integration: Combines FBI, CIA, NSA, military databases",
+      "Targeting support: Investigative journalism on kill list operations",
+      "Predictive policing: Law enforcement contracts documentation",
+      "ICE deportation operations: Internal documents revealed via leaks"
+    ],
+    "controversies": [
+      "Employee protests over ICE contracts (2018) - media coverage",
+      "Civil liberties organizations criticism (ACLU, EFF)",
+      "Targeting civilians: Investigative reports on Afghanistan/Iraq operations",
+      "Domestic surveillance concerns: Law enforcement contracts",
+      "Lack of transparency: Classified capabilities shield from scrutiny"
+    ],
+    "concealment_mechanisms": [
+      "Classified contracts: Capabilities not publicly disclosed",
+      "NDAs with government clients",
+      "Technical complexity obscures surveillance implications",
+      "Dual-use framing: 'Data analytics' vs 'surveillance platform'",
+      "SEC filings provide limited operational details"
+    ]
+  },
+  "validation_status": "Well-documented through In-Q-Tel disclosures, federal procurement databases, SEC filings, investigative journalism, and internal documents - classified capabilities remain opaque"
+}

@@ -1,0 +1,19 @@
+{
+  "package_id": 45,
+  "target": "John Brennan",
+  "role": "CIA Director",
+  "tenure": "2013-2017",
+  "research_date": "2025-10-15",
+  "executive_summary": "CIA Director under Obama, oversaw drone program expansion, opposed CIA torture report release, involved in Senate CIA hacking incident.",
+  "key_organizations": [
+    "CIA",
+    "Obama Administration",
+    "White House"
+  ],
+  "key_programs": [
+    "Drone Program",
+    "Enhanced Interrogation",
+    "Torture Report suppression"
+  ],
+  "concealment_notes": "Fought release of torture report, hacked Senate computers investigating CIA, denied then admitted"
+}

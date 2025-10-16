@@ -1,0 +1,30 @@
+{
+  "package_id": 56,
+  "target": "Bill & Melinda Gates Foundation",
+  "events": [
+    {
+      "date": "2000",
+      "event": "Foundation established"
+    },
+    {
+      "date": "2010",
+      "event": "Decade of Vaccines initiative"
+    },
+    {
+      "date": "2015",
+      "event": "Gates warns of pandemic threat at TED talk"
+    },
+    {
+      "date": "2017",
+      "event": "CEPI (Coalition for Epidemic Preparedness) founding"
+    },
+    {
+      "date": "2020-2023",
+      "event": "COVID-19 vaccine funding and distribution"
+    },
+    {
+      "date": "2021",
+      "event": "Bill and Melinda Gates divorce"
+    }
+  ]
+}

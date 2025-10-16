@@ -1,0 +1,30 @@
+{
+  "package_id": 36,
+  "target": "Albert Stubblebine",
+  "events": [
+    {
+      "date": "1981-1984",
+      "event": "Commanding General of INSCOM"
+    },
+    {
+      "date": "1978-1984",
+      "event": "Stargate Project support during tenure"
+    },
+    {
+      "date": "1980s",
+      "event": "Alleged wall-walking experiments"
+    },
+    {
+      "date": "1984",
+      "event": "Retirement from Army"
+    },
+    {
+      "date": "1990s-2010s",
+      "event": "Alternative medicine and conspiracy advocacy"
+    },
+    {
+      "date": "2017",
+      "event": "Death"
+    }
+  ]
+}

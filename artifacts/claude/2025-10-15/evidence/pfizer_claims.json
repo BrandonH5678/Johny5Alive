@@ -1,0 +1,48 @@
+{
+  "package_id": 74,
+  "target": "Pfizer",
+  "claims_summary": "COVID vaccine generated $100+ billion revenue through government contracts, FDA revolving door expedited approval, liability shields prevented lawsuits, mandates enforced uptake, regulatory capture enabled profit over safety transparency",
+  "evidence_categories": {
+    "government_contracts_and_revenue": [
+      "Operation Warp Speed: $1.95 billion initial contract (July 2020)",
+      "2021 revenue: $37 billion from COVID vaccine (SEC filings)",
+      "2022 revenue: $32+ billion continued (SEC filings)",
+      "Total pandemic revenue: $100+ billion across vaccines and treatments",
+      "Government purchases: Billions of doses purchased by federal government"
+    ],
+    "regulatory_capture": [
+      "Scott Gottlieb: FDA Commissioner (2017-2019) → Pfizer board (2019)",
+      "FDA funding: Partially from pharmaceutical industry user fees (conflict)",
+      "Expedited approval: EUA December 2020, full approval August 2021",
+      "Clinical trial oversight: FDA relied on Pfizer data, limited independent verification",
+      "FOIA resistance: Pfizer sought 75-year delay on trial document release (court rejected)"
+    ],
+    "liability_shields": [
+      "PREP Act: Public Readiness and Emergency Preparedness Act shields from injury claims",
+      "EUA protections: Emergency authorization provides legal immunity",
+      "No legal recourse: Vaccine injury victims cannot sue Pfizer",
+      "Government indemnification: Taxpayers liable for injury compensation, not Pfizer"
+    ],
+    "mandate_enforcement": [
+      "Federal employee mandates: Biden September 2021 executive orders",
+      "Military mandates: DoD vaccine requirements for service members",
+      "Healthcare worker mandates: CMS requirements for Medicare facilities",
+      "Employer mandates: OSHA attempted requirements (struck down by Supreme Court)",
+      "Coercion effect: Mandates obscured voluntary informed consent"
+    ],
+    "adverse_events_and_concealment": [
+      "VAERS reports: Vaccine Adverse Event Reporting System shows thousands of deaths/injuries",
+      "Underreporting: Passive system captures estimated 1-10% of actual adverse events",
+      "Clinical trial issues: Whistleblower Brooke Jackson revealed data integrity problems",
+      "Efficacy waning: Initial 95% claim degraded over months, boosters required",
+      "Alternative suppression: Ivermectin, hydroxychloroquine discouraged to maintain EUA"
+    ],
+    "media_influence": [
+      "$3+ billion advertising spend: Financial dependency creates favorable coverage",
+      "Social media censorship: Platforms removed vaccine criticism (benefited Pfizer)",
+      "Scott Gottlieb Twitter: Pfizer board member advocated for censorship of dissent",
+      "Narrative control: Critical coverage marginalized as 'anti-vax misinformation'"
+    ]
+  },
+  "validation_status": "Financial data documented in SEC filings, regulatory timeline in FDA records, contracts via government procurement, adverse events in VAERS database - full clinical trial transparency limited by Pfizer resistance to disclosure"
+}

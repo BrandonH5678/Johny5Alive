@@ -1,0 +1,1 @@
+{"id":"2025-10-11T20:00:00Z-validation-refactor","type":"code_authoring","priority":"normal","inputs":["src/j5a_statistical_validator.py"],"deliverables":["artifacts/claude/2025-10-11/patches/validator_cleanup.diff"],"constraints":{"max_tokens":30000,"style":"production"},"notes":"Refactor statistical validator to improve sampling strategy and add comprehensive test coverage."}

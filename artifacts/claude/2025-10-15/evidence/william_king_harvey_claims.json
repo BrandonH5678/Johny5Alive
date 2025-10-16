@@ -1,0 +1,49 @@
+{
+  "package_id": 75,
+  "target": "William King Harvey",
+  "claims_summary": "CIA officer (1947-1967) directed Berlin Tunnel, ZR/RIFLE assassination program, and Task Force W anti-Castro operations, recruited organized crime for assassination attempts, reveals institutional CIA assassination capability",
+  "evidence_categories": {
+    "berlin_tunnel": [
+      "1954-1956 operation: Tapped Soviet communications in East Berlin",
+      "Technical operation: Tunnel construction documented",
+      "Declassified CIA history: Operation details now public",
+      "Intelligence value: Signals intelligence from Soviet military",
+      "Discovery 1956: Soviets found tunnel, operation ended"
+    ],
+    "zr_rifle_assassination_program": [
+      "Church Committee revelations (1975): Documented ZR/RIFLE program",
+      "Harvey as chief: Testimony and documents show operational role",
+      "'Executive Action' capability: Euphemism for assassination program",
+      "Richard Bissell creation: Deputy Director authorized program, Harvey executed",
+      "Institutional capability: Program shows CIA systematized assassinations"
+    ],
+    "cia_mafia_collaboration": [
+      "Johnny Roselli recruitment: Harvey's contact with Chicago mob documented",
+      "Sam Giancana involvement: Church Committee documented mob boss role",
+      "Castro assassination plots: Multiple attempts using mafia contacts",
+      "Church Committee testimony: Participants confirmed CIA-mafia operations",
+      "Poison pills, rifles, explosives: Various assassination methods attempted"
+    ],
+    "task_force_w": [
+      "1961-1963: Harvey chief of anti-Castro operations",
+      "Largest CIA station: JMWAVE in Miami, hundreds of operatives",
+      "Cuban exile coordination: Multiple anti-Castro organizations",
+      "Cuban Missile Crisis conflict: Harvey's operations violated Kennedy policy",
+      "Autonomous commando raids: Harvey authorized despite White House objections"
+    ],
+    "kennedy_administration_conflicts": [
+      "Robert Kennedy clashes: Attorney General opposed Harvey's methods",
+      "JFK policy violations: Harvey operations exceeded authorization",
+      "Reassignment to Rome (1963): Removed after Cuban Missile Crisis conflicts",
+      "Protected by Helms: Despite conflicts, Harvey career protected by CIA"
+    ],
+    "concealment_mechanisms": [
+      "Compartmentation: Assassination programs highly classified",
+      "Record destruction: Many files destroyed before Church Committee",
+      "Harvey death (1976): Died before comprehensive testimony",
+      "Mafia cutout: Organized crime provided deniability",
+      "Euphemisms: 'Executive Action' obscured assassination purpose"
+    ]
+  },
+  "validation_status": "Extensively documented through Church Committee investigation, declassified CIA histories, testimony from mafia participants, and internal CIA records - some operational details remain classified"
+}

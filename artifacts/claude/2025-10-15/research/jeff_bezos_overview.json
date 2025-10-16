@@ -1,0 +1,49 @@
+{
+  "package_id": 71,
+  "target": "Jeff Bezos",
+  "target_type": "person",
+  "summary": "Amazon founder, Washington Post owner (2013), CIA cloud contract holder - Timing of WaPo purchase and $600M CIA contract raises conflict of interest concerns about media independence",
+  "key_facts": [
+    "Amazon founded 1994, grew to e-commerce and cloud computing dominance",
+    "Washington Post purchased October 2013 for $250 million (personal, not Amazon)",
+    "CIA cloud contract: AWS awarded $600M Intelligence Community contract (same period as WaPo purchase)",
+    "Amazon Web Services (AWS): Infrastructure for intelligence community",
+    "National Security Agency: AWS contracts for data storage and computing",
+    "Timing: WaPo purchase and CIA contract within months of each other (2013)",
+    "Editorial independence concerns: WaPo coverage of CIA, surveillance, national security",
+    "Snowden revelations (2013): WaPo published Snowden NSA leaks while Bezos negotiating CIA contract",
+    "Pentagon cloud contract (JEDI): Amazon competed (lost to Microsoft, later canceled)",
+    "Blue Origin: Space company with national security launch contracts",
+    "Richest person: Wealth provides independence but CIA contracts create potential leverage",
+    "WaPo editorial stance: Generally supportive of intelligence community, critical of whistleblowers"
+  ],
+  "intelligence_connections": [
+    "CIA: $600M AWS cloud contract for Intelligence Community",
+    "NSA: AWS contracts for data storage and analytics",
+    "Amazon Web Services: Infrastructure for classified government systems",
+    "Washington Post: Bezos ownership of major newspaper with national security coverage",
+    "Pentagon: Cloud computing contracts, Blue Origin national security launches",
+    "Intelligence Community: Multi-year AWS contracts worth billions",
+    "National security reporting: WaPo coverage potentially influenced by owner's IC contracts"
+  ],
+  "concealment_mechanisms": [
+    "Personal vs corporate: WaPo purchase was personal, obscures corporate connections",
+    "Editorial independence claims: WaPo maintains separation from Bezos business interests",
+    "Timing obscured: CIA contract and WaPo purchase not widely connected in media coverage",
+    "Conflict of interest downplayed: Financial press rarely questions IC contract influence",
+    "AWS classification: Full scope of IC contracts not publicly disclosed",
+    "Snowden paradox: WaPo published leaks while owner pursued CIA contract"
+  ],
+  "power_structure": "Bezos controls Amazon (AWS IC contracts) and Washington Post (national security coverage), creates structural conflict where newspaper owned by CIA contractor, editorial independence maintained in theory but financial incentives favor IC, WaPo Snowden coverage occurred during CIA contract negotiation period",
+  "strategic_significance": "Bezos ownership of WaPo while holding massive IC contracts represents modern Operation Mockingbird - no need to recruit journalists when owner has financial incentive to maintain IC relationships, structural conflict creates pressure for favorable coverage, demonstrates intelligence community influence through market power rather than infiltration",
+  "unanswered_questions": [
+    "How much editorial influence does Bezos exert at Washington Post?",
+    "Has WaPo coverage of CIA/NSA been affected by AWS intelligence contracts?",
+    "What was the timeline coordination between WaPo purchase and CIA contract?",
+    "What classified AWS services does intelligence community use?",
+    "Has Bezos received intelligence briefings or access based on AWS contracts?",
+    "What editorial decisions at WaPo favor intelligence community interests?"
+  ],
+  "gap_addressed": "Media Ownership - Washington Post + CIA cloud contract timing and conflict of interest",
+  "research_date": "2025-10-15"
+}

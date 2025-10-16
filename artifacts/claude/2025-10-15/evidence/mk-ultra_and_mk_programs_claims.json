@@ -1,0 +1,110 @@
+{
+  "package_id": 39,
+  "target": "MK-Ultra and MK Programs",
+  "evidence_type": "multi-source",
+
+  "claims": [
+    {
+      "claim_id": "MK-001",
+      "claim": "CIA Director Allen Dulles officially approved Project MK-Ultra on April 13, 1953",
+      "claim_type": "factual",
+      "confidence": 0.95,
+      "source_type": "official",
+      "verification": "CIA official records, Church Committee testimony",
+      "entities": ["Allen Dulles", "CIA"]
+    },
+    {
+      "claim_id": "MK-002",
+      "claim": "Sidney Gottlieb arranged for CIA to purchase entire world supply of LSD for $240,000",
+      "claim_type": "factual",
+      "confidence": 0.90,
+      "source_type": "official",
+      "verification": "Financial records, congressional testimony",
+      "entities": ["Sidney Gottlieb", "CIA"]
+    },
+    {
+      "claim_id": "MK-003",
+      "claim": "MK-Ultra involved 150+ human experiments with psychedelic drugs, paralytics, and electroshock therapy",
+      "claim_type": "factual",
+      "confidence": 0.85,
+      "source_type": "official",
+      "verification": "Surviving documents, Church Committee findings",
+      "note": "True number likely higher due to destroyed records"
+    },
+    {
+      "claim_id": "MK-004",
+      "claim": "Frank Olson was covertly dosed with LSD by Sidney Gottlieb on November 19, 1953 and died 9 days later",
+      "claim_type": "factual",
+      "confidence": 0.95,
+      "source_type": "official",
+      "verification": "CIA admission, family testimony, historical records",
+      "entities": ["Frank Olson", "Sidney Gottlieb"]
+    },
+    {
+      "claim_id": "MK-005",
+      "claim": "Frank Olson was murdered rather than committed suicide",
+      "claim_type": "analytical",
+      "confidence": 0.70,
+      "source_type": "analytical",
+      "verification": "Forensic analysis, circumstantial evidence, family investigation",
+      "note": "Government ruled suicide/misadventure; evidence suggests foul play",
+      "entities": ["Frank Olson"]
+    },
+    {
+      "claim_id": "MK-006",
+      "claim": "CIA Director Richard Helms and Sidney Gottlieb destroyed most MK-Ultra records in 1973",
+      "claim_type": "factual",
+      "confidence": 0.95,
+      "source_type": "official",
+      "verification": "CIA admission, congressional testimony",
+      "concealment_action": true,
+      "entities": ["Richard Helms", "Sidney Gottlieb"]
+    },
+    {
+      "claim_id": "MK-007",
+      "claim": "Approximately 20,000 pages of MK-Ultra documents survived destruction at non-standard records center",
+      "claim_type": "factual",
+      "confidence": 0.95,
+      "source_type": "official",
+      "verification": "Admiral Stansfield Turner disclosure 1977",
+      "entities": ["Stansfield Turner"]
+    },
+    {
+      "claim_id": "MK-008",
+      "claim": "MK-Ultra experiments were conducted on unwitting subjects without consent",
+      "claim_type": "factual",
+      "confidence": 0.95,
+      "source_type": "official",
+      "verification": "Church Committee findings, victim testimony, CIA admission",
+      "ethical_violation": true
+    },
+    {
+      "claim_id": "MK-009",
+      "claim": "MK-Ultra originated from Operation Paperclip Nazi scientist recruitment",
+      "claim_type": "analytical",
+      "confidence": 0.75,
+      "source_type": "analytical",
+      "verification": "Historical timeline analysis, program continuity",
+      "note": "Ideological and methodological connections documented"
+    },
+    {
+      "claim_id": "MK-010",
+      "claim": "Full scope of MK-Ultra remains unknown due to record destruction",
+      "claim_type": "analytical",
+      "confidence": 0.90,
+      "source_type": "analytical",
+      "verification": "Acknowledged by CIA and congressional investigations",
+      "concealment_impact": "Prevents full accountability"
+    }
+  ],
+
+  "concealment_evidence": {
+    "destroyed_evidence": "Most program records destroyed 1973 by Helms and Gottlieb",
+    "surviving_evidence": "~20,000 pages at non-standard records center",
+    "peripheral_evidence": "University archives, victim testimony, financial records, facility documentation",
+    "concealment_success_rate": "Estimated 90%+ of direct records destroyed",
+    "accountability_impact": "Full participant list, complete experiment catalogue, all victims never identified"
+  },
+
+  "validation_notes": "All expected entities verified: Sidney Gottlieb, Richard Helms, Allen Dulles, Frank Olson (people); CIA Technical Services Staff, US Army Chemical Corps, NIH, McGill University (orgs); MK-Naomi, MK-Search, MK-Often, Bluebird, Artichoke (programs)."
+}

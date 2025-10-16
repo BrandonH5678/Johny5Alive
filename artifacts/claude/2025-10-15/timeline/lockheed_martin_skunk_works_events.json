@@ -1,0 +1,62 @@
+{
+  "package_id": 69,
+  "target": "Lockheed Martin Skunk Works",
+  "events": [
+    {
+      "date": "1943",
+      "event": "Skunk Works founded by Kelly Johnson at Lockheed Aircraft"
+    },
+    {
+      "date": "1945",
+      "event": "P-80 Shooting Star: First operational jet fighter delivered"
+    },
+    {
+      "date": "1955",
+      "event": "U-2 spy plane first flight - CIA reconnaissance aircraft"
+    },
+    {
+      "date": "1960",
+      "event": "Gary Powers U-2 shootdown over Soviet Union - program revealed"
+    },
+    {
+      "date": "1964",
+      "event": "SR-71 Blackbird first flight - Mach 3+ reconnaissance"
+    },
+    {
+      "date": "1977",
+      "event": "Have Blue stealth demonstrator first flight (F-117 precursor)"
+    },
+    {
+      "date": "1981",
+      "event": "F-117 Nighthawk first flight (classified, not revealed until 1988)"
+    },
+    {
+      "date": "1988",
+      "event": "F-117 stealth fighter publicly revealed (7 years after first flight)"
+    },
+    {
+      "date": "1990",
+      "event": "Kelly Johnson dies - Ben Rich becomes legendary Skunk Works director"
+    },
+    {
+      "date": "1991",
+      "event": "F-117 combat debut in Gulf War - first stealth aircraft combat operations"
+    },
+    {
+      "date": "1990s",
+      "event": "Aurora program rumors - alleged hypersonic reconnaissance aircraft (officially denied)"
+    },
+    {
+      "date": "1995",
+      "event": "Lockheed Martin merger - Skunk Works continues as advanced development programs"
+    },
+    {
+      "date": "1995",
+      "event": "Ben Rich dies - alleged deathbed statements about 'ET technology' and UFOs"
+    },
+    {
+      "date": "2000s-present",
+      "event": "Continued classified programs - full scope unknown, occasional leaks and speculation"
+    }
+  ]
+}

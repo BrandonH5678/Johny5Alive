@@ -1,0 +1,66 @@
+{
+  "package_id": 74,
+  "target": "Pfizer",
+  "events": [
+    {
+      "date": "1849",
+      "event": "Pfizer founded in Brooklyn, New York"
+    },
+    {
+      "date": "2019",
+      "event": "Scott Gottlieb (former FDA Commissioner) joins Pfizer board of directors"
+    },
+    {
+      "date": "March 2020",
+      "event": "COVID-19 pandemic declared, vaccine development race begins"
+    },
+    {
+      "date": "March 2020",
+      "event": "Pfizer partners with BioNTech for mRNA COVID vaccine development"
+    },
+    {
+      "date": "May 2020",
+      "event": "Operation Warp Speed announced - government vaccine development funding"
+    },
+    {
+      "date": "July 2020",
+      "event": "Pfizer receives $1.95 billion contract for 100 million vaccine doses"
+    },
+    {
+      "date": "November 2020",
+      "event": "Pfizer announces 95% vaccine efficacy in clinical trials"
+    },
+    {
+      "date": "December 11, 2020",
+      "event": "FDA grants Emergency Use Authorization for Pfizer-BioNTech vaccine"
+    },
+    {
+      "date": "December 14, 2020",
+      "event": "First U.S. vaccinations begin"
+    },
+    {
+      "date": "August 23, 2021",
+      "event": "FDA grants full approval to Pfizer COVID vaccine (Comirnaty)"
+    },
+    {
+      "date": "September 2021",
+      "event": "Biden administration announces federal employee vaccine mandates"
+    },
+    {
+      "date": "2021",
+      "event": "Pfizer COVID vaccine revenue reaches $37 billion (record pharmaceutical sales)"
+    },
+    {
+      "date": "September 2021",
+      "event": "Pfizer seeks 75-year delay on FOIA release of clinical trial documents (court rejects)"
+    },
+    {
+      "date": "2022",
+      "event": "Booster campaigns continue, Pfizer COVID revenue continues at $32+ billion"
+    },
+    {
+      "date": "2023-present",
+      "event": "Vaccine uptake declines as mandates end, adverse event debates continue"
+    }
+  ]
+}

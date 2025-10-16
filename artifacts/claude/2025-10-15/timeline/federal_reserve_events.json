@@ -1,0 +1,62 @@
+{
+  "package_id": 62,
+  "target": "Federal Reserve",
+  "events": [
+    {
+      "date": "1907",
+      "event": "Bank panic creates momentum for central banking reform"
+    },
+    {
+      "date": "November 1910",
+      "event": "Secret Jekyll Island meeting - Aldrich, Warburg, Vanderlip, Davison design Federal Reserve structure"
+    },
+    {
+      "date": "December 23, 1913",
+      "event": "Federal Reserve Act signed into law by Woodrow Wilson (Christmas week passage)"
+    },
+    {
+      "date": "1914",
+      "event": "Federal Reserve System begins operations"
+    },
+    {
+      "date": "1929-1933",
+      "event": "Great Depression - Fed criticized for monetary policy failures, bank failures"
+    },
+    {
+      "date": "1944",
+      "event": "Bretton Woods system establishes dollar as global reserve currency (Fed benefits)"
+    },
+    {
+      "date": "1971",
+      "event": "Nixon ends gold standard - Fed gains unlimited money creation capability"
+    },
+    {
+      "date": "1977",
+      "event": "Federal Reserve Reform Act establishes dual mandate (price stability + maximum employment)"
+    },
+    {
+      "date": "1987-2006",
+      "event": "Alan Greenspan chairmanship - close Wall Street ties, deregulation advocacy"
+    },
+    {
+      "date": "2008-2009",
+      "event": "Financial crisis - Fed provides $16+ trillion in emergency loans to banks (concealed until 2011)"
+    },
+    {
+      "date": "2010-2011",
+      "event": "Bloomberg lawsuit forces disclosure of emergency lending recipients"
+    },
+    {
+      "date": "2009-2014",
+      "event": "Quantitative Easing programs (QE1, QE2, QE3) - trillions in asset purchases"
+    },
+    {
+      "date": "2010-present",
+      "event": "Ron Paul's 'Audit the Fed' bills repeatedly blocked despite public support"
+    },
+    {
+      "date": "2020-2021",
+      "event": "COVID-19 response - unlimited QE, direct corporate bond purchases, $4+ trillion balance sheet expansion"
+    }
+  ]
+}

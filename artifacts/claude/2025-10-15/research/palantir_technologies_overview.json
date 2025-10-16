@@ -1,0 +1,51 @@
+{
+  "package_id": 65,
+  "target": "Palantir Technologies",
+  "target_type": "organization",
+  "summary": "Intelligence data analytics company (founded 2003) - CIA seed funding via In-Q-Tel, government surveillance contracts, controversial domestic law enforcement use, founded by Peter Thiel and team",
+  "key_facts": [
+    "Founded 2003 by Peter Thiel, Nathan Gettings, Joe Lonsdale, Stephen Cohen, Alex Karp (CEO)",
+    "Early funding from In-Q-Tel (CIA venture capital arm) - $2 million seed investment",
+    "Named after 'palantír' seeing stones from Lord of the Rings (surveillance metaphor)",
+    "Two main products: Palantir Gotham (government/defense), Palantir Foundry (commercial)",
+    "Government contracts: CIA, FBI, NSA, DHS, ICE, military branches, allied intelligence agencies",
+    "Controversial ICE contracts for immigration enforcement (deportation operations)",
+    "Data integration platform: Combines disparate databases for intelligence analysis",
+    "2020 IPO: $21 billion valuation, direct listing (no traditional IPO roadshow)",
+    "Revenue heavily dependent on government contracts (56% government in 2020)",
+    "CEO Alex Karp: Philosophy PhD, strong libertarian politics, defends IC contracts",
+    "Peter Thiel: PayPal founder, Facebook board member, CIA-Silicon Valley nexus",
+    "Operation: Classified work, limited public disclosure of capabilities"
+  ],
+  "intelligence_connections": [
+    "CIA seed funding and ongoing contracts (counterterrorism, operations support)",
+    "NSA: Signals intelligence data analytics",
+    "FBI: Criminal investigations, counterterrorism",
+    "DHS/ICE: Immigration enforcement, border surveillance",
+    "DoD: Battlefield intelligence, targeting support",
+    "Five Eyes: Allied intelligence agency contracts (UK, Australia, Canada)",
+    "War on Terror: Used for targeting operations in Iraq and Afghanistan",
+    "Domestic surveillance: Law enforcement contracts raise civil liberties concerns"
+  ],
+  "concealment_mechanisms": [
+    "Classified government contracts - capabilities not publicly disclosed",
+    "Non-disclosure agreements with clients",
+    "Complex technical explanations obscure surveillance implications",
+    "Framing as 'data integration' rather than 'surveillance platform'",
+    "Limited media scrutiny until ICE contracts controversy",
+    "Proprietary algorithms - 'black box' decision-making",
+    "Government client privilege shields details"
+  ],
+  "power_structure": "CEO Alex Karp controls strategy, Peter Thiel major shareholder and strategic advisor, classified government clients provide majority revenue, dual-class stock structure concentrates control with founders, government dependence creates aligned interests with national security state",
+  "strategic_significance": "Palantir represents operationalization of CIA-Silicon Valley fusion - transforms raw intelligence data into actionable insights, enables mass surveillance at scale, connects previously siloed government databases, exports US surveillance capabilities to allied nations, domestic use blurs intelligence-law enforcement boundaries",
+  "unanswered_questions": [
+    "What is the full extent of Palantir's classified capabilities?",
+    "How is Palantir data used for targeting operations (kill lists)?",
+    "What domestic surveillance occurs via law enforcement contracts?",
+    "How does Palantir coordinate with NSA mass surveillance programs?",
+    "What is the relationship between CIA founding and ongoing classified work?",
+    "What civil liberties violations have occurred using Palantir platforms?"
+  ],
+  "gap_addressed": "Technology-Intelligence Nexus - Intelligence data analytics, government surveillance contracts, CIA-funded tech company",
+  "research_date": "2025-10-15"
+}

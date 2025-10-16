@@ -1,0 +1,30 @@
+{
+  "package_id": 55,
+  "target": "Bill Gates",
+  "events": [
+    {
+      "date": "1975",
+      "event": "Microsoft founded with Paul Allen"
+    },
+    {
+      "date": "2000",
+      "event": "Bill & Melinda Gates Foundation established"
+    },
+    {
+      "date": "2010",
+      "event": "Decade of Vaccines commitment"
+    },
+    {
+      "date": "October 2019",
+      "event": "Event 201 pandemic simulation"
+    },
+    {
+      "date": "2020-2023",
+      "event": "COVID-19 vaccine funding and advocacy"
+    },
+    {
+      "date": "2021",
+      "event": "Divorce from Melinda Gates, Epstein connections revealed"
+    }
+  ]
+}

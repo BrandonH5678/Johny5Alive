@@ -1,0 +1,21 @@
+{
+  "package_id": 65,
+  "target": "Palantir Technologies",
+  "connected_entities": [
+    "Peter Thiel: Co-founder, major shareholder, PayPal mafia, Facebook board",
+    "Alex Karp: CEO, philosophy PhD, public defender of IC contracts",
+    "In-Q-Tel: CIA venture capital arm, seed investor ($2M)",
+    "CIA: Early funder, ongoing classified contracts",
+    "NSA: Signals intelligence analytics contracts",
+    "FBI: Criminal and counterterrorism investigations",
+    "DHS/ICE: Immigration enforcement (controversial)",
+    "DoD: Military intelligence, battlefield targeting",
+    "Five Eyes intelligence: UK, Australia, Canada contracts",
+    "JSOC: Joint Special Operations Command targeting support",
+    "Operation Neptune Spear: Reported (unconfirmed) Osama bin Laden operation support",
+    "Ukraine military: Intelligence platform support (2022+)",
+    "Silicon Valley: Tech sector connections via Thiel network",
+    "Law enforcement: Police departments, fusion centers (domestic surveillance concerns)"
+  ],
+  "network_type": "Intelligence data analytics hub connecting CIA funding to military/IC/law enforcement operations"
+}

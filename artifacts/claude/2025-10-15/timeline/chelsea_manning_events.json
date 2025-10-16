@@ -1,0 +1,66 @@
+{
+  "package_id": 73,
+  "target": "Chelsea Manning",
+  "events": [
+    {
+      "date": "1987",
+      "event": "Born in Oklahoma"
+    },
+    {
+      "date": "2007",
+      "event": "Enlists in U.S. Army"
+    },
+    {
+      "date": "2009",
+      "event": "Deployed to Iraq as intelligence analyst, FOB Hammer"
+    },
+    {
+      "date": "November 2009 - May 2010",
+      "event": "Downloads and leaks 750,000+ classified documents to WikiLeaks"
+    },
+    {
+      "date": "April 5, 2010",
+      "event": "WikiLeaks publishes 'Collateral Murder' video"
+    },
+    {
+      "date": "May 2010",
+      "event": "Arrested after confession to hacker Adrian Lamo"
+    },
+    {
+      "date": "July 2010",
+      "event": "WikiLeaks begins publishing Afghan War documents"
+    },
+    {
+      "date": "October 2010",
+      "event": "WikiLeaks publishes Iraq War logs"
+    },
+    {
+      "date": "November 2010",
+      "event": "WikiLeaks begins publishing diplomatic cables (Cablegate)"
+    },
+    {
+      "date": "June 2013",
+      "event": "Court-martial begins"
+    },
+    {
+      "date": "August 2013",
+      "event": "Convicted of 20 charges, acquitted of 'aiding the enemy,' sentenced 35 years"
+    },
+    {
+      "date": "January 2017",
+      "event": "President Obama commutes sentence after 7 years served"
+    },
+    {
+      "date": "May 17, 2017",
+      "event": "Released from Fort Leavenworth"
+    },
+    {
+      "date": "March 2019",
+      "event": "Jailed for contempt for refusing to testify in secret Assange grand jury"
+    },
+    {
+      "date": "March 2020",
+      "event": "Released after grand jury expires"
+    }
+  ]
+}

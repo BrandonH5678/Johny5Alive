@@ -1,0 +1,38 @@
+{
+  "package_id": 29,
+  "target": "Henry Kissinger",
+  "events": [
+    {
+      "date": "1969",
+      "event": "National Security Advisor under Nixon"
+    },
+    {
+      "date": "1969-1973",
+      "event": "Cambodia secret bombing campaign"
+    },
+    {
+      "date": "1971",
+      "event": "Secret China trip, opening to Beijing"
+    },
+    {
+      "date": "1973",
+      "event": "Chile coup support - Allende overthrow"
+    },
+    {
+      "date": "1973-1977",
+      "event": "Secretary of State"
+    },
+    {
+      "date": "1970s",
+      "event": "Operation Condor coordination"
+    },
+    {
+      "date": "1973",
+      "event": "Nobel Peace Prize (controversial)"
+    },
+    {
+      "date": "2023",
+      "event": "Death at age 100"
+    }
+  ]
+}

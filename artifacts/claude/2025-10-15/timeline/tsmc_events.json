@@ -1,0 +1,26 @@
+{
+  "package_id": 41,
+  "target": "TSMC",
+  "events": [
+    {
+      "date": "1987",
+      "event": "TSMC founded by Morris Chang with government backing"
+    },
+    {
+      "date": "1990s",
+      "event": "Rapid expansion, technology transfer from US"
+    },
+    {
+      "date": "2000s",
+      "event": "Dominance in advanced node manufacturing"
+    },
+    {
+      "date": "2020s",
+      "event": "92% global market share in advanced chips"
+    },
+    {
+      "date": "2022-2025",
+      "event": "US chip export controls to China heighten strategic importance"
+    }
+  ]
+}

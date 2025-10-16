@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ClaudeTask",
+  "type": "object",
+  "required": ["id", "type", "deliverables"],
+  "properties": {
+    "id": {"type": "string"},
+    "type": {
+      "type": "string",
+      "enum": ["analysis", "planning", "code_authoring"]
+    },
+    "inputs": {"type": "array", "items": {"type": "string"}},
+    "deliverables": {"type": "array", "items": {"type": "string"}},
+    "constraints": {"type": "object"},
+    "notes": {"type": "string"}
+  }
+}

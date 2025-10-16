@@ -1,0 +1,26 @@
+{
+  "package_id": 10,
+  "target": "Soviet Psychic Program",
+  "events": [
+    {
+      "date": "1960s",
+      "event": "Soviet psychic research accelerates"
+    },
+    {
+      "date": "1972",
+      "event": "DIA report on Soviet capabilities triggers US concern"
+    },
+    {
+      "date": "1978",
+      "event": "US responds with INSCOM remote viewing program"
+    },
+    {
+      "date": "1991",
+      "event": "USSR collapse, program details emerge"
+    },
+    {
+      "date": "1995",
+      "event": "Stargate Project declassified"
+    }
+  ]
+}

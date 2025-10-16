@@ -1,0 +1,114 @@
+{
+  "package_id": 39,
+  "target": "MK-Ultra and MK Programs",
+  "timeline_type": "program_evolution_and_concealment",
+
+  "events": [
+    {
+      "date": "1945",
+      "event": "Operation Paperclip begins",
+      "description": "Joint Intelligence Objectives Agency established to recruit former Nazi scientists, laying groundwork for behavioral control programs",
+      "significance": "Origin point of US mind control research programs",
+      "source_type": "official"
+    },
+    {
+      "date": "1950",
+      "event": "Project Bluebird established",
+      "description": "Harry Truman-era mind control program examining drugs and hypnosis for interrogation",
+      "significance": "First official CIA behavioral control program",
+      "source_type": "official"
+    },
+    {
+      "date": "1951-08-20",
+      "event": "Project Bluebird renamed to Project Artichoke",
+      "description": "Expanded program to determine if subjects could be involuntarily made to perform assassinations. Operated by CIA Office of Scientific Intelligence",
+      "significance": "Escalation to assassination research and forced addiction experiments",
+      "source_type": "official"
+    },
+    {
+      "date": "1953-04-13",
+      "event": "Project MK-Ultra officially approved",
+      "description": "CIA Director Allen Dulles formally approves MK-Ultra to develop mind-controlling drugs for use against Soviet bloc",
+      "significance": "Official start of largest CIA mind control program",
+      "key_actors": ["Allen Dulles"],
+      "source_type": "official"
+    },
+    {
+      "date": "1953",
+      "event": "Sidney Gottlieb purchases world's LSD supply",
+      "description": "Gottlieb arranged for CIA to pay $240,000 to buy entire world supply of LSD",
+      "significance": "Demonstrates scale and priority of drug experimentation program",
+      "key_actors": ["Sidney Gottlieb"],
+      "source_type": "official"
+    },
+    {
+      "date": "1953-11-19",
+      "event": "Frank Olson dosed with LSD",
+      "description": "At Deep Creek Lake cabin meeting, Sidney Gottlieb covertly dosed Frank Olson and other CIA scientists with LSD in after-dinner liqueur",
+      "significance": "Demonstrates unwitting dosing of even CIA's own personnel",
+      "key_actors": ["Sidney Gottlieb", "Frank Olson"],
+      "source_type": "official"
+    },
+    {
+      "date": "1953-11-28",
+      "event": "Frank Olson death",
+      "description": "Frank Olson plunged to death from hotel window in New York, 9 days after being dosed with LSD. Government ruled suicide/misadventure, evidence suggests murder",
+      "significance": "First documented fatality linked to MK-Ultra; government coverup began immediately",
+      "key_actors": ["Frank Olson"],
+      "concealment_action": "Death ruled suicide to conceal CIA involvement",
+      "source_type": "official"
+    },
+    {
+      "date": "1964",
+      "event": "MK-Ultra renamed to MK-Search",
+      "description": "Program continues under new cryptonym",
+      "significance": "Name change possibly to distance from growing concerns",
+      "source_type": "official"
+    },
+    {
+      "date": "1973",
+      "event": "MK-Ultra program officially halted",
+      "description": "Program terminated after 20 years of operation",
+      "significance": "End of official program (potential continuation unknown)",
+      "source_type": "official"
+    },
+    {
+      "date": "1973",
+      "event": "CRITICAL: Mass record destruction ordered",
+      "description": "CIA Director Richard Helms and Sidney Gottlieb destroy most MK-Ultra records upon program termination and Gottlieb's departure from CIA",
+      "significance": "Active concealment - deliberate destruction of evidence of illegal human experimentation",
+      "key_actors": ["Richard Helms", "Sidney Gottlieb"],
+      "concealment_action": "Systematic destruction of program documentation",
+      "source_type": "official"
+    },
+    {
+      "date": "1975-summer",
+      "event": "Public disclosure via Church Committee",
+      "description": "Congressional Church Committee and Presidential Rockefeller Commission revealed CIA and DoD experiments on unwitting and cognizant human subjects",
+      "significance": "First public acknowledgment of illegal programs",
+      "concealment_failure": "Investigations forced partial disclosure despite destruction",
+      "source_type": "hearing"
+    },
+    {
+      "date": "1977",
+      "event": "Surviving documents discovered",
+      "description": "Admiral Stansfield Turner revealed CIA found ~20,000 pages of MK-Ultra records at non-standard records center that survived 1973 destruction orders",
+      "significance": "Partial evidence recovery - destruction was incomplete",
+      "concealment_failure": "Storage error preserved evidence",
+      "source_type": "official"
+    }
+  ],
+
+  "timeline_analysis": {
+    "program_duration": "23 years (1950 Bluebird - 1973 MK-Ultra termination)",
+    "concealment_duration": "2 years (1973 destruction - 1975 disclosure)",
+    "critical_concealment_moment": "1973 record destruction - attempted to prevent accountability",
+    "concealment_partial_failure": "1977 document discovery exposed destruction incompleteness"
+  },
+
+  "pattern_identification": {
+    "program_evolution": "Bluebird (1950) → Artichoke (1951) → MK-Ultra (1953) → MK-Search (1964)",
+    "escalation_pattern": "Drugs/hypnosis → Forced addiction/assassination → Mass LSD experimentation → Continuation under new name",
+    "concealment_pattern": "Immediate coverup (Olson 1953) → Systematic destruction (1973) → Forced disclosure (1975) → Partial evidence recovery (1977)"
+  }
+}

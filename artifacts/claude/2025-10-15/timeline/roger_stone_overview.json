@@ -1,0 +1,34 @@
+{
+  "package_id": 57,
+  "target": "Roger Stone",
+  "events": [
+    {
+      "date": "1972",
+      "event": "Nixon campaign dirty tricks operative"
+    },
+    {
+      "date": "1980s-1990s",
+      "event": "Republican consultant, lobbying"
+    },
+    {
+      "date": "2016",
+      "event": "Trump campaign advisor, Wikileaks coordination alleged"
+    },
+    {
+      "date": "January 2019",
+      "event": "FBI arrest, 7 charges"
+    },
+    {
+      "date": "November 2019",
+      "event": "Convicted on all counts"
+    },
+    {
+      "date": "July 2020",
+      "event": "Trump commutes sentence"
+    },
+    {
+      "date": "December 2020",
+      "event": "Trump full pardon"
+    }
+  ]
+}

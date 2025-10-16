@@ -1,0 +1,40 @@
+{
+  "package_id": 72,
+  "target": "Daniel Ellsberg",
+  "claims_summary": "Pentagon Papers whistleblower exposed Vietnam War lies (1971), targeted by Nixon Plumbers with illegal wiretapping and psychiatrist break-in, trial dismissed due to government misconduct",
+  "evidence_categories": {
+    "pentagon_papers_leak": [
+      "7,000-page classified study: Pentagon's internal Vietnam War history",
+      "New York Times publication: June 1971, initial excerpts",
+      "Washington Post publication: Followed NYT after injunction",
+      "Supreme Court decision: NYT Co. v. United States (1971) allowed publication",
+      "Content: Documented systematic government lying about Vietnam War"
+    ],
+    "government_targeting": [
+      "Espionage Act indictment: 12 counts, facing 115 years prison",
+      "Psychiatrist break-in: September 1971, White House Plumbers operation",
+      "FBI wiretapping: Illegal surveillance documented",
+      "Character assassination: Attempted smear campaign",
+      "Watergate connection: Plumbers unit formed partly to stop leaks"
+    ],
+    "trial_dismissal": [
+      "May 1973: Judge William Matthew Byrne Jr. dismissed all charges",
+      "Government misconduct: Illegal wiretapping, burglary, evidence tampering",
+      "Prosecution impossible: Constitutional violations prevented fair trial",
+      "No conviction: Ellsberg never found guilty despite leaked classified documents"
+    ],
+    "nuclear_secrets_revelations": [
+      "'The Doomsday Machine' (2017): Book revealed nuclear war planning",
+      "First-strike plans: U.S. nuclear strategy exposed",
+      "Classified documents: Ellsberg copied nuclear war plans in 1960s, revealed decades later",
+      "Continued advocacy: Nuclear disarmament activism based on insider knowledge"
+    ],
+    "whistleblower_support": [
+      "Edward Snowden: Public support, aided in asylum (2013)",
+      "Chelsea Manning: Defended WikiLeaks source publicly",
+      "Julian Assange: Expert witness testimony supporting Assange",
+      "Pattern establishment: First major national security whistleblower"
+    ]
+  },
+  "validation_status": "Extensively documented through court records, Pentagon Papers themselves, Supreme Court decision, congressional investigations, Ellsberg's own testimony and writings"
+}

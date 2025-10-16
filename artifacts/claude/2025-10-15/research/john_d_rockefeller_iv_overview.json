@@ -1,0 +1,17 @@
+{
+  "package_id": 51,
+  "target": "John D. Rockefeller IV",
+  "role": "Senator, Senate Intelligence Committee Vice Chair",
+  "tenure": "1985-2015 (Senate)",
+  "research_date": "2025-10-15",
+  "executive_summary": "Senate Intelligence Committee oversight, led CIA torture report investigation, surveillance programs oversight.",
+  "key_organizations": [
+    "Senate Intelligence Committee",
+    "Rockefeller Foundation"
+  ],
+  "key_programs": [
+    "CIA Enhanced Interrogation oversight",
+    "NSA Surveillance oversight"
+  ],
+  "concealment_notes": "Torture report heavily redacted despite his oversight role"
+}

@@ -2,6 +2,9 @@
 """
 J5A Statistical Sampling Validator
 Adapted from Sherlock's statistical sampling concepts for multi-system validation
+
+Constitutional Authority: J5A_CONSTITUTION.md - Principles 2, 3, 4
+Strategic Framework: J5A_STRATEGIC_AI_PRINCIPLES.md - Principles 5, 8
 """
 
 import os
@@ -14,7 +17,7 @@ import subprocess
 from pathlib import Path
 from typing import List, Dict, Optional, Any, Tuple
 from datetime import datetime
-from dataclasses import dataclass, asdict
+from dataclasses import dataclass, asdict, field
 from enum import Enum
 
 # Add parent directory for imports
@@ -24,6 +27,16 @@ try:
     from thermal_check import check_thermal_status
 except ImportError:
     print("Warning: Thermal check not available")
+
+# Add j5a-nightshift/core to path for principle imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "j5a-nightshift" / "core"))
+
+try:
+    from strategic_principles import StrategicPrinciples
+    PRINCIPLES_AVAILABLE = True
+except ImportError:
+    PRINCIPLES_AVAILABLE = False
+    # Graceful degradation if principles module not available yet
 
 
 class ValidationScope(Enum):
@@ -63,6 +76,10 @@ class J5AValidationSample:
     error_message: Optional[str] = None
     metrics: Dict[str, Any] = None
 
+    # Constitutional principle compliance
+    principle_alignment: List[str] = field(default_factory=list)
+    constitutional_compliance: Dict[str, str] = field(default_factory=dict)
+
     def __post_init__(self):
         if self.metrics is None:
             self.metrics = {}
@@ -97,6 +114,10 @@ class J5AValidationReport:
     thermal_safety_status: Dict[str, Any]
     memory_usage_status: Dict[str, Any]
     cross_system_compatibility: Dict[str, Any]
+
+    # Constitutional principle compliance
+    principle_compliance_summary: Dict[str, str] = field(default_factory=dict)
+    constitutional_violations: List[str] = field(default_factory=list)
 
 
 class J5AStatisticalValidator:
@@ -143,6 +164,78 @@ class J5AStatisticalValidator:
         # Setup logging
         logging.basicConfig(level=logging.INFO)
         self.logger = logging.getLogger(__name__)
+
+        # Initialize principles if available
+        if PRINCIPLES_AVAILABLE:
+            try:
+                self.principles = StrategicPrinciples()
+                self.logger.info("✅ Strategic Principles module loaded")
+            except Exception as e:
+                self.logger.warning(f"Could not initialize StrategicPrinciples: {e}")
+                self.principles = None
+        else:
+            self.principles = None
+
+    def check_constitutional_compliance(self, context: Dict) -> Dict[str, str]:
+        """
+        Check constitutional principle compliance for validation operations
+
+        Args:
+            context: Validation context with metrics and constraints
+
+        Returns:
+            Dict mapping principle -> compliance status
+        """
+        compliance = {}
+
+        # Principle 2: Transparency (All decisions auditable)
+        if context.get("validation_logged", True):
+            compliance["Principle 2: Transparency"] = "PASS - All validation steps logged and auditable"
+        else:
+            compliance["Principle 2: Transparency"] = "FAIL - Validation logging incomplete"
+
+        # Principle 3: System Viability (Completion > Speed)
+        success_rate = context.get("success_rate", 0.0)
+        if success_rate >= self.quality_thresholds["min_success_rate"]:
+            compliance["Principle 3: System Viability"] = f"PASS - {success_rate:.1%} success rate ensures completion over speed"
+        else:
+            compliance["Principle 3: System Viability"] = f"WARNING - {success_rate:.1%} success rate below viability threshold"
+
+        # Principle 4: Resource Stewardship (Respect constraints)
+        memory_gb = context.get("memory_usage_gb", 0.0)
+        cpu_temp = context.get("cpu_temp", 0.0)
+
+        resource_compliant = (
+            memory_gb <= self.quality_thresholds["max_memory_usage_gb"] and
+            cpu_temp <= self.quality_thresholds["max_cpu_temp"]
+        )
+
+        if resource_compliant:
+            compliance["Principle 4: Resource Stewardship"] = f"PASS - Memory {memory_gb:.1f}GB, CPU {cpu_temp:.1f}°C within limits"
+        else:
+            issues = []
+            if memory_gb > self.quality_thresholds["max_memory_usage_gb"]:
+                issues.append(f"Memory {memory_gb:.1f}GB exceeds {self.quality_thresholds['max_memory_usage_gb']}GB")
+            if cpu_temp > self.quality_thresholds["max_cpu_temp"]:
+                issues.append(f"CPU {cpu_temp:.1f}°C exceeds {self.quality_thresholds['max_cpu_temp']}°C")
+            compliance["Principle 4: Resource Stewardship"] = f"FAIL - {'; '.join(issues)}"
+
+        # Strategic Principle 5: Adaptive Feedback Loops (Learning from outcomes)
+        if context.get("validation_history_tracked", True):
+            compliance["Strategic Principle 5: Adaptive Feedback"] = "PASS - Validation history tracked for continuous learning"
+        else:
+            compliance["Strategic Principle 5: Adaptive Feedback"] = "WARNING - Validation history not tracked"
+
+        # Strategic Principle 8: Governance Frameworks (Accountable AI)
+        blocked_progression = context.get("blocked_progression", False)
+        if blocked_progression and success_rate < self.quality_thresholds["min_success_rate"]:
+            compliance["Strategic Principle 8: Governance"] = "PASS - Blocking gate enforced to ensure quality"
+        elif not blocked_progression:
+            compliance["Strategic Principle 8: Governance"] = "PASS - Validation thresholds met, progression allowed"
+        else:
+            compliance["Strategic Principle 8: Governance"] = "WARNING - Governance check inconclusive"
+
+        return compliance
 
     def validate_system_readiness(self, system_target: SystemTarget,
                                 validation_scope: ValidationScope,
@@ -305,6 +398,31 @@ class J5AStatisticalValidator:
 
             # Collect system metrics
             sample.metrics = self._collect_system_metrics(sample)
+
+            # Add constitutional principle compliance
+            sample.constitutional_compliance = self.check_constitutional_compliance({
+                "validation_logged": True,
+                "success_rate": 1.0 if sample.processing_success else 0.0,
+                "memory_usage_gb": sample.metrics.get("memory_usage_mb", 0) / 1024.0,
+                "cpu_temp": sample.metrics.get("cpu_temp", 0),
+                "validation_history_tracked": True,
+                "blocked_progression": not sample.processing_success
+            })
+
+            # Add principle alignment notes
+            alignment = []
+            if sample.processing_success:
+                alignment.append("Principle 3: System Viability - Sample processed successfully")
+            else:
+                alignment.append("Principle 3: System Viability - Sample failed, blocking progression")
+
+            if sample.performance_acceptable:
+                alignment.append("Principle 4: Resource Stewardship - Within resource limits")
+
+            alignment.append("Principle 2: Transparency - Sample validation fully logged")
+            alignment.append("Strategic Principle 8: Governance - Quality gates enforced")
+
+            sample.principle_alignment = alignment
 
         except Exception as e:
             sample.error_message = str(e)
@@ -515,6 +633,23 @@ class J5AStatisticalValidator:
         memory_status = self._get_memory_status()
         cross_system_status = self._get_cross_system_status()
 
+        # Generate principle compliance summary for overall validation
+        principle_compliance_summary = self.check_constitutional_compliance({
+            "validation_logged": True,
+            "success_rate": success_rate,
+            "memory_usage_gb": memory_status.get("usage_gb", 0),
+            "cpu_temp": thermal_status.get("cpu_temp", 0),
+            "validation_history_tracked": True,
+            "blocked_progression": not processing_viability
+        })
+
+        # Identify constitutional violations
+        constitutional_violations = [
+            f"{principle}: {status}"
+            for principle, status in principle_compliance_summary.items()
+            if "FAIL" in status or "WARNING" in status
+        ]
+
         return J5AValidationReport(
             validation_id=validation_id,
             system_target=system_target,
@@ -533,7 +668,9 @@ class J5AStatisticalValidator:
             blocked_progression=not processing_viability,
             thermal_safety_status=thermal_status,
             memory_usage_status=memory_status,
-            cross_system_compatibility=cross_system_status
+            cross_system_compatibility=cross_system_status,
+            principle_compliance_summary=principle_compliance_summary,
+            constitutional_violations=constitutional_violations
         )
 
     def _generate_j5a_recommendations(self, format_rate: float, processing_rate: float,
@@ -619,6 +756,17 @@ class J5AStatisticalValidator:
         self.logger.info("\n💡 Recommendations:")
         for rec in report.recommendations:
             self.logger.info(f"   {rec}")
+
+        self.logger.info("\n⚖️ Constitutional Principle Compliance:")
+        for principle, status in report.principle_compliance_summary.items():
+            status_icon = "✅" if "PASS" in status else ("⚠️" if "WARNING" in status else "❌")
+            self.logger.info(f"   {status_icon} {principle}: {status}")
+
+        if report.constitutional_violations:
+            self.logger.warning("\n🚨 Constitutional Violations Detected:")
+            for violation in report.constitutional_violations:
+                self.logger.warning(f"   ⚠️ {violation}")
+
         self.logger.info("=" * 70)
 
     # System-specific validation methods (to be implemented)
@@ -645,7 +793,18 @@ class J5AStatisticalValidator:
         return {"min_accuracy": 0.8, "max_time_seconds": 300}  # Placeholder
 
     def _collect_system_metrics(self, sample: J5AValidationSample) -> Dict[str, Any]:
-        return {"memory_usage_mb": 512, "cpu_usage_percent": 45}  # Placeholder
+        """Collect system metrics including memory, CPU, and thermal data"""
+        metrics = {
+            "memory_usage_mb": self._get_current_memory_usage() * 1024,  # Convert GB to MB
+            "cpu_usage_percent": 45  # Placeholder - could be enhanced with psutil
+        }
+
+        # Add thermal data if available
+        thermal_status = self._get_thermal_status()
+        if thermal_status:
+            metrics["cpu_temp"] = thermal_status.get("cpu_temp", 0)
+
+        return metrics
 
     def _get_current_memory_usage(self) -> float:
         try:

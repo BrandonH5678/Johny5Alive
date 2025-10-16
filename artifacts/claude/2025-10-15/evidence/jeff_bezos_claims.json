@@ -1,0 +1,41 @@
+{
+  "package_id": 71,
+  "target": "Jeff Bezos",
+  "claims_summary": "Washington Post owner with $600M CIA cloud contract awarded same period as newspaper purchase (2013), creates structural conflict of interest for national security coverage",
+  "evidence_categories": {
+    "washington_post_purchase": [
+      "October 2013: Bezos purchases WaPo for $250 million (Washington Post announcement)",
+      "Personal purchase: Not Amazon corporate, but Bezos personally",
+      "Marty Baron: Executive editor maintained editorial independence claims",
+      "Financial terms: $250M purchase price publicly disclosed"
+    ],
+    "cia_cloud_contract": [
+      "2013: AWS awarded $600M CIA cloud contract (Federal procurement records)",
+      "Intelligence Community: Multi-year infrastructure contract",
+      "Timing: Same period as WaPo purchase (months apart)",
+      "AWS IC contracts: Expand to billions over subsequent years",
+      "NSA: Additional AWS contracts documented"
+    ],
+    "snowden_paradox": [
+      "June 2013: Washington Post begins publishing Snowden NSA leaks",
+      "October 2013: Bezos purchases WaPo",
+      "2013: AWS awarded CIA contract",
+      "Timeline shows WaPo published leaks embarrassing to IC while owner negotiated IC contracts",
+      "Subsequent WaPo coverage: Generally more favorable to intelligence community"
+    ],
+    "conflict_of_interest": [
+      "Structural conflict: Newspaper owner has financial incentive to maintain IC relationships",
+      "AWS dependence: Billions in IC contracts create leverage",
+      "Editorial independence claimed but financially questionable",
+      "WaPo coverage analysis: National security reporting generally IC-friendly post-Bezos",
+      "Alternative explanation: Coincidental timing, legitimate editorial independence"
+    ],
+    "pentagon_contracts": [
+      "JEDI competition: Amazon competed for $10B Pentagon cloud contract",
+      "Blue Origin: National security launch contracts",
+      "DoD relationships: Multiple defense contracts beyond CIA",
+      "Financial scale: IC/DoD contracts worth billions annually"
+    ]
+  },
+  "validation_status": "WaPo purchase and CIA contract timing well-documented through public records - editorial influence claims disputed, circumstantial evidence suggests conflict but direct causation difficult to prove"
+}

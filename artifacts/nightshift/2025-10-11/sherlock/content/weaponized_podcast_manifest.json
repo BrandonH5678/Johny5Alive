@@ -1,0 +1,16 @@
+{
+  "package_id": 6,
+  "target_name": "Weaponized Podcast",
+  "package_type": "youtube",
+  "collected_files": [
+    "/home/johnny5/Johny5Alive/artifacts/nightshift/2025-10-11/sherlock/content/weaponized_podcast_1.html",
+    "/home/johnny5/Johny5Alive/artifacts/nightshift/2025-10-11/sherlock/content/weaponized_podcast_2.html"
+  ],
+  "collection_urls": [
+    "https://www.youtube.com/results?search_query=Weaponized+Podcast",
+    "https://www.youtube.com/@WeaponizedPodcast/videos"
+  ],
+  "collected_at": "2025-10-11T22:21:50.088461",
+  "collected_count": 2,
+  "requested_count": 2
+}

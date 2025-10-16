@@ -1,0 +1,39 @@
+{
+  "package_id": 62,
+  "target": "Federal Reserve",
+  "claims_summary": "Central bank with hybrid public-private governance structure exempted from normal government oversight - emergency lending programs concealed until legal compulsion, monetary policy insulated from democratic accountability",
+  "evidence_categories": {
+    "governance_structure": [
+      "Federal Reserve Act (1913) - Establishes hybrid structure",
+      "Regional Federal Reserve Banks owned by private member banks",
+      "Board of Governors appointed by President (not elected)",
+      "Jekyll Island meeting accounts (1910) - Secret planning by bankers"
+    ],
+    "concealment_mechanisms": [
+      "FOIA exemption for monetary policy deliberations",
+      "5-year delay on FOMC transcript releases",
+      "Bloomberg FOIA lawsuit (2010-2011) forced emergency lending disclosure",
+      "GAO audit restrictions for monetary policy operations",
+      "Opposition to 'Audit the Fed' legislation"
+    ],
+    "emergency_powers": [
+      "Section 13(3) emergency lending authority",
+      "2008-2009: $16.1 trillion in loans disclosed only after lawsuit",
+      "Recipients included foreign banks (Deutsche Bank, Credit Suisse, etc.)",
+      "2020 COVID response: Unlimited QE, corporate bond purchases"
+    ],
+    "wall_street_coordination": [
+      "Primary dealer system: 24 privileged banks",
+      "Federal Reserve Bank of New York executes all market operations",
+      "Board members frequently from Goldman Sachs, JPMorgan backgrounds",
+      "BlackRock hired for bond purchase programs (conflict of interest)"
+    ],
+    "power_concentration": [
+      "Control over money creation (post-1971 unlimited)",
+      "Interest rate setting affects entire economy",
+      "Asset purchases influence stock and bond markets",
+      "Dollar dominance maintained through Fed policy coordination"
+    ]
+  },
+  "validation_status": "Well-documented through Federal Reserve Act, GAO reports, Bloomberg lawsuit disclosures, FOMC minutes/transcripts, and congressional testimony"
+}

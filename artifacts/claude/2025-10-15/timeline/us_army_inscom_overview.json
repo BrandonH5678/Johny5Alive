@@ -1,0 +1,26 @@
+{
+  "package_id": 8,
+  "target": "US Army INSCOM",
+  "events": [
+    {
+      "date": "1977",
+      "event": "INSCOM established, consolidating Army intelligence"
+    },
+    {
+      "date": "1978",
+      "event": "Fort Meade remote viewing unit established"
+    },
+    {
+      "date": "1980s",
+      "event": "Stargate Project psychic espionage research"
+    },
+    {
+      "date": "1995",
+      "event": "Stargate Project terminated"
+    },
+    {
+      "date": "2000s-present",
+      "event": "Cyber warfare and digital intelligence expansion"
+    }
+  ]
+}

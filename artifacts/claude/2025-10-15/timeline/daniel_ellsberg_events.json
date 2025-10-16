@@ -1,0 +1,66 @@
+{
+  "package_id": 72,
+  "target": "Daniel Ellsberg",
+  "events": [
+    {
+      "date": "1931",
+      "event": "Born in Chicago"
+    },
+    {
+      "date": "1954-1957",
+      "event": "U.S. Marine Corps service"
+    },
+    {
+      "date": "1959-1964",
+      "event": "RAND Corporation analyst, Defense Department consultant"
+    },
+    {
+      "date": "1964-1967",
+      "event": "Pentagon service, Vietnam War involvement"
+    },
+    {
+      "date": "1969",
+      "event": "Access to Pentagon Papers (classified Vietnam War study) at RAND"
+    },
+    {
+      "date": "1971",
+      "event": "Photocopies Pentagon Papers, provides to New York Times and Washington Post"
+    },
+    {
+      "date": "June 1971",
+      "event": "New York Times begins publishing Pentagon Papers"
+    },
+    {
+      "date": "September 1971",
+      "event": "White House Plumbers break into Ellsberg's psychiatrist office"
+    },
+    {
+      "date": "1971-1973",
+      "event": "Indicted under Espionage Act, faces 115 years in prison"
+    },
+    {
+      "date": "May 1973",
+      "event": "Trial dismissed due to government misconduct (wiretapping, break-in)"
+    },
+    {
+      "date": "1973-2023",
+      "event": "Continued whistleblower advocacy, antiwar activism"
+    },
+    {
+      "date": "2010",
+      "event": "Supports Chelsea Manning after WikiLeaks disclosures"
+    },
+    {
+      "date": "2013",
+      "event": "Supports Edward Snowden, aids in asylum efforts"
+    },
+    {
+      "date": "2017",
+      "event": "Publishes 'The Doomsday Machine' - reveals nuclear war planning secrets"
+    },
+    {
+      "date": "June 16, 2023",
+      "event": "Dies at age 92"
+    }
+  ]
+}

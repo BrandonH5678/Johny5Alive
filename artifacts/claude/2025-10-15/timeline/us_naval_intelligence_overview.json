@@ -1,0 +1,26 @@
+{
+  "package_id": 9,
+  "target": "US Naval Intelligence",
+  "events": [
+    {
+      "date": "1882",
+      "event": "ONI established - first US intelligence agency"
+    },
+    {
+      "date": "1930s",
+      "event": "Naval Radar Lab established"
+    },
+    {
+      "date": "1943",
+      "event": "Philadelphia Experiment alleged date"
+    },
+    {
+      "date": "1940s",
+      "event": "Foo Fighter investigations during WWII"
+    },
+    {
+      "date": "1947-present",
+      "event": "UFO/UAP reporting and investigation role"
+    }
+  ]
+}

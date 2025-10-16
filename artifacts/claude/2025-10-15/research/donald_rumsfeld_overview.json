@@ -1,0 +1,20 @@
+{
+  "package_id": 42,
+  "target": "Donald Rumsfeld",
+  "role": "Secretary of Defense",
+  "tenure": "1975-77, 2001-2006",
+  "research_date": "2025-10-15",
+  "executive_summary": "Architect of Iraq War, enhanced interrogation program, Abu Ghraib scandal. Known for 'unknown unknowns' doctrine and aggressive foreign policy.",
+  "key_organizations": [
+    "Department of Defense",
+    "Bush Administration",
+    "Ford Administration"
+  ],
+  "key_programs": [
+    "Iraq War",
+    "Afghanistan War",
+    "Enhanced Interrogation",
+    "Abu Ghraib"
+  ],
+  "concealment_notes": "Iraq WMD intelligence manipulation, torture program authorization concealed through legal memos"
+}

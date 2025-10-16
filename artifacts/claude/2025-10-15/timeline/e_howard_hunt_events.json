@@ -1,0 +1,58 @@
+{
+  "package_id": 67,
+  "target": "E. Howard Hunt",
+  "events": [
+    {
+      "date": "1918",
+      "event": "Born in Hamburg, New York"
+    },
+    {
+      "date": "1949",
+      "event": "Joins CIA (then Office of Policy Coordination)"
+    },
+    {
+      "date": "1954",
+      "event": "Guatemala coup (Operation PBSUCCESS): Chief of propaganda operations for Árbenz overthrow"
+    },
+    {
+      "date": "1960-1961",
+      "event": "Bay of Pigs planning: Political officer for Cuba invasion operation"
+    },
+    {
+      "date": "1961-1965",
+      "event": "JMWAVE station operations: Miami-based anti-Castro activities"
+    },
+    {
+      "date": "1963",
+      "event": "Alleged Mexico City presence during Oswald visit (unconfirmed)"
+    },
+    {
+      "date": "1970",
+      "event": "Retires from CIA (official)"
+    },
+    {
+      "date": "July 1971",
+      "event": "Recruited by Charles Colson for White House 'Plumbers' unit"
+    },
+    {
+      "date": "September 1971",
+      "event": "Daniel Ellsberg psychiatrist office break-in (Pentagon Papers leak response)"
+    },
+    {
+      "date": "June 17, 1972",
+      "event": "Watergate break-in - Hunt's team arrested at DNC headquarters"
+    },
+    {
+      "date": "January 1973",
+      "event": "Convicted of conspiracy, burglary, wiretapping in Watergate"
+    },
+    {
+      "date": "1973-1977",
+      "event": "Serves 33 months in federal prison"
+    },
+    {
+      "date": "2007",
+      "event": "Dies - alleged deathbed confession to JFK assassination foreknowledge (disputed by family)"
+    }
+  ]
+}

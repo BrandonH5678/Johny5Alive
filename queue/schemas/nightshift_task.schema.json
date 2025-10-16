@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NightShiftTask",
+  "type": "object",
+  "required": ["id", "task", "args"],
+  "properties": {
+    "id": {"type": "string"},
+    "task": {
+      "type": "string",
+      "enum": ["repo_sync", "squirt_batch", "sherlock_export", "lint", "backup"]
+    },
+    "args": {"type": "object"},
+    "priority": {
+      "type": "string",
+      "enum": ["low", "normal", "high"],
+      "default": "normal"
+    }
+  }
+}

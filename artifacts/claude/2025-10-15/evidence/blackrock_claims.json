@@ -1,0 +1,37 @@
+{
+  "package_id": 63,
+  "target": "BlackRock",
+  "claims_summary": "$10+ trillion asset manager with voting control exceeding ownership, Federal Reserve contracts creating conflicts of interest, ESG policy enforcement, and revolving door with Treasury Department",
+  "evidence_categories": {
+    "asset_concentration": [
+      "BlackRock SEC filings show $10+ trillion AUM",
+      "S&P 500 ownership: BlackRock + Vanguard + State Street = ~20% of every major company",
+      "Passive fund structure concentrates voting power with management",
+      "Larry Fink annual letters document strategic priorities"
+    ],
+    "government_contracts": [
+      "2008 Federal Reserve contract to value toxic assets (WSJ reporting)",
+      "2020 Federal Reserve contract for COVID bond purchases (Fed press releases)",
+      "European Central Bank contracts for bond programs",
+      "Aladdin platform used by Federal Reserve (documented in Fed reports)"
+    ],
+    "revolving_door": [
+      "Brian Deese: BlackRock → Biden National Economic Council Director",
+      "Former central bankers join BlackRock advisory boards",
+      "Treasury Department officials to BlackRock positions post-service"
+    ],
+    "esg_enforcement": [
+      "Larry Fink annual letters (2018+) mandate ESG compliance from portfolio companies",
+      "Proxy voting records show climate, diversity mandates",
+      "Shareholder resolutions filed against non-compliant companies",
+      "Republican state treasurers' divestment statements cite ESG overreach"
+    ],
+    "conflicts_of_interest": [
+      "Fed hires BlackRock to buy bonds → BlackRock profits from Fed policy",
+      "Aladdin platform gives BlackRock systemic risk intelligence",
+      "Voting on companies while managing Fed programs",
+      "ESG policies align with government objectives beyond fiduciary duty"
+    ]
+  },
+  "validation_status": "Well-documented through SEC filings, Federal Reserve contracts, congressional testimony, proxy voting records, and financial media reporting"
+}
