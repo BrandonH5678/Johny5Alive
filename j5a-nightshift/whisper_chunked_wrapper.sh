@@ -62,8 +62,16 @@ if [ ! -f "$AUDIO_FILE" ]; then
     exit 1
 fi
 
-if ! command -v whisper &> /dev/null; then
-    echo "ERROR: OpenAI Whisper not installed. Install with: pip3 install openai-whisper" >&2
+# Use faster-whisper CLI wrapper (more efficient than OpenAI Whisper)
+FASTER_WHISPER_CLI="$SCRIPT_DIR/faster_whisper_cli.py"
+if [ ! -f "$FASTER_WHISPER_CLI" ]; then
+    echo "ERROR: faster-whisper CLI wrapper not found: $FASTER_WHISPER_CLI" >&2
+    exit 1
+fi
+
+# Verify faster-whisper is installed
+if ! python3 -c "import faster_whisper" &> /dev/null; then
+    echo "ERROR: faster-whisper not installed. Install with: pip3 install faster-whisper" >&2
     exit 1
 fi
 
@@ -98,7 +106,7 @@ echo "Duration: ${DURATION_INT}s (${DURATION_MINUTES} minutes)"
 if [ "$DURATION_INT" -lt "$MIN_DURATION_FOR_CHUNKING" ]; then
     echo "Audio is short (<15 min) - processing directly without chunking"
     echo ""
-    whisper "$AUDIO_FILE" "${WHISPER_ARGS[@]}"
+    python3 "$FASTER_WHISPER_CLI" "$AUDIO_FILE" "${WHISPER_ARGS[@]}"
     exit $?
 fi
 
@@ -204,24 +212,6 @@ for ((i=0; i<${#WHISPER_ARGS[@]}; i++)); do
     WHISPER_CMD_ARGS+=("${WHISPER_ARGS[$i]}")
 done
 
-# Process chunks with parallelization
-process_chunk() {
-    local chunk_id=$1
-    local chunk_file=$2
-
-    whisper "$chunk_file" \
-        "${WHISPER_CMD_ARGS[@]}" \
-        --output_dir "$CHUNKS_DIR" \
-        --verbose False \
-        > "$CHUNKS_DIR/chunk_${chunk_id}.log" 2>&1
-
-    return $?
-}
-
-export -f process_chunk
-export CHUNKS_DIR
-export -a WHISPER_CMD_ARGS
-
 # Track background processes
 PIDS=()
 ACTIVE=0
@@ -230,25 +220,38 @@ for ((i=0; i<$NUM_CHUNKS; i++)); do
     CHUNK_FILE="$CHUNKS_DIR/chunk_$(printf '%03d' $i).mp3"
     CHUNK_ID=$(printf '%03d' $i)
 
+    # Wait if we've hit the parallel limit (BEFORE checking incremental save)
+    # This ensures serialization works even when some chunks are skipped
+    while [ $ACTIVE -ge $MAX_PARALLEL ]; do
+        sleep 2
+        NEW_PIDS=()
+        for pid in "${PIDS[@]}"; do
+            if ps -p "$pid" > /dev/null 2>&1; then
+                # Process still running - keep it
+                NEW_PIDS+=("$pid")
+            else
+                # Process completed - decrement counter
+                ACTIVE=$((ACTIVE - 1))
+            fi
+        done
+        PIDS=("${NEW_PIDS[@]}")
+    done
+
     # Check if already processed (incremental save pattern)
     if [ -f "$CHUNKS_DIR/chunk_${CHUNK_ID}.txt" ]; then
         echo "✓ Chunk $i already transcribed (incremental save pattern)"
         continue
     fi
 
-    # Wait if we've hit the parallel limit
-    while [ $ACTIVE -ge $MAX_PARALLEL ]; do
-        sleep 2
-        for pid in "${PIDS[@]}"; do
-            if ! ps -p "$pid" > /dev/null 2>&1; then
-                ACTIVE=$((ACTIVE - 1))
-            fi
-        done
-    done
-
-    # Start chunk processing in background
+    # Start chunk processing in background (inlined to avoid export -f issues)
     echo "Processing chunk $i..."
-    process_chunk "$CHUNK_ID" "$CHUNK_FILE" &
+    (
+        python3 "$FASTER_WHISPER_CLI" "$CHUNK_FILE" \
+            "${WHISPER_CMD_ARGS[@]}" \
+            --output_dir "$CHUNKS_DIR" \
+            --verbose False \
+            > "$CHUNKS_DIR/chunk_${CHUNK_ID}.log" 2>&1
+    ) &
     PIDS+=($!)
     ACTIVE=$((ACTIVE + 1))
 done

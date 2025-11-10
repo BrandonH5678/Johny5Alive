@@ -95,7 +95,7 @@ fi
 echo -n "✓ Checking available RAM... "
 
 # Detect Night Shift processes already running
-NIGHTSHIFT_PROCS=$(ps aux | grep -E "(whisper.*artifacts/nightshift|podcast_intelligence_pipeline)" | grep -v grep | wc -l || true)
+NIGHTSHIFT_PROCS=$(ps aux | grep -E "(whisper.*artifacts/nightshift|podcast_intelligence_pipeline)" | grep -v grep | wc -l)
 
 if [ "$NIGHTSHIFT_PROCS" -gt 0 ]; then
     # Night Shift job already running - skip RAM check

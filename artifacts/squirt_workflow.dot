@@ -1,0 +1,157 @@
+digraph Squirt_Workflow {
+    rankdir=LR;
+    node [shape=box, style="rounded,filled", fontname="Arial"];
+    graph [fontname="Arial", fontsize=12, bgcolor="#FAFAFA"];
+    edge [fontname="Arial"];
+
+    // Input stage
+    subgraph cluster_input {
+        label="Input Sources";
+        style=filled;
+        fillcolor="#E3F2FD";
+        node [fillcolor="#BBDEFB"];
+
+        voice [label="Voice Memo\n📱\n(2-5 min typical)"];
+        paper [label="Paper Worksheet\n📄\n(OCR ready)"];
+        sms [label="SMS Message\n💬\n(client details)"];
+    }
+
+    // Processing stage
+    subgraph cluster_processing {
+        label="Processing Pipeline";
+        style=filled;
+        fillcolor="#F3E5F5";
+
+        // Mode selection
+        mode_select [label="Mode Selection\n━━━━━━━━━━━━\n⚡ Fast: <3 min\n🎯 Accurate: <20 min", fillcolor="#E1BEE7", shape=diamond];
+
+        // Engines
+        fast_engine [label="faster-whisper tiny\n━━━━━━━━━━━━\nSpeed optimized\nService calls\nQuick invoices", fillcolor="#C5CAE9"];
+
+        accurate_engine [label="Whisper Large-v3\n━━━━━━━━━━━━\nAccuracy optimized\nContracts\nDetailed quotes", fillcolor="#C5CAE9"];
+
+        // Processing
+        transcription [label="Transcription\n━━━━━━━━━━━━\nSpeech-to-text\nConfidence scoring", fillcolor="#B39DDB"];
+
+        ocr [label="OCR Processing\n━━━━━━━━━━━━\nClaude Vision\nHandwriting extraction", fillcolor="#B39DDB"];
+
+        parse [label="SMS Parsing\n━━━━━━━━━━━━\nEntity extraction\nStructured data", fillcolor="#B39DDB"];
+
+        merge [label="Data Merge\n━━━━━━━━━━━━\nUnified JSON\nClient matching\nMemory lookup", fillcolor="#9575CD"];
+    }
+
+    // Review stage
+    review [label="Human Review\n━━━━━━━━━━━━\n👤 Side-by-side\n✏️ Quick corrections\n✓ Approval", fillcolor="#FFF9C4", shape=box];
+
+    // Document generation
+    subgraph cluster_generation {
+        label="Document Generation";
+        style=filled;
+        fillcolor="#E8F5E9";
+
+        template [label="Template Selection\n━━━━━━━━━━━━\nInvoice\nContract\nQuote\nJob Report", fillcolor="#C8E6C9"];
+
+        libreoffice [label="LibreOffice\n━━━━━━━━━━━━\nPDF Generation\nFormatting\nBranding", fillcolor="#A5D6A7"];
+
+        memory_update [label="Client Memory\n━━━━━━━━━━━━\nPreferences\nHistory\nLearning", fillcolor="#81C784"];
+    }
+
+    // Output stage
+    subgraph cluster_output {
+        label="Output Delivery";
+        style=filled;
+        fillcolor="#FFF3E0";
+        node [fillcolor="#FFE0B2"];
+
+        invoice [label="Invoice\n💰", shape=note];
+        contract [label="Contract\n📋", shape=note];
+        quote [label="Quote\n📊", shape=note];
+        report [label="Job Report\n📝", shape=note];
+    }
+
+    // Business operations
+    business [label="WaterWizard\nBusiness Ops\n━━━━━━━━━━━━\n✉️ Email to client\n💾 Accounting system\n📁 File storage", shape=ellipse, fillcolor="#C5E1A5"];
+
+    // Flow connections
+    voice -> mode_select;
+    mode_select -> fast_engine [label="Quick\nturn"];
+    mode_select -> accurate_engine [label="Critical\naccuracy"];
+
+    fast_engine -> transcription;
+    accurate_engine -> transcription;
+
+    paper -> ocr;
+    sms -> parse;
+
+    transcription -> merge;
+    ocr -> merge;
+    parse -> merge;
+
+    merge -> review;
+    review -> template;
+
+    template -> libreoffice;
+    libreoffice -> memory_update;
+
+    memory_update -> invoice;
+    memory_update -> contract;
+    memory_update -> quote;
+    memory_update -> report;
+
+    invoice -> business;
+    contract -> business;
+    quote -> business;
+    report -> business;
+
+    // Business hours priority indicator
+    priority [label="⚠️ BUSINESS HOURS PRIORITY\n6am-7pm Mon-Fri\nAbsolute LibreOffice access", shape=box, fillcolor="#FFCDD2", style="filled,bold"];
+    priority -> libreoffice [style=bold, color=red];
+
+    // Timing annotations
+    subgraph cluster_timing {
+        label="Performance Targets";
+        style=filled;
+        fillcolor="#F5F5F5";
+        node [shape=plaintext, fillcolor="#F5F5F5"];
+
+        timing [label=<
+            <table border="0" cellborder="1" cellspacing="0">
+                <tr>
+                    <td><b>Stage</b></td>
+                    <td><b>Time</b></td>
+                    <td><b>Status</b></td>
+                </tr>
+                <tr>
+                    <td align="left">Fast Voice</td>
+                    <td>&lt;3 min</td>
+                    <td>🔄 Dev</td>
+                </tr>
+                <tr>
+                    <td align="left">Accurate Voice</td>
+                    <td>&lt;20 min</td>
+                    <td>🔄 Dev</td>
+                </tr>
+                <tr>
+                    <td align="left">OCR Processing</td>
+                    <td>&lt;1 min</td>
+                    <td>🔄 Dev</td>
+                </tr>
+                <tr>
+                    <td align="left">Human Review</td>
+                    <td>&lt;2 min</td>
+                    <td>📋 Design</td>
+                </tr>
+                <tr>
+                    <td align="left">PDF Generation</td>
+                    <td>&lt;30 sec</td>
+                    <td>✅ Prod</td>
+                </tr>
+                <tr>
+                    <td align="left"><b>Total (Fast)</b></td>
+                    <td><b>&lt;6 min</b></td>
+                    <td><b>Target</b></td>
+                </tr>
+            </table>
+        >];
+    }
+}

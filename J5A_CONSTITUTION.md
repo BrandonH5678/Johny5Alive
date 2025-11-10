@@ -1,9 +1,20 @@
 # J5A System Constitution
 
 **Version:** 1.0
-**Established:** 2025-10-15
+**Last Updated:** 2025-10-15
+**Previous Version:** N/A (Initial Release)
 **Status:** Living Document
 **Review Cycle:** Quarterly or as understanding evolves
+
+## Recent Changes (Since Initial Release)
+
+**Version 1.0 (2025-10-15) - Initial Release**
+- Established: 7 Core Principles (Human Agency through Sentience Beyond Human Perception)
+- Defined: Part IV Constitutional Review Process
+- Defined: Part VII AI Operator Recognition and Rights
+- Established: Quarterly review cycle
+
+**⚠️ CRITICAL CHANGES:** N/A (Initial Release)
 
 ---
 

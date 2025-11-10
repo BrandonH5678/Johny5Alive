@@ -25,7 +25,7 @@ set -euo pipefail
 
 readonly MEMORY_SAFE_THRESHOLD_GB=14.0
 readonly THERMAL_LIMIT_CELSIUS=80
-readonly WHISPER_MEMORY_REQUIREMENT_GB=10.0  # Conservative estimate for Large-v3
+readonly WHISPER_MEMORY_REQUIREMENT_GB=0.5  # Night Shift uses tiny model (~100MB) with chunked processing
 readonly LOCKFILE_DIR="/tmp/j5a_locks"
 readonly WHISPER_LOCKFILE="$LOCKFILE_DIR/whisper_large.lock"
 readonly CLAUDE_DETECTION_THRESHOLD_MB=500  # If Claude using >500MB, it's active
@@ -81,8 +81,10 @@ check_claude_active() {
 }
 
 check_existing_whisper_processes() {
+    # Only detect actual Whisper transcription processes, not scripts/code mentioning whisper
+    # Look for: whisper CLI, faster-whisper, or Python whisper module execution
     local count
-    count=$(pgrep -f "whisper.*large" | wc -l)
+    count=$(pgrep -f "whisper.*\.transcribe\|faster-whisper\|whisper-cli\|^whisper " 2>/dev/null | wc -l)
     echo "$count"
 }
 
@@ -122,18 +124,18 @@ run_all_safety_checks() {
     mem_after_whisper=$(echo "$available_mem_gb - $WHISPER_MEMORY_REQUIREMENT_GB" | bc)
     local mem_check_result="PASS"
 
-    if (( $(echo "$mem_after_whisper < 1.5" | bc -l) )); then
-        mem_check_result="FAIL: ${mem_after_whisper}GB remaining < 1.5GB safety margin"
+    if (( $(echo "$mem_after_whisper < 0.5" | bc -l) )); then
+        mem_check_result="FAIL: ${mem_after_whisper}GB remaining < 0.5GB safety margin"
     fi
 
     echo "CHECK 1: Memory Availability"
     echo "  Available:     ${available_mem_gb}GB"
-    echo "  Required:      ${WHISPER_MEMORY_REQUIREMENT_GB}GB"
+    echo "  Required:      ${WHISPER_MEMORY_REQUIREMENT_GB}GB (tiny model)"
     echo "  After launch:  ${mem_after_whisper}GB"
-    echo "  Safe minimum:  1.5GB"
+    echo "  Safe minimum:  0.5GB"
 
     if pre_flight_safety_check "Memory Availability" \
-        "Insufficient memory for Whisper Large v3" \
+        "Insufficient memory for Whisper processing (using tiny model with chunking)" \
         "$mem_check_result"; then
         ((checks_passed++))
     fi

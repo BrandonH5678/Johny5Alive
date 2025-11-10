@@ -1,0 +1,115 @@
+digraph Resource_Decision_Flow {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial"];
+    graph [fontname="Arial", fontsize=11];
+    edge [fontname="Arial"];
+
+    start [label="New Task Request", shape=ellipse, fillcolor="#E8F4F8"];
+
+    // Constitutional Review
+    constitutional_check [label="Constitutional Review\n━━━━━━━━━━━━━━━\nDoes task align with\n7 principles?", fillcolor="#FFCDD2", shape=diamond];
+
+    reject_constitutional [label="❌ REJECT\nLog governance violation\nRequest human review", fillcolor="#EF9A9A", shape=box];
+
+    // Business Hours Check
+    business_hours [label="Business Hours?\n━━━━━━━━━━━━━━━\n6am-7pm Mon-Fri", fillcolor="#FFF9C4", shape=diamond];
+
+    // Squirt priority path
+    squirt_check [label="Squirt Request?", fillcolor="#C8E6C9", shape=diamond];
+    squirt_immediate [label="✅ IMMEDIATE PRIORITY\n━━━━━━━━━━━━━━━\nLibreOffice protected\nFull resource access\nNo queue delay", fillcolor="#A5D6A7"];
+
+    // Other task during business hours
+    other_business [label="⏸️ DEFER TO QUEUE\n━━━━━━━━━━━━━━━\nQueue for off-hours\nProtect Squirt ops\nSchedule after 7pm", fillcolor="#FFECB3"];
+
+    // Off-hours processing
+    resource_check [label="Resource Check", fillcolor="#B3E5FC", shape=parallelogram];
+
+    // Thermal check
+    thermal_check [label="CPU Temp?\n━━━━━━━━━━━━━━━\nCurrent vs 80°C limit", fillcolor="#FFE0B2", shape=diamond];
+    thermal_wait [label="⏱️ THERMAL WAIT\n━━━━━━━━━━━━━━━\nPause processing\nCool-down period\nResume when <75°C", fillcolor="#FFCC80"];
+    thermal_emergency [label="🚨 EMERGENCY SHUTDOWN\n━━━━━━━━━━━━━━━\n>85°C detected\nImmediate halt\nHuman notification", fillcolor="#FF8A65"];
+
+    // Memory check
+    memory_check [label="Available RAM?\n━━━━━━━━━━━━━━━\nCurrent + Required\nvs 14GB limit", fillcolor="#C5CAE9", shape=diamond];
+    memory_wait [label="⏱️ MEMORY WAIT\n━━━━━━━━━━━━━━━\nQueue task\nWait for resources\nRetry when available", fillcolor="#9FA8DA"];
+
+    // Model selection
+    model_selection [label="Intelligent Model Selection\n━━━━━━━━━━━━━━━\nConstraint-aware\nQuality vs Resources\nAutomatic fallback", fillcolor="#B2DFDB"];
+
+    // Validation gates
+    validation_sampling [label="Statistical Sampling\n━━━━━━━━━━━━━━━\n3-segment stratified\n60% processing threshold\n80% output threshold", fillcolor="#F0F4C3"];
+
+    validation_pass [label="Validation Pass?", fillcolor="#FFF9C4", shape=diamond];
+    validation_fail [label="❌ BLOCK EXECUTION\n━━━━━━━━━━━━━━━\nInsufficient quality\nLog failure reason\nRequire human review", fillcolor="#EF9A9A"];
+
+    // Execute
+    execute [label="✅ EXECUTE TASK\n━━━━━━━━━━━━━━━\nIncremental saves\nProgress monitoring\nQuality checkpoints", fillcolor="#C8E6C9"];
+
+    // Post-execution
+    output_validation [label="Output Validation\n━━━━━━━━━━━━━━━\nAll deliverables present?\nQuality metrics met?", fillcolor="#E1BEE7", shape=diamond];
+
+    success [label="✅ SUCCESS\n━━━━━━━━━━━━━━━\nDeliver outputs\nUpdate memory\nLog completion", fillcolor="#A5D6A7", shape=box];
+
+    partial_success [label="⚠️ PARTIAL SUCCESS\n━━━━━━━━━━━━━━━\nSome outputs delivered\nLog issues\nQueue retry if needed", fillcolor="#FFECB3", shape=box];
+
+    failure [label="❌ FAILURE\n━━━━━━━━━━━━━━━\nLog failure details\nPreserve partial results\nHuman notification", fillcolor="#EF9A9A", shape=box];
+
+    // Flow connections
+    start -> constitutional_check;
+
+    constitutional_check -> business_hours [label="✓ Aligned"];
+    constitutional_check -> reject_constitutional [label="✗ Violation"];
+
+    business_hours -> squirt_check [label="YES"];
+    business_hours -> resource_check [label="NO"];
+
+    squirt_check -> squirt_immediate [label="YES"];
+    squirt_check -> other_business [label="NO"];
+
+    squirt_immediate -> model_selection;
+    other_business -> resource_check [label="Queued"];
+
+    resource_check -> thermal_check;
+
+    thermal_check -> memory_check [label="<80°C\nSafe"];
+    thermal_check -> thermal_wait [label="80-85°C\nWarning"];
+    thermal_check -> thermal_emergency [label=">85°C\nCritical"];
+
+    thermal_wait -> thermal_check [label="Retry"];
+
+    memory_check -> model_selection [label="✓ Available"];
+    memory_check -> memory_wait [label="✗ Insufficient"];
+
+    memory_wait -> memory_check [label="Retry"];
+
+    model_selection -> validation_sampling;
+
+    validation_sampling -> validation_pass;
+
+    validation_pass -> execute [label="✓ Pass\n≥60% proc\n≥80% output"];
+    validation_pass -> validation_fail [label="✗ Fail"];
+
+    execute -> output_validation;
+
+    output_validation -> success [label="All outputs\nQuality met"];
+    output_validation -> partial_success [label="Partial outputs"];
+    output_validation -> failure [label="No outputs\nor Critical errors"];
+
+    // Legend
+    legend [label=<
+        <table border="0" cellborder="0" cellspacing="0">
+            <tr><td colspan="2" align="center"><b>Decision Flow Legend</b></td></tr>
+            <tr><td>◇</td><td align="left">Decision Point</td></tr>
+            <tr><td>▭</td><td align="left">Action/Process</td></tr>
+            <tr><td>○</td><td align="left">Start/End</td></tr>
+            <tr><td></td><td align="left"></td></tr>
+            <tr><td>🟢</td><td align="left">Success Path</td></tr>
+            <tr><td>🟡</td><td align="left">Warning/Wait</td></tr>
+            <tr><td>🔴</td><td align="left">Block/Reject</td></tr>
+        </table>
+    >, shape=box, fillcolor="#F5F5F5"];
+
+    // Positioning hint
+    {rank=same; thermal_wait; thermal_emergency}
+    {rank=same; success; partial_success; failure}
+}

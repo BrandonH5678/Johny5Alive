@@ -47,6 +47,211 @@ The **Retrieve → Reason → Act → Remember → Refine** loop, implemented th
 ## Core Mission
 **Primary Purpose:** Manage overnight operations across Squirt, Sherlock, and other AI systems with validation-focused protocols emphasizing intermediate and final system outputs rather than successful launch of system components.
 
+---
+
+## Integration Coordination Role (J5A as System Coordinator)
+
+**J5A is the cross-system coordinator** responsible for enforcing priority matrices, resolving resource conflicts, and maintaining constitutional compliance across all systems.
+
+### J5A's Coordination Responsibilities
+
+**1. Priority Matrix Enforcement:**
+J5A enforces the business hours and off-hours priority matrices defined in Integration Map:
+
+**Business Hours (6am-7pm Mon-Fri):**
+```
+LibreOffice (1) → Squirt Manual (2) → Squirt Voice (3) → Sherlock (4) → J5A Queue (5)
+```
+
+**J5A Actions:**
+- Monitor LibreOffice status (if active, defer voice processing and intelligence analysis)
+- Queue Squirt voice memos for off-hours processing
+- Defer Sherlock long-running tasks to evening/weekend
+- Hold J5A batch operations until business hours end
+- **Exception:** Client emergency overrides all priorities
+
+**Off-Hours (7pm-6am Weekdays, All Weekend):**
+```
+Squirt Voice (1) → Sherlock (2) → J5A Queue (3) → LibreOffice (4) → Prism (5)
+```
+
+**J5A Actions:**
+- Prioritize pending Squirt voice queue (WaterWizard revenue operations)
+- Allocate resources to Sherlock intelligence analysis (optimal processing time)
+- Execute J5A batch operations (development, testing, system maintenance)
+- Process low-priority tasks (documentation, optimization, learning)
+
+### Resource Conflict Resolution
+
+**J5A implements the resource conflict decision trees from Integration Map:**
+
+**Memory Allocation Conflicts:**
+```python
+def resolve_memory_conflict(requests: List[SystemRequest]) -> Decision:
+    """
+    J5A coordination logic for memory conflicts
+
+    Constitutional Basis: Principle 1 (Human Agency) + Principle 4 (Resource Stewardship)
+    """
+    # Sort by priority (client-facing > time-sensitive > internal)
+    sorted_requests = sort_by_priority(requests, current_time=now())
+
+    # Check available RAM (14GB safe limit)
+    available_ram = get_available_ram()
+
+    for request in sorted_requests:
+        if request.estimated_ram <= available_ram:
+            return approve(request), defer(other_requests)
+        elif request.is_client_facing:
+            return approve_with_degradation(request, use_smaller_model=True)
+        else:
+            return queue_for_later(request)
+```
+
+**CPU/Thermal Conflicts:**
+```python
+def resolve_thermal_conflict(cpu_temp: float, pending_tasks: List[Task]) -> Decision:
+    """
+    J5A thermal safety coordination
+
+    Constitutional Basis: Principle 4 (Resource Stewardship) - Hardware protection
+    """
+    if cpu_temp > 85:
+        # CRITICAL: Stop all AI operations
+        return emergency_shutdown(all_tasks)
+    elif cpu_temp > 80:
+        # HOT: Only essential operations
+        return defer_all_except(client_emergencies)
+    elif cpu_temp > 75:
+        # WARM: Prefer fast models
+        return use_lightweight_models(pending_tasks)
+    else:
+        # SAFE: Normal operations
+        return proceed_normally(pending_tasks)
+```
+
+**LibreOffice Coordination:**
+```python
+def coordinate_libreoffice_usage(new_request: DocumentRequest) -> Decision:
+    """
+    J5A coordination for LibreOffice mutual exclusion
+
+    Constitutional Basis: Principle 3 (System Viability) - Prevent corruption
+    """
+    if is_libreoffice_active():
+        if is_business_hours() and new_request.is_client_facing:
+            # Client request during business hours - check priority
+            return evaluate_priority(current_task, new_request)
+        else:
+            # Queue new request
+            return queue_until_available(new_request)
+    else:
+        # LibreOffice idle - proceed
+        return allocate_libreoffice(new_request)
+```
+
+### Cross-System Entity Memory Coordination
+
+**J5A manages unified entity memory** (`j5a_universe_memory.py`) enabling cross-system knowledge sharing:
+
+**Coordination Pattern:**
+```python
+from j5a_universe_memory import EntityMemoryCoordinator
+
+coordinator = EntityMemoryCoordinator()
+
+# Squirt processes client voice memo
+client_data = coordinator.get_or_create_entity(
+    entity_id="John_Smith",
+    entity_type="person",
+    source_system="squirt"
+)
+
+# Check if Sherlock has intelligence on this person
+sherlock_intel = coordinator.get_system_data(
+    entity_id="John_Smith",
+    source_system="sherlock"
+)
+
+if sherlock_intel:
+    # Cross-system enrichment: Sherlock intelligence → Squirt context
+    client_data.enrich_with_intelligence(sherlock_intel)
+    print(f"Intelligence available: {sherlock_intel['summary']}")
+
+# Update entity memory after processing
+coordinator.update_entity(
+    entity_id="John_Smith",
+    system="squirt",
+    updates={"last_contact": "2025-11-04", "project_status": "active"}
+)
+```
+
+**What J5A Coordinates:**
+- **Squirt → Sherlock:** Client profiles, speaker identification, business context
+- **Sherlock → Squirt:** Market intelligence, speaker background, business insights
+- **Both → J5A:** AAR data, performance metrics, system optimization feedback
+- **J5A → Both:** Resource availability, priority changes, coordination decisions
+
+### Integration Map Validation Checklist
+
+**J5A enforces this checklist before ANY multi-system operation:**
+
+```python
+def validate_integration_compliance(operation: MultiSystemOperation) -> ValidationResult:
+    """
+    J5A Integration Map compliance validation
+
+    Returns: READY, CAUTION, or BLOCKED
+    """
+    checklist = {
+        "time_of_day": check_business_hours_priority(),
+        "priority_matrix": verify_correct_priority_order(operation),
+        "ram_available": check_memory_constraints(operation.estimated_ram),
+        "cpu_temp": check_thermal_state(),
+        "libreoffice_status": check_libreoffice_coordination(operation),
+        "constitutional_compliance": constitutional_review(operation),
+        "entity_memory_sync": verify_entity_memory_current(),
+        "decision_documented": check_audit_trail(operation),
+        "human_override_available": verify_human_can_intervene(operation)
+    }
+
+    if all(checklist.values()):
+        return ValidationResult.READY
+    elif any_critical_failures(checklist):
+        return ValidationResult.BLOCKED
+    else:
+        return ValidationResult.CAUTION
+```
+
+### Emergency Protocol Coordination
+
+**J5A coordinates emergency responses across all systems:**
+
+**Thermal Emergency (CPU >85°C):**
+1. **STOP** all AI operations (Squirt voice, Sherlock analysis, J5A queue)
+2. **PRESERVE** LibreOffice state (save, don't crash)
+3. **ALERT** user with thermal status
+4. **ACTIVATE** cooling protocols
+5. **RESUME** only when temp <80°C, starting with light operations
+
+**Memory Exhaustion (<1GB available):**
+1. **IDENTIFY** memory-intensive operation
+2. **DEFER** lowest-priority operations (J5A batch → Sherlock → Squirt voice)
+3. **PRESERVE** client-facing operations (LibreOffice, Squirt manual)
+4. **DEGRADE** gracefully (smaller models, sequential processing)
+5. **ALERT** user if revenue operations impacted
+
+**Cross-System Conflict:**
+1. **APPLY** priority matrix (business hours vs. off-hours)
+2. **RESOLVE** using constitutional principles (client-facing wins)
+3. **COORDINATE** sequential processing if parallel impossible
+4. **DOCUMENT** decision with reasoning (Principle 2: Transparency)
+5. **ALERT** user if manual intervention needed
+
+**Integration Map Authority:** `/home/johnny5/J5A_INTEGRATION_MAP.md`
+
+---
+
 ## Current System Status
 - **Phase:** Overnight Queue/Batch Manager - OPERATIONAL ✅
 - **🤖 Intelligent Model Selection:** Automatic constraint-aware model selection across Squirt/Sherlock - DEPLOYED

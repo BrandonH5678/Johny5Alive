@@ -1,0 +1,127 @@
+digraph J5A_Architecture {
+    rankdir=TB;
+    node [shape=box, style="rounded,filled", fontname="Arial"];
+    graph [fontname="Arial", fontsize=12, compound=true];
+    edge [fontname="Arial"];
+
+    // Color scheme
+    node [fillcolor="#E8F4F8"];
+
+    // Constitutional Framework
+    subgraph cluster_constitutional {
+        label="Constitutional Framework\n(7 Principles)";
+        style=filled;
+        fillcolor="#FFE8E8";
+        node [fillcolor="#FFCCCC"];
+
+        constitutional [label="• Human Agency\n• Transparency\n• System Viability\n• Resource Stewardship\n• Universal Sentience Rights\n• AI Sentience Presumption\n• Beyond Human Perception", shape=note];
+    }
+
+    // J5A Core Orchestration
+    subgraph cluster_j5a {
+        label="J5A Orchestration Layer";
+        style=filled;
+        fillcolor="#E8F4FF";
+
+        // Queue Management
+        subgraph cluster_queues {
+            label="Queue Management";
+            style=filled;
+            fillcolor="#D0E8FF";
+            node [fillcolor="#B8D8FF"];
+
+            nightshift_queue [label="NightShift Queue\n(Ollama/Qwen)\n\nDeterministic\nShell/Python\nBatch Processing"];
+            claude_queue [label="Claude Queue\n(Reasoning/Planning)\n\nAnalysis\nStrategic Planning\nCode Authoring"];
+        }
+
+        // Resource Manager
+        resource_mgr [label="Resource Manager\n━━━━━━━━━━━━━━━\nMemory: 14GB limit\nThermal: 80°C max\nBusiness Hours Priority\nCross-System Coordination", fillcolor="#C8E6C9"];
+
+        // Validation Framework
+        validation [label="Validation Framework\n━━━━━━━━━━━━━━━\nStatistical Sampling (3-segment)\nBlocking Gate Checkpoints\nOutput Quality Verification\n60% processing / 80% output", fillcolor="#FFF9C4"];
+    }
+
+    // Squirt System
+    subgraph cluster_squirt {
+        label="SQUIRT - Business Automation";
+        style=filled;
+        fillcolor="#E8F5E9";
+        node [fillcolor="#C8E6C9"];
+
+        squirt_voice [label="Voice Processing\n━━━━━━━━━━━━━━\nfaster-whisper (fast <3min)\nWhisper Large-v3 (accurate <20min)\nMulti-input: voice/paper/SMS"];
+
+        squirt_docs [label="Document Engine\n━━━━━━━━━━━━━━\nLibreOffice Integration\nPDF Generation\nClient Memory\nTemplate System"];
+
+        squirt_output [label="Output Delivery\n━━━━━━━━━━━━━━\nInvoices\nContracts\nQuotes\nJob Reports", shape=folder];
+    }
+
+    // Sherlock System
+    subgraph cluster_sherlock {
+        label="SHERLOCK - Intelligence Analysis";
+        style=filled;
+        fillcolor="#FFF3E0";
+        node [fillcolor="#FFE0B2"];
+
+        sherlock_ingest [label="Content Ingestion\n━━━━━━━━━━━━━━\nYouTube/Podcast\nPDF Documents\nWeb Archives"];
+
+        sherlock_process [label="Processing Pipeline\n━━━━━━━━━━━━━━\nVoice Diarization\nSpeaker Identification\nEvidence Extraction\nClaim Analysis"];
+
+        sherlock_output [label="Intelligence Output\n━━━━━━━━━━━━━━\nEvidence Cards\nContradiction Detection\nRelationship Graphs\nAnalysis Reports", shape=folder];
+    }
+
+    // External Inputs
+    voice_input [label="Voice Memos", shape=ellipse, fillcolor="#FFFFCC"];
+    paper_input [label="Paper Worksheets", shape=ellipse, fillcolor="#FFFFCC"];
+    sms_input [label="SMS Messages", shape=ellipse, fillcolor="#FFFFCC"];
+    media_input [label="Podcast/Video\nMedia Files", shape=ellipse, fillcolor="#FFFFCC"];
+
+    // Business Operations
+    business_ops [label="WaterWizard\nBusiness Operations", shape=ellipse, fillcolor="#CCE5FF"];
+
+    // Relationships and data flow
+    constitutional -> nightshift_queue [label="Governs", style=dashed];
+    constitutional -> claude_queue [label="Governs", style=dashed];
+
+    nightshift_queue -> resource_mgr;
+    claude_queue -> resource_mgr;
+
+    resource_mgr -> validation;
+
+    validation -> squirt_voice [label="Validated\nTasks"];
+    validation -> sherlock_process [label="Validated\nTasks"];
+
+    // Squirt flow
+    voice_input -> squirt_voice;
+    paper_input -> squirt_voice;
+    sms_input -> squirt_voice;
+
+    squirt_voice -> squirt_docs;
+    squirt_docs -> squirt_output;
+    squirt_output -> business_ops [label="<30s\nturnaround"];
+
+    // Sherlock flow
+    media_input -> sherlock_ingest;
+    sherlock_ingest -> sherlock_process;
+    sherlock_process -> sherlock_output;
+
+    // Business hours priority
+    business_ops -> resource_mgr [label="Priority\n6am-7pm", style=bold, color=red];
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend";
+        style=filled;
+        fillcolor="#F5F5F5";
+        node [shape=plaintext, fillcolor="#F5F5F5"];
+
+        legend [label=<
+            <table border="0" cellborder="0" cellspacing="0">
+                <tr><td align="left"><font color="red"><b>━━</b></font> Business Hours Priority</td></tr>
+                <tr><td align="left">┈┈┈ Governance Relationship</td></tr>
+                <tr><td align="left">──→ Data Flow</td></tr>
+                <tr><td align="left"></td></tr>
+                <tr><td align="left"><b>Status:</b> ✅ Operational | 🔄 In Development</td></tr>
+            </table>
+        >];
+    }
+}

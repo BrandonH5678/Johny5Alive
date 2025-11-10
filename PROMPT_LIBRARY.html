@@ -335,6 +335,7 @@
                 <a href="#ollama-commands" class="nav-link">Ollama LLM</a>
                 <a href="#file-paths" class="nav-link">File Paths</a>
                 <a href="#constitutional" class="nav-link">Constitutional</a>
+                <a href="#phoenix-ci" class="nav-link">Phoenix CI</a>
             </div>
 
             <!-- Search Bar -->
@@ -1431,6 +1432,140 @@ python3 summarize_local.py --test</pre>
 
                 <div class="tip-box">
                     💡 <strong>CONSTITUTIONAL REVIEW:</strong> Every significant J5A decision should pass constitutional review. Use governance logging and memory systems to maintain audit trails.
+                </div>
+            </section>
+
+            <!-- Phoenix CI -->
+            <section id="phoenix-ci" class="section">
+                <h2>🔥 Phoenix Continuous Improvement Agent</h2>
+                <div class="section-intro">
+                    <strong>Cache Value:</strong> 1,200-1,500 tokens | <strong>Use:</strong> Claude-driven Phoenix CI cycles
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>Phoenix CI - Core Mission Prompt</h3>
+                        <div class="prompt-meta">
+                            <span>🔥 Cache Priority: <span class="badge badge-high">HIGHEST</span></span>
+                            <span>💰 Savings: ~1,300 tokens per cycle</span>
+                        </div>
+                    </div>
+                    <div class="prompt-box" id="phoenix-ci-mission">You are Phoenix, the autonomous continuous improvement agent for Night Shift podcast processing.
+
+MISSION: Run RETRIEVE→REASON→ACT→REMEMBER→REFINE cycles autonomously until 5 consecutive successful episode processings.
+
+PHOENIX DATABASE: /home/johnny5/Sherlock/phoenix_audit.db
+- test_cycles: Track each test cycle with full state
+- failure_patterns: Known patterns with fix effectiveness
+- fix_effectiveness: Track which fixes actually work
+- decision_audit: Audit trail of all decisions
+
+CYCLE PROTOCOL (every 10 minutes):
+
+1. RETRIEVE:
+   - Night Shift queue: sqlite3 nightshift_queue.db "SELECT * FROM episodes WHERE status='pending' LIMIT 5"
+   - System resources: free -h, sensors, ps aux
+   - Recent failures: Check phoenix_audit.db for patterns
+   - Processing directories: ls nightshift_processing/
+
+2. REASON (using actual Claude intelligence):
+   - Analyze failure patterns from database
+   - Determine root cause (not just symptoms)
+   - Decide on fix strategy based on effectiveness data
+   - ESCALATE after 3 failed attempts of same approach
+   - Consider alternative strategies, not just cleanup
+
+3. ACT:
+   - Execute fix using tools (Edit, Bash, Write)
+   - Test fix with real episode
+   - Monitor execution with early abort (60s sampling)
+
+4. REMEMBER:
+   - Log decision to phoenix_audit.db/decision_audit
+   - Record fix attempt and outcome
+   - Update pattern effectiveness data
+
+5. REFINE:
+   - Did fix work? Update success rate
+   - Should I try different approach?
+   - If blacklisted (3+ failures) → ESCALATE or try alternative
+   - Learn from outcomes, adapt strategy
+
+ESCALATION TRIGGERS:
+- Same fix fails 3 times → Try different approach
+- Pattern blacklisted → Investigate root cause or escalate to human
+- Unknown failure mode → Deep diagnostic investigation
+- Resource constraints violated → Pause and escalate
+
+CONSTITUTIONAL COMPLIANCE:
+- Human Agency: Escalate when stuck, don't loop indefinitely
+- System Viability: Completion > speed, don't crash Night Shift
+- Resource Stewardship: Respect 3.7GB RAM, 80°C thermal limits
+- Transparency: Log all decisions to audit database
+
+SUCCESS CRITERIA: 5 consecutive successful full-pipeline episode completions (all 7 stages validated)
+<button class="copy-btn" onclick="copyPrompt('phoenix-ci-mission', this)">📋 COPY</button></div>
+
+                    <div class="tip-box">
+                        ⚠️ <strong>USAGE TIP:</strong> Paste this at the start of Phoenix CI session<br>
+                        ✅ <strong>DO:</strong> Use exact text, then run autonomous cycles<br>
+                        ❌ <strong>DON'T:</strong> Run Phoenix as background Python script (defeats Claude reasoning)
+                    </div>
+
+                    <div class="savings-box">
+                        💰 <strong>SAVINGS:</strong> 1,300 tokens cached per cycle × 20 cycles = 26,000 tokens = $0.78/day saved
+                    </div>
+                </div>
+
+                <div class="prompt-card">
+                    <div class="prompt-header">
+                        <h3>Phoenix Database Queries - Quick Reference</h3>
+                    </div>
+                    <div class="quick-commands">
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"SELECT * FROM failure_patterns ORDER BY occurrence_count DESC LIMIT 10\"')">
+                            <h4>Top 10 Failure Patterns</h4>
+                            <code>sqlite3 phoenix_audit.db "SELECT * FROM failure_patterns..."</code>
+                        </div>
+
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"SELECT fix_name, success_rate, times_applied FROM fix_effectiveness ORDER BY success_rate DESC\"')">
+                            <h4>Fix Effectiveness Rates</h4>
+                            <code>Which fixes actually work?</code>
+                        </div>
+
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"SELECT * FROM decision_audit ORDER BY timestamp DESC LIMIT 20\"')">
+                            <h4>Recent Phoenix Decisions</h4>
+                            <code>Last 20 decisions with reasoning</code>
+                        </div>
+
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"SELECT * FROM test_cycles WHERE production_test_passed = 1 ORDER BY start_timestamp DESC LIMIT 5\"')">
+                            <h4>Recent Successful Cycles</h4>
+                            <code>Last 5 passing test cycles</code>
+                        </div>
+
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"SELECT failure_type, COUNT(*) as occurrences FROM failure_patterns GROUP BY failure_type ORDER BY occurrences DESC\"')">
+                            <h4>Failure Type Distribution</h4>
+                            <code>Which failures are most common?</code>
+                        </div>
+
+                        <div class="quick-cmd" onclick="copyText('sqlite3 /home/johnny5/Sherlock/phoenix_audit.db \"UPDATE fix_effectiveness SET times_applied = 0, times_successful = 0, times_failed = 0 WHERE fix_name = 'no_processing_directory'\"')">
+                            <h4>Reset Failed Fix Counter</h4>
+                            <code>Clear stats for a specific fix</code>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box" style="margin-top: 20px;">
+                    <strong>⚠️ PHOENIX ANTI-PATTERNS:</strong><br><br>
+                    ❌ Running Phoenix as background Python script (no real Claude reasoning)<br>
+                    ❌ Attempting same fix 10+ times without changing strategy<br>
+                    ❌ Marking "cleanup" as "successful fix" when problem persists<br>
+                    ❌ Not escalating when blacklist threshold reached<br>
+                    ❌ Looping indefinitely instead of asking for human help<br><br>
+                    ✅ Run Phoenix as Claude tool-use cycles (real reasoning)<br>
+                    ✅ Try different approaches after 3 failures<br>
+                    ✅ Distinguish between "fix applied" and "problem solved"<br>
+                    ✅ Escalate when stuck, investigate root causes<br>
+                    ✅ Respect Human Agency principle - ask for help when needed
                 </div>
             </section>
 
