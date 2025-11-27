@@ -11,20 +11,24 @@ Validation Model: Existence → Process → Outputs
 
 __version__ = "1.0.0"
 
-from .scanner import Scanner
+# Import implemented modules
+from .scanner import TidyScanner
 from .overlap import OverlapDetector
-from .standards import StandardsEnforcer
 from .snapshot import SnapshotManager
-from .planner import FixPlanner
-from .exec import GuardrailedExecutor
-from .report import ReportGenerator
+
+# TODO: Not yet implemented - will import when ready
+# from .standards import StandardsEnforcer
+# from .planner import FixPlanner
+# from .exec import GuardrailedExecutor
+# from .report import ReportGenerator
 
 __all__ = [
-    "Scanner",
+    "TidyScanner",
     "OverlapDetector",
-    "StandardsEnforcer",
     "SnapshotManager",
-    "FixPlanner",
-    "GuardrailedExecutor",
-    "ReportGenerator",
+    # Future exports when implemented:
+    # "StandardsEnforcer",
+    # "FixPlanner",
+    # "GuardrailedExecutor",
+    # "ReportGenerator",
 ]
