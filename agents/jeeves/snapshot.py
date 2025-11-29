@@ -457,3 +457,229 @@ class SnapshotManager:
             if snap["snapshot_id"] == snapshot_id:
                 return SnapshotMetadata(**snap)
         return None
+
+    # ================================================================
+    # PRE-AUTONOMOUS SNAPSHOT METHODS (Strategic Plan Phase 1.1)
+    # ================================================================
+
+    def create_pre_autonomous_snapshot(
+        self,
+        repo_path: Path,
+        repo_name: str,
+        task_description: str,
+        push_to_remote: bool = True
+    ) -> tuple[SnapshotMetadata, str]:
+        """
+        Create a pre-autonomous work snapshot with GitHub tag and verified push.
+
+        This is the MANDATORY snapshot before any autonomous J5A work begins.
+        Creates both a local snapshot AND a tagged GitHub commit for rollback safety.
+
+        Constitutional Basis: Principle 3 (System Viability) - Full rollback capability required
+
+        Args:
+            repo_path: Path to repository
+            repo_name: Name identifier for the repository
+            task_description: Description of autonomous work about to be performed
+            push_to_remote: Whether to push and verify (default True)
+
+        Returns:
+            Tuple of (SnapshotMetadata, tag_name)
+
+        Raises:
+            RuntimeError: If push verification fails
+        """
+        # Generate tag name per strategic plan convention
+        timestamp = datetime.now().strftime("%Y-%m-%d-%H%M%S")
+        tag_name = f"snapshots/pre-autonomous-{timestamp}"
+        reason = f"Pre-autonomous snapshot: {task_description}"
+
+        console.print(f"[cyan]Creating pre-autonomous snapshot[/cyan]")
+        console.print(f"[dim]Task: {task_description}[/dim]")
+        console.print(f"[dim]Tag: {tag_name}[/dim]")
+
+        repo = Repo(repo_path)
+
+        # Commit any uncommitted changes first (safety requirement)
+        if repo.is_dirty(untracked_files=True):
+            console.print("[yellow]Repository has uncommitted changes - committing first[/yellow]")
+            try:
+                repo.git.add("-A")
+                repo.index.commit(f"Pre-autonomous snapshot: {task_description}")
+                console.print("[green]✓ Uncommitted changes committed[/green]")
+            except Exception as e:
+                console.print(f"[yellow]⚠️  Could not auto-commit: {e}[/yellow]")
+
+        # Create git tag at current HEAD
+        try:
+            tag = repo.create_tag(
+                tag_name,
+                message=f"Pre-autonomous snapshot\nTask: {task_description}\nTimestamp: {timestamp}"
+            )
+            console.print(f"[green]✓ Tag created: {tag_name}[/green]")
+        except Exception as e:
+            raise RuntimeError(f"Failed to create tag: {e}")
+
+        # Create local snapshot for additional safety
+        metadata = self.create_snapshot(repo_path, repo_name, reason)
+
+        # Push to remote with verification
+        if push_to_remote:
+            push_success = self._push_with_verification(repo, tag_name)
+            if not push_success:
+                raise RuntimeError(
+                    f"Push verification failed for {repo_name}. "
+                    "Tag created locally but not verified on remote. "
+                    "Check GitHub authentication and network connectivity."
+                )
+
+        return metadata, tag_name
+
+    def _push_with_verification(self, repo: Repo, tag_name: str) -> bool:
+        """
+        Push commits and tags to remote, then verify the push succeeded.
+
+        Strategic Plan Requirement: "Verified push (not just commit)"
+
+        Args:
+            repo: GitPython Repo object
+            tag_name: Name of tag to verify
+
+        Returns:
+            True if push verified, False otherwise
+        """
+        console.print(f"[dim]Pushing to remote with verification...[/dim]")
+
+        try:
+            # Push current branch
+            origin = repo.remote("origin")
+            push_info = origin.push()
+
+            # Check push result
+            for info in push_info:
+                if info.flags & info.ERROR:
+                    console.print(f"[red]✗ Push error: {info.summary}[/red]")
+                    return False
+
+            # Push the tag
+            tag_push_info = origin.push(tag_name)
+            for info in tag_push_info:
+                if info.flags & info.ERROR:
+                    console.print(f"[red]✗ Tag push error: {info.summary}[/red]")
+                    return False
+
+            console.print("[green]✓ Changes pushed to remote[/green]")
+
+            # Verify by fetching and checking tag exists on remote
+            console.print(f"[dim]Verifying tag on remote...[/dim]")
+            origin.fetch(tags=True)
+
+            # Check if tag exists in remote refs
+            remote_tags = [ref.name for ref in repo.tags]
+            if tag_name in remote_tags:
+                console.print(f"[green]✓ Tag verified on remote: {tag_name}[/green]")
+                return True
+            else:
+                console.print(f"[yellow]⚠️  Tag not found on remote after push[/yellow]")
+                return False
+
+        except Exception as e:
+            console.print(f"[red]✗ Push/verification failed: {e}[/red]")
+            return False
+
+    def rollback_to_tag(self, repo_path: Path, tag_name: str, confirm: bool = False) -> bool:
+        """
+        Rollback repository to a specific snapshot tag.
+
+        WARNING: This is a DESTRUCTIVE operation that resets the repository.
+
+        Constitutional Basis:
+        - Principle 1 (Human Agency): Requires confirmation unless bypassed
+        - Principle 3 (System Viability): Enables recovery from failed autonomous work
+
+        Args:
+            repo_path: Path to repository
+            tag_name: Tag name to rollback to (e.g., "snapshots/pre-autonomous-2025-11-29-143022")
+            confirm: If False, will prompt for confirmation
+
+        Returns:
+            True if rollback successful, False otherwise
+        """
+        repo = Repo(repo_path)
+
+        console.print(f"[yellow]⚠️  ROLLBACK OPERATION[/yellow]")
+        console.print(f"[yellow]Repository: {repo_path}[/yellow]")
+        console.print(f"[yellow]Target tag: {tag_name}[/yellow]")
+
+        # Check tag exists
+        if tag_name not in [t.name for t in repo.tags]:
+            console.print(f"[red]✗ Tag not found: {tag_name}[/red]")
+            console.print("[dim]Available tags:[/dim]")
+            for tag in repo.tags:
+                if "snapshots/" in tag.name:
+                    console.print(f"  - {tag.name}")
+            return False
+
+        if not confirm:
+            console.print("[yellow]This will discard all changes since the snapshot.[/yellow]")
+            console.print("[yellow]Set confirm=True to proceed.[/yellow]")
+            return False
+
+        try:
+            # Reset to tag
+            console.print(f"[dim]Resetting to {tag_name}...[/dim]")
+            repo.git.reset("--hard", tag_name)
+
+            # Clean untracked files
+            repo.git.clean("-fd")
+
+            console.print(f"[green]✓ Rollback complete to {tag_name}[/green]")
+            return True
+
+        except Exception as e:
+            console.print(f"[red]✗ Rollback failed: {e}[/red]")
+            return False
+
+    def list_pre_autonomous_snapshots(self, repo_path: Path) -> List[Dict]:
+        """
+        List all pre-autonomous snapshot tags in a repository.
+
+        Args:
+            repo_path: Path to repository
+
+        Returns:
+            List of dicts with tag info: {name, commit, date, message}
+        """
+        repo = Repo(repo_path)
+        snapshots = []
+
+        for tag in repo.tags:
+            if tag.name.startswith("snapshots/pre-autonomous-"):
+                try:
+                    tag_obj = tag.tag  # Annotated tag object
+                    if tag_obj:
+                        snapshots.append({
+                            "name": tag.name,
+                            "commit": str(tag.commit)[:8],
+                            "date": datetime.fromtimestamp(tag_obj.tagged_date).isoformat(),
+                            "message": tag_obj.message.strip() if tag_obj.message else ""
+                        })
+                    else:
+                        # Lightweight tag
+                        snapshots.append({
+                            "name": tag.name,
+                            "commit": str(tag.commit)[:8],
+                            "date": datetime.fromtimestamp(tag.commit.committed_date).isoformat(),
+                            "message": ""
+                        })
+                except Exception:
+                    snapshots.append({
+                        "name": tag.name,
+                        "commit": str(tag.commit)[:8],
+                        "date": "unknown",
+                        "message": ""
+                    })
+
+        # Sort by date descending
+        snapshots.sort(key=lambda x: x["date"], reverse=True)
+        return snapshots
