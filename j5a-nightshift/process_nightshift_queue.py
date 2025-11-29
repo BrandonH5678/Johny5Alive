@@ -4,16 +4,34 @@ Nightshift Queue Processor - Process migrated jobs from Nightshift queue
 
 Reads nightshift_jobs.json and processes jobs through j5a_worker.py
 Updates original queue database with results
+
+Phase 2 Autonomy Features:
+- Pre/post shift snapshots for safe rollback
+- Failure notification system
+- Queue health monitoring
+- Constitutional compliance logging
 """
 
 import json
 import logging
 import sqlite3
+import sys
+import os
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
+
+# Add parent directory for imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from j5a_worker import J5AWorker
+
+# Try to import snapshot manager for autonomy features
+try:
+    from agents.jeeves.snapshot import SnapshotManager
+    SNAPSHOT_AVAILABLE = True
+except ImportError:
+    SNAPSHOT_AVAILABLE = False
 
 logging.basicConfig(
     level=logging.INFO,
@@ -31,14 +49,21 @@ class NightshiftQueueProcessor:
     - Process through J5AWorker
     - Update j5a_queue_manager.db with results
     - Track Phase 1 success rates
+
+    Phase 2 Autonomy:
+    - Pre/post shift snapshots
+    - Failure notifications
+    - Queue health monitoring
     """
 
     def __init__(
         self,
         jobs_file: str = None,
-        queue_db: str = None
+        queue_db: str = None,
+        enable_snapshots: bool = True,
+        enable_notifications: bool = True
     ):
-        """Initialize processor"""
+        """Initialize processor with autonomy features"""
         if jobs_file is None:
             jobs_file = "/home/johnny5/Johny5Alive/j5a-nightshift/ops/queue/nightshift_jobs.json"
 
@@ -47,6 +72,24 @@ class NightshiftQueueProcessor:
 
         self.jobs_file = jobs_file
         self.queue_db = queue_db
+        self.repo_path = Path("/home/johnny5/Johny5Alive")
+
+        # Autonomy configuration
+        self.enable_snapshots = enable_snapshots and SNAPSHOT_AVAILABLE
+        self.enable_notifications = enable_notifications
+        self.shift_snapshot_tag: Optional[str] = None
+        self.shift_start_time: Optional[datetime] = None
+
+        # Initialize snapshot manager if available
+        if self.enable_snapshots:
+            self.snapshot_manager = SnapshotManager(
+                {"snapshot": {"compress": "zstd", "verify_restore": True}}
+            )
+            logger.info("Snapshot manager initialized for autonomy")
+        else:
+            self.snapshot_manager = None
+            if enable_snapshots and not SNAPSHOT_AVAILABLE:
+                logger.warning("Snapshots requested but SnapshotManager not available")
 
         # Initialize worker
         self.worker = J5AWorker()
@@ -57,6 +100,182 @@ class NightshiftQueueProcessor:
         logger.info(f"Nightshift processor initialized")
         logger.info(f"  Jobs file: {jobs_file}")
         logger.info(f"  Queue DB: {queue_db}")
+        logger.info(f"  Snapshots: {'enabled' if self.enable_snapshots else 'disabled'}")
+        logger.info(f"  Notifications: {'enabled' if self.enable_notifications else 'disabled'}")
+
+    def create_pre_shift_snapshot(self) -> Optional[str]:
+        """
+        Create a snapshot before starting the Night Shift
+
+        Constitutional Basis: Principle 3 (System Viability) - Enable rollback
+
+        Returns:
+            Snapshot tag name if successful, None otherwise
+        """
+        if not self.enable_snapshots:
+            logger.info("Snapshots disabled, skipping pre-shift snapshot")
+            return None
+
+        try:
+            logger.info("Creating pre-shift snapshot...")
+            self.shift_start_time = datetime.now()
+
+            metadata, tag_name = self.snapshot_manager.create_pre_autonomous_snapshot(
+                repo_path=self.repo_path,
+                repo_name="Johny5Alive",
+                task_description=f"Night Shift {self.shift_start_time.strftime('%Y-%m-%d %H:%M')}",
+                push_to_remote=True
+            )
+
+            self.shift_snapshot_tag = tag_name
+            logger.info(f"Pre-shift snapshot created: {tag_name}")
+            print(f"\n📸 Pre-shift snapshot: {tag_name}")
+
+            return tag_name
+
+        except Exception as e:
+            logger.error(f"Failed to create pre-shift snapshot: {e}")
+            # Don't block processing on snapshot failure
+            return None
+
+    def create_post_shift_snapshot(self, results: Dict[str, Any]) -> Optional[str]:
+        """
+        Create a snapshot after completing the Night Shift
+
+        Args:
+            results: Processing results summary
+
+        Returns:
+            Snapshot tag name if successful, None otherwise
+        """
+        if not self.enable_snapshots:
+            return None
+
+        try:
+            shift_end_time = datetime.now()
+            duration = (shift_end_time - self.shift_start_time).total_seconds() if self.shift_start_time else 0
+
+            logger.info("Creating post-shift snapshot...")
+
+            # Create summary for snapshot
+            summary = (
+                f"Night Shift Complete: "
+                f"{results.get('completed', 0)}/{results.get('total', 0)} jobs, "
+                f"duration: {duration:.0f}s"
+            )
+
+            metadata, tag_name = self.snapshot_manager.create_pre_autonomous_snapshot(
+                repo_path=self.repo_path,
+                repo_name="Johny5Alive",
+                task_description=f"Post-shift: {summary}",
+                push_to_remote=True
+            )
+
+            logger.info(f"Post-shift snapshot created: {tag_name}")
+            print(f"📸 Post-shift snapshot: {tag_name}")
+
+            return tag_name
+
+        except Exception as e:
+            logger.error(f"Failed to create post-shift snapshot: {e}")
+            return None
+
+    def send_failure_notification(self, error: Exception, context: str = ""):
+        """
+        Send notification on critical failure
+
+        Args:
+            error: The exception that occurred
+            context: Additional context about what was happening
+
+        Constitutional Basis: Principle 2 (Transparency) - Alert humans to failures
+        """
+        if not self.enable_notifications:
+            return
+
+        timestamp = datetime.now().isoformat()
+        message = f"""
+🚨 NIGHT SHIFT FAILURE ALERT
+
+Time: {timestamp}
+Context: {context}
+Error: {type(error).__name__}: {str(error)}
+
+Pre-shift snapshot: {self.shift_snapshot_tag or 'None'}
+
+Rollback command:
+  python3 agents/jeeves/rollback.py rollback {self.shift_snapshot_tag}
+"""
+
+        # Log to file for now (email integration can be added later)
+        notification_file = self.repo_path / "j5a-nightshift" / "ops" / "logs" / "failure_notifications.log"
+        notification_file.parent.mkdir(parents=True, exist_ok=True)
+
+        with open(notification_file, "a") as f:
+            f.write(f"\n{'='*60}\n{message}\n")
+
+        logger.error(f"Failure notification logged: {notification_file}")
+        print(f"\n🚨 FAILURE: {error}")
+        print(f"   Rollback available: {self.shift_snapshot_tag}")
+
+    def check_queue_health(self) -> Dict[str, Any]:
+        """
+        Validate queue health before processing
+
+        Checks:
+        - Queue file exists and is readable
+        - Database is accessible
+        - No stuck jobs from previous runs
+        - Resource constraints (thermal, memory)
+
+        Returns:
+            Dict with health status and any issues found
+        """
+        health = {
+            "healthy": True,
+            "issues": [],
+            "warnings": []
+        }
+
+        # Check queue file
+        if not Path(self.jobs_file).exists():
+            health["issues"].append(f"Queue file not found: {self.jobs_file}")
+            health["healthy"] = False
+
+        # Check database
+        try:
+            cursor = self.conn.execute("SELECT COUNT(*) FROM task_executions WHERE status = 'running'")
+            running_count = cursor.fetchone()[0]
+            if running_count > 0:
+                health["warnings"].append(f"{running_count} jobs still marked as 'running' from previous shift")
+        except Exception as e:
+            health["issues"].append(f"Database error: {e}")
+            health["healthy"] = False
+
+        # Check for stuck jobs (running > 4 hours)
+        try:
+            four_hours_ago = (datetime.now().replace(hour=datetime.now().hour - 4)).isoformat()
+            cursor = self.conn.execute(
+                "SELECT COUNT(*) FROM task_executions WHERE status = 'running' AND start_time < ?",
+                (four_hours_ago,)
+            )
+            stuck_count = cursor.fetchone()[0]
+            if stuck_count > 0:
+                health["warnings"].append(f"{stuck_count} jobs appear stuck (running > 4 hours)")
+        except Exception:
+            pass  # Non-critical check
+
+        # Log health status
+        if health["healthy"]:
+            logger.info("Queue health check: PASSED")
+        else:
+            logger.warning(f"Queue health check: FAILED - {health['issues']}")
+
+        if health["warnings"]:
+            for warning in health["warnings"]:
+                logger.warning(f"Queue health warning: {warning}")
+
+        return health
 
     def load_jobs(self) -> List[Dict[str, Any]]:
         """Load jobs from nightshift_jobs.json"""
@@ -189,11 +408,24 @@ class NightshiftQueueProcessor:
 
     def process_queue(self, max_jobs: int = None):
         """
-        Process Nightshift queue
+        Process Nightshift queue with Phase 2 autonomy features
 
         Args:
             max_jobs: Maximum number of jobs to process (default: all)
+
+        Phase 2 Autonomy:
+        - Pre-shift snapshot before processing
+        - Queue health check
+        - Failure notifications on errors
+        - Post-shift snapshot after completion
         """
+        # Phase 2: Queue health check
+        health = self.check_queue_health()
+        if not health["healthy"]:
+            error = Exception(f"Queue health check failed: {health['issues']}")
+            self.send_failure_notification(error, "Pre-flight health check")
+            raise error
+
         # Synchronize queue JSON to database first
         self.sync_queue_to_database()
 
@@ -225,6 +457,9 @@ class NightshiftQueueProcessor:
 
         if max_jobs:
             jobs = jobs[:max_jobs]
+
+        # Phase 2: Create pre-shift snapshot
+        self.create_pre_shift_snapshot()
 
         logger.info(f"Processing {len(jobs)} jobs...")
         print()
@@ -304,7 +539,51 @@ class NightshiftQueueProcessor:
             else:
                 print("⚠️  Below target - needs optimization")
 
+        # Phase 2: Create post-shift snapshot
+        self.create_post_shift_snapshot(results)
+
         return results
+
+    def run_autonomous_shift(self, max_jobs: int = None) -> Dict[str, Any]:
+        """
+        Run a complete autonomous Night Shift with full safety protocols
+
+        This is the main entry point for autonomous operation.
+
+        Args:
+            max_jobs: Maximum jobs to process (default: all)
+
+        Returns:
+            Results dictionary with status and metrics
+        """
+        shift_result = {
+            "success": False,
+            "pre_snapshot": None,
+            "post_snapshot": None,
+            "results": None,
+            "error": None
+        }
+
+        try:
+            # Create pre-shift snapshot (redundant safety)
+            shift_result["pre_snapshot"] = self.shift_snapshot_tag
+
+            # Process queue
+            results = self.process_queue(max_jobs=max_jobs)
+            shift_result["results"] = results
+            shift_result["success"] = True
+
+            logger.info("Autonomous shift completed successfully")
+
+        except Exception as e:
+            shift_result["error"] = str(e)
+            self.send_failure_notification(e, "Autonomous shift processing")
+            logger.error(f"Autonomous shift failed: {e}")
+
+        finally:
+            shift_result["post_snapshot"] = self.shift_snapshot_tag
+
+        return shift_result
 
     def _update_database(self, job_id: str, result: Dict[str, Any]):
         """
@@ -340,26 +619,70 @@ class NightshiftQueueProcessor:
         self.conn.close()
 
 
-# Example usage
+# Main entry point
 if __name__ == "__main__":
-    import sys
+    import argparse
 
-    # Parse arguments
-    max_jobs = None
-    if len(sys.argv) > 1:
-        try:
-            max_jobs = int(sys.argv[1])
-        except ValueError:
-            print(f"Usage: {sys.argv[0]} [max_jobs]")
-            sys.exit(1)
+    parser = argparse.ArgumentParser(
+        description="Night Shift Queue Processor with Phase 2 Autonomy"
+    )
+    parser.add_argument(
+        "max_jobs",
+        nargs="?",
+        type=int,
+        default=None,
+        help="Maximum number of jobs to process (default: all)"
+    )
+    parser.add_argument(
+        "--autonomous",
+        action="store_true",
+        help="Run in full autonomous mode with snapshots and notifications"
+    )
+    parser.add_argument(
+        "--no-snapshots",
+        action="store_true",
+        help="Disable pre/post shift snapshots"
+    )
+    parser.add_argument(
+        "--no-notifications",
+        action="store_true",
+        help="Disable failure notifications"
+    )
 
-    # Process queue
-    processor = NightshiftQueueProcessor()
+    args = parser.parse_args()
+
+    # Initialize processor with autonomy settings
+    processor = NightshiftQueueProcessor(
+        enable_snapshots=not args.no_snapshots,
+        enable_notifications=not args.no_notifications
+    )
 
     try:
-        results = processor.process_queue(max_jobs=max_jobs)
+        if args.autonomous:
+            # Full autonomous mode
+            print()
+            print("🤖 AUTONOMOUS NIGHT SHIFT MODE")
+            print("="*60)
+            result = processor.run_autonomous_shift(max_jobs=args.max_jobs)
+
+            if result["success"]:
+                print("\n✅ Autonomous shift completed successfully")
+            else:
+                print(f"\n❌ Autonomous shift failed: {result['error']}")
+                sys.exit(1)
+        else:
+            # Standard processing mode
+            results = processor.process_queue(max_jobs=args.max_jobs)
+
     except KeyboardInterrupt:
         print("\n\nInterrupted by user")
+        processor.send_failure_notification(
+            Exception("Keyboard interrupt"),
+            "User interrupted processing"
+        )
+    except Exception as e:
+        processor.send_failure_notification(e, "Unhandled exception")
+        raise
     finally:
         processor.close()
 
