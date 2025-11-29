@@ -33,6 +33,13 @@ try:
 except ImportError:
     SNAPSHOT_AVAILABLE = False
 
+# Try to import Qwen validator for Phase 3 validation
+try:
+    from autonomous.qwen_validator import QwenValidator, get_validator
+    QWEN_AVAILABLE = True
+except ImportError:
+    QWEN_AVAILABLE = False
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -96,6 +103,16 @@ class NightshiftQueueProcessor:
 
         # Connect to queue database
         self.conn = sqlite3.connect(queue_db)
+
+        # Initialize Qwen validator for Phase 3 validation (optional)
+        self.qwen_validator = None
+        if QWEN_AVAILABLE:
+            try:
+                self.qwen_validator = get_validator("http://localhost:11434")
+                if self.qwen_validator:
+                    logger.info("Qwen validator initialized for job output validation")
+            except Exception as e:
+                logger.warning(f"Qwen validator unavailable: {e}")
 
         logger.info(f"Nightshift processor initialized")
         logger.info(f"  Jobs file: {jobs_file}")
@@ -276,6 +293,72 @@ Rollback command:
                 logger.warning(f"Queue health warning: {warning}")
 
         return health
+
+    def validate_job_output_with_qwen(self, job: Dict[str, Any], result: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Validate job output using Qwen local LLM
+
+        Phase 3 Integration: Uses Qwen2.5-7B for intelligent output validation.
+        Falls back gracefully if Qwen is unavailable.
+
+        Constitutional Basis:
+        - Principle 2 (Transparency): AI-assisted validation is logged
+        - Principle 9 (Local LLM): Uses local model for validation
+
+        Args:
+            job: The job definition
+            result: The job execution result
+
+        Returns:
+            Dict with validation results and confidence level
+        """
+        validation = {
+            "validated": False,
+            "qwen_available": self.qwen_validator is not None,
+            "status": None,
+            "confidence": None,
+            "details": {}
+        }
+
+        if not self.qwen_validator:
+            validation["status"] = "skipped"
+            validation["details"]["reason"] = "Qwen validator unavailable"
+            return validation
+
+        try:
+            # Get output content for validation
+            output_content = result.get("output", "") or result.get("message", "")
+            if not output_content:
+                output_content = str(result)
+
+            # Classify job status using Qwen
+            status_result = self.qwen_validator.classify_job_status(output_content)
+
+            validation["validated"] = status_result.success
+            validation["status"] = status_result.result
+            validation["confidence"] = status_result.confidence
+            validation["details"]["response_time_ms"] = status_result.response_time_ms
+
+            # If job has output file, validate format
+            if result.get("output_file"):
+                output_file = result.get("output_file")
+                if output_file.endswith(".json"):
+                    try:
+                        with open(output_file, 'r') as f:
+                            content = f.read()
+                        format_result = self.qwen_validator.check_json_syntax(content)
+                        validation["details"]["format_valid"] = format_result.result
+                    except Exception:
+                        pass
+
+            logger.info(f"Qwen validation: {validation['status']} ({validation['confidence']} confidence)")
+
+        except Exception as e:
+            logger.warning(f"Qwen validation failed: {e}")
+            validation["status"] = "error"
+            validation["details"]["error"] = str(e)
+
+        return validation
 
     def load_jobs(self) -> List[Dict[str, Any]]:
         """Load jobs from nightshift_jobs.json"""
