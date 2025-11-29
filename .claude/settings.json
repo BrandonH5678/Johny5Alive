@@ -1,0 +1,54 @@
+{
+  "$schema": "https://claude.ai/settings-schema.json",
+  "projectDescription": "J5A Universe - Overnight Queue/Batch Management and AI Coordination System",
+  "alwaysThinkingEnabled": true,
+  "permissions": {
+    "allow": [
+      "Read(//home/johnny5/Johny5Alive/**)",
+      "Read(//home/johnny5/Squirt/**)",
+      "Read(//home/johnny5/Sherlock/**)",
+      "Read(//home/johnny5/Prism/**)",
+      "Read(//home/johnny5/Documents/**)",
+      "Bash(python3:*)",
+      "Bash(git log:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(git tag:*)",
+      "Bash(git branch:*)",
+      "Bash(ssh j5a-server:*)",
+      "Bash(ollama:*)"
+    ],
+    "deny": []
+  },
+  "hooks": {
+    "preAutonomous": {
+      "description": "Mandatory checks before autonomous work begins",
+      "requiresSnapshot": true,
+      "requiresScopeDeclaration": true,
+      "maxDurationMinutes": 120
+    }
+  },
+  "autonomyConfig": {
+    "scopeDeclarationRequired": true,
+    "snapshotBeforeExecution": true,
+    "validationGatesEnabled": true,
+    "maxFilesPerOperation": 50,
+    "allowedDirectories": [
+      "/home/johnny5/Johny5Alive",
+      "/home/johnny5/Squirt",
+      "/home/johnny5/Sherlock",
+      "/home/johnny5/Prism",
+      "/home/johnny5/Documents"
+    ],
+    "protectedPaths": [
+      ".env",
+      "credentials",
+      "secrets",
+      "*.key",
+      "*.pem"
+    ]
+  }
+}

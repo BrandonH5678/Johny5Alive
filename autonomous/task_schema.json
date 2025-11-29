@@ -1,0 +1,154 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "J5A Autonomous Task Specification",
+  "description": "Schema for defining autonomous work tasks with scope declaration, success criteria, and rollback triggers",
+  "type": "object",
+  "required": ["task_id", "description", "scope", "success_criteria"],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique identifier for the task (kebab-case)"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Human-readable description of what the task will accomplish"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["critical", "high", "normal", "low"],
+      "default": "normal",
+      "description": "Task priority for queue ordering"
+    },
+    "scope": {
+      "type": "object",
+      "required": ["repositories", "file_patterns", "operations"],
+      "description": "Explicit scope declaration - work MUST stay within these boundaries",
+      "properties": {
+        "repositories": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "List of repository paths that may be modified"
+        },
+        "file_patterns": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Glob patterns for files that may be created/modified (e.g., 'src/**/*.py')"
+        },
+        "operations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["read", "create", "modify", "delete", "execute", "git_commit", "git_push"]
+          },
+          "description": "Types of operations permitted within scope"
+        },
+        "external_systems": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "External systems that may be accessed (e.g., 'j5a-server', 'github')"
+        },
+        "max_files": {
+          "type": "integer",
+          "default": 20,
+          "description": "Maximum number of files that may be modified"
+        },
+        "duration_limit_minutes": {
+          "type": "integer",
+          "default": 120,
+          "description": "Maximum execution time in minutes"
+        }
+      }
+    },
+    "success_criteria": {
+      "type": "object",
+      "required": ["deliverables"],
+      "description": "Measurable criteria for task completion",
+      "properties": {
+        "deliverables": {
+          "type": "array",
+          "items": {"type": "string"},
+          "minItems": 1,
+          "description": "List of expected output files or artifacts"
+        },
+        "tests": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Test commands that should pass after completion"
+        },
+        "validation_commands": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Commands to verify success (return 0 = success)"
+        },
+        "quality_metrics": {
+          "type": "object",
+          "description": "Quantified quality requirements",
+          "additionalProperties": {"type": "number"}
+        }
+      }
+    },
+    "rollback_triggers": {
+      "type": "object",
+      "description": "Conditions that should trigger automatic rollback",
+      "properties": {
+        "test_failure_threshold": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "default": 0.5,
+          "description": "Fraction of tests that can fail before rollback (0.5 = 50%)"
+        },
+        "error_patterns": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Regex patterns that trigger rollback if seen in output"
+        },
+        "scope_violation": {
+          "type": "boolean",
+          "default": true,
+          "description": "Rollback if scope boundaries exceeded"
+        },
+        "timeout": {
+          "type": "boolean",
+          "default": true,
+          "description": "Rollback if duration limit exceeded"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Task IDs that must complete before this task"
+    },
+    "constitutional_review": {
+      "type": "object",
+      "description": "Constitutional compliance notes",
+      "properties": {
+        "human_agency_impact": {
+          "type": "string",
+          "description": "How does this affect human control? (Principle 1)"
+        },
+        "transparency_notes": {
+          "type": "string",
+          "description": "How is decision-making auditable? (Principle 2)"
+        },
+        "viability_risks": {
+          "type": "string",
+          "description": "System stability considerations (Principle 3)"
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "created_at": {"type": "string", "format": "date-time"},
+        "created_by": {"type": "string"},
+        "approved_by": {"type": "string"},
+        "approved_at": {"type": "string", "format": "date-time"},
+        "snapshot_tag": {"type": "string"}
+      }
+    }
+  }
+}

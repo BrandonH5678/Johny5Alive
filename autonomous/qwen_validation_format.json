@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Qwen Validation Task Format",
+  "description": "Format for validation tasks that Qwen can execute locally on j5a-server",
+  "type": "object",
+  "required": ["task_type", "input", "expected_behavior"],
+  "properties": {
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "classification",
+        "format_validation",
+        "log_analysis",
+        "simple_extraction",
+        "json_validation",
+        "code_syntax_check"
+      ],
+      "description": "Type of validation task - must be within Qwen's capability scope"
+    },
+    "input": {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "The content to validate/analyze"
+        },
+        "content_type": {
+          "type": "string",
+          "enum": ["text", "json", "log", "code"],
+          "default": "text"
+        },
+        "max_tokens": {
+          "type": "integer",
+          "default": 2000,
+          "description": "Maximum input tokens to process"
+        }
+      }
+    },
+    "expected_behavior": {
+      "type": "object",
+      "required": ["output_format"],
+      "properties": {
+        "output_format": {
+          "type": "string",
+          "enum": ["boolean", "category", "json", "text"],
+          "description": "Expected output format"
+        },
+        "categories": {
+          "type": "array",
+          "items": {"type": "string"},
+          "description": "Valid categories for classification tasks"
+        },
+        "schema": {
+          "type": "object",
+          "description": "JSON schema for structured output tasks"
+        }
+      }
+    },
+    "timeout_seconds": {
+      "type": "integer",
+      "default": 30,
+      "description": "Maximum execution time"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "source_system": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "priority": {"type": "string", "enum": ["low", "normal", "high"]}
+      }
+    }
+  },
+  "examples": [
+    {
+      "task_type": "classification",
+      "input": {
+        "content": "Error: Unable to connect to database at 192.168.0.100:5432",
+        "content_type": "log"
+      },
+      "expected_behavior": {
+        "output_format": "category",
+        "categories": ["network_error", "database_error", "auth_error", "other"]
+      }
+    },
+    {
+      "task_type": "format_validation",
+      "input": {
+        "content": "{\"name\": \"test\", \"value\": 123}",
+        "content_type": "json"
+      },
+      "expected_behavior": {
+        "output_format": "boolean"
+      }
+    },
+    {
+      "task_type": "simple_extraction",
+      "input": {
+        "content": "Meeting scheduled for 2025-11-30 at 3:00 PM with John Smith",
+        "content_type": "text"
+      },
+      "expected_behavior": {
+        "output_format": "json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "date": {"type": "string"},
+            "time": {"type": "string"},
+            "participants": {"type": "array", "items": {"type": "string"}}
+          }
+        }
+      }
+    }
+  ]
+}

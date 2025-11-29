@@ -1,0 +1,49 @@
+{
+  "task_id": "example-code-review",
+  "description": "Review and improve code quality in J5A modules",
+  "priority": "normal",
+  "scope": {
+    "repositories": [
+      "/home/johnny5/Johny5Alive"
+    ],
+    "file_patterns": [
+      "agents/**/*.py",
+      "src/**/*.py"
+    ],
+    "operations": [
+      "read",
+      "modify"
+    ],
+    "external_systems": [],
+    "max_files": 10,
+    "duration_limit_minutes": 60
+  },
+  "success_criteria": {
+    "deliverables": [
+      "Code review completed",
+      "No new lint errors introduced"
+    ],
+    "tests": [],
+    "validation_commands": [
+      "python3 -m py_compile /home/johnny5/Johny5Alive/agents/jeeves/snapshot.py"
+    ],
+    "quality_metrics": {
+      "files_reviewed": 5
+    }
+  },
+  "rollback_triggers": {
+    "test_failure_threshold": 0.3,
+    "error_patterns": [
+      "SyntaxError",
+      "ImportError"
+    ],
+    "scope_violation": true,
+    "timeout": true
+  },
+  "dependencies": [],
+  "constitutional_review": {
+    "human_agency_impact": "Low - code improvements, human reviews final changes",
+    "transparency_notes": "All changes tracked via git, full execution log",
+    "viability_risks": "Low - pre-work snapshot enables full rollback"
+  }
+}
