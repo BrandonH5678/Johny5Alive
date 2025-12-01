@@ -185,13 +185,19 @@ class J5AOversightDashboard:
 
     def get_system_health(self, system_name: str) -> SystemHealthStatus:
         """
-        Assess overall health of a system.
+        Assess overall health of a system with time-decayed event weighting.
 
         Args:
             system_name: System to assess
 
         Returns:
             Health status with performance score and recommendations
+
+        Time Decay Logic:
+            - Events < 7 days old: Full weight (5% deduction per failure)
+            - Events 7-14 days old: Half weight (2.5% deduction)
+            - Events 14-30 days old: Quarter weight (1.25% deduction)
+            - Events > 30 days old: Minimal weight (0.5% deduction) - marked as stale
         """
         # Get recent performance
         perf_trend = self.memory.get_performance_trend(
@@ -205,15 +211,38 @@ class J5AOversightDashboard:
             limit=50
         )
 
-        # Calculate performance score
+        # Calculate performance score with TIME DECAY
         performance_score = 0.8  # Default baseline
+        now = datetime.now()
 
-        # Analyze issues
+        # Analyze issues with time-weighted deductions
         active_issues = []
-        for event in events[:10]:  # Recent 10 events
+        stale_issues = []
+
+        for event in events[:20]:  # Check more events but apply decay
             if event['event_type'] in ['processing_failure', 'validation_failure', 'sef_validation_failure']:
-                active_issues.append(f"{event['event_type']}: {event['summary']}")
-                performance_score -= 0.05  # Deduct for failures
+                # Calculate event age
+                try:
+                    event_time = datetime.fromisoformat(event['timestamp'].replace('Z', '+00:00').replace('+00:00', ''))
+                    days_old = (now - event_time).days
+                except (ValueError, TypeError):
+                    days_old = 0  # If we can't parse, treat as recent
+
+                # Apply time-decayed deduction
+                if days_old < 7:
+                    deduction = 0.05  # Full weight
+                    active_issues.append(f"{event['event_type']}: {event['summary']}")
+                elif days_old < 14:
+                    deduction = 0.025  # Half weight
+                    active_issues.append(f"{event['event_type']}: {event['summary']} ({days_old}d ago)")
+                elif days_old < 30:
+                    deduction = 0.0125  # Quarter weight
+                    active_issues.append(f"{event['event_type']}: {event['summary']} ({days_old}d ago)")
+                else:
+                    deduction = 0.005  # Minimal weight for stale events
+                    stale_issues.append(f"{event['event_type']}: {event['summary']} ({days_old}d ago - STALE)")
+
+                performance_score -= deduction
 
         # Get learning outcomes as improvements
         outcomes = self.memory.get_learning_outcomes(system_name=system_name, min_confidence=0.7)
@@ -234,6 +263,8 @@ class J5AOversightDashboard:
         recommendations = []
         if active_issues:
             recommendations.append(f"Review and address {len(active_issues)} recent issues")
+        if stale_issues:
+            recommendations.append(f"Archive {len(stale_issues)} stale issues (>30 days old)")
         if len(outcomes) == 0:
             recommendations.append("No learning outcomes captured - verify learning integration")
         if performance_score < 0.7:
@@ -581,7 +612,110 @@ class J5AOversightDashboard:
                 report["sections"]["learning_transfers"]["by_source_system"][source_sys] = 0
             report["sections"]["learning_transfers"]["by_source_system"][source_sys] += 1
 
+        # Cross-system synthesis status (Phase 6 integration)
+        report["sections"]["synthesis_status"] = self.get_synthesis_overview()
+
         return report
+
+    def get_synthesis_overview(self) -> Dict[str, Any]:
+        """
+        Get cross-system synthesis status.
+
+        Integrates with LearningSynthesizer (Phase 6) to provide
+        transfer proposal summary and conflict status.
+        """
+        try:
+            from learning_synthesizer import LearningSynthesizer
+            synthesizer = LearningSynthesizer(memory_manager=self.memory)
+
+            proposals = synthesizer.identify_transferable_learnings(min_confidence=0.7)
+            conflicts = synthesizer.identify_learning_conflicts()
+
+            # Summarize proposals by priority
+            proposal_summary = {
+                "total": len(proposals),
+                "by_priority": {
+                    "critical": len([p for p in proposals if p.priority.value == "critical"]),
+                    "high": len([p for p in proposals if p.priority.value == "high"]),
+                    "medium": len([p for p in proposals if p.priority.value == "medium"]),
+                    "low": len([p for p in proposals if p.priority.value == "low"])
+                },
+                "by_source": {},
+                "by_target": {},
+                "top_proposals": []
+            }
+
+            for p in proposals:
+                proposal_summary["by_source"][p.source_system] = proposal_summary["by_source"].get(p.source_system, 0) + 1
+                proposal_summary["by_target"][p.target_system] = proposal_summary["by_target"].get(p.target_system, 0) + 1
+
+            # Top 3 proposals for quick view
+            for p in proposals[:3]:
+                proposal_summary["top_proposals"].append({
+                    "source": p.source_system,
+                    "target": p.target_system,
+                    "summary": p.learning_summary[:80],
+                    "priority": p.priority.value,
+                    "compatibility": p.compatibility_score
+                })
+
+            return {
+                "synthesizer_available": True,
+                "transfer_proposals": proposal_summary,
+                "learning_conflicts": {
+                    "total": len(conflicts),
+                    "conflicts": [
+                        {
+                            "systems": f"{c.system_a} vs {c.system_b}",
+                            "summary": c.conflict_summary
+                        }
+                        for c in conflicts[:5]
+                    ]
+                },
+                "recommendations": self._generate_synthesis_recommendations(proposals, conflicts)
+            }
+
+        except ImportError as e:
+            logger.warning(f"LearningSynthesizer not available: {e}")
+            return {
+                "synthesizer_available": False,
+                "error": str(e)
+            }
+        except Exception as e:
+            logger.error(f"Error getting synthesis overview: {e}")
+            return {
+                "synthesizer_available": False,
+                "error": str(e)
+            }
+
+    def _generate_synthesis_recommendations(self, proposals: list, conflicts: list) -> List[str]:
+        """Generate actionable synthesis recommendations"""
+        recommendations = []
+
+        high_priority = [p for p in proposals if p.priority.value in ["critical", "high"]]
+        if high_priority:
+            recommendations.append(
+                f"Review {len(high_priority)} high-priority transfer proposals via 'python3 learning_synthesizer.py --review'"
+            )
+
+        if conflicts:
+            recommendations.append(
+                f"Resolve {len(conflicts)} learning conflicts between systems"
+            )
+
+        # Check for systems generating many transferable learnings
+        source_counts = {}
+        for p in proposals:
+            source_counts[p.source_system] = source_counts.get(p.source_system, 0) + 1
+
+        if source_counts:
+            top_source = max(source_counts.items(), key=lambda x: x[1])
+            if top_source[1] >= 3:
+                recommendations.append(
+                    f"{top_source[0].upper()} has {top_source[1]} learnings ready for cross-system transfer"
+                )
+
+        return recommendations
 
 
 # ========== CLI FOR TESTING ==========
@@ -634,6 +768,29 @@ if __name__ == "__main__":
         print(f"\n   Top 3 insights:")
         for i, insight in enumerate(insights[:3], 1):
             print(f"      {i}. [{insight['priority'].upper()}] {insight['insight']}")
+
+    print(f"\n🔄 Cross-System Synthesis Status (Phase 6)...")
+    synthesis = dashboard.get_synthesis_overview()
+    if synthesis.get("synthesizer_available"):
+        tp = synthesis["transfer_proposals"]
+        print(f"   Transfer Proposals: {tp['total']}")
+        print(f"      High priority: {tp['by_priority'].get('critical', 0) + tp['by_priority'].get('high', 0)}")
+        print(f"      Medium/Low: {tp['by_priority'].get('medium', 0) + tp['by_priority'].get('low', 0)}")
+        if tp.get("top_proposals"):
+            print(f"\n   Top Proposals:")
+            for prop in tp["top_proposals"]:
+                print(f"      • {prop['source']} → {prop['target']}: {prop['summary'][:50]}...")
+
+        lc = synthesis["learning_conflicts"]
+        print(f"\n   Learning Conflicts: {lc['total']}")
+
+        recs = synthesis.get("recommendations", [])
+        if recs:
+            print(f"\n   Synthesis Recommendations:")
+            for rec in recs[:3]:
+                print(f"      → {rec}")
+    else:
+        print(f"   ⚠️  Synthesizer unavailable: {synthesis.get('error', 'Unknown error')}")
 
     print(f"\n✅ J5A Oversight Dashboard ready for use")
     print("="*80)

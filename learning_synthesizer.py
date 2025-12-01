@@ -150,9 +150,10 @@ class LearningSynthesizer:
             days_back: How far back to look for learnings
 
         Returns:
-            List of transfer proposals
+            List of transfer proposals (deduplicated by source→target + summary)
         """
         proposals = []
+        seen_proposals = set()  # Track (source, target, summary) to prevent duplicates
 
         # Get high-confidence learnings from each system
         for source_system in ["squirt", "j5a", "sherlock"]:
@@ -161,7 +162,14 @@ class LearningSynthesizer:
                 min_confidence=min_confidence
             )
 
+            # Deduplicate outcomes by summary (keep highest confidence)
+            unique_outcomes = {}
             for outcome in outcomes:
+                summary = outcome.get('summary', '')
+                if summary not in unique_outcomes or outcome.get('confidence', 0) > unique_outcomes[summary].get('confidence', 0):
+                    unique_outcomes[summary] = outcome
+
+            for outcome in unique_outcomes.values():
                 # Check if learning explicitly applies to other systems
                 applies_to = outcome.get('applies_to', [])
                 if applies_to and len(applies_to) > 1:
@@ -174,11 +182,19 @@ class LearningSynthesizer:
                                 outcome=outcome
                             )
                             if proposal:
-                                proposals.append(proposal)
+                                # Deduplicate by (source, target, summary)
+                                proposal_key = (proposal.source_system, proposal.target_system, proposal.learning_summary)
+                                if proposal_key not in seen_proposals:
+                                    seen_proposals.add(proposal_key)
+                                    proposals.append(proposal)
 
                 # Look for implicit transfer opportunities
                 implicit_transfers = self._identify_implicit_transfers(source_system, outcome)
-                proposals.extend(implicit_transfers)
+                for transfer in implicit_transfers:
+                    proposal_key = (transfer.source_system, transfer.target_system, transfer.learning_summary)
+                    if proposal_key not in seen_proposals:
+                        seen_proposals.add(proposal_key)
+                        proposals.append(transfer)
 
         # Sort by priority
         priority_order = {
@@ -480,6 +496,169 @@ class LearningSynthesizer:
             "notes": f"Monitor {proposal.target_system} for impact. {human_notes or ''}"
         }
 
+    # ========== TRANSFER IMPACT TRACKING ==========
+
+    def measure_transfer_impact(self,
+                               learning_id: int,
+                               target_system: str,
+                               impact_assessment: str,
+                               success: bool,
+                               metrics: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Measure and record the impact of a completed learning transfer.
+
+        Called after monitoring period to assess whether transfer was beneficial.
+
+        Args:
+            learning_id: Original learning outcome ID that was transferred
+            target_system: System that received the transfer
+            impact_assessment: Human assessment of the transfer impact
+            success: Whether the transfer was ultimately successful
+            metrics: Optional quantitative metrics (e.g., performance improvement %)
+
+        Returns:
+            Impact measurement result
+        """
+        timestamp = datetime.now().isoformat()
+
+        # Record the impact measurement
+        impact_record = {
+            "learning_id": learning_id,
+            "target_system": target_system,
+            "impact_assessment": impact_assessment,
+            "success": success,
+            "metrics": metrics or {},
+            "measured_at": timestamp
+        }
+
+        # Update the transfer record in memory
+        # Find and update the transfer
+        transfers = self.memory.get_learning_transfers(target_system=target_system)
+        matched_transfer = None
+        for t in transfers:
+            if t.get('learning_id') == learning_id:
+                matched_transfer = t
+                break
+
+        if matched_transfer:
+            # Record updated decision with outcome
+            decision = Decision(
+                system_name="learning_synthesizer",
+                decision_type="transfer_impact_measurement",
+                decision_summary=f"Measured impact of transfer {learning_id} to {target_system}: {'SUCCESS' if success else 'FAILED'}",
+                decision_rationale=impact_assessment,
+                constitutional_compliance={
+                    "principle_2_transparency": "Transfer impact fully documented",
+                    "principle_5_adaptive_feedback": "Measurement informs future transfers"
+                },
+                strategic_alignment={
+                    "principle_5_adaptive_feedback": "Learning from transfer outcomes"
+                },
+                decision_timestamp=timestamp,
+                decided_by="human_operator",
+                outcome_expected="Improved system performance",
+                outcome_actual=impact_assessment,
+                parameters_used={
+                    "learning_id": learning_id,
+                    "success": success,
+                    "metrics": metrics
+                }
+            )
+            self.memory.record_decision(decision)
+
+            logger.info(f"📊 Recorded impact for transfer {learning_id} → {target_system}: {'SUCCESS' if success else 'FAILED'}")
+
+            return {
+                "recorded": True,
+                "learning_id": learning_id,
+                "target_system": target_system,
+                "success": success,
+                "impact": impact_record
+            }
+        else:
+            logger.warning(f"No matching transfer found for learning_id={learning_id} target={target_system}")
+            return {
+                "recorded": False,
+                "error": "No matching transfer found",
+                "learning_id": learning_id,
+                "target_system": target_system
+            }
+
+    def get_pending_impact_measurements(self, days_since_transfer: int = 7) -> List[Dict[str, Any]]:
+        """
+        Get transfers that are due for impact measurement.
+
+        Args:
+            days_since_transfer: How many days to wait before measuring (default 7)
+
+        Returns:
+            List of transfers needing impact measurement
+        """
+        pending = []
+        cutoff_time = (datetime.now() - timedelta(days=days_since_transfer)).isoformat()
+
+        for system in ["squirt", "j5a", "sherlock"]:
+            transfers = self.memory.get_learning_transfers(target_system=system)
+            for t in transfers:
+                # Check if transfer is old enough and not yet measured
+                if t.get('timestamp', '') <= cutoff_time:
+                    # Check if success is still None/False (not yet confirmed)
+                    if not t.get('success'):
+                        pending.append({
+                            "learning_id": t.get('learning_id'),
+                            "source_system": t.get('source_system'),
+                            "target_system": system,
+                            "transferred_at": t.get('timestamp'),
+                            "summary": t.get('impact_summary', 'Unknown'),
+                            "days_since_transfer": (datetime.now() - datetime.fromisoformat(t['timestamp'].replace('Z', '+00:00').replace('+00:00', ''))).days if t.get('timestamp') else 0
+                        })
+
+        return pending
+
+    def get_transfer_effectiveness_stats(self) -> Dict[str, Any]:
+        """
+        Get overall statistics on transfer effectiveness.
+
+        Returns:
+            Statistics on transfer success rates and impact
+        """
+        all_transfers = []
+        for system in ["squirt", "j5a", "sherlock"]:
+            transfers = self.memory.get_learning_transfers(source_system=system)
+            all_transfers.extend(transfers)
+
+        if not all_transfers:
+            return {
+                "total_transfers": 0,
+                "success_rate": 0.0,
+                "pending_measurement": 0,
+                "by_system_pair": {}
+            }
+
+        total = len(all_transfers)
+        successful = len([t for t in all_transfers if t.get('success') == True])
+        failed = len([t for t in all_transfers if t.get('success') == False])
+        pending = total - successful - failed
+
+        # Group by system pair
+        pair_stats = {}
+        for t in all_transfers:
+            pair = f"{t.get('source_system', '?')} → {t.get('target_system', '?')}"
+            if pair not in pair_stats:
+                pair_stats[pair] = {"total": 0, "successful": 0}
+            pair_stats[pair]["total"] += 1
+            if t.get('success'):
+                pair_stats[pair]["successful"] += 1
+
+        return {
+            "total_transfers": total,
+            "successful": successful,
+            "failed": failed,
+            "pending_measurement": pending,
+            "success_rate": successful / max(total - pending, 1),
+            "by_system_pair": pair_stats
+        }
+
     # ========== SYNTHESIS REPORTING ==========
 
     def generate_synthesis_report(self, days_back: int = 7) -> Dict[str, Any]:
@@ -632,14 +811,13 @@ class LearningSynthesizer:
         ]
 
 
-# ========== CLI FOR TESTING ==========
+# ========== CLI FOR TESTING AND REVIEW ==========
 
-if __name__ == "__main__":
+def run_test_mode(synthesizer: LearningSynthesizer):
+    """Run basic test mode (non-interactive)"""
     print("="*80)
     print("J5A Cross-System Learning Synthesizer - Test Mode")
     print("="*80)
-
-    synthesizer = LearningSynthesizer()
 
     print(f"\n✅ Learning Synthesizer initialized")
     print(f"📊 System managers loaded: Squirt, J5A, Sherlock")
@@ -683,3 +861,166 @@ if __name__ == "__main__":
 
     print(f"\n✅ J5A Learning Synthesizer ready for use")
     print("="*80)
+
+
+def run_interactive_review(synthesizer: LearningSynthesizer):
+    """Interactive review mode for approving transfers"""
+    print("="*80)
+    print("J5A Cross-System Learning Synthesizer - Interactive Review")
+    print("="*80)
+    print("\nConstitutional Compliance: Principle 1 (Human Agency)")
+    print("All transfers require explicit human approval.\n")
+
+    proposals = synthesizer.identify_transferable_learnings(min_confidence=0.7)
+
+    if not proposals:
+        print("✅ No transfer proposals pending. All systems in sync.")
+        return
+
+    print(f"📋 {len(proposals)} Transfer Proposals Pending Review\n")
+
+    approved_count = 0
+    rejected_count = 0
+    skipped_count = 0
+
+    for i, proposal in enumerate(proposals, 1):
+        print("-" * 70)
+        print(f"\n📦 Proposal {i}/{len(proposals)}")
+        print(f"   Priority: [{proposal.priority.value.upper()}]")
+        print(f"   Transfer: {proposal.source_system} → {proposal.target_system}")
+        print(f"   Type: {proposal.transfer_type.value}")
+        print(f"\n   Learning: {proposal.learning_summary}")
+        print(f"\n   Rationale: {proposal.adaptation_rationale}")
+        print(f"   Expected Impact: {proposal.expected_impact}")
+        print(f"\n   Compatibility: {proposal.compatibility_score:.0%}")
+        print(f"   Difficulty: {proposal.implementation_difficulty}")
+        print(f"   Rollback: {proposal.rollback_plan}")
+
+        if proposal.source_evidence:
+            print(f"\n   Evidence: {proposal.source_evidence}")
+
+        print(f"\n   [A]pprove  [R]eject  [S]kip  [Q]uit")
+
+        while True:
+            try:
+                choice = input("   Your decision: ").strip().lower()
+            except EOFError:
+                choice = 'q'
+
+            if choice in ['a', 'approve']:
+                notes = input("   Approval notes (optional): ").strip() or "Approved via CLI review"
+                result = synthesizer.execute_transfer(proposal, human_approved=True, human_notes=notes)
+                if result['success']:
+                    print(f"   ✅ Transfer executed. Monitor {proposal.target_system} for 7 days.")
+                    approved_count += 1
+                else:
+                    print(f"   ❌ Transfer failed: {result.get('reason', 'Unknown')}")
+                break
+            elif choice in ['r', 'reject']:
+                notes = input("   Rejection reason: ").strip() or "Rejected via CLI review"
+                result = synthesizer.execute_transfer(proposal, human_approved=False, human_notes=notes)
+                print(f"   🚫 Transfer rejected and logged.")
+                rejected_count += 1
+                break
+            elif choice in ['s', 'skip']:
+                print(f"   ⏭️  Skipped for later review.")
+                skipped_count += 1
+                break
+            elif choice in ['q', 'quit']:
+                print(f"\n🛑 Review session ended early.")
+                print(f"   Approved: {approved_count}")
+                print(f"   Rejected: {rejected_count}")
+                print(f"   Skipped: {skipped_count}")
+                print(f"   Remaining: {len(proposals) - i}")
+                return
+            else:
+                print("   Invalid choice. Use A/R/S/Q")
+
+    print("\n" + "="*70)
+    print("📊 Review Session Complete")
+    print(f"   Approved: {approved_count}")
+    print(f"   Rejected: {rejected_count}")
+    print(f"   Skipped: {skipped_count}")
+    print("="*70)
+
+
+def run_report_mode(synthesizer: LearningSynthesizer, days_back: int = 7):
+    """Generate and display synthesis report"""
+    print("="*80)
+    print(f"J5A Synthesis Report - Last {days_back} Days")
+    print("="*80)
+
+    report = synthesizer.generate_synthesis_report(days_back=days_back)
+
+    # Transfer Proposals
+    tp = report['sections']['transfer_proposals']
+    print(f"\n📦 Transfer Proposals: {tp['total']}")
+    print(f"   Critical: {tp['by_priority'].get('critical', 0)}")
+    print(f"   High: {tp['by_priority'].get('high', 0)}")
+    print(f"   Medium: {tp['by_priority'].get('medium', 0)}")
+    print(f"   Low: {tp['by_priority'].get('low', 0)}")
+
+    if tp.get('by_transfer_type'):
+        print(f"\n   By Type:")
+        for ttype, count in tp['by_transfer_type'].items():
+            print(f"      {ttype}: {count}")
+
+    # Conflicts
+    lc = report['sections']['learning_conflicts']
+    print(f"\n⚔️  Learning Conflicts: {lc['total']}")
+    if lc['conflicts']:
+        for conflict in lc['conflicts']:
+            print(f"   • {conflict['systems']}: {conflict['summary']}")
+
+    # Completed Transfers
+    ct = report['sections']['completed_transfers']
+    print(f"\n✅ Completed Transfers: {ct['total']}")
+    print(f"   Successful: {ct['successful']}")
+    print(f"   Pending measurement: {ct['pending_measurement']}")
+
+    # Cross-System Insights
+    csi = report['sections']['cross_system_insights']
+    print(f"\n💡 Cross-System Insights:")
+    print(f"   Most transferable: {csi['most_transferable_system']}")
+    print(f"   Most receptive: {csi['most_receptive_system']}")
+    print(f"   Synthesis velocity: {csi['synthesis_velocity']:.2f} transfers/day")
+
+    if csi.get('highest_compatibility_pairs'):
+        print(f"\n   High Compatibility Pairs:")
+        for pair in csi['highest_compatibility_pairs']:
+            print(f"      {pair['pair']}: {pair['avg_compatibility']:.0%}")
+
+    print("\n" + "="*80)
+
+
+if __name__ == "__main__":
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="J5A Cross-System Learning Synthesizer",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python3 learning_synthesizer.py                    # Test mode (default)
+  python3 learning_synthesizer.py --review           # Interactive transfer review
+  python3 learning_synthesizer.py --report           # Generate synthesis report
+  python3 learning_synthesizer.py --report --days 30 # 30-day report
+        """
+    )
+    parser.add_argument('--review', action='store_true',
+                        help='Interactive review mode for approving transfers')
+    parser.add_argument('--report', action='store_true',
+                        help='Generate synthesis report')
+    parser.add_argument('--days', type=int, default=7,
+                        help='Days to include in report (default: 7)')
+
+    args = parser.parse_args()
+
+    synthesizer = LearningSynthesizer()
+
+    if args.review:
+        run_interactive_review(synthesizer)
+    elif args.report:
+        run_report_mode(synthesizer, days_back=args.days)
+    else:
+        run_test_mode(synthesizer)
