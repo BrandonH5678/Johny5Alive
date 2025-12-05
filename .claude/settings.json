@@ -19,7 +19,12 @@
       "Bash(git tag:*)",
       "Bash(git branch:*)",
       "Bash(ssh j5a-server:*)",
-      "Bash(ollama:*)"
+      "Bash(ollama:*)",
+      "SlashCommand(/context-refresh)",
+      "SlashCommand(/micro-refresh)",
+      "SlashCommand(/micro-refresh-full)",
+      "SlashCommand(/micro-refresh-minimal)",
+      "SlashCommand(/micro-refresh-prism)"
     ],
     "deny": []
   },
