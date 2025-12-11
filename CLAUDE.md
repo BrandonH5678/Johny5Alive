@@ -567,6 +567,44 @@ def incorrect_j5a_implementation():
 
 ---
 
+## Storage Architecture (J5A Server)
+
+**Partition Strategy:**
+- `/home` (49GB): Code, configs, permanent data (symlinks to /var/lib for large items)
+- `/var/lib/johnny5` (uses 736GB partition): Caches, venvs, models, media staging
+
+### Symlinked Directories
+| Original Location | Symlink Target | Purpose |
+|------------------|----------------|---------|
+| `~/.cache` | `/var/lib/johnny5/cache_data` | All user caches (pip, HuggingFace, etc.) |
+| `~/Johny5Alive/j5a-nightshift/venv` | `/var/lib/johnny5/venvs/j5a-nightshift-venv` | Night Shift Python environment |
+| `~/Johny5Alive/freelance_visual/.venv` | `/var/lib/johnny5/venvs/freelance-visual-venv` | Freelance Visual Python environment |
+
+### Media Retention Policy
+- **Retention:** 48 hours after file creation
+- **Cleanup:** Automatic via `j5a-media-cleanup.timer` (every 6 hours)
+- **Scope:** All audio/video files in designated media staging areas
+- **Purpose:** Keep transcripts, delete source media after processing
+
+### Monitoring
+```bash
+# Check disk usage (SSH to server)
+ssh j5a-server "df -h /home /var/lib"
+
+# Check cleanup timer status
+ssh j5a-server "systemctl status j5a-media-cleanup.timer"
+
+# View cleanup logs
+ssh j5a-server "tail -50 /var/log/j5a-media-cleanup.log"
+
+# List symlinks
+ssh j5a-server "ls -la ~/.cache ~/Johny5Alive/*/venv ~/Johny5Alive/*/.venv 2>/dev/null"
+```
+
+**Constitutional Basis:** Principle 4 (Resource Stewardship) - Efficient use of storage resources
+
+---
+
 ## Principle Integration
 
 All operational procedures in this document implement the governing frameworks:
