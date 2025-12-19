@@ -27,33 +27,5 @@
       "SlashCommand(/micro-refresh-prism)"
     ],
     "deny": []
-  },
-  "hooks": {
-    "preAutonomous": {
-      "description": "Mandatory checks before autonomous work begins",
-      "requiresSnapshot": true,
-      "requiresScopeDeclaration": true,
-      "maxDurationMinutes": 120
-    }
-  },
-  "autonomyConfig": {
-    "scopeDeclarationRequired": true,
-    "snapshotBeforeExecution": true,
-    "validationGatesEnabled": true,
-    "maxFilesPerOperation": 50,
-    "allowedDirectories": [
-      "/home/johnny5/Johny5Alive",
-      "/home/johnny5/Squirt",
-      "/home/johnny5/Sherlock",
-      "/home/johnny5/Prism",
-      "/home/johnny5/Documents"
-    ],
-    "protectedPaths": [
-      ".env",
-      "credentials",
-      "secrets",
-      "*.key",
-      "*.pem"
-    ]
   }
 }
